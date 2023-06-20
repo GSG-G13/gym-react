@@ -1,11 +1,9 @@
 import './App.css';
-
-import MenuComp from './components';
+import { TrainerCard } from './components';
 
 const App = () => (
   <div>
-    Hello from GYM app
-    <MenuComp />
+    <TrainerCard />
   </div>
 );
 

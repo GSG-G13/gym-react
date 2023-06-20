@@ -1,3 +1,4 @@
 import MenuComp from './menu/Menu';
+import TrainerCard from './trainerCard/TrainerCard';
 
-export default MenuComp;
+export { MenuComp, TrainerCard };
