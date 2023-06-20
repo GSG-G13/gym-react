@@ -1,10 +1,17 @@
+import { Box } from '@mui/material';
 import './App.css';
 
-import {MenuComp, CategoryCard} from './components';
+import { CategoryCard } from './components';
+import THEME from './utilize/Theme';
 
 const App = () => (
   <div>
-    <CategoryCard/>
+    <THEME>
+      <Box>
+        <CategoryCard />
+
+      </Box>
+    </THEME>
   </div>
 );
 
