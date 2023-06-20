@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import './App.css';
 import SignInComp from './components/singinform';
 
