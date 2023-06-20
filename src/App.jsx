@@ -1,11 +1,10 @@
 import './App.css';
 
-import MenuComp from './components';
+import {MenuComp, CategoryCard} from './components';
 
 const App = () => (
   <div>
-    Hello from GYM app
-    <MenuComp />
+    <CategoryCard/>
   </div>
 );
 

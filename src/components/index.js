@@ -1,3 +1,4 @@
 import MenuComp from './menu/Menu';
+import CategoryCard from './categoryCard/CategoryCard';
 
-export default MenuComp;
+export { MenuComp, CategoryCard};
