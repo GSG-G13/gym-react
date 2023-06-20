@@ -22,10 +22,10 @@ const TrainerCard = () => (
       title="green iguana"
     />
     <CardContent>
-      <Typography gutterBottom variant="h6">
+      <Typography gutterBottom variant="h3" fontWeight="700">
         Leslie Alexander
       </Typography>
-      <Typography variant="body1" color="text.secondary">
+      <Typography variant="h4" color="text.secondary" fontWeight="500">
         Gym Trainer
       </Typography>
     </CardContent>

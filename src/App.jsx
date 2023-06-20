@@ -1,10 +1,12 @@
+import { Box } from '@mui/material';
 import './App.css';
-import { TrainerCard } from './components';
+import THEME from './utilize/Theme';
 
 const App = () => (
-  <div>
-    <TrainerCard />
-  </div>
+  <THEME>
+    <Box>
+      test
+    </Box>
+  </THEME>
 );
-
 export default App;
