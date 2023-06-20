@@ -14,6 +14,7 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.jsx'] }],
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+    'react/prop-types': 'off',
 
   },
 };
