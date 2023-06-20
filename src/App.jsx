@@ -1,12 +1,14 @@
+import { Box } from '@mui/material';
 import './App.css';
-
-import MenuComp from './components';
+import THEME from './utilize/Theme';
+import { SideBar } from './components';
 
 const App = () => (
-  <div>
-    Hello from GYM app
-    <MenuComp />
-  </div>
+  <THEME>
+    <Box>
+      <SideBar />
+    </Box>
+  </THEME>
 );
 
 export default App;
