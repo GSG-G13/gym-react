@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { ThemeProvider, createTheme } from '@mui/system';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
@@ -16,7 +16,7 @@ const theme = createTheme({
       fourth: '#002B5B',
     },
     fontSizes: {
-      small: '0.75rem',
+      sm: '0.75rem',
       md: '1rem',
       lg: '1.25rem',
       xl: '10rem',
@@ -30,6 +30,6 @@ const theme = createTheme({
   },
 });
 
-const Theme = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+const THEME = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 
-export default Theme;
+export default THEME;
