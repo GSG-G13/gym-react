@@ -1,11 +1,13 @@
+import { Box } from '@mui/material';
 import './App.css';
-
-import { MenuComp, ProductCard} from './components';
+import THEME from './utilize/Theme';
 
 const App = () => (
-  <div>
-    <ProductCard/>
-  </div>
+  <THEME>
+    <Box>
+      test
+    </Box>
+  </THEME>
 );
 
 export default App;
