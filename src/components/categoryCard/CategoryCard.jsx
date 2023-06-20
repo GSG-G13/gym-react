@@ -16,7 +16,7 @@ const CategoryCard = () => (
         alt="category product"
       />
       <CardContent>
-        <Typography gutterBottom variant="p" component="div">
+        <Typography gutterBottom variant="h5">
           Equipment
         </Typography>
       </CardContent>
