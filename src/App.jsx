@@ -1,12 +1,12 @@
 import { Box } from '@mui/material';
 import './App.css';
 import THEME from './utilize/Theme';
-import { SideBar } from './components';
+import SearchDashboard from './components/searchDashboard/Search';
 
 const App = () => (
   <THEME>
     <Box>
-      <SideBar />
+      <SearchDashboard />
     </Box>
   </THEME>
 );
