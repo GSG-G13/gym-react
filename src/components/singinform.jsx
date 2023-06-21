@@ -1,7 +1,7 @@
+import { Typography } from '@mui/material';
 import InputComp from './inputfield';
 import { passwordIcon, userIcon } from '../utilize/icons';
 import ButtonComponent from './button/Button';
-import { Typography } from '@mui/material';
 
 const SignInComp = () => {
   console.log('react');
