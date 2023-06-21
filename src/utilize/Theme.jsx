@@ -5,8 +5,8 @@ const theme = createTheme({
   palette: {
     colors: {
       primary: '#F9F5EB',
-      secondary: '#EA5455',
-      darkBlue: '#EA5455',
+      secondary: '#E4DCCF',
+      darkBlue: '#002B5B',
       error: '#EA5455',
     },
   },
