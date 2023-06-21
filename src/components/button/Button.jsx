@@ -7,6 +7,13 @@ const ButtonComponent = ({
   width,
   height,
 }) => (
-  <Button variant={variant} sx={{ backgroundColor: color, width, height }}>{children}</Button>
+  <Button
+    variant={variant}
+    sx={{
+      backgroundColor: color, fontSize: 12, width, height,
+    }}
+  >
+    {children}
+  </Button>
 );
 export default ButtonComponent;

@@ -24,7 +24,7 @@ const InputComp = (props) => {
         }}
         InputProps={{
           startAdornment: (
-            <InputAdornment position="start" sx={{ color: '#002B5B', marginLeft: '0.3125rem' }}> 
+            <InputAdornment position="start" sx={{ color: '#002B5B', marginLeft: '0.3125rem' }}>
               {icon}
             </InputAdornment>
           ),
