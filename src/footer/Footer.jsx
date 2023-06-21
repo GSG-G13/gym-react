@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import React from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -8,7 +8,15 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 const Footer = () => (
 
-  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+  <Box sx={{
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#E4DCCF',
+    height: '163px',
+    width: '100vw',
+  }}
+  >
+    <Container>
     <Box>
       <Typography>
         Gaza, Alrimal, AlJondi St., Capital Mall Building,
@@ -25,12 +33,13 @@ const Footer = () => (
       <Typography variant="h5">
         Non Copyrighted © 2023 Design and upload by rich technologies
       </Typography>
-      <Box>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <LocalPhoneIcon />
         <Typography variant="h5">+972 595036287</Typography>
 
       </Box>
     </Box>
+    </Container>
   </Box>
 );
 
