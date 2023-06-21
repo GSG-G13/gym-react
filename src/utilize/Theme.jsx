@@ -27,7 +27,7 @@ const theme = createTheme({
       fontSize: '0.92rem',
     },
     h6: {
-      fontSize: '0.75rem',
+      fontSize: '0.70rem',
     },
 
   },
