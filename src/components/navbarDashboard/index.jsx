@@ -10,17 +10,15 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
-import { height } from '@mui/system';
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function NavBarDashBoard() {
+const NavBarDashBoard = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
@@ -50,8 +48,11 @@ function NavBarDashBoard() {
             Gym
           </Typography>
 
-          <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Tooltip title="Open settings" >
+          <Box sx={{
+            flexGrow: 0, display: 'flex', alignItems: 'center', gap: 1,
+          }}
+          >
+            <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" sx={{ width: 25, height: 25 }} />
               </IconButton>
@@ -78,12 +79,12 @@ function NavBarDashBoard() {
                 </MenuItem>
               ))}
             </Menu>
-            <Typography variant='h6'>Admin</Typography>
+            <Typography variant="h6">Admin</Typography>
 
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
-}
+};
 export default NavBarDashBoard;
