@@ -1,5 +1,4 @@
-import './App.css';
-import { Box } from '@mui/system';
+import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
 
 const App = () => (
