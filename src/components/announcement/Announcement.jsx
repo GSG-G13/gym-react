@@ -31,8 +31,8 @@ const Announcement = ({ announce }) => (
     <Divider />
 
     <Box p="10px">
-      <Typography mt={1} variant="h5">Title Announcement</Typography>
-      <Typography mt={1} mb={1} variant="h6">Announcement content: Lorem ipsum dolor, sit amen consectetur adipisicing elite. Destruct, consecrator!</Typography>
+      <Typography mt={1} variant="h3">Title Announcement</Typography>
+      <Typography mt={3} mb={1} variant="h6">Announcement content: Lorem ipsum dolor, sit amen consectetur adipisicing elite. Destruct, consecrator!</Typography>
       <Box sx={{ height: 248 }}>
         <Image src="https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg" alt="gym" width="100%" height="100%" />
 
