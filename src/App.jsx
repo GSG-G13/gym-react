@@ -1,12 +1,12 @@
 import { Box } from '@mui/material';
 import './App.css';
 import THEME from './utilize/Theme';
-import { SideBar } from './components';
+import Footer from './footer/Footer';
 
 const App = () => (
   <THEME>
     <Box>
-      <SideBar />
+      <Footer />
     </Box>
   </THEME>
 );
