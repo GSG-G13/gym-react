@@ -4,16 +4,10 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     colors: {
-      primary: '#000',
-      secondary: '#fff',
-      darkBlue: '#002B5B',
-      error: '#EA5455',
-    },
-    bg: {
       primary: '#F9F5EB',
       secondary: '#E4DCCF',
-      third: '#EA5455',
-      fourth: '#002B5B',
+      darkBlue: '#002B5B',
+      error: '#EA5455',
     },
   },
   typography: {
@@ -30,7 +24,7 @@ const theme = createTheme({
       fontSize: '1rem',
     },
     h5: {
-      fontSize: '0.92rem',
+      fontSize: '0.90rem',
     },
     h6: {
       fontSize: '0.75rem',
