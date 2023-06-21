@@ -5,7 +5,9 @@ const ButtonComponent = ({
   color,
   children,
 }) => (
-  <Button variant={variant} sx={{ backgroundColor: color, '&:hover': { backgroundColor: '#002B5B' } }}>{children}</Button>
+
+  <Button variant={variant} sx={{ backgroundColor: color, fontSize: 12, '&:hover': { backgroundColor: '#002B5B' } }}>{children}</Button>
+
 );
 
 export default ButtonComponent;

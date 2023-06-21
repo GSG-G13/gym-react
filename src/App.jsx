@@ -1,12 +1,13 @@
 import './App.css';
 import { Box } from '@mui/system';
 import THEME from './utilize/Theme';
-import { PersonalInfo } from './components';
 
 const App = () => (
   <THEME>
     <Box>
-      <PersonalInfo />
+
+      test
+
     </Box>
   </THEME>
 );
