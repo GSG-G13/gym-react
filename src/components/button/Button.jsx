@@ -5,7 +5,7 @@ const ButtonComponent = ({
   color,
   children,
 }) => (
-  <Button variant={variant} sx={{ backgroundColor: color }}>{children}</Button>
+  <Button variant={variant} sx={{ backgroundColor: color, fontSize: 12 }}>{children}</Button>
 );
 
 export default ButtonComponent;
