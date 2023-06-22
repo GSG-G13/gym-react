@@ -1,10 +1,11 @@
 import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
+import { HomeStore } from './components';
 
 const App = () => (
   <THEME>
     <Box>
-      test
+      <HomeStore />
     </Box>
   </THEME>
 );
