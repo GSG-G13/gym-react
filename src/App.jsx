@@ -6,7 +6,6 @@ const App = () => (
   <THEME>
     <Box>
       test
-
     </Box>
   </THEME>
 );

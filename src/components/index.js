@@ -2,6 +2,7 @@ import MenuComp from './menu/Menu';
 import CategoryCard from './categoryCard/CategoryCard';
 import NavbarClient from './navbar/NavbarClient';
 import SideBar from './sideBar/SideBar';
+import TrainerCard from './trainerCard/TrainerCard';
 import NavBarDashBoard from './navbarDashboard';
 import ClassTable from './classTable/ClassTable';
 import ProductCard from './productCard/ProductCard';
@@ -30,4 +31,5 @@ export {
   HomeStore,
   SearchDashboard,
   Header,
+  TrainerCard,
 };
