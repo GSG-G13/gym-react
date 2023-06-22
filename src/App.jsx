@@ -1,12 +1,11 @@
 import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
-import { Header } from './components';
 
 const App = () => (
 
   <THEME>
     <Box>
-      <Header />
+      test
     </Box>
   </THEME>
 );
