@@ -1,11 +1,13 @@
 import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
+import { AnnouncementList } from './components';
 
 const App = () => (
 
   <THEME>
     <Box>
-      test
+
+      <AnnouncementList />
     </Box>
   </THEME>
 );
