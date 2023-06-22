@@ -5,7 +5,7 @@ import SideBar from './sideBar/SideBar';
 import TrainerCard from './trainerCard/TrainerCard';
 import NavBarDashBoard from './navbarDashboard';
 import ClassTable from './classTable/ClassTable';
-import ProductCard from './productCard/ProductCard';
+import ProductCard from './productCard';
 import PersonalInfo from './personalInfo/PersonalInfo';
 import Alerts from './alert/Alert';
 import ToastAlert from './toastAlert/ToastAlert';
