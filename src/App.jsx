@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
 
 const App = () => (
+
   <THEME>
     <Box>
       test
@@ -9,5 +10,4 @@ const App = () => (
     </Box>
   </THEME>
 );
-
 export default App;
