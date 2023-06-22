@@ -5,6 +5,7 @@ import SideBar from './sideBar/SideBar';
 import NavBarDashBoard from './navbarDashboard';
 import ClassTable from './classTable/ClassTable';
 import ProductCard from './productCard/ProductCard';
+import PersonalInfo from './personalInfo/PersonalInfo';
 import Header from './headerClient/Header';
 import ProductDetails from './productDetailsCard/ProductDetails';
 import HomeStore from './homeStore/HomeStore';
@@ -15,11 +16,13 @@ export {
   ProductCard,
   CategoryCard,
   SideBar,
+  PersonalInfo,
   NavbarClient,
-  NavBarDashBoard,
   ClassTable,
-  ProductDetails,
-  HomeStore,
+  NavBarDashBoard,
   SearchDashboard,
+  HomeStore,
+  ProductDetails,
   Header,
+
 };
