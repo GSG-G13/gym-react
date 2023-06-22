@@ -14,6 +14,7 @@ import Header from './headerClient/Header';
 import ProductDetails from './productDetailsCard/ProductDetails';
 import HomeStore from './homeStore/HomeStore';
 import SearchDashboard from './searchDashboard/Search';
+import MessageLists from './messageLists';
 
 export {
   MenuComp,
@@ -32,4 +33,5 @@ export {
   SearchDashboard,
   Header,
   TrainerCard,
+  MessageLists,
 };

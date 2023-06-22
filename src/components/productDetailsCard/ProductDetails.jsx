@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {
   Box, Card, CardContent, CardMedia, Typography,
-} from '@mui/material/Box';
+} from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ButtonComponent from '../button/Button';
