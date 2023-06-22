@@ -8,5 +8,4 @@ const App = () => (
     </Box>
   </THEME>
 );
-
 export default App;
