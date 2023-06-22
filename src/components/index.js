@@ -5,6 +5,7 @@ import SideBar from './sideBar/SideBar';
 import NavBarDashBoard from './navbarDashboard';
 import ClassTable from './classTable/ClassTable';
 import ProductCard from './productCard/ProductCard';
+import ProductDetails from './productDetailsCard/ProductDetails';
 import HomeStore from './homeStore/HomeStore';
 import SearchDashboard from './searchDashboard/Search';
 
@@ -16,6 +17,7 @@ export {
   NavbarClient,
   NavBarDashBoard,
   ClassTable,
+  ProductDetails,
   HomeStore,
   SearchDashboard,
 };
