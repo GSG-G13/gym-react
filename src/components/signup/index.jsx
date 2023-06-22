@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { Typography } from '@mui/material';
 import InputComp from '../inputfield/inputfield';
 import ButtonComponent from '../button/Button';
-import { passwordIcon, userIcon, genderIcon, weightIcon, emailIcon, birthDataIcon, heightIcon } from '../../utilize/icons';
+import {
+  passwordIcon, userIcon, genderIcon, weightIcon, emailIcon, birthDataIcon, heightIcon,
+} from '../../utilize/icons';
 
 const SignupWrapper = styled.div`
 display: flex;
