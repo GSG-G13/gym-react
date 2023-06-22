@@ -5,6 +5,7 @@ import NavBarDashBoard from './navbarDashboard';
 import ClassTable from './classTable/ClassTable';
 import ProductCard from './productCard/ProductCard';
 import HomeStore from './homeStore/HomeStore';
+import SearchDashboard from './searchDashboard/Search';
 
 export {
   MenuComp,
@@ -14,4 +15,5 @@ export {
   NavBarDashBoard,
   ClassTable,
   HomeStore,
+  SearchDashboard,
 };
