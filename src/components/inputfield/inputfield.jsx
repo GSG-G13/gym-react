@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextField, InputAdornment } from '@mui/material';
+import { fontSize } from '@mui/system';
 
 const InputComp = (props) => {
   const {
@@ -31,7 +32,7 @@ const InputComp = (props) => {
             </InputAdornment>
           ),
           inputProps: {
-            style: { color: '#002B5B', fontWeight: '600' },
+            style: { color: '#002B5B', fontWeight: '500' },
           },
         }}
       />

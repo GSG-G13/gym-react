@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Typography } from '@mui/material';
 import InputComp from '../inputfield/inputfield';
 import ButtonComponent from '../button/Button';
-import { userIcon } from '../../utilize/icons';
+import { passwordIcon, userIcon, genderIcon, weightIcon, emailIcon, birthDataIcon, heightIcon } from '../../utilize/icons';
 
 const SignupWrapper = styled.div`
 display: flex;
@@ -60,17 +60,17 @@ const SignupComp = () => (
 
         <FieldColumn>
           <Inputstyled name="Username" sx={{ marginBottom: '8rem' }} icon={userIcon} />
-          <Inputstyled name="Username" icon={userIcon} sx={{ marginBottom: '8rem' }} />
-          <Inputstyled name="Username" icon={userIcon} sx={{ marginBottom: '8rem', marginTop: '3rem' }} />
-          <Inputstyled name="Username" icon={userIcon} />
-          <Inputstyled name="Username" icon={userIcon} />
+          <Inputstyled name="Password" icon={passwordIcon} sx={{ marginBottom: '8rem' }} />
+          <Inputstyled name="Gender" icon={genderIcon} sx={{ marginBottom: '8rem', marginTop: '3rem' }} />
+          <Inputstyled name="Weight" icon={weightIcon} />
+          <Inputstyled name="Goal Weight" icon={weightIcon} />
         </FieldColumn>
 
         <FieldColumn>
-          <Inputstyled name="Username" icon={userIcon} />
-          <Inputstyled name="Username" icon={userIcon} />
-          <Inputstyled name="Username" icon={userIcon} />
-          <Inputstyled name="Username" icon={userIcon} />
+          <Inputstyled name="Email" icon={emailIcon} />
+          <Inputstyled name="Confirm Password" icon={passwordIcon} />
+          <Inputstyled name="Age" icon={birthDataIcon} />
+          <Inputstyled name="Height" icon={heightIcon} />
         </FieldColumn>
 
       </SignupWrapper>
