@@ -1,14 +1,13 @@
 import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
-// import ProductCard from './components/productCard/ProductCard';
-import ProductList from './components/productList/ProductList';
+import { AnnouncementList } from './components';
 
 const App = () => (
 
   <THEME>
     <Box>
-      {/* test */}
-      <ProductList />
+
+      <AnnouncementList />
     </Box>
   </THEME>
 );

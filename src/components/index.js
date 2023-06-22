@@ -15,6 +15,8 @@ import ProductDetails from './productDetailsCard/ProductDetails';
 import HomeStore from './homeStore/HomeStore';
 import SearchDashboard from './searchDashboard/Search';
 import Statistic from './statistic';
+import Announcement from './announcement/Announcement';
+import AnnouncementList from './announcement/AnnouncementList';
 
 export {
   MenuComp,
@@ -34,4 +36,6 @@ export {
   Header,
   TrainerCard,
   Statistic,
+  Announcement,
+  AnnouncementList,
 };
