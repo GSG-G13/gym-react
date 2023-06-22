@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import InputComp from './inputfield';
+import InputComp from './inputfield/inputfield';
 import { passwordIcon, userIcon } from '../utilize/icons';
 import ButtonComponent from './button/Button';
 

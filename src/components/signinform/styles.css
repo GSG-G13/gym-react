@@ -1,10 +1,15 @@
-.signupinput {
+/* 
+.signininput {
   height: 3.625rem; 
   width: 22.375rem;
+  background-color: red;
+  color: red;
 }
 
-.signininput {
-  height: 5.043125rem; 
-  width: 41.985rem; 
-  margin-bottom: 1.875rem;
-}
+.signinform{
+  display: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+} */
