@@ -1,13 +1,12 @@
 import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
-import { ProductDetails } from './components';
 
 const App = () => (
+
   <THEME>
     <Box>
-      <ProductDetails />
+      test
     </Box>
   </THEME>
 );
-
 export default App;
