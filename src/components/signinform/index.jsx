@@ -13,6 +13,7 @@ right: 20rem;
 margin-bottom: 8rem;
 margin-top; 8rem;
 text-align: center;
+
 `;
 
 const StyledInputComp = styled(InputComp)`
@@ -30,13 +31,13 @@ const InputContainer = styled.div`
 
 const SignInComp = () => (
   <FormWrapper>
-    <Typography variant="h1" sx={{ marginBottom: '3.125rem' }}>
-      Sign In
-    </Typography>
-    <Typography variant="h2" sx={{ marginBottom: '1.875rem' }}>
-      Sign in and start managing your candidates!
-    </Typography>
     <InputContainer>
+      <Typography variant="h1" sx={{ marginBottom: '3.125rem', fontWeight: '700' }}>
+        Sign In
+      </Typography>
+      <Typography variant="h4" sx={{ marginBottom: '1.875rem', fontWeight: '500' }}>
+        Sign in and start managing your candidates!
+      </Typography>
       <StyledInputComp name="Email" icon={userIcon} />
       <StyledInputComp name="Password" icon={passwordIcon} />
       <Typography sx={{
