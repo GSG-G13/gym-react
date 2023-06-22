@@ -1,19 +1,25 @@
 import { Button } from '@mui/material';
+import styled from 'styled-components';
 
 const ButtonComponent = ({
   variant,
   color,
   children,
-  width,
-  height,
 }) => (
-  <Button
+  <StyledButton
     variant={variant}
     sx={{
-      backgroundColor: color, fontSize: 12, width, height,
+      backgroundColor: color, fontSize: 12,
     }}
   >
     {children}
-  </Button>
+  </StyledButton>
 );
+
+const StyledButton = styled(Button)`
+  width: 90%;
+  padding: .7rem 1rem !important;
+  margin-left: 1.5rem !important;
+`;
+
 export default ButtonComponent;

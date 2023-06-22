@@ -3,7 +3,7 @@ import { TextField, InputAdornment } from '@mui/material';
 
 const InputComp = (props) => {
   const {
-    name, icon, width, height,
+    name, icon,
   } = props;
 
   return (
@@ -18,13 +18,15 @@ const InputComp = (props) => {
             borderColor: '#002B5B',
             borderRadius: '0.625rem',
             padding: '0.78125rem',
-            width,
-            height,
+            paddingBottom: '2rem',
+            marginBottom: '3rem',
+            position: 'absolute',
+            width: '100%',
           },
         }}
         InputProps={{
           startAdornment: (
-            <InputAdornment position="start" sx={{ color: '#002B5B', marginLeft: '0.3125rem' }}>
+            <InputAdornment position="start" sx={{ color: '#002B5B' }}>
               {icon}
             </InputAdornment>
           ),
