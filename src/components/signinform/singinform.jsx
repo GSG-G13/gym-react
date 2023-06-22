@@ -27,6 +27,9 @@ const InputContainer = styled.div`
   max-width: 350px;
   margin:  auto;
 `;
+const ButtonContainer = styled.div`
+max-width: 500px;
+`;
 
 const SignInComp = () => (
   <FormWrapper>
@@ -52,9 +55,12 @@ const SignInComp = () => (
         Forgot password?
 
       </Typography>
-      <ButtonComponent variant="contained" color="#002B5B">
-        Sign in
-      </ButtonComponent>
+      <ButtonContainer>
+
+        <ButtonComponent variant="contained" color="#002B5B">
+          Sign in
+        </ButtonComponent>
+      </ButtonContainer>
     </InputContainer>
   </FormWrapper>
 );
