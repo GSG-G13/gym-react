@@ -24,10 +24,10 @@ const theme = createTheme({
       fontSize: '1rem',
     },
     h5: {
-      fontSize: '0.92rem',
+      fontSize: '0.90rem',
     },
     h6: {
-      fontSize: '0.75rem',
+      fontSize: '0.70rem',
     },
 
   },
