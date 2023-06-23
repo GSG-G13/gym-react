@@ -17,6 +17,8 @@ import SearchDashboard from './searchDashboard/Search';
 import Statistic from './statistic';
 import Announcement from './announcement/Announcement';
 import AnnouncementList from './announcement/AnnouncementList';
+import ClassInfoComp from './classInfo';
+import Table from './table';
 
 export {
   MenuComp,
@@ -38,4 +40,6 @@ export {
   Statistic,
   Announcement,
   AnnouncementList,
+  ClassInfoComp,
+  Table,
 };
