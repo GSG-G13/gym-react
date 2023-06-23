@@ -63,7 +63,7 @@ const rows = [
   },
 ];
 
-const DataGridDemo = () => (
+const Table = () => (
   <Box sx={{ height: 400, width: 'fit-content ' }}>
     <DataGrid
       rows={rows}
@@ -81,4 +81,4 @@ const DataGridDemo = () => (
     />
   </Box>
 );
-export default DataGridDemo;
+export default Table;
