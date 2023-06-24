@@ -1,12 +1,12 @@
 import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
-import SliderComp from './components/slider';
+import ProductListDashboard from './pages/admin/productList';
 
 const App = () => (
 
   <THEME>
     <Box>
-      <SliderComp />
+      <ProductListDashboard />
     </Box>
   </THEME>
 );
