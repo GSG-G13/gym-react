@@ -1,8 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
 import React from 'react';
-// import shopping from '../../assets/shopping.png';
 import { ReactComponent as HomeImage } from '../../assets/homeStore.svg';
-// import { ReactComponent as Shopping } from '../../assets/homeStore.svg';
 import { ReactComponent as Shopping } from '../../assets/shopping.svg';
 
 const HomeStore = () => (
@@ -22,7 +20,6 @@ const HomeStore = () => (
         <HomeImage style={{ width: '50%', height: '100%' }} />
       </Box>
     </Container>
-    {/* <img src={homeImage} alt="store-pic" style={{ width: '50%' }} /> */}
   </Box>
 );
 
