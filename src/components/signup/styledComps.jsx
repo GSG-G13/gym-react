@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import InputComp from '../inputfield/inputfield';
-
 const SignupWrapper = styled.div`
 display: flex;
 flex-direction: row;
@@ -32,17 +30,6 @@ width: 70%;
 margin-left: 8.5rem;
 `;
 
-const Inputstyled = styled(InputComp)`
-position: relative;
-left: 100px;
-bottom: 200px;
-padding-bottom: 2rem;
-padding-top: 2rem;
-padding: 6rem;
-margin-bottom: 8rem;
-margin-top: 3rem;
-`;
-
 export {
-  CompWrapper, ButtonContainer, Inputstyled, FieldColumn, SignupWrapper,
+  CompWrapper, ButtonContainer, FieldColumn, SignupWrapper,
 };
