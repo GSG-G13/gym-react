@@ -9,7 +9,6 @@ const ButtonComponent = ({
   children,
 }) => {
   const { setShowForm } = useContext(UserContext);
-  console.log(setShowForm);
   return (
     <StyledButton
       onClick={() => (children === 'Cancel' ? setShowForm(false) : setShowForm(true))}
