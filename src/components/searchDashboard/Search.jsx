@@ -1,8 +1,8 @@
 import React from 'react';
 import {
+  Box,
   FormControl, IconButton, InputAdornment, OutlinedInput,
 } from '@mui/material';
-import { Box } from '@mui/system';
 import SearchIcon from '@mui/icons-material/Search';
 import ButtonComponent from '../button/Button';
 
