@@ -1,12 +1,13 @@
 import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
-import SliderComp from './components/slider';
+import Store from './pages/user/product';
+import './index.css';
 
 const App = () => (
 
   <THEME>
-    <Box>
-      <SliderComp />
+    <Box backgroundColor="colors.primary">
+      <Store />
     </Box>
   </THEME>
 );

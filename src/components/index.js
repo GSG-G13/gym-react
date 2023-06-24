@@ -1,6 +1,6 @@
 import MenuComp from './menu/Menu';
 import CategoryCard from './categoryCard/CategoryCard';
-import NavbarClient from './navbar/NavbarClient';
+import Navbar from './navbar/NavbarClient';
 import SideBar from './sideBar/SideBar';
 import TrainerCard from './trainerCard/TrainerCard';
 import NavBarDashBoard from './navbarDashboard';
@@ -19,13 +19,16 @@ import Announcement from './announcement/Announcement';
 import AnnouncementList from './announcement/AnnouncementList';
 import ClassInfoComp from './classInfo';
 import Table from './table';
+import ProductList from './productList/ProductList';
+import Footer from './footer/Footer';
+import CategoriesList from './categoriesList';
 
 export {
   MenuComp,
   ProductCard,
   SideBar,
   PersonalInfo,
-  NavbarClient,
+  Navbar,
   ClassTable,
   NavBarDashBoard,
   Alerts,
@@ -42,4 +45,7 @@ export {
   AnnouncementList,
   ClassInfoComp,
   Table,
+  ProductList,
+  Footer,
+  CategoriesList,
 };

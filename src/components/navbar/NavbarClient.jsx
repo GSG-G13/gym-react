@@ -14,7 +14,7 @@ import {
 const pages = ['Home', 'Store', 'Classes', 'Chat', 'Announcement'];
 const settings = [{ name: 'Profile', icon: <AccountCircleIcon /> }, { name: 'Settings', icon: <SettingsIcon /> }, { name: 'SignIn', icon: <LoginIcon /> }];
 
-const NavbarClient = () => {
+const Navbar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -26,7 +26,7 @@ const NavbarClient = () => {
   };
 
   return (
-    <AppBar sx={{ width: '100vw', backgroundColor: 'colors.primary', color: '#000' }}>
+    <AppBar sx={{ width: '100%', backgroundColor: 'colors.primary', color: '#000' }}>
       <Container>
         <Toolbar sx={{
           display: 'flex',
@@ -111,4 +111,4 @@ const NavbarClient = () => {
     </AppBar>
   );
 };
-export default NavbarClient;
+export default Navbar;

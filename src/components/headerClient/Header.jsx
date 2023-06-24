@@ -4,7 +4,14 @@ import ButtonComponent from '../button/Button';
 import headerPhoto from '../../assets/personal_trainer.svg';
 
 const Header = () => (
-  <Box border="1px solid #000">
+  <Box
+    height="100vh"
+    sx={{
+      display: 'flex',
+      alignItems: 'center',
+
+    }}
+  >
     <Container>
       <Box sx={{
         display: 'flex',
