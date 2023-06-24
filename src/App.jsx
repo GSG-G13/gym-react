@@ -1,12 +1,12 @@
 import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
-import SliderComp from './components/slider';
+import Home from './pages';
 
 const App = () => (
 
   <THEME>
     <Box>
-      <SliderComp />
+      <Home />
     </Box>
   </THEME>
 );
