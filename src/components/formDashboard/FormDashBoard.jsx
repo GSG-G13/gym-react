@@ -3,9 +3,9 @@ import { Box, Typography } from '@mui/material';
 import InputForm from './InputForm';
 import GroupButtons from './GroupButtons';
 
-const FormDashBoard = ({ userInfo }) => (
+const FormDashBoard = ({ userInfo, text }) => (
   <Box backgroundColor="#fff" border="1px solid #ccc" p={2}>
-    <Typography sx={{ color: '#000', textAlign: 'center' }}>Add User</Typography>
+    <Typography sx={{ color: '#000', textAlign: 'center' }}>{text}</Typography>
 
     <Box
       p="40px"
