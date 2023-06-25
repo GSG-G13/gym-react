@@ -1,3 +1,4 @@
+import ClassDashBoard from './class';
 import UserList from './user';
 
-export default UserList;
+export { UserList, ClassDashBoard };

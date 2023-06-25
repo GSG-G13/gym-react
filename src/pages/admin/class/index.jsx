@@ -1,10 +1,14 @@
-import { Box } from '@mui/material';
-import React from 'react';
+import { columns, rows } from '../../../dummyData/classDashBoardDummyData';
+import DashBoardLayOut from '../LayOut';
+
+const userInfo = ['classname', 'Description', 'Trainer', 'Price', 'Participant'];
 
 const ClassDashBoard = () => (
-  <Box>
-    adf
-  </Box>
+  <DashBoardLayOut
+    userInfo={userInfo}
+    columns={columns}
+    rows={rows}
+  />
 );
 
 export default ClassDashBoard;

@@ -1,3 +1,6 @@
-import UserList from './admin';
+import { UserList, ClassDashBoard } from './admin';
+import DashBoardLayOut from './user';
 
-export default UserList;
+export {
+  UserList, ClassDashBoard, DashBoardLayOut,
+};
