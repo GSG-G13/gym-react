@@ -1,3 +1,8 @@
-import { AnnouncementContainer } from './user';
+import { UserList, ClassDashBoard } from './admin';
+import {
+  Class, DashBoardLayOut, ProductDetailsContainer, AnnouncementContainer,
+} from './user';
 
-export { AnnouncementContainer };
+export {
+  ProductDetailsContainer, UserList, ClassDashBoard, DashBoardLayOut, Class, AnnouncementContainer,
+};
