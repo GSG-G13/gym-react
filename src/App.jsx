@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
-import AnnouncementDashboard from './pages/admin/announcement';
-
+AnnouncementDashboard
 const App = () => (
 
   <THEME>
