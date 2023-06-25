@@ -1,4 +1,4 @@
-const userInfo = ['title', 'content', 'price', 'review', 'setting'];
+const userInfo = ['Title', 'Content', 'Price', 'Review', 'Setting'];
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
