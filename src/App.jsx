@@ -1,11 +1,13 @@
 import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
+import SignupComp from './components/signup';
 
 const App = () => (
 
   <THEME>
     <Box>
-      test
+      Hello from GYM APP
+      <SignupComp />
     </Box>
   </THEME>
 );

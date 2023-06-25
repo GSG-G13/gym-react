@@ -1,6 +1,7 @@
-import { Typography } from '@mui/material';
-import styled from 'styled-components';
-import InputComp from '../inputfield/inputfield';
+// import styled from 'styled-components';
+import { Typography, Box } from '@mui/material';
+import InputComp from '../inputfield';
+import Provider from '../../context/Provider';
 import ButtonComponent from '../button/Button';
 import {
   CompWrapper, ButtonContainer, FieldColumn, SignupWrapper,
@@ -8,21 +9,21 @@ import {
 import {
   passwordIcon, userIcon, genderIcon, weightIcon, emailIcon, birthDataIcon, heightIcon,
 } from '../../utilize/icons';
-import Provider from '../../context/Provider';
 
-const StyledLink = styled.a`
-color: #002B5B;
-font-weight: 550;
-text-decoration: none;
-position: relative;
-left: 2.1875rem;
+// const StyledLink = styled.a`
+// color: #002B5B;
+// font-weight: 550;
+// text-decoration: none;
+// position: relative;
+// left: 2.1875rem;
 
-`;
+// `;
 
 const SignupComp = () => (
   <Provider>
+
     <CompWrapper>
-      <div>
+      <Box>
         <Typography
           variant="h1"
           sx={{
@@ -36,11 +37,7 @@ const SignupComp = () => (
           <FieldColumn>
             <InputComp name="Username" sx={{ marginBottom: '8rem' }} icon={userIcon} />
             <InputComp name="Password" icon={passwordIcon} sx={{ marginBottom: '8rem' }} />
-            <InputComp
-              name="Gender"
-              icon={genderIcon}
-              sx={{ marginBottom: '8rem', marginTop: '3rem' }}
-            />
+            <InputComp name="Gender" icon={genderIcon} sx={{ marginBottom: '8rem', marginTop: '3rem' }} />
             <InputComp name="Weight" icon={weightIcon} />
             <InputComp name="Goal Weight" icon={weightIcon} />
           </FieldColumn>
@@ -53,8 +50,7 @@ const SignupComp = () => (
           </FieldColumn>
 
         </SignupWrapper>
-        <StyledLink href="www.google.com">I have already an account ? Sign in</StyledLink>
-      </div>
+      </Box>
 
       <ButtonContainer>
 
