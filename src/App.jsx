@@ -1,11 +1,12 @@
 import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
+import ProductListDashboard from './pages/admin/productList';
 
 const App = () => (
 
   <THEME>
     <Box>
-      Hello from GYM APP
+      <ProductListDashboard />
     </Box>
   </THEME>
 );
