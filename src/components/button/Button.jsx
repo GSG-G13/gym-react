@@ -1,14 +1,14 @@
 import { Button } from '@mui/material';
 import styled from 'styled-components';
 import { useContext } from 'react';
-import UserContext from '../../context';
+import FormContext from '../../context';
 
 const ButtonComponent = ({
   variant,
   color,
   children,
 }) => {
-  const { setShowForm } = useContext(UserContext);
+  const { setShowForm } = useContext(FormContext);
   return (
     <StyledButton
       onClick={() => (children === 'Cancel' ? setShowForm(false) : setShowForm(true))}

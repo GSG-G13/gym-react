@@ -1,4 +1,6 @@
-import Class from './user';
-import UserList from './admin';
+import { UserList, ClassDashBoard } from './admin';
+import { Class, DashBoardLayOut } from './user';
 
-export { Class, UserList };
+export {
+  UserList, ClassDashBoard, DashBoardLayOut, Class,
+};

@@ -3,7 +3,7 @@ import React from 'react';
 
 const classes = ['Yoga', 'Building', 'Fitness', 'food'];
 const ClassesList = () => (
-  <Box width={300}>
+  <Box width={300} borderRight="1px solid #ccc">
     <Typography p={2}>Classes</Typography>
     <Divider />
     <Box>
