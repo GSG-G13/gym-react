@@ -12,7 +12,7 @@ const ProductListDashboard = () => {
   return (
     <Provider setShowForm={setShowForm}>
 
-      <Box sx={{ position: 'relative' }}>
+      <Box>
         <NavBarDashBoard />
         <Box sx={{ display: 'flex', gap: '30px' }}>
           <SideBar />
