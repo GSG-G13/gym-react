@@ -22,6 +22,7 @@ import Table from './table';
 import ProductList from './productList/ProductList';
 import Footer from './footer/Footer';
 import CategoriesList from './categoriesList';
+import ClassesList from './classesList';
 
 export {
   MenuComp,
@@ -48,4 +49,6 @@ export {
   ProductList,
   Footer,
   CategoriesList,
+  ClassesList,
+
 };

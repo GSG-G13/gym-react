@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Container } from '@mui/material';
 import ButtonComponent from '../button/Button';
-import headerPhoto from '../../assets/personal_trainer.svg';
+import { ReactComponent as HeaderPhoto } from '../../assets/personal_trainer.svg';
 
 const Header = () => (
   <Box
@@ -49,7 +49,7 @@ const Header = () => (
           </Box>
         </Box>
         <Box>
-          <img src={headerPhoto} alt="home-pic" width="550px" height="420px" />
+          <HeaderPhoto style={{ width: '550px', height: '420px' }} />
         </Box>
       </Box>
     </Container>
