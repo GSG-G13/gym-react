@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material';
+import styled from 'styled-components';
 import InputComp from '../inputfield/inputfield';
 import ButtonComponent from '../button/Button';
 import {
@@ -8,6 +9,15 @@ import {
   passwordIcon, userIcon, genderIcon, weightIcon, emailIcon, birthDataIcon, heightIcon,
 } from '../../utilize/icons';
 import Provider from '../../context/Provider';
+
+const StyledLink = styled.a`
+color: #002B5B;
+font-weight: 550;
+text-decoration: none;
+position: relative;
+left: 2.1875rem;
+
+`;
 
 const SignupComp = () => (
   <Provider>
@@ -43,6 +53,7 @@ const SignupComp = () => (
           </FieldColumn>
 
         </SignupWrapper>
+        <StyledLink href="www.google.com">I have already an account ? Sign in</StyledLink>
       </div>
 
       <ButtonContainer>

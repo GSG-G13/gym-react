@@ -21,18 +21,17 @@ margin-bottom: rem; /* Add this line to increase the distance between columns */
 `;
 const CompWrapper = styled.div`
 width: 100%;
-max-width: 700px;
+max-width:  43.75rem;
 margin: auto;
-margin-top: 3rem;
+margin-top: 2rem;
 margin-bottom: 3.5rem;
 
 `;
 
 const ButtonContainer = styled.div`
-// margin-left: 18rem;
+margin-top: 1rem;
 display: flex;
 justify-content: center;
-// border: solid 1px red;
 width: 100%;
 `;
 

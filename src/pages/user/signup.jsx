@@ -1,11 +1,25 @@
+import styled from 'styled-components';
+import { Box } from '@mui/system';
 import SignupComp from '../../components/signup';
 import Footer from '../../footer/Footer';
 import NavbarClient from '../../components/navbar/NavbarClient';
 
+const StyledImage = styled.img`
+width: 26rem;
+height: auto;
+margin-left: 1rem;
+margin-top: 1rem;
+position: relative;
+left: 15rem;
+`;
+
 const SignupPage = () => (
   <div>
     <NavbarClient />
-    <SignupComp />
+    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+      <StyledImage src="../../../public/pictures/singupimage.svg" alt="signup " />
+      <SignupComp />
+    </Box>
     <Footer />
   </div>
 );
