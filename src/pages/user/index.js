@@ -1,3 +1,4 @@
 import DashBoardLayOut from '../admin/LayOut';
+import Class from './class';
 
-export default DashBoardLayOut;
+export { Class, DashBoardLayOut };
