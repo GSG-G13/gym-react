@@ -5,7 +5,7 @@ const App = () => (
 
   <THEME>
     <Box>
-      test
+      Hello from GYM APP
     </Box>
   </THEME>
 );

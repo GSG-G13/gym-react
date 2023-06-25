@@ -3,18 +3,21 @@ import { Box, Typography } from '@mui/material';
 import InputForm from './InputForm';
 import GroupButtons from './GroupButtons';
 
-const FormDashBoard = () => (
-  <Box
-    p="20px"
-    sx={{
-      display: 'flex', flexDirection: 'column', gap: 2, width: '675px ', border: '1px solid #ccc', backgroundColor: '#fff',
-    }}
-  >
-    <Typography sx={{ color: '#000' }}>Add User</Typography>
-    <InputForm>username</InputForm>
-    <InputForm>email</InputForm>
-    <InputForm>password</InputForm>
+const FormDashBoard = ({ userInfo }) => (
+  <Box backgroundColor="#fff" border="1px solid #ccc" p={2}>
+    <Typography sx={{ color: '#000', textAlign: 'center' }}>Add User</Typography>
+
+    <Box
+      p="40px"
+      sx={{
+        display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 2, width: '675px ',
+      }}
+    >
+
+      {userInfo.map((info) => <InputForm>{info}</InputForm>)}
+    </Box>
     <GroupButtons />
+
   </Box>
 
 );
