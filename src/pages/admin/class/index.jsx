@@ -1,9 +1,9 @@
 import { columns, rows } from '../../../dummyData/classDashBoardDummyData';
 import DashBoardLayOut from '../LayOut';
 
-const userInfo = ['username', 'email', 'password', 'age', 'gender', 'gender', 'height', 'weight', 'goalweight'];
+const userInfo = ['classname', 'Description', 'Trainer', 'Price', 'Participant'];
 
-const UserList = () => (
+const ClassDashBoard = () => (
   <DashBoardLayOut
     userInfo={userInfo}
     columns={columns}
@@ -11,4 +11,4 @@ const UserList = () => (
   />
 );
 
-export default UserList;
+export default ClassDashBoard;
