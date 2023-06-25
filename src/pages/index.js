@@ -1,6 +1,6 @@
 import { UserList, ClassDashBoard } from './admin';
-import { Class, DashBoardLayOut } from './user';
+import { Class, DashBoardLayOut, ProductDetailsContainer } from './user';
 
 export {
-  UserList, ClassDashBoard, DashBoardLayOut, Class,
+  ProductDetailsContainer, UserList, ClassDashBoard, DashBoardLayOut, Class,
 };

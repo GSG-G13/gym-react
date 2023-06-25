@@ -1,4 +1,5 @@
 import DashBoardLayOut from '../admin/LayOut';
 import Class from './class';
+import ProductDetailsContainer from './productDetails';
 
-export { Class, DashBoardLayOut };
+export { ProductDetailsContainer, Class, DashBoardLayOut };
