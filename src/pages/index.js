@@ -1,3 +1,4 @@
 import Class from './user';
+import UserList from './admin';
 
-export default Class;
+export { Class, UserList };

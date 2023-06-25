@@ -4,7 +4,7 @@ import ButtonComponent from '../button/Button';
 import ClassTable from '../classTable/ClassTable';
 
 const ClassInfoComp = () => (
-  <Box p={2} sx={{ border: '1px solid #ccc' }}>
+  <Box p={2} sx={{ border: '1px solid #ccc', borderRadius: 5 }}>
     <Container>
       <Typography variant="h1">Yoga Class</Typography>
       <Box mt={3} sx={{ display: 'flex', alignItems: 'center', gap: 40 }}>
