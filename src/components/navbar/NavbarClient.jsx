@@ -14,7 +14,7 @@ import {
 const pages = ['Home', 'Store', 'Classes', 'Chat', 'Announcement'];
 const settings = [{ name: 'Profile', icon: <AccountCircleIcon /> }, { name: 'Settings', icon: <SettingsIcon /> }, { name: 'SignIn', icon: <LoginIcon /> }];
 
-const Navbar = () => {
+const NavbarClient = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -111,4 +111,4 @@ const Navbar = () => {
     </AppBar>
   );
 };
-export default Navbar;
+export default NavbarClient;

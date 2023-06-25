@@ -1,6 +1,6 @@
 import MenuComp from './menu/Menu';
 import CategoryCard from './categoryCard/CategoryCard';
-import Navbar from './navbar/NavbarClient';
+import NavbarClient from './navbar/NavbarClient';
 import SideBar from './sideBar/SideBar';
 import TrainerCard from './trainerCard/TrainerCard';
 import NavBarDashBoard from './navbarDashboard';
@@ -28,7 +28,7 @@ export {
   ProductCard,
   SideBar,
   PersonalInfo,
-  Navbar,
+  NavbarClient,
   ClassTable,
   NavBarDashBoard,
   Alerts,
