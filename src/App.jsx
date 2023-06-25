@@ -1,12 +1,13 @@
+import { RouterProvider } from 'react-router-dom';
 import { Box } from '@mui/material';
 import THEME from './utilize/Theme';
-import SliderComp from './components/slider';
+import router from './routes/router';
 
 const App = () => (
 
   <THEME>
     <Box>
-      <SliderComp />
+      <RouterProvider router={router} />
     </Box>
   </THEME>
 );
