@@ -6,6 +6,7 @@ const App = () => (
   <THEME>
     <Box>
       Hello from GYM APP
+
     </Box>
   </THEME>
 );
