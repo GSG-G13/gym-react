@@ -19,6 +19,7 @@ import Announcement from './announcement/Announcement';
 import AnnouncementList from './announcement/AnnouncementList';
 import ClassInfoComp from './classInfo';
 import Table from './table';
+import FormDashBoard from './formDashboard/FormDashBoard';
 
 export {
   MenuComp,
@@ -42,4 +43,5 @@ export {
   AnnouncementList,
   ClassInfoComp,
   Table,
+  FormDashBoard,
 };

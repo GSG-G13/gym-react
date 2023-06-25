@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import InputForm from './InputForm';
 import GroupButtons from './GroupButtons';
 
-const FormDashBoard = () => (
+const FormDashBoard = ({ settingListObj }) => (
   <Box
     p="20px"
     sx={{
@@ -11,9 +11,9 @@ const FormDashBoard = () => (
     }}
   >
     <Typography sx={{ color: '#000' }}>Add User</Typography>
-    <InputForm>username</InputForm>
-    <InputForm>email</InputForm>
-    <InputForm>password</InputForm>
+    {settingListObj.map((info) => (
+      <InputForm>{info}</InputForm>
+    ))}
     <GroupButtons />
   </Box>
 
