@@ -5,16 +5,10 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-function createData(Days, Times) {
-  return {
-    Days, Times,
-  };
-}
-
 const rows = [
-  createData('Saturday', 8 - 10),
-  createData('Monday', 10 - 12),
-  createData('Wednesday', 12 - 2),
+  { day: 'Saturday', time: 8 - 10 },
+  { day: 'Monday', time: 10 - 12 },
+  { day: 'Wednesday', time: 12 - 2 },
 
 ];
 
@@ -28,13 +22,13 @@ const ClassTable = () => (
       </TableRow>
     </TableHead>
     <TableBody>
-      {rows.map(() => (
+      {rows.map((row) => (
         <TableRow>
           <TableCell component="th" scope="row">
-            Saturday
+            {row.day}
           </TableCell>
 
-          <TableCell align="right">8 - 10</TableCell>
+          <TableCell align="right">{row.time}</TableCell>
 
         </TableRow>
       ))}
