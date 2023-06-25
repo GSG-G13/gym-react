@@ -4,7 +4,7 @@ import shopping from '../../assets/shopping.png';
 import homeImage from '../../assets/homeStore.png';
 
 const HomeStore = () => (
-  <Box sx={{ display: 'flex' }} border="1px solid #ccc">
+  <Box sx={{ display: 'flex', alignItems: 'center' }} height="100vh">
     <Container>
       <img
         src={shopping}

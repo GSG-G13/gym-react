@@ -2,17 +2,17 @@ import React from 'react';
 import { Box, Container } from '@mui/material';
 import {
   ProductList,
-  Header,
-  Navbar,
   Footer,
   CategoriesList,
+  NavbarClient,
+  HomeStore,
 } from '../../../components';
 
 const Store = () => (
   <Box>
-    <Navbar />
+    <NavbarClient />
     <Container>
-      <Header />
+      <HomeStore />
       <Box sx={{ display: 'flex', gap: '90px' }}>
         <CategoriesList />
         <ProductList />
