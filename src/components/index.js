@@ -20,6 +20,11 @@ import AnnouncementList from './announcement/AnnouncementList';
 import ClassInfoComp from './classInfo';
 import Table from './table';
 import SignInComp from './signinform';
+import ProductList from './productList/ProductList';
+import Footer from './footer/Footer';
+import CategoriesList from './categoriesList';
+import ClassesList from './classesList';
+import InputComp from './inputfield';
 
 export {
   MenuComp,
@@ -44,5 +49,10 @@ export {
   ClassInfoComp,
   Table,
   SignInComp,
+  ProductList,
+  Footer,
+  CategoriesList,
+  ClassesList,
+  InputComp,
 
 };

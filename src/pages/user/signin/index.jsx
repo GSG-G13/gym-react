@@ -1,14 +1,18 @@
 import { Box, Container } from '@mui/material';
 import React from 'react';
 import NavbarClient from '../../../components/navbar/NavbarClient';
-import Footer from '../../../footer/Footer';
-import { SignInComp } from '../../../components';
+import { Footer, SignInComp } from '../../../components';
+import { ReactComponent as Login } from '../../../assets/login.svg';
 
 const SignIn = () => (
   <Box>
     <NavbarClient />
     <Container>
-      <SignInComp />
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Login style={{ width: '50%' }} />
+
+        <SignInComp />
+      </Box>
     </Container>
     <Footer />
   </Box>
