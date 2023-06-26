@@ -2,8 +2,7 @@ import { Box, Container } from '@mui/material';
 import React from 'react';
 import NavbarClient from '../../../components/navbar/NavbarClient';
 import Header from '../../../components/headerClient/Header';
-import { SliderComp } from '../../../components';
-import Footer from '../../../footer/Footer';
+import { Footer, SliderComp } from '../../../components';
 
 const Home = () => (
   <Box>

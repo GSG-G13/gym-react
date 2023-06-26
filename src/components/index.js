@@ -20,6 +20,15 @@ import AnnouncementList from './announcement/AnnouncementList';
 import ClassInfoComp from './classInfo';
 import Table from './table';
 import SliderComp from './slider';
+import FormDashBoard from './formDashboard/FormDashBoard';
+import SignInComp from './signinform';
+import ProfileNav from './profileNav';
+import ProductList from './productList/ProductList';
+import Footer from './footer/Footer';
+import CategoriesList from './categoriesList';
+import ClassesList from './classesList';
+import UserSettingData from './userSettingData/UserSettingData';
+import InputComp from './inputfield';
 
 export {
   MenuComp,
@@ -44,4 +53,14 @@ export {
   ClassInfoComp,
   Table,
   SliderComp,
+  FormDashBoard,
+  SignInComp,
+  ProfileNav,
+  ProductList,
+  Footer,
+  CategoriesList,
+  ClassesList,
+  UserSettingData,
+  InputComp,
+
 };

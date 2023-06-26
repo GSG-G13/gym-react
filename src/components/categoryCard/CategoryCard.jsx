@@ -5,19 +5,26 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-const CategoryCard = () => (
-  <Card sx={{ Width: 105, padding: '8px' }}>
-    <CardActionArea>
+const CategoryCard = ({ category }) => (
+  <Card sx={{
+    width: '80px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '10px',
+  }}
+  >
+    <CardActionArea sx={{ width: '50px' }}>
       <CardMedia
-        sx={{ borderRadius: '15px', margin: 'auto' }}
+        sx={{ margin: 'auto' }}
         component="img"
-        height="125px"
-        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU"
+        height="auto"
+        image={category.image}
         alt="category product"
       />
-      <CardContent>
+      <CardContent sx={{ padding: '3px', textAlign: 'center' }}>
         <Typography gutterBottom variant="h5">
-          Equipment
+          {category.title}
         </Typography>
       </CardContent>
     </CardActionArea>
