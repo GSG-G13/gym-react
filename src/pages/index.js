@@ -1,13 +1,20 @@
 import { UserList, ClassDashBoard } from './admin';
 import {
-  Class, DashBoardLayOut, ProductDetailsContainer, AnnouncementContainer, UserProfile,
+  Store,
+  Class,
+  DashBoardLayOut,
+  ProductDetailsContainer,
+  AnnouncementContainer,
+  UserProfile,
 } from './user';
 
 export {
-  UserProfile,
+  Store,
   ProductDetailsContainer,
-  UserList, ClassDashBoard,
+  UserList,
+  ClassDashBoard,
   DashBoardLayOut,
   Class,
   AnnouncementContainer,
+  UserProfile,
 };

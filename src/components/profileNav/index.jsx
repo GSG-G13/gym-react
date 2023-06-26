@@ -9,7 +9,7 @@ const ProfileNav = () => (
     justifyContent: 'space-between',
     height: '60px',
     backgroundColor: 'colors.secondary',
-    width: '60%',
+    width: '100%',
     borderRadius: '10px',
     px: '20px',
     mb: '20px',

@@ -9,14 +9,12 @@ const PersonalInfo = () => (
   <Box
     component="div"
     sx={{
-      p: 2,
       pl: 25,
       height: '250px',
       display: 'flex',
       alignItems: 'center',
       gap: '30px',
     }}
-    mt={13}
   >
     <Box component="div" sx={{ borderRadius: '50%' }}>
       <img

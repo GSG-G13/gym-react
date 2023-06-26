@@ -1,9 +1,8 @@
 import React from 'react';
 import { Box, Container } from '@mui/material';
 import {
-  NavbarClient, Table, PersonalInfo, ProfileNav,
+  NavbarClient, Table, PersonalInfo, ProfileNav, Footer,
 } from '../../../components';
-import Footer from '../../../footer/Footer';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -66,8 +65,10 @@ const rows = [
 
 const UserProfile = () => (
   <Box>
-    <NavbarClient />
-    <Container>
+    {/* <NavbarClient /> */}
+    {/* <Container maxWidth="md"> */}
+    <Box border="1px solid red">
+
       <PersonalInfo />
       <Box
         sx={{
@@ -75,12 +76,15 @@ const UserProfile = () => (
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
+          maxWidth: '',
         }}
       >
         <ProfileNav />
         <Table columns={columns} rows={rows} />
+
       </Box>
-    </Container>
+    </Box>
+    {/* </Container> */}
     <Footer />
   </Box>
 );

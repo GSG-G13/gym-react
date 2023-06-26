@@ -4,9 +4,9 @@ import { ReactComponent as HomeImage } from '../../assets/homeStore.svg';
 import { ReactComponent as Shopping } from '../../assets/shopping.svg';
 
 const HomeStore = () => (
-  <Box>
+  <Box sx={{ display: 'flex', alignItems: 'center' }} height="100vh">
     <Container>
-      <Box sx={{ display: 'flex', alignItems: 'end' }} border="1px solid #ccc">
+      <Box sx={{ display: 'flex', alignItems: 'end' }}>
         <Shopping style={{ width: '50%', height: '100%' }} />
 
         <Box width={400} sx={{ position: 'absolute', left: 390, top: 100 }}>
