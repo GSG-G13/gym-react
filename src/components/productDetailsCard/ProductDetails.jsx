@@ -9,11 +9,12 @@ import ButtonComponent from '../button/Button';
 const ProductDetails = () => (
   <Card sx={{
     display: 'flex',
-    width: '900px',
+    alignItems: 'center',
     borderRadius: '10px',
-    border: '1px solid #000',
     '&': { boxShadow: 'none' },
+    border: '1px solid #ccc',
     p: '30px',
+    margin: 'auto',
   }}
   >
     <CardMedia

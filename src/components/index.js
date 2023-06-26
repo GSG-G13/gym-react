@@ -20,6 +20,7 @@ import AnnouncementList from './announcement/AnnouncementList';
 import ClassInfoComp from './classInfo';
 import Table from './table';
 import ProfileNav from './profileNav';
+import ClassesList from './classesList';
 
 export {
   MenuComp,
@@ -44,4 +45,6 @@ export {
   ClassInfoComp,
   Table,
   ProfileNav,
+  ClassesList,
+
 };

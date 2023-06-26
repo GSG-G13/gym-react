@@ -2,8 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 
-const Table = ({ columns, rows }) => (
-  <Box sx={{ height: 400, width: 'fit-content ' }} mb={10}>
+const Table = ({ rows, columns }) => (
+  <Box>
     <DataGrid
       rows={rows}
       columns={columns}
