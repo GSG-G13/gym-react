@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
