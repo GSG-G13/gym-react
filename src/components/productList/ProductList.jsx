@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { Container, Typography } from '@mui/material';
-import ProductCard from '../productCard/ProductCard';
+import ProductCard from '../productCard';
 
 const productsobj = [{
   image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxvZXnDD30O1I2TSi58nzyCIKyVE6rVcfzxw&usqp=CAU',
@@ -32,7 +32,7 @@ const ProductList = () => (
       <Typography align="left" pt="25PX" fontSize="25PX">Clothes</Typography>
       <Box mt={2} sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 4 }}>
         { productsobj.map((product) => (
-          <ProductCard product={product} />
+          <ProductCard key={product.title} product={product} />
         ))}
       </Box>
     </Container>
