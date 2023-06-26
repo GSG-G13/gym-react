@@ -9,12 +9,13 @@ const PersonalInfo = () => (
   <Box
     component="div"
     sx={{
-      p: 2,
-      width: '500px',
+      width: '90%',
+      alignSelf: 'start',
       height: '250px',
       display: 'flex',
-      justifyContent: 'space-around',
-
+      alignItems: 'center',
+      gap: '30px',
+      m: '0 auto',
     }}
   >
     <Box component="div" sx={{ borderRadius: '50%' }}>
@@ -27,14 +28,14 @@ const PersonalInfo = () => (
     </Box>
     <Box component="div" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
 
-      <Typography variant="h5" sx={{ paddingBottom: '8px' }}>Eng.Fadi </Typography>
+      <Typography variant="h4" sx={{ paddingBottom: '8px' }}>Eng.Fadi </Typography>
       <Box sx={{ display: 'flex' }}>
         <LocalPhoneIcon sx={{ paddingRight: '6px', fontSize: '20px' }} />
-        <Typography variant="h6" sx={{ paddingBottom: '8px' }}> +123-546-954</Typography>
+        <Typography variant="h5" sx={{ paddingBottom: '8px' }}> +123-546-954</Typography>
       </Box>
       <Box sx={{ display: 'flex' }}>
         <MailIcon sx={{ paddingRight: '6px', fontSize: '20px' }} />
-        <Typography variant="h6" sx={{ paddingBottom: '20px' }}> hell2023@gmail.com</Typography>
+        <Typography variant="h5" sx={{ paddingBottom: '20px' }}> hell2023@gmail.com</Typography>
       </Box>
       <ButtonComponent
         variant="contained"
