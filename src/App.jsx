@@ -7,6 +7,7 @@ const App = () => (
   <THEME>
     <Box backgroundColor="colors.primary">
       Hello from GYM APP
+
     </Box>
   </THEME>
 );
