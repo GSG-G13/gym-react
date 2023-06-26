@@ -19,11 +19,8 @@ import Announcement from './announcement/Announcement';
 import AnnouncementList from './announcement/AnnouncementList';
 import ClassInfoComp from './classInfo';
 import Table from './table';
-<<<<<<< HEAD
 import SignInComp from './signinform';
-=======
 import ProfileNav from './profileNav';
->>>>>>> 0f116186ee889dc2146b38b16c503c980b0c8fe9
 import ProductList from './productList/ProductList';
 import Footer from './footer/Footer';
 import CategoriesList from './categoriesList';
