@@ -8,7 +8,7 @@ const App = () => (
   <Provider>
 
     <THEME>
-      <Box backgroundColor="colors.primary">
+      <Box>
         {/* Hello from GYM APP */}
         <UserProfile />
       </Box>

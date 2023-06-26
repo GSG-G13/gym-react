@@ -9,11 +9,13 @@ const PersonalInfo = () => (
   <Box
     component="div"
     sx={{
-      pl: 25,
+      width: '90%',
+      alignSelf: 'start',
       height: '250px',
       display: 'flex',
       alignItems: 'center',
       gap: '30px',
+      m: '0 auto',
     }}
   >
     <Box component="div" sx={{ borderRadius: '50%' }}>
