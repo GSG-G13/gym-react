@@ -1,7 +1,6 @@
 import { Box, Container } from '@mui/material';
 import React from 'react';
-import { ProductDetails, NavbarClient } from '../../../components';
-import Footer from '../../../footer/Footer';
+import { ProductDetails, NavbarClient, Footer } from '../../../components';
 
 const ProductDetailsContainer = () => (
   <Box>

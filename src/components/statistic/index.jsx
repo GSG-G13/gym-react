@@ -22,7 +22,7 @@ const Statistic = () => {
   return (
     <List
       sx={{
-        width: '200px', maxWidth: 360, bgcolor: 'background.paper', border: '1px solid #ccc',
+        bgcolor: 'background.paper', border: '1px solid #ccc', flex: 0.2, height: 'fit-content',
       }}
       component="nav"
       aria-labelledby="nested-list-subheader"
@@ -35,7 +35,7 @@ const Statistic = () => {
       <ListItem onClick={handleClickUsers}>
         <ListItemText
           disableTypography
-          primary={<Typography variant="h5">Users</Typography>}
+          primary={<Typography variant="h6">Users</Typography>}
         />
         {openUsers ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
@@ -70,7 +70,7 @@ const Statistic = () => {
       <ListItem onClick={handleClickClasses}>
         <ListItemText
           disableTypography
-          primary={<Typography variant="h5">Classes</Typography>}
+          primary={<Typography variant="h6">Classes</Typography>}
         />
         {openClasses ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
@@ -114,7 +114,7 @@ const Statistic = () => {
       <ListItem onClick={handleClickProducts}>
         <ListItemText
           disableTypography
-          primary={<Typography variant="h5">Products</Typography>}
+          primary={<Typography variant="h6">Products</Typography>}
         />
         {openProducts ? <ExpandLess /> : <ExpandMore />}
       </ListItem>

@@ -20,6 +20,9 @@ import AnnouncementList from './announcement/AnnouncementList';
 import ClassInfoComp from './classInfo';
 import Table from './table';
 import FormDashBoard from './formDashboard/FormDashBoard';
+import ProductList from './productList/ProductList';
+import Footer from './footer/Footer';
+import CategoriesList from './categoriesList';
 import ClassesList from './classesList';
 
 export {
@@ -45,5 +48,8 @@ export {
   ClassInfoComp,
   Table,
   FormDashBoard,
+  ProductList,
+  Footer,
+  CategoriesList,
   ClassesList,
 };
