@@ -2,7 +2,8 @@ import AnnouncementContainer from './announcement';
 import DashBoardLayOut from '../admin/LayOut';
 import Class from './class';
 import ProductDetailsContainer from './productDetails';
+import Store from './product';
 
 export {
-  AnnouncementContainer, ProductDetailsContainer, Class, DashBoardLayOut,
+  Store, AnnouncementContainer, ProductDetailsContainer, Class, DashBoardLayOut,
 };
