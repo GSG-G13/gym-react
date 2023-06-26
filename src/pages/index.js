@@ -6,6 +6,7 @@ import {
   ProductDetailsContainer,
   AnnouncementContainer,
   UserProfile,
+  SignIn,
 } from './user';
 
 export {
@@ -16,5 +17,6 @@ export {
   DashBoardLayOut,
   Class,
   AnnouncementContainer,
+  SignIn,
   UserProfile,
 };

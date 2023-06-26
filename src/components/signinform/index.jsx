@@ -1,63 +1,53 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import styled from 'styled-components';
-import InputComp from '../inputfield/inputfield';
 import { passwordIcon, userIcon } from '../../utilize/icons';
 import ButtonComponent from '../button/Button';
+import InputComp from '../inputfield';
 
 const FormWrapper = styled.div`
 display: flex;
 flex-direction: column;
 padding: 2rem;
-right: 20rem;
-margin-bottom: 8rem;
-margin-top; 8rem;
 text-align: center;
 
-`;
-
-const StyledInputComp = styled(InputComp)`
-  margin-bottom: 1rem;
-  padding-bottom: 2rem;
-  color: red;
 
 `;
 
 const InputContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  margin:  auto;
+  width: 450px;
+  display: flex;
+flex-direction: column;
+justify-content: center;
+
+
 `;
 
 const SignInComp = () => (
-  <FormWrapper>
-    <InputContainer>
-      <Typography variant="h1" sx={{ marginBottom: '3.125rem', fontWeight: '700' }}>
-        Sign In
-      </Typography>
-      <Typography variant="h4" sx={{ marginBottom: '1.875rem', fontWeight: '500' }}>
-        Sign in and start managing your candidates!
-      </Typography>
-      <StyledInputComp name="Email" icon={userIcon} />
-      <StyledInputComp name="Password" icon={passwordIcon} />
-      <Typography sx={{
-        marginBottom: '1.0rem',
-        marginTop: '1.0rem',
-        fontSize: '.7rem',
-        color: '#002B5B',
-        position: 'relative',
-        left: '6.5rem',
-        top: '.6rem',
-      }}
-      >
-        Forgot password?
+  <Box>
+    <FormWrapper>
+      <InputContainer>
+        <Typography variant="h1" sx={{ marginBottom: '3.125rem', fontWeight: '700' }}>
+          Login
+        </Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <InputComp name="Email" icon={userIcon} />
+          <InputComp name="Password" icon={passwordIcon} />
+        </Box>
+        <Typography my={2} variant="h5" textAlign="start">
+          I do not have an account ? Sign up
+        </Typography>
+        <Typography mb={1} variant="h6" textAlign="start">
+          Forgot password?
 
-      </Typography>
-      <ButtonComponent variant="contained" color="#002B5B">
-        Sign in
-      </ButtonComponent>
-    </InputContainer>
-  </FormWrapper>
+        </Typography>
+
+        <ButtonComponent variant="contained" color="#002B5B">
+          Sign in
+        </ButtonComponent>
+      </InputContainer>
+    </FormWrapper>
+  </Box>
 );
 
 export default SignInComp;
