@@ -1,17 +1,8 @@
 import { Box } from '@mui/system';
-import styled from 'styled-components';
 import SignupComp from '../../../components/signup';
 import Footer from '../../../components/footer/Footer';
 import NavbarClient from '../../../components/navbar/NavbarClient';
-import { ReactComponent as SignUpImg } from '../../../assets/singupimage.svg';
-
-const StyledImg = styled(SignUpImg)`
-width: 27rem;
-height: auto;
-position: relative;
-left: 15rem;
-bottom: 2rem;
-`;
+import StyledImg from './styledComps';
 
 const SignupPage = () => (
   <div>
