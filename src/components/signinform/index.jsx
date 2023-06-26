@@ -4,18 +4,13 @@ import styled from 'styled-components';
 import InputComp from '../inputfield/inputfield';
 import { passwordIcon, userIcon } from '../../utilize/icons';
 import ButtonComponent from '../button/Button';
+import { ReactComponent as Login } from '../../assets/login.svg';
 
 const FormWrapper = styled.div`
 display: flex;
 flex-direction: column;
 padding: 2rem;
 text-align: center;
-`;
-
-const StyledInputComp = styled(InputComp)`
-  padding-bottom: 2rem;
-  color: red;
-
 `;
 
 const InputContainer = styled.div`
@@ -27,15 +22,15 @@ const InputContainer = styled.div`
 const SignInComp = () => (
   <Box mt={9} height="67vh">
     <FormWrapper>
+      <Login />
       <InputContainer>
         <Typography variant="h1" sx={{ marginBottom: '3.125rem', fontWeight: '700' }}>
-          Sign In
+          Login
         </Typography>
-        <Typography variant="h4" sx={{ marginBottom: '1.875rem', fontWeight: '500' }}>
-          Sign in and start managing your candidates!
-        </Typography>
-        <StyledInputComp name="Email" icon={userIcon} />
-        <StyledInputComp name="Password" icon={passwordIcon} />
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <InputComp name="Email" icon={userIcon} />
+          <InputComp name="Password" icon={passwordIcon} />
+        </Box>
         <Typography sx={{
           marginBottom: '1.0rem',
           marginTop: '1.0rem',
@@ -48,6 +43,18 @@ const SignInComp = () => (
         >
           Forgot password?
 
+        </Typography>
+        <Typography sx={{
+          marginBottom: '1.0rem',
+          marginTop: '1.0rem',
+          fontSize: '.7rem',
+          color: '#002B5B',
+          position: 'relative',
+          left: '6.5rem',
+          top: '.6rem',
+        }}
+        >
+          I do not have an account ? Sign up
         </Typography>
         <ButtonComponent variant="contained" color="#002B5B">
           Sign in
