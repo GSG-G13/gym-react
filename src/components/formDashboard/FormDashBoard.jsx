@@ -14,7 +14,12 @@ const FormDashBoard = ({ userInfo, text }) => (
       }}
     >
 
-      {userInfo.map((info) => <InputForm>{info}</InputForm>)}
+      {userInfo.map((info) => (
+        <InputForm key={userInfo}>
+          {' '}
+          {info}
+        </InputForm>
+      ))}
     </Box>
     <GroupButtons />
 

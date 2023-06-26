@@ -11,7 +11,7 @@ const ButtonComponent = ({
   const { setShowForm } = useContext(FormContext);
   return (
     <StyledButton
-      onClick={() => (children === 'Cancel' ? setShowForm(false) : setShowForm(true))}
+      onClick={() => (children === 'Cancel' || children === 'Delete Account' ? setShowForm(false) : setShowForm(true))}
       variant={variant}
       sx={{
         backgroundColor: color, fontSize: 12,

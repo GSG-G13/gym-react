@@ -15,9 +15,6 @@ const Footer = () => (
       justifyContent: 'space-around',
       backgroundColor: '#E4DCCF',
       height: '160px',
-      position: 'absolute',
-      bottom: 0,
-      width: '100%',
 
     }}
   >

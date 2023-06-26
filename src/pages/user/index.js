@@ -1,3 +1,4 @@
+import UserSetting from './userSetting/index';
 import AnnouncementContainer from './announcement';
 import DashBoardLayOut from '../admin/LayOut';
 import Class from './class';
@@ -14,4 +15,5 @@ export {
   DashBoardLayOut,
   UserProfile,
   SignIn,
+  UserSetting,
 };
