@@ -26,7 +26,7 @@ const NavbarClient = () => {
   };
 
   return (
-    <AppBar sx={{ width: '100vw', backgroundColor: 'colors.primary', color: '#000' }}>
+    <AppBar sx={{ width: '100%', backgroundColor: 'colors.primary', color: '#000' }}>
       <Container>
         <Toolbar sx={{
           display: 'flex',

@@ -2,8 +2,7 @@ import { Box } from '@mui/material';
 import React from 'react';
 import { Container } from '@mui/system';
 import NavbarClient from '../../../components/navbar/NavbarClient';
-import { ClassInfoComp, ClassesList } from '../../../components';
-import Footer from '../../../footer/Footer';
+import { ClassInfoComp, ClassesList, Footer } from '../../../components';
 import Provider from '../../../context/Provider';
 
 const Class = () => (

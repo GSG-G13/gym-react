@@ -19,6 +19,9 @@ import Announcement from './announcement/Announcement';
 import AnnouncementList from './announcement/AnnouncementList';
 import ClassInfoComp from './classInfo';
 import Table from './table';
+import ProductList from './productList/ProductList';
+import Footer from './footer/Footer';
+import CategoriesList from './categoriesList';
 import ClassesList from './classesList';
 
 export {
@@ -43,6 +46,9 @@ export {
   AnnouncementList,
   ClassInfoComp,
   Table,
+  ProductList,
+  Footer,
+  CategoriesList,
   ClassesList,
 
 };

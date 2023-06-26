@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Container } from '@mui/material';
-import { NavbarClient, AnnouncementList } from '../../../components';
-import Footer from '../../../footer/Footer';
+import { NavbarClient, AnnouncementList, Footer } from '../../../components';
 
 const AnnouncementContainer = () => (
   <Box>
