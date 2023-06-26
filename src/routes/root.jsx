@@ -1,10 +1,11 @@
 import { Outlet } from 'react-router-dom';
 
 const Root = () => (
-  <h1>
+  <div>
+
     GYM Root
     <Outlet />
-  </h1>
+  </div>
 );
 
 export default Root;
