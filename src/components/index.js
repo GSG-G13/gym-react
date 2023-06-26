@@ -24,6 +24,7 @@ import ProductList from './productList/ProductList';
 import Footer from './footer/Footer';
 import CategoriesList from './categoriesList';
 import ClassesList from './classesList';
+import UserSettingData from './userSettingData/UserSettingData';
 
 export {
   MenuComp,
@@ -52,4 +53,6 @@ export {
   Footer,
   CategoriesList,
   ClassesList,
+  UserSettingData,
+
 };
