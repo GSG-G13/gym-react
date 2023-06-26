@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from '@mui/system';
 import { Box } from '@mui/material';
-import { FormDashBoard, NavbarClient } from '../../../components';
+import {
+  Footer, FormDashBoard, NavbarClient, UserSettingData,
+} from '../../../components';
 import Provider from '../../../context/Provider';
-import Footer from '../../../footer/Footer';
 
 const userInfo = ['username', 'email', 'gender', 'weight', 'height', 'password', 'age', 'goalweight',
 ];
-const UserSetting = () => (
-  <Provider editBtnText="Edit info" deleteBtnText="Delete Account">
-    <NavbarClient />
-    <Box my={15}>
-      <Container sx={{ display: 'flex', justifyContent: 'center' }}>
+const UserSetting = () => {
+  const [showForm, setShowForm] = useState(false);
+  return (
+    <Provider setShowForm={setShowForm} editBtnText="Edit info" deleteBtnText="Delete Account">
+      <NavbarClient />
+      <Box my={15} position="relative">
+        <Container sx={{ display: 'flex', justifyContent: 'center' }}>
+          <UserSettingData />
+          <Box sx={{
+            display: showForm ? 'block' : 'none', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+          }}
+          >
+            <FormDashBoard userInfo={userInfo} text="user information" />
 
-        <FormDashBoard userInfo={userInfo} text="user information" />
-      </Container>
-    </Box>
-    <Footer />
-  </Provider>
-);
+          </Box>
+        </Container>
+      </Box>
+      <Footer />
+    </Provider>
+  );
+};
 export default UserSetting;

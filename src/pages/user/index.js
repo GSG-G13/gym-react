@@ -8,9 +8,6 @@ import UserProfile from './userProfile';
 import SignIn from './signin';
 
 export {
-<<<<<<< HEAD
-  Store, UserSetting, AnnouncementContainer, ProductDetailsContainer, Class, DashBoardLayOut,
-=======
   Store,
   AnnouncementContainer,
   ProductDetailsContainer,
@@ -18,5 +15,5 @@ export {
   DashBoardLayOut,
   UserProfile,
   SignIn,
->>>>>>> 8ca7f7f6c28356c499462fe8403240cfb6c44349
+  UserSetting,
 };
