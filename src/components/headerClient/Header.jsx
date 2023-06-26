@@ -4,20 +4,15 @@ import ButtonComponent from '../button/Button';
 import { ReactComponent as HeaderPhoto } from '../../assets/personal_trainer.svg';
 
 const Header = () => (
-  <Box
-    height="100vh"
-    sx={{
-      display: 'flex',
-      alignItems: 'center',
-
-    }}
-  >
+  <Box height="91vh" mt={6}>
     <Container>
-      <Box sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        mt={15}
       >
         <Box
           align="center"

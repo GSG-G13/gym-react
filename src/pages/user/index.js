@@ -6,6 +6,7 @@ import ProductDetailsContainer from './productDetails';
 import Store from './product';
 import UserProfile from './userProfile';
 import SignIn from './signin';
+import Home from './home';
 
 export {
   Store,
@@ -16,4 +17,5 @@ export {
   UserProfile,
   SignIn,
   UserSetting,
+  Home,
 };

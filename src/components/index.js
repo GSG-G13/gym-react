@@ -19,6 +19,7 @@ import Announcement from './announcement/Announcement';
 import AnnouncementList from './announcement/AnnouncementList';
 import ClassInfoComp from './classInfo';
 import Table from './table';
+import SliderComp from './slider';
 import FormDashBoard from './formDashboard/FormDashBoard';
 import SignInComp from './signinform';
 import ProfileNav from './profileNav';
@@ -51,6 +52,7 @@ export {
   AnnouncementList,
   ClassInfoComp,
   Table,
+  SliderComp,
   FormDashBoard,
   SignInComp,
   ProfileNav,
