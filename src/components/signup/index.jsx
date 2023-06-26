@@ -1,4 +1,3 @@
-// import styled from 'styled-components';
 import { Typography, Box } from '@mui/material';
 import InputComp from '../inputfield';
 import Provider from '../../context/Provider';
@@ -9,15 +8,6 @@ import {
 import {
   passwordIcon, userIcon, genderIcon, weightIcon, emailIcon, birthDataIcon, heightIcon,
 } from '../../utilize/icons';
-
-// const StyledLink = styled.a`
-// color: #002B5B;
-// font-weight: 550;
-// text-decoration: none;
-// position: relative;
-// left: 2.1875rem;
-
-// `;
 
 const SignupComp = () => (
   <Provider>
