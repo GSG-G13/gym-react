@@ -25,7 +25,6 @@ const ButtonComponent = ({
 const StyledButton = styled(Button)`
   flex: 0.2;
   padding: .7rem 1rem !important;
-  margin-left: 1.5rem !important;
 `;
 
 export default ButtonComponent;

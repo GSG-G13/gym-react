@@ -18,9 +18,9 @@ const InputComp = (props) => {
           borderRadius: '0.625rem',
           padding: '0.78125rem',
           paddingBottom: '2rem',
-          marginBottom: '3rem',
           position: 'absolute',
           width: '100%',
+
         },
       }}
       InputProps={{
@@ -30,7 +30,7 @@ const InputComp = (props) => {
           </InputAdornment>
         ),
         inputProps: {
-          style: { color: '#002B5B', fontWeight: '600' },
+          style: { color: '#002B5B', fontWeight: '500' },
         },
       }}
     />

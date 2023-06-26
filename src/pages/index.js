@@ -1,6 +1,12 @@
 import { UserList, ClassDashBoard } from './admin';
 import {
-  Store, Class, DashBoardLayOut, ProductDetailsContainer, AnnouncementContainer,
+  Store,
+  Class,
+  DashBoardLayOut,
+  ProductDetailsContainer,
+  AnnouncementContainer,
+  UserProfile,
+  SignIn,
 } from './user';
 
 export {
@@ -11,4 +17,6 @@ export {
   DashBoardLayOut,
   Class,
   AnnouncementContainer,
+  SignIn,
+  UserProfile,
 };
