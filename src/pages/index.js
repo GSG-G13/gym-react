@@ -8,6 +8,8 @@ import {
   UserProfile,
   SignIn,
   SignupPage,
+  Home,
+  UserSetting,
 } from './user';
 
 export {
@@ -21,4 +23,6 @@ export {
   SignIn,
   UserProfile,
   SignupPage,
+  Home,
+  UserSetting,
 };

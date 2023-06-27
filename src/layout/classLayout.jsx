@@ -1,12 +1,17 @@
 import { Outlet } from 'react-router-dom';
+import { Box, Container } from '@mui/material';
 import { ClassesList } from '../components';
 
 const ClassLayout = () => (
-  <div>
-    <ClassesList />
+  <Box>
+    <Container>
+      <Box sx={{ display: 'flex' }}>
+        <ClassesList />
+        <Outlet />
+      </Box>
+    </Container>
 
-    <Outlet />
-  </div>
+  </Box>
 );
 
 export default ClassLayout;

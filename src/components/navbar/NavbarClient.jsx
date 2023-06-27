@@ -10,8 +10,9 @@ import {
   IconButton, Typography,
   Menu, Container, MenuItem, Tooltip,
 } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
-const pages = ['Home', 'Store', 'Classes', 'Chat', 'Announcement'];
+const pages = ['home', 'store', 'class', 'chat', 'announcement'];
 const settings = [{ name: 'Profile', icon: <AccountCircleIcon /> }, { name: 'Settings', icon: <SettingsIcon /> }, { name: 'SignIn', icon: <LoginIcon /> }];
 
 const NavbarClient = () => {
@@ -27,7 +28,7 @@ const NavbarClient = () => {
 
   return (
     <AppBar sx={{
-      width: '100%', backgroundColor: 'colors.primary', color: '#000', position: 'sticky',
+      width: '100%', backgroundColor: 'colors.primary', color: '#000',
     }}
     >
       <Container>
@@ -65,13 +66,28 @@ const NavbarClient = () => {
             mr="60px"
           >
             {pages.map((page) => (
-              <Typography
-                variant="h5"
-                key={page}
-                sx={{ color: '#000', display: 'block' }}
+
+              <NavLink
+                to={page === 'home' ? '/' : page}
+                style={({ isActive }) => ({
+                  backgroundColor: isActive ? '#002B5B' : '',
+                  textDecoration: 'none',
+                })}
               >
-                {page}
-              </Typography>
+
+                <Typography
+                  variant="h5"
+                  key={page}
+                  sx={{
+                    color: '#000',
+                    display: 'block',
+                    textTransform: 'capitalize',
+                  }}
+
+                >
+                  {page}
+                </Typography>
+              </NavLink>
             ))}
           </Box>
 
