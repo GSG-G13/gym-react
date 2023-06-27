@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Typography, Container } from '@mui/material';
 import ButtonComponent from '../button/Button';
 import { ReactComponent as HeaderPhoto } from '../../assets/personal_trainer.svg';
+import { Link } from 'react-router-dom';
 
 const Header = () => (
   <Box height="91vh" mt={6}>
@@ -39,8 +40,12 @@ const Header = () => (
             Modi.
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
-            <ButtonComponent color="colors.darkBlue">Start A Session</ButtonComponent>
-            <ButtonComponent color="colors.darkBlue">Shop Now</ButtonComponent>
+            <ButtonComponent color="colors.darkBlue">
+              <Link to="/class">Start A Session</Link>
+            </ButtonComponent>
+            <ButtonComponent color="colors.darkBlue">
+              <Link to="/store">Shop Now</Link>
+            </ButtonComponent>
           </Box>
         </Box>
         <Box>

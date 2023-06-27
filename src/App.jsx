@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import THEME from './utilize/Theme';
-import './index.css';
 import Provider from './context/Provider';
 import {
   AnnouncementContainer,
@@ -36,7 +35,6 @@ const App = () => (
             <Route path="product" element={<ProductDetailsContainer />} />
             <Route path="profile" element={<UserProfile />} />
             <Route path="setting" element={<UserSetting />} />
-
           </Route>
         </Routes>
       </BrowserRouter>
