@@ -1,18 +1,21 @@
-import { Box } from '@mui/material';
-import { RouterProvider as Router } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import THEME from './utilize/Theme';
-import router from './routes/router';
 import './index.css';
 import Provider from './context/Provider';
+import { Store } from './pages';
+import Root from './routes/root';
 
 const App = () => (
   <Provider>
     <THEME>
-      <Router router={router} />
-      <Box backgroundColor="colors.primary">
-        Hello from GYM APP
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Root />}>
+            <Route index element={<Store />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
 
-      </Box>
     </THEME>
   </Provider>
 );

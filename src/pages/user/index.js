@@ -5,6 +5,7 @@ import ProductDetailsContainer from './productDetails';
 import Store from './product';
 import UserProfile from './userProfile';
 import SignIn from './signin';
+import SignupPage from './signup';
 
 export {
   Store,
@@ -14,4 +15,5 @@ export {
   DashBoardLayOut,
   UserProfile,
   SignIn,
+  SignupPage,
 };

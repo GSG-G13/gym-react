@@ -1,9 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Root from './root';
 
-import AnnouncementContainer from '../pages/user/announcement';
-import Class from '../pages/user/class';
-import ProductDetailsContainer from '../pages/user/productDetails';
+import {
+  SignIn,
+  ProductDetailsContainer,
+  SignupPage,
+  Store,
+  Class,
+  AnnouncementContainer,
+  UserProfile,
+} from '../pages';
+import ClassLayout from '../layout/classLayout';
 
 const router = createBrowserRouter([
   {
@@ -11,8 +18,8 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: '/home',
-        element: <h1>test</h1>,
+        path: '/',
+        element: <h1>home page</h1>,
       },
       {
         path: '/dashboard',
@@ -51,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/classes',
-        element: <Class />,
+        element: <ClassLayout />,
         children: [
           {
             path: '/classes/:class',
@@ -61,13 +68,17 @@ const router = createBrowserRouter([
       },
       {
         path: '/store',
-        element: <h1>test</h1>,
+        element: <Store />,
         children: [
           {
             path: '/store/:product',
-            element: <ProductDetailsContainer />,
+            element: <h1>test</h1>,
           },
         ],
+      },
+      {
+        path: '/product',
+        element: <ProductDetailsContainer />,
       },
       {
         path: '/user',
@@ -75,15 +86,15 @@ const router = createBrowserRouter([
         children: [
           {
             path: '/user/signup',
-            element: <h1>test</h1>,
+            element: <SignupPage />,
           },
           {
             path: '/user/signin',
-            element: <h1>test</h1>,
+            element: <SignIn />,
           },
           {
             path: '/user/profile',
-            element: <h1>test</h1>,
+            element: <UserProfile />,
             children: [
               {
                 path: '/user/profile/classes',
