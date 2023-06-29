@@ -4,6 +4,7 @@ import Root from './root';
 import AnnouncementContainer from '../pages/user/announcement';
 import Class from '../pages/user/class';
 import ProductDetailsContainer from '../pages/user/productDetails';
+import Store from '../pages/user/product';
 
 const router = createBrowserRouter([
   {
@@ -11,8 +12,8 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: '/home',
-        element: <h1>test</h1>,
+        path: '/',
+        element: <Store />,
       },
       {
         path: '/dashboard',
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/store',
-        element: <h1>test</h1>,
+        element: <Store />,
         children: [
           {
             path: '/store/:product',

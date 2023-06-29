@@ -24,10 +24,10 @@ const Footer = () => (
         5th Floor, Room 501
       </Typography>
       <Box mt="15px">
-        <FacebookIcon sx={{ px: '5px' }} />
-        <InstagramIcon sx={{ px: '5px' }} />
-        <YouTubeIcon sx={{ px: '5px' }} />
-        <LinkedInIcon sx={{ px: '5px' }} />
+        <FacebookIcon sx={{ px: '2px' }} />
+        <InstagramIcon sx={{ px: '2px' }} />
+        <YouTubeIcon sx={{ px: '2px' }} />
+        <LinkedInIcon sx={{ px: '2px' }} />
       </Box>
     </Box>
     <Box>

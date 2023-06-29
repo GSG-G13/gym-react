@@ -1,35 +1,43 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import CategoryCard from '../categoryCard/CategoryCard';
 
 const categories = [
   {
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU',
-    title: 'clothes',
+    title: 'Clothes',
   },
   {
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU',
-    title: 'clothes',
+    title: 'Equipment',
   },
   {
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU',
-    title: 'clothes',
+    title: 'Supplies',
+  },
+  {
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU',
+    title: 'Tools',
   },
 ];
 const CategoriesList = () => (
   <Box
     component="div"
+    px={2}
+
   >
-    <Typography align="left" pt="25PX" fontSize="25PX">Categories</Typography>
+    <Typography pb={1} align="left" pt="25PX" variant="h3">Categories</Typography>
+    <Divider />
+
     <Box sx={{
-      display: 'flex', flexDirection: 'column', gap: '10px', mt: 2,
+      display: 'flex', flexDirection: 'row', gap: 5, mt: 2, alignItems: 'center',
     }}
     >
       {
-      categories.map((category) => (
-        <CategoryCard key={category.title} category={category} />
-      ))
-    }
+        categories.map((category) => (
+          <CategoryCard key={category.title} category={category} />
+        ))
+      }
     </Box>
   </Box>
 );

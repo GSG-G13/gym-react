@@ -7,26 +7,38 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 const ProductCard = ({ product }) => (
-  <Card sx={{ Width: '155', border: '1px solid white', p: '8px' }}>
+  <Card sx={{ p: '5px', backgroundColor: 'transparent' }}>
     <CardMedia
-      sx={{ borderRadius: '20px' }}
+      sx={{ borderRadius: 2 }}
       component="img"
       alt="gym product"
       height="138"
       image={product.image}
+
     />
-    <CardContent>
-      <Typography gutterBottom variant="p" component="div" sx={{ paddingBottom: '8px' }}>
+    <CardContent sx={{
+      display: 'flex', flexDirection: 'column', gap: 1,
+    }}
+    >
+      <Typography variant="h5">
         weight loose
       </Typography>
       <Typography variant="body2" color="text.secondary">
         300$
       </Typography>
     </CardContent>
-    <CardActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <CardActions sx={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+    >
       <Button
         sx={{
-          width: '118px', height: '31px', fontSize: '12px', backgroundColor: '#002B5B', '&:hover': { backgroundColor: '#002B5B' },
+          px: 3,
+          fontSize: '11px',
+          backgroundColor: '#002B5B',
+          '&:hover': { backgroundColor: '#002B5B' },
         }}
         variant="contained"
       >

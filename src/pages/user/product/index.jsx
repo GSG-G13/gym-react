@@ -2,23 +2,21 @@ import React from 'react';
 import { Box, Container } from '@mui/material';
 import {
   ProductList,
-  Footer,
   CategoriesList,
-  NavbarClient,
   HomeStore,
 } from '../../../components';
+import StoreLayout from '../../../layout';
 
 const Store = () => (
   <Box>
-    <NavbarClient />
     <Container>
-      <HomeStore />
-      <Box sx={{ display: 'flex', gap: '90px' }}>
+      <StoreLayout />
+      {/* <HomeStore />
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
         <CategoriesList />
         <ProductList />
-      </Box>
+      </Box> */}
     </Container>
-    <Footer />
   </Box>
 );
 

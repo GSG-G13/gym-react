@@ -8,9 +8,8 @@ import Provider from './context/Provider';
 const App = () => (
   <Provider>
     <THEME>
-      <Router router={router} />
       <Box backgroundColor="colors.primary">
-        Hello from GYM APP
+        <Router router={router} />
 
       </Box>
     </THEME>

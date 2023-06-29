@@ -1,11 +1,15 @@
 import { Outlet } from 'react-router-dom';
+import { Box } from '@mui/material';
+import { Footer, NavbarClient } from '../components';
 
 const Root = () => (
-  <div>
+  <Box>
 
-    GYM Root
+    <NavbarClient />
     <Outlet />
-  </div>
+    <Footer />
+
+  </Box>
 );
 
 export default Root;
