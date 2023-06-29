@@ -15,6 +15,7 @@ const ProductDetails = () => (
     border: '1px solid #ccc',
     p: '30px',
     margin: 'auto',
+    backgroundColor: 'transparent',
   }}
   >
     <CardMedia

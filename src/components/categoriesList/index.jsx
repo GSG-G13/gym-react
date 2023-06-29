@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Divider, Typography } from '@mui/material';
+import { useOutletContext } from 'react-router-dom';
 import CategoryCard from '../categoryCard/CategoryCard';
 
 const categories = [
@@ -20,26 +21,28 @@ const categories = [
     title: 'Tools',
   },
 ];
-const CategoriesList = () => (
-  <Box
-    component="div"
-    px={2}
-
-  >
-    <Typography pb={1} align="left" pt="25PX" variant="h3">Categories</Typography>
-    <Divider />
-
-    <Box sx={{
-      display: 'flex', flexDirection: 'row', gap: 5, mt: 2, alignItems: 'center',
-    }}
+const CategoriesList = ({ setCategory }) => {
+  console.log(setCategory, 'ere');
+  return (
+    <Box
+      component="div"
+      px={2}
     >
-      {
-        categories.map((category) => (
-          <CategoryCard key={category.title} category={category} />
-        ))
-      }
+      <Typography pb={1} align="left" pt="25PX" variant="h3">Categories</Typography>
+      <Divider />
+
+      <Box sx={{
+        display: 'flex', flexDirection: 'row', gap: 5, mt: 2, alignItems: 'center',
+      }}
+      >
+        {
+          categories.map((category) => (
+            <CategoryCard key={category.title} category={category} setCategory={setCategory} />
+          ))
+        }
+      </Box>
     </Box>
-  </Box>
-);
+  );
+};
 
 export default CategoriesList;

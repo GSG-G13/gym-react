@@ -2,12 +2,11 @@ import React from 'react';
 import { Box, Container } from '@mui/material';
 import { rows, columns } from './dummyData';
 import {
-  NavbarClient, Table, PersonalInfo, ProfileNav, Footer,
+  Table, PersonalInfo, ProfileNav,
 } from '../../../components';
 
 const UserProfile = () => (
   <Box>
-    <NavbarClient />
     <Box mt={2}>
       <Container>
         <Box m="auto" width="70%">
@@ -26,7 +25,6 @@ const UserProfile = () => (
       </Container>
     </Box>
 
-    <Footer />
   </Box>
 );
 

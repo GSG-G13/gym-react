@@ -7,12 +7,13 @@ import LoginIcon from '@mui/icons-material/Login';
 import {
   AppBar,
   Box, Toolbar,
-  IconButton, Typography,
+  IconButton,
   Menu, Container, MenuItem, Tooltip,
 } from '@mui/material';
+import { Link, NavLink } from 'react-router-dom';
 
-const pages = ['Home', 'Store', 'Classes', 'Chat', 'Announcement'];
-const settings = [{ name: 'Profile', icon: <AccountCircleIcon /> }, { name: 'Settings', icon: <SettingsIcon /> }, { name: 'SignIn', icon: <LoginIcon /> }];
+const pages = ['home', 'store', 'class', 'chat', 'announcement'];
+const settings = [{ name: 'profile', icon: <AccountCircleIcon /> }, { name: 'setting', icon: <SettingsIcon /> }, { name: 'signin', icon: <LoginIcon /> }];
 
 const NavbarClient = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -37,12 +38,9 @@ const NavbarClient = () => {
 
         }}
         >
-          <Typography
-            variant="h1"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
+          <Link
+            to="/"
+            style={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontWeight: 700,
@@ -53,7 +51,7 @@ const NavbarClient = () => {
             }}
           >
             GYM
-          </Typography>
+          </Link>
 
           <Box
             sx={{
@@ -65,13 +63,19 @@ const NavbarClient = () => {
             mr="60px"
           >
             {pages.map((page) => (
-              <Typography
-                variant="h5"
+
+              <NavLink
+                to={page === 'home' ? '/' : page}
+                style={({ isActive }) => ({
+                  backgroundColor: isActive ? '#002B5B' : '',
+                  textDecoration: 'none',
+                  padding: '5px 10px',
+                  color: isActive ? '#fff' : '#002B5B',
+                })}
                 key={page}
-                sx={{ color: '#000', display: 'block' }}
               >
                 {page}
-              </Typography>
+              </NavLink>
             ))}
           </Box>
 
@@ -103,7 +107,9 @@ const NavbarClient = () => {
               {settings.map((setting) => (
                 <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
                   {setting.icon}
-                  <Typography textAlign="center" ml="10px">{setting.name}</Typography>
+                  <Link to={setting.name}>
+                    {setting.name}
+                  </Link>
 
                 </MenuItem>
               ))}
