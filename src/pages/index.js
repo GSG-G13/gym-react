@@ -7,7 +7,9 @@ import {
   AnnouncementContainer,
   UserProfile,
   SignIn,
+  SignupPage,
   Home,
+  UserSetting,
 } from './user';
 
 export {
@@ -20,5 +22,7 @@ export {
   AnnouncementContainer,
   SignIn,
   UserProfile,
+  SignupPage,
   Home,
+  UserSetting,
 };

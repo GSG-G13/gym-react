@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Box, Typography } from '@mui/material';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import MailIcon from '@mui/icons-material/Mail';
+import { Link } from 'react-router-dom';
 import ButtonComponent from '../button/Button';
 
 const PersonalInfo = () => (
@@ -41,7 +42,7 @@ const PersonalInfo = () => (
         variant="contained"
         color="colors.darkBlue"
       >
-        Profile Info
+        <Link to="/setting">Profile Info</Link>
 
       </ButtonComponent>
     </Box>
