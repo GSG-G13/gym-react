@@ -12,12 +12,14 @@ const ClassInfoComp = () => (
           <img
             src="https://goldsgym.in/uploads/blog/compress-strong-man-training-gym-min.jpg"
             alt="trainer"
-            style={{ width: 170, height: 170, borderRadius: '50%' }}
+            style={{
+              width: 170, height: 170, borderRadius: '50%', objectFit: 'cover',
+            }}
           />
           <Typography mt="10px" variant="h2">Hamdy Redwan</Typography>
         </Box>
 
-        <ButtonComponent color="colors.darkBlue">Join Class</ButtonComponent>
+        <ButtonComponent color="colors.darkBlue" flex="1">Join Class</ButtonComponent>
       </Box>
       <Box mt={2}>
         <Typography pr={3} variant="h5">
