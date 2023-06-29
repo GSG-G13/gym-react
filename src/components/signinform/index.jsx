@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { passwordIcon, userIcon } from '../../utilize/icons';
 import ButtonComponent from '../button/Button';
 import InputComp from '../inputfield';
+import { Link } from 'react-router-dom';
 
 const FormWrapper = styled.div`
 display: flex;
@@ -35,7 +36,9 @@ const SignInComp = () => (
           <InputComp name="Password" icon={passwordIcon} />
         </Box>
         <Typography my={2} variant="h5" textAlign="start">
-          I do not have an account ? Sign up
+          I do not have an account ?
+          {' '}
+          <Link to="/signup">Sign up</Link>
         </Typography>
         <Typography mb={1} variant="h6" textAlign="start">
           Forgot password?

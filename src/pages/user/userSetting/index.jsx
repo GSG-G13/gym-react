@@ -12,7 +12,6 @@ const UserSetting = () => {
   const [showForm, setShowForm] = useState(false);
   return (
     <Provider setShowForm={setShowForm} editBtnText="Edit info" deleteBtnText="Delete Account">
-      <NavbarClient />
       <Box my={15} position="relative">
         <Container sx={{ display: 'flex', justifyContent: 'center' }}>
           <UserSettingData />
@@ -25,7 +24,6 @@ const UserSetting = () => {
           </Box>
         </Container>
       </Box>
-      <Footer />
     </Provider>
   );
 };
