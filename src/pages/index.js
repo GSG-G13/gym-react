@@ -12,6 +12,8 @@ import {
   UserSetting,
 } from './user';
 
+import { HomeDashboard } from './admin';
+
 export {
   Store,
   ProductDetailsContainer,
@@ -25,4 +27,5 @@ export {
   SignupPage,
   Home,
   UserSetting,
+  HomeDashboard,
 };

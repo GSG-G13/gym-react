@@ -5,6 +5,7 @@ import {
   AnnouncementContainer,
   Class,
   Home,
+  HomeDashboard,
   ProductDetailsContainer,
   SignIn,
   SignupPage,
@@ -35,6 +36,8 @@ const App = () => (
             <Route path="product" element={<ProductDetailsContainer />} />
             <Route path="profile" element={<UserProfile />} />
             <Route path="setting" element={<UserSetting />} />
+            <Route path="home" element={<HomeDashboard />} />
+
           </Route>
         </Routes>
       </BrowserRouter>

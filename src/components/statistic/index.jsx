@@ -22,7 +22,7 @@ const Statistic = () => {
   return (
     <List
       sx={{
-        bgcolor: 'background.paper', border: '1px solid #ccc', flex: 0.2, height: 'fit-content',
+        bgcolor: 'background.paper', border: '1px solid #ccc', flex: 1, height: 'fit-content',
       }}
       component="nav"
       aria-labelledby="nested-list-subheader"
