@@ -30,7 +30,7 @@ const series = [
 const Combining = () => (
   <ChartContainer
     series={series}
-    width="550"
+    width="600"
     height={450}
     xAxis={[
       {

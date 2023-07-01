@@ -22,12 +22,21 @@ const Statistic = () => {
   return (
     <List
       sx={{
-        bgcolor: 'background.paper', border: '1px solid #ccc', flex: 1, height: 'fit-content',
+        bgcolor: 'background.paper',
+        border: '1px solid #ccc',
       }}
       component="nav"
       aria-labelledby="nested-list-subheader"
       subheader={(
-        <ListSubheader component="div" id="nested-list-subheader">
+        <ListSubheader
+          component="div"
+          id="nested-list-subheader"
+          sx={{
+            color: '#000',
+            fontWeight: '600',
+            fontSize: '0.90rem',
+          }}
+        >
           Statistics
         </ListSubheader>
       )}
@@ -35,7 +44,7 @@ const Statistic = () => {
       <ListItem onClick={handleClickUsers}>
         <ListItemText
           disableTypography
-          primary={<Typography variant="h6">Users</Typography>}
+          primary={<Typography variant="h5" fontWeight={600}>Users</Typography>}
         />
         {openUsers ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
@@ -44,21 +53,21 @@ const Statistic = () => {
           <ListItem>
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6">Clients</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>Clients</Typography>}
             />
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6">20.324</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>20.324</Typography>}
             />
           </ListItem>
           <ListItem>
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6">Trainers</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>Trainers</Typography>}
             />
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6">6</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>6</Typography>}
             />
 
           </ListItem>
@@ -70,7 +79,7 @@ const Statistic = () => {
       <ListItem onClick={handleClickClasses}>
         <ListItemText
           disableTypography
-          primary={<Typography variant="h6">Classes</Typography>}
+          primary={<Typography variant="h5" fontWeight={600}>Classes</Typography>}
         />
         {openClasses ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
@@ -79,31 +88,31 @@ const Statistic = () => {
           <ListItem>
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6">Yoga</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>Yoga</Typography>}
             />
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6">20</Typography>}
-            />
-          </ListItem>
-          <ListItem>
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6">Building</Typography>}
-            />
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6">30</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>20</Typography>}
             />
           </ListItem>
           <ListItem>
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6">Fitness</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>Building</Typography>}
             />
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6">45</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>30</Typography>}
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemText
+              disableTypography
+              primary={<Typography variant="h6" fontWeight={500}>Fitness</Typography>}
+            />
+            <ListItemText
+              disableTypography
+              primary={<Typography variant="h6" fontWeight={500}>45</Typography>}
             />
           </ListItem>
         </List>
@@ -114,7 +123,7 @@ const Statistic = () => {
       <ListItem onClick={handleClickProducts}>
         <ListItemText
           disableTypography
-          primary={<Typography variant="h6">Products</Typography>}
+          primary={<Typography variant="h5" fontWeight={600}>Products</Typography>}
         />
         {openProducts ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
@@ -123,31 +132,31 @@ const Statistic = () => {
           <ListItem>
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6">Clothes</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>Clothes</Typography>}
             />
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6">60</Typography>}
-            />
-          </ListItem>
-          <ListItem>
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6">Equipments</Typography>}
-            />
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6">45</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>60</Typography>}
             />
           </ListItem>
           <ListItem>
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6">Supplies</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>Equipments</Typography>}
             />
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6">130</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>45</Typography>}
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemText
+              disableTypography
+              primary={<Typography variant="h6" fontWeight={500}>Supplies</Typography>}
+            />
+            <ListItemText
+              disableTypography
+              primary={<Typography variant="h6" fontWeight={500}>130</Typography>}
             />
           </ListItem>
         </List>
