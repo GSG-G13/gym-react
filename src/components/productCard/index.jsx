@@ -18,7 +18,10 @@ const ProductCard = ({ product }) => (
 
     />
     <CardContent sx={{
-      display: 'flex', flexDirection: 'column', gap: 1,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: 1,
     }}
     >
       <Typography variant="h5">
