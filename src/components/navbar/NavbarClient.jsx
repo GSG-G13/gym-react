@@ -69,7 +69,10 @@ const NavbarClient = () => {
                 style={({ isActive }) => ({
                   backgroundColor: isActive ? '#002B5B' : '',
                   textDecoration: 'none',
+                  padding: '5px 10px',
+                  color: isActive ? '#fff' : '#002B5B',
                 })}
+                key={page}
               >
                 {page}
               </NavLink>

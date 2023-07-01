@@ -1,33 +1,22 @@
+import { Box, Typography } from '@mui/material';
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { ReactComponent as Card } from '../../assets/shooping.svg';
 
-const CategoryCard = ({ category }) => (
-  <Card sx={{
-    width: '80px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '10px',
-  }}
+const CategoryCard = ({ category, setCategory }) => (
+  <button
+    style={{
+      width: 'fit-content', border: 'none', cursor: 'pointer', backgroundColor: 'transparent',
+    }}
+    type="submit"
+    onClick={setCategory(category)}
   >
-    <CardActionArea sx={{ width: '50px' }}>
-      <CardMedia
-        sx={{ margin: 'auto' }}
-        component="img"
-        height="auto"
-        image={category.image}
-        alt="category product"
-      />
-      <CardContent sx={{ padding: '3px', textAlign: 'center' }}>
-        <Typography gutterBottom variant="h5">
-          {category.title}
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-  </Card>
+    <Box p={1} height={100}>
+      <Box height="70%">
+        <Card style={{ width: '100%', height: '100%' }} />
+      </Box>
+      <Typography my={1} variant="h5" textAlign="center">{category.title}</Typography>
+    </Box>
+
+  </button>
 );
 export default CategoryCard;
