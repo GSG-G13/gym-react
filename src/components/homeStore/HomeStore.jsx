@@ -9,7 +9,7 @@ const HomeStore = () => (
       <Box sx={{ display: 'flex', alignItems: 'end' }}>
         <Shopping style={{ width: '50%', height: '100%' }} />
 
-        <Box width={400} sx={{ position: 'absolute', left: 390, top: 100 }}>
+        <Box width={400} sx={{ position: 'absolute', left: 460, top: 140 }}>
           <Typography fontWeight={700} variant="h1">GYM Store</Typography>
           <Typography mt={3} variant="h5">
             At Gym, you can shop for all useful stuff , clothes,
