@@ -1,30 +1,37 @@
 import styled from 'styled-components';
 
 const SignupWrapper = styled.div`
-display: flex;
-flex-direction: row;
-jsutify-content: space-between;
-align-contetn: center;
-padding: 0rem;
+// display: flex;
+// flex-wrap: wrap;
+// justify-content: space-between;
+// align-content: center;
+// padding: 0rem;
+// width:50%;
 `;
-
 const FieldColumn = styled.div`
-display: flex;
-flex-direction: column;
-jsutify-content: space-between;
-align-contetn: center;
-padding: 2rem;
-gap:0.8rem;
-margin-bottom: rem; /* Add this line to increase the distance between columns */
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap:15px;
+
+// background-color:red;
+// display: flex;
+// flex-direction: column;
+// justify-content: space-between;
+// align-content: center;
+// gap:0.8rem;
+// margin-bottom: rem; /* Add this line to increase the distance between columns */
 
 
 `;
 const CompWrapper = styled.div`
-width: 100%;
-max-width:  43.75rem;
-margin: auto;
-margin-top: 2rem;
-margin-bottom: 3.5rem;
+// width: 50%;
+flex:1;
+margin-top:70px;
+// background-color:blue;
+// max-width:  43.75rem;
+// margin: auto;
+// margin-top: 2rem;
+// margin-bottom: 3.5rem;
 
 `;
 

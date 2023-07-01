@@ -23,8 +23,10 @@ const ButtonComponent = ({
 };
 
 const StyledButton = styled(Button)`
-  flex: 0.2;
+  flex: 0.5;
   padding: .7rem 1rem !important;
+  font-weight:600 !important;
+  font-size:14px !important;
 `;
 
 export default ButtonComponent;
