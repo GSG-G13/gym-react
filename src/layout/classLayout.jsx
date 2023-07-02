@@ -4,7 +4,7 @@ import { ClassesList } from '../components';
 
 const ClassLayout = () => (
   <Box>
-    <Container style={{ maxWidth: 1600 }}>
+    <Container>
       <Box sx={{ display: 'flex' }}>
         <ClassesList />
         <Outlet />

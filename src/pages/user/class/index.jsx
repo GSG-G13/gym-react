@@ -1,11 +1,18 @@
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import React from 'react';
 import { ClassInfoComp } from '../../../components';
+import Provider from '../../../context/Provider';
 
 const Class = () => (
-  <Box my={15} sx={{ display: 'flex', gap: 4, paddingLeft: '24px' }}>
-    <ClassInfoComp />
-  </Box>
+  <Provider>
+    <Box>
+      <Container>
+        <Box my={15} sx={{ display: 'flex', gap: 4 }}>
+          <ClassInfoComp />
+        </Box>
+      </Container>
+    </Box>
+  </Provider>
 );
 
 export default Class;
