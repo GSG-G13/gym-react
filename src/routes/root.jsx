@@ -1,12 +1,13 @@
 import { Outlet } from 'react-router-dom';
+import { Box } from '@mui/material';
 import { Footer, NavbarClient } from '../components';
 
 const Root = () => (
-  <div>
+  <Box>
     <NavbarClient />
     <Outlet />
     <Footer />
-  </div>
+  </Box>
 );
 
 export default Root;

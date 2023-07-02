@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 
 const Table = ({ rows, columns }) => (
-  <Box m="auto" width="fit-content">
+  <Box width="100%">
     <DataGrid
       rows={rows}
       columns={columns}
