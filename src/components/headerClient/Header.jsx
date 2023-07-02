@@ -1,11 +1,16 @@
 import React from 'react';
 import { Box, Typography, Container } from '@mui/material';
+import { Link } from 'react-router-dom';
 import ButtonComponent from '../button/Button';
 import { ReactComponent as HeaderPhoto } from '../../assets/personal_trainer.svg';
-import { Link } from 'react-router-dom';
 
 const Header = () => (
-  <Box height="91vh" mt={6}>
+  <Box
+    height="100vh"
+    sx={{
+      display: 'flex', justifyContent: 'center', alignItems: 'center',
+    }}
+  >
     <Container>
       <Box
         sx={{
@@ -13,7 +18,6 @@ const Header = () => (
           alignItems: 'center',
           justifyContent: 'center',
         }}
-        mt={15}
       >
         <Box
           align="center"
@@ -28,7 +32,7 @@ const Header = () => (
             <Typography variant="span">Unleash </Typography>
             Your Inner Athlete
           </Typography>
-          <Typography variant="h6" align="center" width="460px" my={4} pr={5}>
+          <Typography variant="h6" fontWeight={400} align="center" width="460px" my={3}>
             Lorem ipsum dolor sit amet,
             consectetur adipisicing elit.
             Ducimus nulla,
@@ -39,12 +43,15 @@ const Header = () => (
             numquam repellat blanditiis commodi eius.
             Modi.
           </Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+          <Box sx={{
+            display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px',
+          }}
+          >
             <ButtonComponent color="colors.darkBlue">
-              <Link to="/class">Start A Session</Link>
+              <Link style={{ color: '#fff', textDecoration: 'none' }} to="/class">Classes</Link>
             </ButtonComponent>
             <ButtonComponent color="colors.darkBlue">
-              <Link to="/store">Shop Now</Link>
+              <Link style={{ color: '#fff', textDecoration: 'none' }} to="/store">Shop Now</Link>
             </ButtonComponent>
           </Box>
         </Box>

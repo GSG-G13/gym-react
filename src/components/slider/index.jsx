@@ -9,6 +9,7 @@ const images = [
   'https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg',
   'https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg',
   'https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg',
+  'https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg',
   'https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg'];
 
 const SliderComp = () => {
@@ -27,9 +28,10 @@ const SliderComp = () => {
   const [imageIndex, setImageIndex] = useState(0);
 
   const settings = {
+    FullWidthMode: true,
     infinite: true,
     lazyLoad: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 3,
     centerMode: true,
     centerPadding: 0,
@@ -42,11 +44,19 @@ const SliderComp = () => {
     <Box className="sliderCom">
       <Slider {...settings}>
         {images.map((img, idx) => (
-          <div className={idx === imageIndex ? 'slide activeSlide' : 'slide'}>
-            <Typography variant="h1" textAlign="center">hello</Typography>
-            <Typography variant="h6" my={2} textAlign="center">hello from this stupid slider Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, aut.</Typography>
+          <Box key={img} className={idx === imageIndex ? 'slide activeSlide' : 'slide'}>
+            <Typography textTransform="capitalize" variant="h2" textAlign="center">hello</Typography>
+            <Typography
+              fontWeight={100}
+              variant="h6"
+              my={2}
+              textAlign="center"
+            >
+              hello from this stupid slider Lorem ipsum dolor sit
+              amet consectetur adipisicing elis. Nescient, aut.
+            </Typography>
             <img src={img} alt={img} />
-          </div>
+          </Box>
         ))}
       </Slider>
     </Box>
