@@ -16,18 +16,14 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const trainers = await axios.get('http://localhost:5050/api/users/trainers');
-        console.log(trainers.data);
         await handleDataChange(trainers.data.allTrainers);
-        console.log(trainersData);
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchData();
-    console.log(trainersData);
   }, []);
-  console.log(trainersData);
   return (
     <Box>
       <Header />
