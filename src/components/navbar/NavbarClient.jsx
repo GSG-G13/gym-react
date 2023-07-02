@@ -48,6 +48,7 @@ const NavbarClient = () => {
               color: 'inherit',
               textDecoration: 'none',
               '&:hover': { color: '#000' },
+              fontSize: '1.75rem',
             }}
           >
             GYM
@@ -71,6 +72,9 @@ const NavbarClient = () => {
                   textDecoration: 'none',
                   padding: '5px 10px',
                   color: isActive ? '#fff' : '#002B5B',
+                  borderRadius: '5px',
+                  transition: 'all 0.5s ease',
+                  textTransform: 'capitalize',
                 })}
                 key={page}
               >
@@ -107,7 +111,15 @@ const NavbarClient = () => {
               {settings.map((setting) => (
                 <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
                   {setting.icon}
-                  <Link to={setting.name}>
+                  <Link
+                    to={setting.name}
+                    style={{
+                      textDecoration: 'none',
+                      paddingLeft: '10px',
+                      textTransform: 'capitalize',
+                      color: '#000',
+                    }}
+                  >
                     {setting.name}
                   </Link>
 

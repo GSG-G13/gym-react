@@ -6,7 +6,7 @@ const OrderProductStatistic = ({ product }) => (
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    width: '200px',
+    width: '100%',
     borderBottom: '1px solid #ccc',
     p: '10px',
   }}
@@ -27,7 +27,7 @@ const OrderProductStatistic = ({ product }) => (
           boxShadow: '0 4px 4px 0 #C4C4C4',
         }}
       />
-      <Typography variant="h6">{product}</Typography>
+      <Typography variant="h6" fontWeight="600">{product}</Typography>
     </Box>
     <Box>
       <Typography variant="h6">30K</Typography>

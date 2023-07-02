@@ -28,6 +28,8 @@ const StyledButton = styled(Button)`
   flex: ${({ flex }) => (flex || '0.2')};
   max-width: fit-content;
   padding: .7rem 1rem !important;
+  font-weight:600 !important;
+  font-size:14px !important;
 `;
 
 export default ButtonComponent;

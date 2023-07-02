@@ -16,10 +16,10 @@ import DragHandleIcon from '@mui/icons-material/DragHandle';
 
 const SideBar = () => (
   <Paper sx={{
-    width: 240, maxWidth: '100%', backgroundColor: '#F1F2F7', paddingTop: 8,
+    width: 240, maxWidth: '100%', backgroundColor: '#F1F2F7', paddingTop: 2,
   }}
   >
-    <Typography variant="h5" align="left" p="20px">
+    <Typography variant="h5" align="left" p="20px" fontWeight={600}>
       <DragHandleIcon />
       MENU
     </Typography>

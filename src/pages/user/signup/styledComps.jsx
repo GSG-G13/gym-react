@@ -1,12 +1,9 @@
-import styled from 'styled-components';
-import { ReactComponent as SignUpImg } from '../../../assets/singupimage.svg';
+// import styled from 'styled-components';
+// import { ReactComponent as SignUpImg } from '../../../assets/singupimage.svg';
 
-const StyledImg = styled(SignUpImg)`
-width: 27rem;
-height: auto;
-position: relative;
-left: 15rem;
-bottom: 2rem;
-`;
+// const StyledImg = styled(SignUpImg)`
+// width:40%;
+// height:100%;
+// `;
 
-export default StyledImg;
+// export default StyledImg;

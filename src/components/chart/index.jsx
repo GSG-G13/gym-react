@@ -30,8 +30,8 @@ const series = [
 const Combining = () => (
   <ChartContainer
     series={series}
-    width="800"
-    height={400}
+    width="600"
+    height={450}
     xAxis={[
       {
         id: 'years',

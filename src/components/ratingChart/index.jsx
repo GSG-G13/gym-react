@@ -1,10 +1,20 @@
 import { Box, Typography } from '@mui/material';
 
 const RatingChart = () => (
-  <Box border="1px solid #ccc" p={2}>
-    <Typography>Rating</Typography>
-    <Typography>Lorem ipsum dolor sit amet, consectetur</Typography>
-    <Box position="relative">
+  <Box border="1px solid #ccc" p={2} height="400px">
+    <Typography variant="h5" fontWeight="700" mb="3px">Rating</Typography>
+    <Typography variant="body2" sx={{ color: '#999' }}>Lorem ipsum dolor sit amet, consectetur</Typography>
+    <Box
+      width="100%"
+      height="100%"
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'relative',
+        ml: 15,
+      }}
+    >
       <Box sx={{
         backgroundColor: 'rgba(0,0,0,0.3)',
         width: '140px',
@@ -14,14 +24,15 @@ const RatingChart = () => (
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        right: 170,
+        left: 70,
+        top: 10,
         zIndex: 3,
       }}
       >
-        85%
-
-        <br />
-        Revenu
+        <Typography variant="h4" fontWeight={500}>
+          85%
+          <Typography> Revenu</Typography>
+        </Typography>
       </Box>
 
       <Box sx={{
@@ -33,13 +44,14 @@ const RatingChart = () => (
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        top: 140,
+        left: 40,
+        top: 130,
       }}
       >
-        85%
-
-        <br />
-        Orders
+        <Typography variant="h4" fontWeight={500}>
+          85%
+          <Typography>Orders</Typography>
+        </Typography>
 
       </Box>
 
@@ -52,13 +64,16 @@ const RatingChart = () => (
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        right: 0,
+        left: 160,
+        top: 70,
+
       }}
       >
-        95%
+        <Typography variant="h4" fontWeight={500}>
+          95%
+          <Typography>Subscription</Typography>
 
-        <br />
-        Subscription
+        </Typography>
 
       </Box>
     </Box>

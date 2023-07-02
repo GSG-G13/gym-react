@@ -3,7 +3,7 @@ import InputComp from '../inputfield';
 import Provider from '../../context/Provider';
 import ButtonComponent from '../button/Button';
 import {
-  CompWrapper, ButtonContainer, FieldColumn, SignupWrapper,
+  CompWrapper, ButtonContainer, FieldColumn,
 } from './styledComps';
 import {
   passwordIcon, userIcon, genderIcon, weightIcon, emailIcon, birthDataIcon, heightIcon,
@@ -17,29 +17,26 @@ const SignupComp = () => (
         <Typography
           variant="h1"
           sx={{
-            marginBottom: '3.125rem', fontWeight: '700', position: 'relative', left: '18.5rem', top: '3rem',
+            marginBottom: '2rem',
+            fontWeight: '700',
+            textAlign: 'center',
           }}
         >
           Sign Up
         </Typography>
-        <SignupWrapper>
 
-          <FieldColumn>
-            <InputComp name="Username" sx={{ marginBottom: '8rem' }} icon={userIcon} />
-            <InputComp name="Password" icon={passwordIcon} sx={{ marginBottom: '8rem' }} />
-            <InputComp name="Gender" icon={genderIcon} sx={{ marginBottom: '8rem', marginTop: '3rem' }} />
-            <InputComp name="Weight" icon={weightIcon} />
-            <InputComp name="Goal Weight" icon={weightIcon} />
-          </FieldColumn>
+        <FieldColumn>
+          <InputComp name="Username" icon={userIcon} />
+          <InputComp name="Password" icon={passwordIcon} />
+          <InputComp name="Gender" icon={genderIcon} />
+          <InputComp name="Weight" icon={weightIcon} />
+          <InputComp name="Goal Weight" icon={weightIcon} />
+          <InputComp name="Email" icon={emailIcon} />
+          <InputComp name="Confirm Password" icon={passwordIcon} />
+          <InputComp name="Age" icon={birthDataIcon} />
+          <InputComp name="Height" icon={heightIcon} />
+        </FieldColumn>
 
-          <FieldColumn>
-            <InputComp name="Email" icon={emailIcon} />
-            <InputComp name="Confirm Password" icon={passwordIcon} />
-            <InputComp name="Age" icon={birthDataIcon} />
-            <InputComp name="Height" icon={heightIcon} />
-          </FieldColumn>
-
-        </SignupWrapper>
       </Box>
 
       <ButtonContainer>
