@@ -16,5 +16,6 @@ module.exports = {
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
     'react/prop-types': 'off',
     'linebreak-style': 'off',
+    'react-hooks/exhaustive-deps': 0,
   },
 };
