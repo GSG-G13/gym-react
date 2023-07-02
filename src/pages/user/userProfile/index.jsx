@@ -6,12 +6,11 @@ import {
 } from '../../../components';
 
 const UserProfile = () => (
-  <Box>
+  <Box marginBottom="2rem">
     <Box mt={2}>
       <Container>
         <Box m="auto" width="70%">
-
-          <Box>
+          <Box marginTop="5rem">
             <PersonalInfo />
           </Box>
           <Box>
