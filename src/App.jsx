@@ -15,7 +15,7 @@ import {
 import Root from './routes/root';
 import ClassLayout from './layout/classLayout';
 import StoreLayout from './layout';
-import { ProductList } from './components';
+import { ClassInfoComp, ProductList } from './components';
 
 const App = () => (
   <Provider>
@@ -26,6 +26,7 @@ const App = () => (
             <Route index element={<Home />} />
             <Route path="class" element={<ClassLayout />}>
               <Route index element={<Class />} />
+              <Route path=":id" element={<ClassInfoComp />} />
             </Route>
             <Route path="store" element={<StoreLayout />}>
               <Route index element={<Store />} />

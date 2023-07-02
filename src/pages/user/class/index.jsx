@@ -1,6 +1,5 @@
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import React from 'react';
-import { Container } from '@mui/system';
 import { ClassInfoComp } from '../../../components';
 import Provider from '../../../context/Provider';
 
