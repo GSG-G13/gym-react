@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Divider, Typography } from '@mui/material';
 import { useOutletContext } from 'react-router-dom';
 import CategoryCard from '../categoryCard/CategoryCard';
@@ -23,6 +23,13 @@ const categories = [
 ];
 const CategoriesList = ({ setCategory }) => {
   console.log(setCategory, 'ere');
+  const [categories, setCategories] = useState()
+  const getAllCategries = async () => {
+    const response = await axios.get('/api/categories');
+    console.log(response);
+    setCategory(response)
+
+  }
   return (
     <Box
       component="div"
