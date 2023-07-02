@@ -3,11 +3,12 @@ import { TextField, InputAdornment } from '@mui/material';
 
 const InputComp = (props) => {
   const {
-    name, icon,
+    name, icon, setFunction,
   } = props;
 
   return (
     <TextField
+      onChange={(e) => setFunction(e.target.value)}
       required
       placeholder={name}
       sx={{
