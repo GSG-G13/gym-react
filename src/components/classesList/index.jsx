@@ -26,14 +26,14 @@ const ClassesList = () => {
             // eslint-disable-next-line no-underscore-dangle
             to={`${classItem._id}`}
             key={classItem.className}
-            style={{
-              backgroundColor: classItem.className === 'Yoga' ? '#002B5B' : 'none',
-              color: classItem.className === 'Yoga' ? '#fff' : '#000',
+            style={({ isActive }) => ({
+              backgroundColor: isActive ? '#002B5B' : '',
+              color: isActive ? '#fff' : '#000',
               fontSize: '16px',
               textDecoration: 'none',
               display: 'block',
               padding: '16px',
-            }}
+            })}
             mt={3}
           >
             {classItem.className}
