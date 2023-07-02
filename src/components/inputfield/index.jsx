@@ -30,7 +30,7 @@ const InputComp = (props) => {
           </InputAdornment>
         ),
         inputProps: {
-          style: { color: '#002B5B', fontWeight: '500' },
+          style: { color: '#002B5B', fontWeight: '500', fontSize: '13px' },
         },
       }}
     />
