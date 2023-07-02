@@ -66,7 +66,7 @@ const ProductList = () => (
     py={3}
   >
     <Container>
-      <Typography pb={1} align="left" variant="h3">Clothes</Typography>
+      <Typography pb={1} align="left" variant="h3" fontWeight={600}>Clothes</Typography>
       <Divider />
 
       <Box

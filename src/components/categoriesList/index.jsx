@@ -28,7 +28,7 @@ const CategoriesList = ({ setCategory }) => {
       component="div"
       px={2}
     >
-      <Typography pb={1} align="left" pt="25PX" variant="h3">Categories</Typography>
+      <Typography pb={1} align="left" pt="25PX" variant="h3" fontWeight={600}>Categories</Typography>
       <Divider />
 
       <Box sx={{
