@@ -9,7 +9,7 @@ import {
 } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const SwiperComp = ({ images }) => (
+const SwiperComp = ({ trainers }) => (
   <Box>
     <Typography variant="h2" textAlign="center" fontWeight={700} mb={5}>Our Team</Typography>
     <Swiper
@@ -23,12 +23,12 @@ const SwiperComp = ({ images }) => (
       onSlideChange={() => console.log('slide change')}
     >
 
-      {images.map((item) => (
+      {trainers.map((item) => (
         <SwiperSlide style={{
           padding: '40px 0px', display: 'flex', flexDirection: 'column', gap: 15,
         }}
         >
-          <img height={350} width="300px" style={{ margin: 'auto', borderRadius: 40 }} src={item} alt={item} />
+          <img height={350} width="300px" style={{ margin: 'auto', borderRadius: 40 }} src={item.image} alt={item} />
           <Typography variant="h4" fontWeight={700} textAlign="center">trainer</Typography>
           <Typography variant="h6" fontWeight={100} textAlign="center">gym trainer</Typography>
         </SwiperSlide>

@@ -1,32 +1,49 @@
 import { Box, Container, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import Header from '../../../components/headerClient/Header';
 import { SliderComp } from '../../../components';
 import SwiperComp from '../../../components/swiper';
 
-const images = ['https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg',
-  'https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg',
-  'https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg',
-  'https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg',
-  'https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg',
-  'https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg'];
+const Home = () => {
+  const [trainersData, setTrainersData] = useState([]);
 
-const Home = () => (
-  <Box>
-    <Header />
-    <Container>
-      <Box>
-        <Box mb={10}>
-          <SliderComp />
-        </Box>
-        <Box mb={10} position="relative">
-          <SwiperComp images={images} />
-        </Box>
-      </Box>
-    </Container>
+  const handleDataChange = (newData) => {
+    setTrainersData(newData);
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const trainers = await axios.get('http://localhost:5050/api/users/trainers');
+        console.log(trainers.data);
+        await handleDataChange(trainers.data.allTrainers);
+        console.log(trainersData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-  </Box>
-);
+    fetchData();
+    console.log(trainersData);
+  }, []);
+  console.log(trainersData);
+  return (
+    <Box>
+      <Header />
+      <Container>
+        <Box>
+          <Box mb={10}>
+            <SliderComp />
+          </Box>
+          <Box mb={10} position="relative">
+            <SwiperComp trainers={trainersData} />
+          </Box>
+        </Box>
+      </Container>
+
+    </Box>
+  );
+};
 
 export default Home;
