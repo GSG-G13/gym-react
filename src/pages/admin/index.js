@@ -1,4 +1,5 @@
 import ClassDashBoard from './class';
 import UserList from './user';
+import HomeDashboard from './homeDashboard';
 
-export { UserList, ClassDashBoard };
+export { HomeDashboard, UserList, ClassDashBoard };
