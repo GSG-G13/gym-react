@@ -21,7 +21,7 @@ const DashBoardLayOut = ({ columns, rows, userInfo }) => {
                 display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 4, position: 'relative',
               }}
             >
-              <SearchDashboard btnText="Add User" />
+              <SearchDashboard btnText="Add Product" />
               <Table columns={columns} rows={rows} />
             </Box>
             <Box
