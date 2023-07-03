@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import { columns, rows } from '../../../dummyData/announcementData';
 import DashBoardLayOut from '../LayOut';
 
@@ -10,6 +11,7 @@ const AnnouncementDashboard = () => {
   const userInfo = ['Title', 'Description', 'Image'];
   const states = [title, description, image];
   const setStates = [setTitle, setDescription, setImage];
+
   return (
     <DashBoardLayOut
       columns={columns}

@@ -17,7 +17,9 @@ const style = {
   p: 4,
 };
 
-const DashboardNewPopUp = ({ children, userInfo }) => {
+const DashboardNewPopUp = ({
+  children, userInfo, states, setStates,
+}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,7 +39,12 @@ const DashboardNewPopUp = ({ children, userInfo }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <FormDashBoard userInfo={userInfo} onClick={handleClose} />
+          <FormDashBoard
+            userInfo={userInfo}
+            onClick={handleClose}
+            states={states}
+            setStates={setStates}
+          />
         </Box>
       </Modal>
     </div>
