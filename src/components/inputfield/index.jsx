@@ -7,7 +7,6 @@ const InputComp = (props) => {
   } = props;
   return (
     <TextField
-      onChange={(e) => setFunction(e.target.value)}
       required
       type={type || 'text'}
       error={error}
