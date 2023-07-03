@@ -6,7 +6,7 @@ import {
 } from '../../../components';
 
 const DashBoardLayOut = ({
-  columns, rows, userInfo, states, setStates,
+  columns, rows, userInfo, states, setStates, buttonName,
 }) => {
   const [showForm, setShowForm] = useState(false);
   return (
@@ -22,9 +22,12 @@ const DashBoardLayOut = ({
                 display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 4, position: 'relative',
               }}
             >
-              <SearchDashboard btnText="Add Announcement" userInfo={userInfo} states={states} setStates={setStates} />
-              {/* the above name should be taken as a prop but
-               i dont have time becuase my battray is almost drained */}
+              <SearchDashboard
+                btnText={buttonName}
+                userInfo={userInfo}
+                states={states}
+                setStates={setStates}
+              />
               <Table columns={columns} rows={rows} />
             </Box>
             <Box

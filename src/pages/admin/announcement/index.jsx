@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { columns, rows } from '../../../dummyData/announcementData';
 import DashBoardLayOut from '../LayOut';
 
@@ -14,6 +13,7 @@ const AnnouncementDashboard = () => {
 
   return (
     <DashBoardLayOut
+      buttonName="Add Announcmennt"
       columns={columns}
       rows={rows}
       userInfo={userInfo}
