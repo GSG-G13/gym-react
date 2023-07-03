@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const ProductCard = ({ product }) => (
   <Card sx={{ p: '5px', backgroundColor: 'transparent' }}>
@@ -49,7 +49,7 @@ const ProductCard = ({ product }) => (
         }}
         variant="contained"
       >
-        <Link to={`${product._id}`} style={{ color: '#fff', textDecoration: 'none' }}>Shop Now</Link>
+        <Link to={`/product/${product._id}`} style={{ color: '#fff', textDecoration: 'none' }}>Shop Now</Link>
       </Button>
 
     </CardActions>
