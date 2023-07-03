@@ -1,28 +1,19 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Box, Divider, Typography } from '@mui/material';
-import { useOutletContext } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import CategoryCard from '../categoryCard/CategoryCard';
 
-const categories = [
-  {
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU',
-    title: 'Clothes',
-  },
-  {
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU',
-    title: 'Equipment',
-  },
-  {
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU',
-    title: 'Supplies',
-  },
-  {
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU',
-    title: 'Tools',
-  },
-];
 const CategoriesList = ({ setCategory }) => {
-  console.log(setCategory, 'ere');
+  const [categories, setCategories] = useState([]);
+  const getAllCategories = async () => {
+    const response = await axios.get('/api/categories');
+    setCategories([...categories, response.data.categories]);
+  };
+  useEffect(() => {
+    getAllCategories();
+  }, []);
+
   return (
     <Box
       component="div"
@@ -36,8 +27,20 @@ const CategoriesList = ({ setCategory }) => {
       }}
       >
         {
-          categories.map((category) => (
-            <CategoryCard key={category.title} category={category} setCategory={setCategory} />
+          categories[0]?.map((category) => (
+            <NavLink
+              // eslint-disable-next-line no-underscore-dangle
+              style={{
+                textDecoration: 'none',
+                padding: '5px 10px',
+                borderRadius: '5px',
+                transition: 'all 0.5s ease',
+                textTransform: 'capitalize',
+              }}
+              onClick={() => setCategory(category.categoryName)}
+            >
+              <CategoryCard category={category} />
+            </NavLink>
           ))
         }
       </Box>

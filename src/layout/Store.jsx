@@ -11,8 +11,6 @@ const StoreLayout = () => {
         <HomeStore />
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
           <CategoriesList setCategory={setCategory} />
-          {/* here we send with context the category
-           that we want to pass to the product or store page or component */}
           <Outlet context={category} />
         </Box>
       </Container>
