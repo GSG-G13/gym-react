@@ -14,7 +14,7 @@ const GroupButtons = ({ onClick, states }) => {
 
   return (
     <ButtonGroup sx={{ display: 'flex', justifyContent: 'center', gap: 10 }} variant="outlined" aria-label="outlined button group">
-      <ButtonComponent color="colors.darkBlue" secondOnClick={sendData}>Add Announcement</ButtonComponent>
+      <ButtonComponent color="colors.darkBlue" secondOnClick={sendData}>Submit</ButtonComponent>
       <ButtonComponent color="colors.error" secondOnClick={onClick}>Cancel</ButtonComponent>
     </ButtonGroup>
   );
