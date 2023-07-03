@@ -39,7 +39,7 @@ const ProductList = () => {
             gap: 3,
           }}
         >
-          {allProducts?.length < 0 ? allProducts?.map((product) => (
+          {allProducts?.length > 0 ? allProducts?.map((product) => (
             // eslint-disable-next-line no-underscore-dangle
             <ProductCard key={product._id} product={product} />
           ))

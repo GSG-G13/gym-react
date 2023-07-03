@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -48,7 +49,7 @@ const ProductCard = ({ product }) => (
         }}
         variant="contained"
       >
-        <Link to="/product" style={{ color: '#fff', textDecoration: 'none' }}>Shop Now</Link>
+        <Link to={`${product._id}`} style={{ color: '#fff', textDecoration: 'none' }}>Shop Now</Link>
       </Button>
 
     </CardActions>
