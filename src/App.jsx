@@ -16,7 +16,6 @@ import Root from './routes/root';
 import ClassLayout from './layout/classLayout';
 import StoreLayout from './layout';
 import { ClassInfoComp, ProductList } from './components';
-import ProductListDashboard from './pages/admin/productList';
 
 const App = () => (
   <Provider>
@@ -24,7 +23,6 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Root />}>
-            <Route path="dash" element={<ProductListDashboard />} />
             <Route index element={<Home />} />
             <Route path="class" element={<ClassLayout />}>
               <Route index element={<Class />} />
