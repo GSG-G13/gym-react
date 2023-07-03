@@ -1,7 +1,6 @@
 import { Box } from '@mui/system';
 import { Container } from '@mui/material';
 import SignupComp from '../../../components/signup';
-// import StyledImg from './styledComps';
 import { ReactComponent as SignUpImg } from '../../../assets/singupimage.svg';
 
 const SignupPage = () => (

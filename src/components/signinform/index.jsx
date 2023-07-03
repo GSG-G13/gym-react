@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { Box, Typography } from '@mui/material';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
@@ -25,13 +25,30 @@ justify-content: center;
 
 `;
 
+const initialState = {
+  email: '',
+  password: '',
+};
+
+const reducer = (state, action) => ({
+  ...state,
+  [action.filedName]: action.value,
+});
+
 const SignInComp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleChange = (e, filedName) => {
+    const { value } = e.target;
+    dispatch({
+      filedName,
+      value,
+    });
+  };
   const navigate = useNavigate();
   const signIn = async (e) => {
     e.preventDefault();
-    const { data, status } = await axios.post('/api/users/login', { email, password });
+    const { data, status } = await axios.post('/api/users/login', state);
     if (status === 200) {
       localStorage.setItem('userData', JSON.stringify(data.userData));
       return navigate('/');
@@ -46,8 +63,8 @@ const SignInComp = () => {
             Login
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <InputComp name="Email" icon={userIcon} setFunction={setEmail} />
-            <InputComp name="Password" icon={passwordIcon} setFunction={setPassword} />
+            <InputComp name="Email" filedName="email" value={state.email} icon={userIcon} onChange={handleChange} />
+            <InputComp name="Password" filedName="password" value={state.password} icon={passwordIcon} onChange={handleChange} />
           </Box>
           <Typography my={2} variant="h5" textAlign="start">
             I do not have an account ?
