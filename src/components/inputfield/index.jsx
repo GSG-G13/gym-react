@@ -3,7 +3,7 @@ import { TextField, InputAdornment } from '@mui/material';
 
 const InputComp = (props) => {
   const {
-    name, icon, value, onChange, filedName, error, type,
+    name, icon, value, onChange, filedName, error, type, setFunction,
   } = props;
   return (
     <TextField
