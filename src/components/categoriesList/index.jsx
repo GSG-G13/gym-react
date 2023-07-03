@@ -4,24 +4,7 @@ import { Box, Divider, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import CategoryCard from '../categoryCard/CategoryCard';
 
-// const categories = [
-//   {
-//     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU',
-//     title: 'Clothes',
-//   },
-//   {
-//     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU',
-//     title: 'Equipment',
-//   },
-//   {
-//     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU',
-//     title: 'Supplies',
-//   },
-//   {
-//     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQvjUwT6gqiDvnbElziouELL7lV97cOEtAIQ&usqp=CAU',
-//     title: 'Tools',
-//   },
-// ];
+
 
 const CategoriesList = ({ setCategory }) => {
   const [categories, setCategories] = useState();
