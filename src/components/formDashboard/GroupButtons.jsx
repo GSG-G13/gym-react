@@ -4,7 +4,7 @@ import ButtonComponent from '../button/Button';
 
 const GroupButtons = ({ onClick, states }) => {
   const sendData = async () => {
-    await axios.post('http://localhost:5050/api/announcements', {
+    await axios.post('/api/announcements', {
       states,
     });
   };
