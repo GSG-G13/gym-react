@@ -25,10 +25,12 @@ const ProductCard = ({ product }) => (
     }}
     >
       <Typography variant="h5">
-        weight loose
+        {product.title}
       </Typography>
       <Typography variant="body2" color="text.secondary">
-        300$
+        {product.price}
+        {' '}
+        $
       </Typography>
     </CardContent>
     <CardActions sx={{
