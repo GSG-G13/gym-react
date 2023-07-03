@@ -16,14 +16,13 @@ import Root from './routes/root';
 import ClassLayout from './layout/classLayout';
 import StoreLayout from './layout';
 import { ClassInfoComp, ProductList } from './components';
-import AnnouncementDashboard from './pages/admin/announcement';
 
 const App = () => (
   <Provider>
     <THEME>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<AnnouncementDashboard />}>
+          <Route path="/" element={<Root />}>
             <Route index element={<Home />} />
             <Route path="class" element={<ClassLayout />}>
               <Route index element={<Class />} />
