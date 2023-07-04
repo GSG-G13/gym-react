@@ -6,7 +6,7 @@ import {
 } from '../../../components';
 
 const DashBoardLayOut = ({
-  columns, rows, userInfo, states, setStates, buttonName,
+  columns, rows, userInfo, axiosData, setStates, buttonName,
 }) => {
   const [showForm, setShowForm] = useState(false);
   return (
@@ -25,7 +25,7 @@ const DashBoardLayOut = ({
               <SearchDashboard
                 btnText={buttonName}
                 userInfo={userInfo}
-                states={states}
+                axiosData={axiosData}
                 setStates={setStates}
               />
               <Table columns={columns} rows={rows} />
