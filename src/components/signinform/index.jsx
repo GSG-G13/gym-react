@@ -50,7 +50,8 @@ const SignInComp = () => {
     e.preventDefault();
     const { data, status } = await axios.post('/api/users/login', state);
     if (status === 200) {
-      localStorage.setItem('userData', JSON.stringify(data.userData));
+      localStorage.setItem('userData', JSON.stringify(data.user));
+      console.log(data.user);
       return navigate('/');
     }
   };
@@ -63,8 +64,8 @@ const SignInComp = () => {
             Login
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <InputComp name="Email" filedName="email" value={state.email} icon={userIcon} onChange={handleChange} />
-            <InputComp name="Password" filedName="password" value={state.password} icon={passwordIcon} onChange={handleChange} />
+            <InputComp name="Email" type="text" filedName="email" value={state.email} icon={userIcon} onChange={handleChange} />
+            <InputComp name="Password" type="password" filedName="password" value={state.password} icon={passwordIcon} onChange={handleChange} />
           </Box>
           <Typography my={2} variant="h5" textAlign="start">
             I do not have an account ?
