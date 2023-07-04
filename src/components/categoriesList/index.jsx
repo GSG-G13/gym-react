@@ -5,13 +5,11 @@ import { Box, Divider, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import CategoryCard from '../categoryCard/CategoryCard';
 
-
-
 const CategoriesList = ({ setCategory }) => {
-  const [categories, setCategories] = useState();
+  const [categories, setCategories] = useState([]);
   const getAllCategories = async () => {
     const response = await axios.get('/api/categories');
-    setCategories(response.data.categories);
+    setCategories([...categories, response.data.categories]);
   };
   useEffect(() => {
     getAllCategories();
@@ -30,9 +28,9 @@ const CategoriesList = ({ setCategory }) => {
       }}
       >
         {
-          categories?.map((category) => (
+          categories[0]?.map((category) => (
             <NavLink
-              to={`?category=${category.categoryName}`}
+              // eslint-disable-next-line no-underscore-dangle
               style={{
                 textDecoration: 'none',
                 padding: '5px 10px',

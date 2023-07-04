@@ -1,7 +1,5 @@
 import { Button } from '@mui/material';
 import styled from 'styled-components';
-// import { useContext } from 'react';
-// import FormContext from '../../context';
 
 const ButtonComponent = ({
   variant,
@@ -9,17 +7,15 @@ const ButtonComponent = ({
   children,
   flex,
   onClick,
+  secondOnClick,
 }) => (
-  // const { setShowForm } = useContext(FormContext);
   <StyledButton
-    // onClick={(e) => (children === 'Cancel'
-    //   || children === 'Delete Account' ? setShowForm(false) : setShowForm(true))}
-    onClick={onClick}
     variant={variant}
     flex={flex}
     sx={{
       backgroundColor: color, fontSize: 12,
     }}
+    onClick={onClick || secondOnClick}
   >
     {children}
   </StyledButton>
