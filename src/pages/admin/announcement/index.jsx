@@ -36,6 +36,11 @@ const AnnouncementDashboard = () => {
   const userInfo = ['Title', 'Description', 'Image'];
   const states = [title, description, image];
   const setStates = [setTitle, setDescription, setImage];
+  const sendData = async () => {
+    await axios.post('/api/announcements', {
+      states,
+    });
+  };
 
   const getAnnouncmeent = async () => {
     const { data } = await axios.get('/api/announcements');
@@ -51,8 +56,8 @@ const AnnouncementDashboard = () => {
       columns={announcementColumns}
       rows={tableData}
       userInfo={userInfo}
-      states={states}
       setStates={setStates}
+      axiosData={sendData}
     />
   );
 };

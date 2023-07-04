@@ -18,7 +18,7 @@ const style = {
 };
 
 const DashboardNewPopUp = ({
-  children, userInfo, states, setStates,
+  children, userInfo, setStates, axiosData,
 }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -42,8 +42,8 @@ const DashboardNewPopUp = ({
           <FormDashBoard
             userInfo={userInfo}
             onClick={handleClose}
-            states={states}
             setStates={setStates}
+            axiosData={axiosData}
           />
         </Box>
       </Modal>
