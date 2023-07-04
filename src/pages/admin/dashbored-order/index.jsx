@@ -1,44 +1,69 @@
-import styled from 'styled-components';
-import { Container } from '@mui/system';
-import { Box } from '@mui/material';
-import SideBar from '../../../components/sideBar/SideBar';
-import NavBarDashBoard from '../../../components/navbarDashboard';
-import SearchDashboard from '../../../components/searchDashboard/Search';
-import Provider from '../../../context/Provider';
-import Table from '../../../components/table';
-import { rows, columns } from '../../../dummyData';
+/* eslint-disable no-underscore-dangle */
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import DashBoardLayOut from '../LayOut';
 
-const PageContent = styled.div`
-margin-top: 5rem;
-`;
+const columns = [
 
-const StyleTable = styled.div`
-margin-top: 1rem !important;
-padding
-`;
+  {
+    field: 'userName',
+    headerName: 'userName',
 
-const DashOrderPage = () => (
-  <Provider>
-    <Box mt={2}>
-      <NavBarDashBoard />
-      <Box sx={{ display: 'flex' }} height="100%">
-        <SideBar />
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <Container>
-            <Box>
-              <PageContent>
-                <SearchDashboard btnText="Search" />
-                <StyleTable>
-                  <Table rows={rows} columns={columns} />
-                </StyleTable>
-              </PageContent>
-            </Box>
-          </Container>
-        </Box>
-      </Box>
-    </Box>
-  </Provider>
+  },
+  {
+    field: 'productName',
+    headerName: 'productName',
 
-);
+  },
+  {
+    field: 'image',
+    headerName: 'Image',
+  },
+  {
+    field: 'amount',
+    headerName: 'Amount',
+  },
+  {
+    field: 'totalPrice',
+    headerName: 'totalPrice',
+  },
+  {
+    field: 'status',
+    headerName: 'Status',
+  },
 
+];
+
+const DashOrderPage = () => {
+  const [orders, setOrdersData] = useState([]);
+  const getOrders = async () => {
+    const response = await axios.get('/api/orders');
+    setOrdersData(response.data.orders);
+  };
+
+  useEffect(() => {
+    getOrders();
+  }, []);
+
+  const orderData = [];
+  orders.map((order) => orderData.push({
+    userName: order.userId.username,
+    productName: order.productId.title,
+    image: order.productId.image,
+    status: order.status,
+    amount: order.amount,
+    totalPrice: `${order.totalPrice}$`,
+
+    _id: order._id,
+  }));
+
+  return (
+
+    <DashBoardLayOut
+      columns={columns}
+      rows={orderData}
+      buttonName="Add product"
+    />
+  );
+};
 export default DashOrderPage;
