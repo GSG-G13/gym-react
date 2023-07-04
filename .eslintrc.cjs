@@ -17,5 +17,7 @@ module.exports = {
     'react/prop-types': 'off',
     'linebreak-style': 'off',
     'react-hooks/exhaustive-deps': 0,
+    'import/no-extraneous-dependencies': 0,
+
   },
 };

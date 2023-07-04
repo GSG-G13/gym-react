@@ -3,13 +3,19 @@ import { TextField, InputAdornment } from '@mui/material';
 
 const InputComp = (props) => {
   const {
-    name, icon,
+    name, icon, value, onChange, filedName, error, type, setFunction,
   } = props;
-
   return (
     <TextField
       required
+      type={type || 'text'}
+      error={error}
+      helperText={error}
       placeholder={name}
+      value={value}
+      onChange={(e) => {
+        onChange(e, filedName);
+      }}
       sx={{
         borderRadius: '0px',
         borderColor: '#002B5B',
@@ -21,6 +27,9 @@ const InputComp = (props) => {
           position: 'absolute',
           width: '100%',
 
+        },
+        '& .Mui-error': {
+          paddingTop: '8px',
         },
       }}
       InputProps={{
