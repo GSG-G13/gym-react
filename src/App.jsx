@@ -9,6 +9,7 @@ import {
   SignIn,
   SignupPage,
   Store,
+  SubscriptionDashboard,
   UserProfile,
   UserSetting,
 } from './pages';
@@ -23,6 +24,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Root />}>
+            <Route path="subscription" element={<SubscriptionDashboard />} />
+
             <Route index element={<Home />} />
             <Route path="class" element={<ClassLayout />}>
               <Route index element={<Class />} />

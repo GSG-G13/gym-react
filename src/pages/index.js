@@ -1,4 +1,6 @@
-import { UserList, ClassDashBoard } from './admin';
+import {
+  UserList, ClassDashBoard, HomeDashboard, SubscriptionDashboard,
+} from './admin';
 import {
   Store,
   Class,
@@ -11,8 +13,6 @@ import {
   Home,
   UserSetting,
 } from './user';
-
-import { HomeDashboard } from './admin';
 
 export {
   Store,
@@ -28,4 +28,5 @@ export {
   Home,
   UserSetting,
   HomeDashboard,
+  SubscriptionDashboard,
 };
