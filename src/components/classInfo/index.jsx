@@ -8,15 +8,18 @@ import ClassTable from '../classTable/ClassTable';
 const ClassInfoComp = () => {
   const { id } = useParams();
   const [classData, setClassData] = useState({});
-
+console.log(id);
   const getClassById = async () => {
     const response = await axios.get(`/api/classes/${id}`);
     setClassData(response.data.classObj);
   };
+  const addSubscription = async () => {
+    await axios.post(`/api/subscriptions/${id}`);
+  };
 
   useEffect(() => {
     getClassById();
-  }, [classData]);
+  }, [id]);
 
   return (
     <Box p={7} sx={{ border: '1px solid #ccc', borderRadius: 5 }}>
@@ -38,7 +41,7 @@ const ClassInfoComp = () => {
                      <Typography mt="10px" variant="h2">{classData.trainerId?.username}</Typography>
                    </Box>
 
-                   <ButtonComponent color="colors.darkBlue" flex="1">Join Class</ButtonComponent>
+                   <ButtonComponent onClick={addSubscription} color="colors.darkBlue" flex="1">Join Class</ButtonComponent>
                  </Box>
                  <Box mt={2}>
                    <Typography pr={3} variant="h5" sx={{ fontSize: '16px', fontWeight: '100' }}>
