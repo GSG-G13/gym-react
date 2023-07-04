@@ -4,9 +4,10 @@ import EditIcon from '@mui/icons-material/Edit';
 import DashBoardLayOut from '../LayOut';
 import ButtonComponent from '../../../components/button/Button';
 
-const EditButtonCell = () => {
-  const handleEdit = () => {
+const EditButtonCell = (params) => {
+  const handleEdit = (id) => {
     console.log('here i will handl edit');
+    
   };
   return (
     <ButtonComponent onClick={handleEdit}>
@@ -58,7 +59,7 @@ const AnnouncementDashboard = () => {
   const setStates = [setTitle, setDescription, setImage];
 
   const getAnnouncmeent = async () => {
-    const { data } = await axios.get('/api/announcements');
+    const { data } = await axios.get('http://localhost:5050/api/announcements');
     setTableData(data.announcements);
   };
   useEffect(() => {
