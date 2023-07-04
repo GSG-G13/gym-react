@@ -65,19 +65,7 @@ const UserSettingData = () => {
 
           </Typography>
         </Box>
-        <Divider />
-        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
 
-          <Typography variant="h5" color="gray">
-            passsword:
-
-          </Typography>
-
-          <Typography variant="h5">
-            {userSettingData.password}
-
-          </Typography>
-        </Box>
         <Divider />
 
         <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
@@ -120,7 +108,7 @@ const UserSettingData = () => {
         </Box>
 
       </Box>
-      <GroupButtons />
+      <GroupButtons btnText="Edit" deleteBtn="delete" />
 
     </Box>
   );

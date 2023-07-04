@@ -51,7 +51,6 @@ const SignInComp = () => {
     const { data, status } = await axios.post('/api/users/login', state);
     if (status === 200) {
       localStorage.setItem('userData', JSON.stringify(data.user));
-      console.log(data.user);
       return navigate('/');
     }
   };
