@@ -1,6 +1,20 @@
 import { useState, useEffect } from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import DashBoardLayOut from '../LayOut';
+import ButtonComponent from '../../../components/button/Button';
+
+const DeleteButtonCell = (row) => {
+  const handleDelete = async () => {
+    const { id } = row;
+    await axios.delete(`/api/announcements/${id}`);
+  };
+  return (
+    <ButtonComponent onClick={handleDelete}>
+      <DeleteIcon />
+    </ButtonComponent>
+  );
+};
 
 const announcementColumns = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -23,6 +37,12 @@ const announcementColumns = [
     type: 'string',
     width: 110,
     editable: true,
+  },
+  {
+    field: 'delete',
+    headerName: 'Delete',
+    width: 100,
+    renderCell: DeleteButtonCell,
   },
 ];
 
