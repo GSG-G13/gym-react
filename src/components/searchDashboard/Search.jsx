@@ -5,9 +5,11 @@ import {
   FormControl, IconButton, InputAdornment, OutlinedInput,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import ButtonComponent from '../button/Button';
+import DashboardNewPopUp from '../newPopUpComp';
 
-const SearchDashboard = ({ btnText }) => (
+const SearchDashboard = ({
+  btnText, userInfo, states, setStates,
+}) => (
   <Box width="100%" sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
     <FormControl sx={{ m: 1, height: '52px', flex: 0.8 }} variant="outlined">
       <OutlinedInput
@@ -32,11 +34,10 @@ const SearchDashboard = ({ btnText }) => (
         )}
       />
     </FormControl>
-    <ButtonComponent
-      color="colors.darkBlue"
-    >
+    <DashboardNewPopUp userInfo={userInfo} states={states} setStates={setStates}>
       {btnText}
-    </ButtonComponent>
+    </DashboardNewPopUp>
+
   </Box>
 );
 

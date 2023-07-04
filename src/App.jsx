@@ -15,8 +15,7 @@ import {
 import Root from './routes/root';
 import ClassLayout from './layout/classLayout';
 import StoreLayout from './layout';
-import { ClassInfoComp, ProductList } from './components';
-import ProductListDashboard from './pages/admin/productList';
+import { ClassInfoComp } from './components';
 
 const App = () => (
   <Provider>
@@ -24,7 +23,6 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Root />}>
-            <Route path="dash" element={<ProductListDashboard />} />
             <Route index element={<Home />} />
             <Route path="class" element={<ClassLayout />}>
               <Route index element={<Class />} />
@@ -32,7 +30,6 @@ const App = () => (
             </Route>
             <Route path="store" element={<StoreLayout />}>
               <Route index element={<Store />} />
-              <Route path="?category=category" element={<ProductList />} />
             </Route>
             <Route path="signin" element={<SignIn />} />
             <Route path="signup" element={<SignupPage />} />

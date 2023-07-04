@@ -4,9 +4,10 @@ import Provider from '../../../context/Provider';
 import {
   NavBarDashBoard, SearchDashboard, SideBar, Table,
 } from '../../../components';
-import FormDashBoard from '../../../components/formDashboard/FormDashBoard';
 
-const DashBoardLayOut = ({ columns, rows, userInfo }) => {
+const DashBoardLayOut = ({
+  columns, rows, userInfo, states, setStates, buttonName,
+}) => {
   const [showForm, setShowForm] = useState(false);
   return (
     <Provider setShowForm={setShowForm}>
@@ -21,7 +22,12 @@ const DashBoardLayOut = ({ columns, rows, userInfo }) => {
                 display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 4, position: 'relative',
               }}
             >
-              <SearchDashboard btnText="Add Product" />
+              <SearchDashboard
+                btnText={buttonName}
+                userInfo={userInfo}
+                states={states}
+                setStates={setStates}
+              />
               <Table columns={columns} rows={rows} />
             </Box>
             <Box
@@ -32,9 +38,7 @@ const DashBoardLayOut = ({ columns, rows, userInfo }) => {
                 transform: 'translate(-50%,-50%)',
                 display: showForm ? 'block' : 'none',
               }}
-            >
-              <FormDashBoard userInfo={userInfo} />
-            </Box>
+            />
           </Container>
         </Box>
       </Box>

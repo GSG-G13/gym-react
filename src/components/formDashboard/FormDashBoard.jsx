@@ -3,7 +3,9 @@ import { Box, Typography } from '@mui/material';
 import InputForm from './InputForm';
 import GroupButtons from './GroupButtons';
 
-const FormDashBoard = ({ userInfo, text }) => (
+const FormDashBoard = ({
+  userInfo, text, onClick, states, setStates,
+}) => (
   <Box backgroundColor="#fff" border="1px solid #ccc" p={2}>
     <Typography sx={{ color: '#000', textAlign: 'center' }}>{text}</Typography>
 
@@ -14,14 +16,14 @@ const FormDashBoard = ({ userInfo, text }) => (
       }}
     >
 
-      {userInfo.map((info) => (
-        <InputForm key={userInfo}>
+      {userInfo.map((info, index) => (
+        <InputForm key={info} setState={setStates[index]}>
           {' '}
           {info}
         </InputForm>
       ))}
     </Box>
-    <GroupButtons />
+    <GroupButtons onClick={onClick} states={states} />
 
   </Box>
 
