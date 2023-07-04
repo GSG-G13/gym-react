@@ -1,12 +1,37 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { columns, rows } from '../../../dummyData/announcementData';
 import DashBoardLayOut from '../LayOut';
+
+const announcementColumns = [
+  { field: 'id', headerName: 'ID', width: 90 },
+  {
+    field: 'title',
+    headerName: 'Title',
+    width: 150,
+    editable: true,
+  },
+  {
+    field: 'description',
+    headerName: 'Description',
+    type: 'string',
+    width: 110,
+    editable: true,
+  },
+  {
+    field: 'image',
+    headerName: 'Image',
+    type: 'string',
+    width: 110,
+    editable: true,
+  },
+];
 
 const AnnouncementDashboard = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
+
+  const [tableData, setTableData] = useState([]);
 
   const userInfo = ['Title', 'Description', 'Image'];
   const states = [title, description, image];
@@ -16,11 +41,20 @@ const AnnouncementDashboard = () => {
       states,
     });
   };
+
+  const getAnnouncmeent = async () => {
+    const { data } = await axios.get('/api/announcements');
+    setTableData(data.announcements);
+  };
+  useEffect(() => {
+    getAnnouncmeent();
+  }, []);
+
   return (
     <DashBoardLayOut
       buttonName="Add Announcmennt"
-      columns={columns}
-      rows={rows}
+      columns={announcementColumns}
+      rows={tableData}
       userInfo={userInfo}
       setStates={setStates}
       axiosData={sendData}

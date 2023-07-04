@@ -1,12 +1,24 @@
 import { Box } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Announcement from './Announcement';
 
-const list = ['Abeer', 'Adhem', 'Ahmed', 'Heleena'];
-const AnnouncementList = () => (
-  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} my={10}>
-    {list.map((announce) => <Announcement announce={announce} />)}
-  </Box>
-);
+const AnnouncementList = () => {
+  const [announcement, setAnnouncement] = useState([]);
+  const getAnnouncement = async () => {
+    const response = await axios.get('/api/announcements');
+    setAnnouncement(response.data.announcements);
+  };
+
+  useEffect(() => {
+    getAnnouncement();
+  }, []);
+
+  return (
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} my={10}>
+      {announcement?.map((announce) => <Announcement announce={announce} />)}
+    </Box>
+  );
+};
 
 export default AnnouncementList;
