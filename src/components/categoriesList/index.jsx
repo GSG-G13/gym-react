@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Box, Divider, Typography } from '@mui/material';
@@ -37,6 +38,7 @@ const CategoriesList = ({ setCategory }) => {
                 transition: 'all 0.5s ease',
                 textTransform: 'capitalize',
               }}
+              key={category._id}
               onClick={() => setCategory(category.categoryName)}
             >
               <CategoryCard category={category} />
