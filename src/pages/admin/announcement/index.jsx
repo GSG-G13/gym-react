@@ -2,20 +2,33 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import EditIcon from '@mui/icons-material/Edit';
 import DashBoardLayOut from '../LayOut';
-import ButtonComponent from '../../../components/button/Button';
+import DashboardNewPopUp from '../../../components/newPopUpComp';
 
-const EditButtonCell = (params) => {
-  const handleEdit = (id) => {
-    console.log('here i will handl edit');
-    
+const EditButtonCell = (row) => {
+  const announcmentFields = ['New Title', 'New Description', 'New Image'];
+  const [newTitle, setNewTitle] = useState('');
+  const [newDescription, setNewDescription] = useState('');
+  const [newImage, setNewImage] = useState('');
+
+  const states = [newTitle, newDescription, newImage];
+  const setStates = [setNewTitle, setNewDescription, setNewImage];
+  const handleEdit = async () => {
+    const { id } = row;
+    await axios.put(`api/announcements/${id}`, { states });
   };
+
   return (
-    <ButtonComponent onClick={handleEdit}>
+    <DashboardNewPopUp
+      userInfo={announcmentFields}
+      states={states}
+      setStates={setStates}
+      axiosData={handleEdit}
+
+    >
       <EditIcon />
-    </ButtonComponent>
+    </DashboardNewPopUp>
   );
 };
-
 const announcementColumns = [
   { field: 'id', headerName: 'ID', width: 90 },
   {
@@ -65,6 +78,11 @@ const AnnouncementDashboard = () => {
   useEffect(() => {
     getAnnouncmeent();
   }, []);
+  const postAnnouncement = async () => {
+    await axios.post('/api/announcements', {
+      states,
+    });
+  };
 
   return (
     <DashBoardLayOut
@@ -74,6 +92,7 @@ const AnnouncementDashboard = () => {
       userInfo={userInfo}
       states={states}
       setStates={setStates}
+      axiosData={postAnnouncement}
     />
   );
 };
