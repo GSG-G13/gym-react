@@ -5,9 +5,8 @@ import {
   FormDashBoard, UserSettingData,
 } from '../../../components';
 import Provider from '../../../context/Provider';
+import DashboardNewPopUp from '../../../components/newPopUpComp';
 
-const userInfo = ['username', 'email', 'gender', 'weight', 'height', 'age', 'goalweight',
-];
 const UserSetting = () => {
   const [showForm, setShowForm] = useState(false);
   const [username, setUsername] = useState('');
@@ -23,14 +22,7 @@ const UserSetting = () => {
     <Provider setShowForm={setShowForm} editBtnText="Edit info" deleteBtnText="Delete Account">
       <Box my={15} position="relative">
         <Container sx={{ display: 'flex', justifyContent: 'center' }}>
-          <UserSettingData />
-          <Box sx={{
-            display: showForm ? 'block' : 'none', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
-          }}
-          >
-            <FormDashBoard setShowForm={setShowForm} userInfo={userInfo} text="user information" setStates={setStates} states={states} />
-
-          </Box>
+          <UserSettingData states={states} setStates={setStates} />
         </Container>
       </Box>
     </Provider>

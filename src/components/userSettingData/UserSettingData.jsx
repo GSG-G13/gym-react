@@ -1,8 +1,11 @@
 import { Box, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import GroupButtons from '../formDashboard/GroupButtons';
+import DashboardNewPopUp from '../newPopUpComp';
 
-const UserSettingData = () => {
+const userInfo = ['username', 'email', 'gender', 'weight', 'height', 'age', 'goalweight',
+];
+const UserSettingData = ({ setStates, states }) => {
   const userSettingData = JSON.parse(localStorage.getItem('userData'));
   return (
     <Box sx={{
@@ -106,9 +109,16 @@ const UserSettingData = () => {
 
           </Typography>
         </Box>
+        <DashboardNewPopUp
+          setStates={setStates}
+          userInfo={userInfo}
+          states={states}
+        >
+          edit
 
+        </DashboardNewPopUp>
+        <button>delete</button>
       </Box>
-      <GroupButtons btnText="Edit" deleteBtn="delete" />
 
     </Box>
   );
