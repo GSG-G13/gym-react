@@ -4,7 +4,7 @@ import { userInfo, columns } from '../../../dummyData/productData';
 import DashBoardLayOut from '../LayOut';
 
 const ProductListDashboard = () => {
-  const [rows, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
     const response = await axios.get('/api/products');
@@ -15,7 +15,7 @@ const ProductListDashboard = () => {
     getProducts();
   }, []);
 
-  return (<DashBoardLayOut userInfo={userInfo} columns={columns} rows={rows} />);
+  return (<DashBoardLayOut userInfo={userInfo} columns={columns} rows={products} />);
 };
 
 export default ProductListDashboard;
