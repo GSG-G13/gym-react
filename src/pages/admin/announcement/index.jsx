@@ -1,6 +1,19 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import EditIcon from '@mui/icons-material/Edit';
 import DashBoardLayOut from '../LayOut';
+import ButtonComponent from '../../../components/button/Button';
+
+const EditButtonCell = () => {
+  const handleEdit = () => {
+    console.log('here i will handl edit');
+  };
+  return (
+    <ButtonComponent onClick={handleEdit}>
+      <EditIcon />
+    </ButtonComponent>
+  );
+};
 
 const announcementColumns = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -24,6 +37,13 @@ const announcementColumns = [
     width: 110,
     editable: true,
   },
+  {
+    field: 'edit',
+    headerName: 'Edit',
+    width: 100,
+    renderCell: EditButtonCell,
+  },
+
 ];
 
 const AnnouncementDashboard = () => {
