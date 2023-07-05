@@ -5,32 +5,28 @@ import GroupButtons from './GroupButtons';
 
 const FormDashBoard = ({
   userInfo, text, onClick, states, setStates, setShowForm, userData,
-}) => {
-  console.log(userData, 'from form');
+}) => (
+  <Box backgroundColor="#fff" border="1px solid #ccc" p={2}>
+    <Typography sx={{ color: '#000', textAlign: 'center' }}>{text}</Typography>
 
-  return (
-    <Box backgroundColor="#fff" border="1px solid #ccc" p={2}>
-      <Typography sx={{ color: '#000', textAlign: 'center' }}>{text}</Typography>
+    <Box
+      p="40px"
+      sx={{
+        display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 2, width: '675px ',
+      }}
+    >
 
-      <Box
-        p="40px"
-        sx={{
-          display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 2, width: '675px ',
-        }}
-      >
-
-        {userInfo.map((info, index) => (
-          <InputForm key={info} setState={setStates[index]}>
-            {' '}
-            {info}
-          </InputForm>
-        ))}
-      </Box>
-      <GroupButtons onClick={onClick} states={states} setShowForm={setShowForm} />
-
+      {userInfo.map((info, index) => (
+        <InputForm key={info} setState={setStates[index]}>
+          {' '}
+          {info}
+        </InputForm>
+      ))}
     </Box>
+    <GroupButtons onClick={onClick} states={states} setShowForm={setShowForm} />
 
-  );
-};
+  </Box>
+
+);
 
 export default FormDashBoard;
