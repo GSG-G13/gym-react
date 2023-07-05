@@ -77,12 +77,12 @@ const AnnouncementDashboard = () => {
     );
   };
 
-  const getAnnouncmeent = async () => {
+  const getAnnouncement = async () => {
     const { data } = await axios.get('/api/announcements');
     setTableData(data.announcements);
   };
   useEffect(() => {
-    getAnnouncmeent();
+    getAnnouncement();
   }, []);
 
   return (
