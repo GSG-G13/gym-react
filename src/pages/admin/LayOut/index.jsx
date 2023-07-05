@@ -7,7 +7,7 @@ import {
 } from '../../../components';
 
 const DashBoardLayOut = ({
-  columns, rows, userInfo, states, setStates, buttonName, error,
+  columns, rows, userInfo, setStates, buttonName, error, axiosData,
 }) => {
   const [showForm, setShowForm] = useState(false);
   return (
@@ -26,10 +26,13 @@ const DashBoardLayOut = ({
               <SearchDashboard
                 btnText={buttonName}
                 userInfo={userInfo}
-                states={states}
                 setStates={setStates}
+                axiosData={axiosData}
               />
-              {error ? <Alerts message={error} type="error" /> : <Table columns={columns} rows={rows} />}
+              {error
+                ? <Alerts message={error} type="error" />
+
+                : <Table columns={columns} rows={rows} />}
             </Box>
             <Box
               sx={{

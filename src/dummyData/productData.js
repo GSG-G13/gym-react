@@ -6,6 +6,10 @@ const columns = [
     headerName: 'Title',
   },
   {
+    field: 'image',
+    headerName: 'Image',
+  },
+  {
     field: 'rating',
     headerName: 'Rating',
   },

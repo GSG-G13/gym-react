@@ -1,5 +1,8 @@
 import {
-  UserList, ClassDashBoard, HomeDashboard, SubscriptionDashboard,
+  UserList, ClassDashBoard,
+  HomeDashboard,
+  SubscriptionDashboard,
+  DashOrderPage,
 } from './admin';
 import {
   Store,
@@ -29,4 +32,5 @@ export {
   UserSetting,
   HomeDashboard,
   SubscriptionDashboard,
+  DashOrderPage,
 };
