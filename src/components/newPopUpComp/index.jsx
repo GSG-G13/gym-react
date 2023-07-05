@@ -18,7 +18,7 @@ const style = {
 };
 
 const DashboardNewPopUp = ({
-  children, userInfo, states, setStates, columns, axiosData,
+  children, userInfo, setStates, axiosData,
 }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -42,9 +42,7 @@ const DashboardNewPopUp = ({
           <FormDashBoard
             userInfo={userInfo}
             onClick={handleClose}
-            states={states}
             setStates={setStates}
-            columns={columns}
             axiosData={axiosData}
           />
         </Box>

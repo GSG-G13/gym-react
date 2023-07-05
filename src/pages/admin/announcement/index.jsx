@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import EditIcon from '@mui/icons-material/Edit';
-import DashBoardLayOut from '../LayOut';
+import DashBoardLayOut from '../LayOut/index.jsx';
 import DashboardNewPopUp from '../../../components/newPopUpComp';
 
 const EditButtonCell = (row) => {
@@ -90,7 +90,6 @@ const AnnouncementDashboard = () => {
       columns={announcementColumns}
       rows={tableData}
       userInfo={userInfo}
-      states={states}
       setStates={setStates}
       axiosData={postAnnouncement}
     />

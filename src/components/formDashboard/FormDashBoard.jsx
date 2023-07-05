@@ -17,7 +17,7 @@ const FormDashBoard = ({
     >
 
       {userInfo.map((info, index) => (
-        <InputForm key={info} setState={setStates[index]} value="ddd">
+        <InputForm key={info} setState={setStates[index]}>
           {' '}
           {info}
         </InputForm>
