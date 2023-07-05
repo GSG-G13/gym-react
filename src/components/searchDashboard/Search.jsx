@@ -38,6 +38,7 @@ const SearchDashboard = ({
       userInfo={userInfo}
       setStates={setStates}
       axiosData={axiosData}
+
     >
       {btnText}
     </DashboardNewPopUp>

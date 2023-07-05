@@ -6,7 +6,7 @@ import {
 } from '../../../components';
 
 const DashBoardLayOut = ({
-  columns, rows, userInfo, setStates, buttonName, axiosData,
+  columns, rows, userInfo, setStates, buttonName, axiosData, testProp,
 }) => {
   const [showForm, setShowForm] = useState(false);
   return (
@@ -27,6 +27,8 @@ const DashBoardLayOut = ({
                 userInfo={userInfo}
                 setStates={setStates}
                 axiosData={axiosData}
+                testProp={testProp}
+
               />
               <Table columns={columns} rows={rows} />
             </Box>
