@@ -18,12 +18,12 @@ const style = {
 };
 
 const DashboardNewPopUp = ({
-  children, userInfo, states, setStates,
+  children, userInfo, states, setStates, myData, userData,
 }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  console.log(userData, 'test');
   return (
     <div>
       <ButtonComponent
@@ -35,8 +35,7 @@ const DashboardNewPopUp = ({
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+
       >
         <Box sx={style}>
           <FormDashBoard
@@ -44,6 +43,8 @@ const DashboardNewPopUp = ({
             onClick={handleClose}
             states={states}
             setStates={setStates}
+            myData={myData}
+            userData={userData}
           />
         </Box>
       </Modal>
