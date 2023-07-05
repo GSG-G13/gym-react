@@ -14,5 +14,4 @@ const Class = () => (
     </Box>
   </Provider>
 );
-
 export default Class;

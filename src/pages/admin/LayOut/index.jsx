@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Box, Container } from '@mui/material';
 import Provider from '../../../context/Provider';
 import {
+  Alerts,
   NavBarDashBoard, SearchDashboard, SideBar, Table,
 } from '../../../components';
-import FormDashBoard from '../../../components/formDashboard/FormDashBoard';
 
-const DashBoardLayOut = ({ columns, rows, userInfo }) => {
+const DashBoardLayOut = ({
+  columns, rows, userInfo, setStates, buttonName, error, axiosData,
+}) => {
   const [showForm, setShowForm] = useState(false);
   return (
     <Provider setShowForm={setShowForm}>
@@ -21,8 +23,16 @@ const DashBoardLayOut = ({ columns, rows, userInfo }) => {
                 display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 4, position: 'relative',
               }}
             >
-              <SearchDashboard btnText="Add User" />
-              <Table columns={columns} rows={rows} />
+              <SearchDashboard
+                btnText={buttonName}
+                userInfo={userInfo}
+                setStates={setStates}
+                axiosData={axiosData}
+              />
+              {error
+                ? <Alerts message={error} type="error" />
+
+                : <Table columns={columns} rows={rows} />}
             </Box>
             <Box
               sx={{
@@ -32,9 +42,7 @@ const DashBoardLayOut = ({ columns, rows, userInfo }) => {
                 transform: 'translate(-50%,-50%)',
                 display: showForm ? 'block' : 'none',
               }}
-            >
-              <FormDashBoard userInfo={userInfo} />
-            </Box>
+            />
           </Container>
         </Box>
       </Box>

@@ -16,7 +16,7 @@ const Announcement = ({ announce }) => (
           border: '1px solid', borderRadius: 50, mr: 1, width: 30, height: 30,
         }}
         />
-        <Typography variant="h5">{announce}</Typography>
+        <Typography variant="h4" fontWeight={500}>{announce.roleId.username}</Typography>
       </Box>
       <Typography
         sx={{
@@ -24,21 +24,20 @@ const Announcement = ({ announce }) => (
         }}
         variant="h6"
       >
-        20/3/1992
+        {announce.createdAt.split(':')[0].slice(0, 10).replaceAll('-', '/')}
       </Typography>
 
     </Box>
     <Divider />
 
     <Box p="10px">
-      <Typography mt={1} variant="h3">Title Announcement</Typography>
-      <Typography mt={3} mb={1} variant="h6">Announcement content: Lorem ipsum dolor, sit amen consectetur adipisicing elite. Destruct, consecrator!</Typography>
-      <Box sx={{ height: 248 }}>
-        <Image src="https://betterbody.ie/wp-content/uploads/elementor/thumbs/strong-man-training-in-gym-1-scaled-puc6dnltxn54i7tqe8yfryh0a4wn9r8z3ewgicqsqo.jpg" alt="gym" width="100%" height="100%" />
+      <Typography mt={1} variant="h3" fontWeight={600}>{announce.title}</Typography>
+      <Typography mt={2} mb={2} color="text.primary" variant="h4">{announce.description}</Typography>
+      <Box sx={{ height: '420px' }}>
+        <Image src={announce.image} alt="gym" width="100%" height="100%" />
 
       </Box>
     </Box>
   </Box>
 );
-
 export default Announcement;

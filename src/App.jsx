@@ -9,20 +9,23 @@ import {
   SignIn,
   SignupPage,
   Store,
+  SubscriptionDashboard,
   UserProfile,
   UserSetting,
 } from './pages';
 import Root from './routes/root';
 import ClassLayout from './layout/classLayout';
 import StoreLayout from './layout';
-import { ClassInfoComp, ProductList } from './components';
+import { ClassInfoComp } from './components';
 
 const App = () => (
   <Provider>
     <THEME>
       <BrowserRouter>
         <Routes>
+          <Route path="/subscription" element={<SubscriptionDashboard />} />
           <Route path="/" element={<Root />}>
+
             <Route index element={<Home />} />
             <Route path="class" element={<ClassLayout />}>
               <Route index element={<Class />} />
@@ -30,7 +33,6 @@ const App = () => (
             </Route>
             <Route path="store" element={<StoreLayout />}>
               <Route index element={<Store />} />
-              <Route path="?category=category" element={<ProductList />} />
             </Route>
             <Route path="signin" element={<SignIn />} />
             <Route path="signup" element={<SignupPage />} />

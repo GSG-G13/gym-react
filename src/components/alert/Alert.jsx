@@ -6,12 +6,11 @@ import Stack from '@mui/material/Stack';
 const Alerts = ({ type, message }) => {
   if (type === 'error') {
     return (
-      <Stack sx={{ width: '25%' }} spacing={2}>
+      <Stack sx={{ width: '100%' }} spacing={2}>
         <Alert severity="error" sx={{ fontSize: '15px' }}>
           <AlertTitle sx={{ fontSize: '16px' }}>Error</AlertTitle>
           {message }
 
-          <strong>check it out!</strong>
         </Alert>
       </Stack>
     );
