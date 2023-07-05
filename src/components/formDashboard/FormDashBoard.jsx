@@ -4,7 +4,7 @@ import InputForm from './InputForm';
 import GroupButtons from './GroupButtons';
 
 const FormDashBoard = ({
-  userInfo, text, onClick, axiosData, setStates,
+  userInfo, text, onClick, setStates, axiosData,
 }) => (
   <Box backgroundColor="#fff" border="1px solid #ccc" p={2}>
     <Typography sx={{ color: '#000', textAlign: 'center' }}>{text}</Typography>
