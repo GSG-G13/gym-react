@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { Box, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -8,15 +9,20 @@ import ClassTable from '../classTable/ClassTable';
 const ClassInfoComp = () => {
   const { id } = useParams();
   const [classData, setClassData] = useState({});
+  const [subscriptionStatus, setSubscriptionStatus] = useState({});
 
   const getClassById = async () => {
     const response = await axios.get(`/api/classes/${id}`);
     setClassData(response.data.classObj);
   };
+  const addSubscription = async () => {
+    const { data } = await axios.post(`/api/subscriptions/${id}`);
+    setSubscriptionStatus(data.data);
+  };
 
   useEffect(() => {
     getClassById();
-  }, [classData]);
+  }, [id]);
 
   return (
     <Box p={7} sx={{ border: '1px solid #ccc', borderRadius: 5 }}>
@@ -38,7 +44,12 @@ const ClassInfoComp = () => {
                      <Typography mt="10px" variant="h2">{classData.trainerId?.username}</Typography>
                    </Box>
 
-                   <ButtonComponent color="colors.darkBlue" flex="1">Join Class</ButtonComponent>
+                   <ButtonComponent onClick={addSubscription} color="colors.darkBlue" flex="1">
+                     {subscriptionStatus.status === 'pending'
+                       ? 'Pending'
+                       : subscriptionStatus.status === 'approved'
+                         ? 'Approved' : 'Join Class' }
+                   </ButtonComponent>
                  </Box>
                  <Box mt={2}>
                    <Typography pr={3} variant="h5" sx={{ fontSize: '16px', fontWeight: '100' }}>
