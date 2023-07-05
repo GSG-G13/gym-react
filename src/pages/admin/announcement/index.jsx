@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import DashBoardLayOut from '../LayOut';
 import ButtonComponent from '../../../components/button/Button';
 
+const userInfo = ['title', 'description', 'image'];
 const DeleteButtonCell = (row) => {
   const handleDelete = async () => {
     const { id } = row;
@@ -46,28 +47,42 @@ const announcementColumns = [
   },
 ];
 
+const initialState = {
+  title: '',
+  description: '',
+  image: '',
+};
+
+const reducer = (state, action) => ({
+  ...state,
+  [action.filedName]: action.value,
+});
+
 const AnnouncementDashboard = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
-
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const values = [state.title, state.description, state.image];
   const [tableData, setTableData] = useState([]);
-
-  const userInfo = ['Title', 'Description', 'Image'];
-  const states = [title, description, image];
-  const setStates = [setTitle, setDescription, setImage];
-  const sendData = async () => {
-    await axios.post('/api/announcements', {
-      states,
+  const handleChange = (e, filedName) => {
+    const { value } = e.target;
+    dispatch({
+      filedName,
+      value,
     });
   };
 
-  const getAnnouncmeent = async () => {
+  const sendData = async () => {
+    await axios.post(
+      '/api/announcements',
+      state,
+    );
+  };
+
+  const getAnnouncement = async () => {
     const { data } = await axios.get('/api/announcements');
     setTableData(data.announcements);
   };
   useEffect(() => {
-    getAnnouncmeent();
+    getAnnouncement();
   }, []);
 
   return (
@@ -76,8 +91,10 @@ const AnnouncementDashboard = () => {
       columns={announcementColumns}
       rows={tableData}
       userInfo={userInfo}
-      setStates={setStates}
+      setStates={handleChange}
       axiosData={sendData}
+      filedName={userInfo}
+      value={values}
     />
   );
 };

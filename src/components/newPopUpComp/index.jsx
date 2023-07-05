@@ -18,7 +18,7 @@ const style = {
 };
 
 const DashboardNewPopUp = ({
-  children, userInfo, setStates, axiosData,
+  children, userInfo, setStates, axiosData, filedName, value,
 }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -44,6 +44,8 @@ const DashboardNewPopUp = ({
             onClick={handleClose}
             setStates={setStates}
             axiosData={axiosData}
+            filedName={filedName}
+            value={value}
           />
         </Box>
       </Modal>

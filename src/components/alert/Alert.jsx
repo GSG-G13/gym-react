@@ -9,7 +9,7 @@ const Alerts = ({ type, message }) => {
       <Stack sx={{ width: '100%' }} spacing={2}>
         <Alert severity="error" sx={{ fontSize: '15px' }}>
           <AlertTitle sx={{ fontSize: '16px' }}>Error</AlertTitle>
-          {message }
+          {message}
 
         </Alert>
       </Stack>
@@ -21,7 +21,7 @@ const Alerts = ({ type, message }) => {
       <Stack sx={{ width: '25%' }} spacing={2}>
         <Alert severity="warning" sx={{ fontSize: '15px' }}>
           <AlertTitle sx={{ fontSize: '16px' }}>Warning</AlertTitle>
-          {message }
+          {message}
 
           <strong>check it out!</strong>
         </Alert>
@@ -34,7 +34,7 @@ const Alerts = ({ type, message }) => {
       <Stack sx={{ width: '25%' }} spacing={2}>
         <Alert severity="info" sx={{ fontSize: '15px' }}>
           <AlertTitle sx={{ fontSize: '16px' }}>Info</AlertTitle>
-          {message }
+          {message}
           <strong>check it out!</strong>
         </Alert>
       </Stack>
@@ -47,7 +47,7 @@ const Alerts = ({ type, message }) => {
 
         <Alert severity="success" sx={{ fontSize: '15px' }}>
           <AlertTitle sx={{ fontSize: '16px' }}>Success</AlertTitle>
-          {message }
+          {message}
 
           <strong>check it out!</strong>
         </Alert>
@@ -58,7 +58,7 @@ const Alerts = ({ type, message }) => {
     <Stack sx={{ width: '25%', border: '2px solid red' }} spacing={2}>
       <Alert severity="error" sx={{ fontSize: '15px' }}>
         <AlertTitle sx={{ fontSize: '16px' }}>Error</AlertTitle>
-        {message }
+        {message}
 
         <strong>check it out!</strong>
       </Alert>

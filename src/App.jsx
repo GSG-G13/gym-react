@@ -9,7 +9,6 @@ import {
   SignIn,
   SignupPage,
   Store,
-  SubscriptionDashboard,
   UserProfile,
   UserSetting,
 } from './pages';
@@ -23,7 +22,6 @@ const App = () => (
     <THEME>
       <BrowserRouter>
         <Routes>
-          <Route path="/subscription" element={<SubscriptionDashboard />} />
           <Route path="/" element={<Root />}>
 
             <Route index element={<Home />} />
