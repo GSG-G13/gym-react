@@ -28,7 +28,7 @@ const SwiperComp = ({ trainers }) => (
           padding: '40px 0px', display: 'flex', flexDirection: 'column', gap: 15,
         }}
         >
-          <img height={350} width="300px" style={{ margin: 'auto', borderRadius: 40 }} src={item.image} alt={item} />
+          <img height={350} width="300px" style={{ margin: 'auto', borderRadius: 40 }} src={item.image} alt="gym trainer" />
           <Typography variant="h4" fontWeight={700} textAlign="center">{item.username}</Typography>
           <Typography variant="h6" fontWeight={100} textAlign="center">gym trainer</Typography>
         </SwiperSlide>

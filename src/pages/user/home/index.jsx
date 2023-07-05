@@ -9,19 +9,15 @@ import SwiperComp from '../../../components/swiper';
 const Home = () => {
   const [trainersData, setTrainersData] = useState([]);
 
-  const handleDataChange = (newData) => {
-    setTrainersData(newData);
+  const fetchData = async () => {
+    try {
+      const trainers = await axios.get('/api/users/trainers');
+      setTrainersData(trainers.data.allTrainers);
+    } catch (error) {
+      console.error(error);
+    }
   };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const trainers = await axios.get('http://localhost:5050/api/users/trainers');
-        await handleDataChange(trainers.data.allTrainers);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
     fetchData();
   }, []);
   return (
