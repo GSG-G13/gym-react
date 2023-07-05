@@ -35,35 +35,43 @@ const columns = [
 ];
 
 const DashOrderPage = () => {
-  const [orders, setOrdersData] = useState([]);
+  const [ordersData, setOrdersData] = useState([]);
+  const [errorMsg, setErrorMsg] = useState('');
+
   const getOrders = async () => {
-    const response = await axios.get('/api/orders');
-    setOrdersData(response.data.orders);
+    try {
+      const { data: { orders } } = await axios.get('/api/orders');
+      const orderData = [];
+      orders.map((order) => orderData.push({
+        userName: order.userId.username,
+        productName: order.productId.title,
+        image: order.productId.image,
+        status: order.status,
+        amount: order.amount,
+        totalPrice: `${order.totalPrice}$`,
+
+        _id: order._id,
+      }));
+
+      setOrdersData(orderData);
+    } catch (error) {
+      setErrorMsg('There is no orders');
+    }
   };
 
   useEffect(() => {
     getOrders();
   }, []);
 
-  const orderData = [];
-  orders.map((order) => orderData.push({
-    userName: order.userId.username,
-    productName: order.productId.title,
-    image: order.productId.image,
-    status: order.status,
-    amount: order.amount,
-    totalPrice: `${order.totalPrice}$`,
-
-    _id: order._id,
-  }));
-
   return (
 
     <DashBoardLayOut
       columns={columns}
-      rows={orderData}
+      rows={ordersData}
       buttonName="Add product"
+      error={errorMsg}
     />
+
   );
 };
 export default DashOrderPage;
