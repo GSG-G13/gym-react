@@ -10,6 +10,7 @@ const Alerts = ({ type, message }) => {
         <Alert severity="error" sx={{ fontSize: '15px' }}>
           <AlertTitle sx={{ fontSize: '16px' }}>Error</AlertTitle>
           {message }
+
         </Alert>
       </Stack>
     );

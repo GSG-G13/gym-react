@@ -7,11 +7,9 @@ import {
 } from '../../../components';
 
 const DashBoardLayOut = ({
-  columns, rows, userInfo, setStates, buttonName, axiosData,
-  error,
+  columns, rows, userInfo, setStates, buttonName, error, axiosData,
 }) => {
   const [showForm, setShowForm] = useState(false);
-  console.log(error);
   return (
     <Provider setShowForm={setShowForm}>
       <Box>
