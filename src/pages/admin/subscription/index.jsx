@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { userInfo } from '../../../dummyData/productData';
@@ -21,30 +22,41 @@ const columns = [
     headerName: 'Price',
   },
 
-]
+];
 const SubscriptionDashboard = () => {
   const [subscription, setSubscription] = useState([]);
-  
-  const subscriptionData = [];
-  const rows = subscription.map((sub) => subscriptionData.push({ 
-    className: sub.classId.className,
-     userName: sub.userId.username, 
-     status: sub.status,
-     _id: sub._id,
-     price: `${sub.classId.price}$`
-     }));
-
+  const [errorMsg, setErrorMsg] = useState('');
 
   const getSubscription = async () => {
-    const {data, status} = await axios.get('/api/subscriptions');
-    setSubscription(data.subscriptionsData);
+    try {
+      const { data: { subscriptionsData } } = await axios.get('/api/subscriptions');
+      const allSubscriptionData = [];
+
+      subscriptionsData.map((sub) => allSubscriptionData.push({
+        className: sub.classId.className,
+        userName: sub.userId.username,
+        status: sub.status,
+        _id: sub._id,
+        price: `${sub.classId.price}$`,
+      }));
+      setSubscription(allSubscriptionData);
+    } catch (error) {
+      setErrorMsg('There is no Subscription');
+    }
   };
 
   useEffect(() => {
     getSubscription();
   }, []);
 
-  return (<DashBoardLayOut userInfo={userInfo} columns={columns} rows={subscriptionData} />);
+  return (
+    <DashBoardLayOut
+      userInfo={userInfo}
+      columns={columns}
+      rows={subscription}
+      error={errorMsg}
+    />
+  );
 };
 
 export default SubscriptionDashboard;
