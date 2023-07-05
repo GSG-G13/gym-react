@@ -1,9 +1,23 @@
 import { useState, useEffect } from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import EditIcon from '@mui/icons-material/Edit';
 import DashBoardLayOut from '../LayOut/index.jsx';
 import DashboardNewPopUp from '../../../components/newPopUpComp';
 import { Alerts } from '../../../components/index.js';
+import ButtonComponent from '../../../components/button/Button';
+
+const DeleteButtonCell = (row) => {
+  const handleDelete = async () => {
+    const { id } = row;
+    await axios.delete(`/api/announcements/${id}`);
+  };
+  return (
+    <ButtonComponent onClick={handleDelete}>
+      <DeleteIcon />
+    </ButtonComponent>
+  );
+};
 
 const EditButtonCell = (line) => {
   const { row } = line;
@@ -67,7 +81,12 @@ const announcementColumns = [
     width: 100,
     renderCell: EditButtonCell,
   },
-
+  {
+    field: 'delete',
+    headerName: 'Delete',
+    width: 100,
+    renderCell: DeleteButtonCell,
+  },
 ];
 
 const AnnouncementDashboard = () => {
