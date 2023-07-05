@@ -16,7 +16,7 @@ const Announcement = ({ announce }) => (
           border: '1px solid', borderRadius: 50, mr: 1, width: 30, height: 30,
         }}
         />
-        <Typography variant="h4" fontWeight={500}>{announce.roleId.username}</Typography>
+        <Typography variant="h4" fontWeight={500}>{announce.roleId?.username}</Typography>
       </Box>
       <Typography
         sx={{

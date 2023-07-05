@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { Box, Container } from '@mui/material';
 import Provider from '../../../context/Provider';
 import {
+  Alerts,
   NavBarDashBoard, SearchDashboard, SideBar, Table,
 } from '../../../components';
 
 const DashBoardLayOut = ({
-  columns, rows, userInfo, setStates, buttonName, axiosData,
+  columns, rows, userInfo, setStates, buttonName, error, axiosData, filedName, value,
 }) => {
   const [showForm, setShowForm] = useState(false);
   return (
@@ -27,8 +28,13 @@ const DashBoardLayOut = ({
                 userInfo={userInfo}
                 setStates={setStates}
                 axiosData={axiosData}
+                filedName={filedName}
+                value={value}
               />
-              <Table columns={columns} rows={rows} />
+              {error
+                ? <Alerts message={error} type="error" />
+
+                : <Table columns={columns} rows={rows} />}
             </Box>
             <Box
               sx={{

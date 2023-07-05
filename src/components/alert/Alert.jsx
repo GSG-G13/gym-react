@@ -11,7 +11,6 @@ const Alerts = ({ type, message }) => {
           <AlertTitle sx={{ fontSize: '16px' }}>Error</AlertTitle>
           {message}
 
-          <strong> check it out!</strong>
         </Alert>
       </Stack>
     );
