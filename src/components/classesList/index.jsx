@@ -17,8 +17,8 @@ const ClassesList = () => {
   }, []);
 
   return (
-    <Box width={350} border="1px solid #ccc" mt={15} mb={15} borderRadius={5} py={3} pl={2}>
-      <Typography pt={15} sx={{ fontSize: '25px', padding: '26px', paddingLeft: '5px' }}>Classes</Typography>
+    <Box width="230px" border="1px solid #ccc" mt={15} mb={15} borderRadius={5} py={3} pl={2}>
+      <Typography variant="h5" pt={15} sx={{ fontSize: '20px', padding: '26px', paddingLeft: '5px' }}>Classes</Typography>
       <Divider />
       <Box>
         {classData[0]?.map((classItem) => (
@@ -27,9 +27,10 @@ const ClassesList = () => {
             to={`${classItem._id}`}
             key={classItem.className}
             style={({ isActive }) => ({
-              backgroundColor: isActive ? '#002B5B' : '',
-              color: isActive ? '#fff' : '#000',
-              fontSize: '16px',
+              backgroundColor: isActive ? '#FF4601' : '',
+              color: '#fff',
+              fontSize: '12px',
+              fontWeight: '500',
               textDecoration: 'none',
               display: 'block',
               padding: '16px',

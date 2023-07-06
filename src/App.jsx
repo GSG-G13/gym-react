@@ -23,6 +23,7 @@ const App = () => (
     <THEME>
       <BrowserRouter>
         <Routes>
+          <Route path="/classes" element={<ClassDashBoard />} />
           <Route path="/" element={<Root />}>
             <Route index element={<Home />} />
             <Route path="class" element={<ClassLayout />}>
