@@ -79,8 +79,9 @@ const SignupComp = () => {
             variant="h1"
             sx={{
               marginBottom: '2rem',
-              fontWeight: '700',
+              fontWeight: '600',
               textAlign: 'center',
+              color: '#FF4601',
             }}
           >
             Sign Up
@@ -170,13 +171,16 @@ const SignupComp = () => {
         </Box>
 
         <ButtonContainer>
-          <ButtonComponent
-            variant="contained"
-            color="#002B5B"
-            onClick={handleSubmit}
-          >
-            Sign up
-          </ButtonComponent>
+          <Box>
+            <ButtonComponent
+              variant="contained"
+              color="#FF4601"
+              onClick={handleSubmit}
+              width="300px"
+            >
+              Sign up
+            </ButtonComponent>
+          </Box>
         </ButtonContainer>
       </CompWrapper>
       <Modal open={openModal} setOpen={setOpenModal}>
@@ -197,10 +201,10 @@ const SignupComp = () => {
             Your details have been successfully submitted. Thanks!
           </p>
           <span style={{ color: '#002B5B', marginTop: '8px' }}>
-            Try to sign in now
+            Have a fun at our community!
           </span>
           <Link
-            to="/signin"
+            to="/"
             style={{
               color: '#002B5B',
               textDecoration: 'none',

@@ -13,7 +13,7 @@ const Footer = () => (
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-around',
-      backgroundColor: '#E4DCCF',
+      backgroundColor: '#3c353533',
       height: '160px',
 
     }}
@@ -23,11 +23,16 @@ const Footer = () => (
         Gaza, Alrimal, AlJondi St., Capital Mall Building,
         5th Floor, Room 501
       </Typography>
-      <Box mt="15px">
-        <FacebookIcon sx={{ px: '2px' }} />
-        <InstagramIcon sx={{ px: '2px' }} />
-        <YouTubeIcon sx={{ px: '2px' }} />
-        <LinkedInIcon sx={{ px: '2px' }} />
+      <Box
+        mt="20px"
+        sx={{
+          display: 'flex', justifyContent: 'space-around', width: '150px',
+        }}
+      >
+        <FacebookIcon sx={{ px: '2px', color: '#FF4601' }} />
+        <InstagramIcon sx={{ px: '2px', color: '#FF4601' }} />
+        <YouTubeIcon sx={{ px: '2px', color: '#FF4601' }} />
+        <LinkedInIcon sx={{ px: '2px', color: '#FF4601' }} />
       </Box>
     </Box>
     <Box>
@@ -35,7 +40,7 @@ const Footer = () => (
         Non Copyrighted © 2023 Design and upload by rich technologies
       </Typography>
       <Box sx={{ display: 'flex', alignItems: 'center', mt: '15px' }}>
-        <LocalPhoneIcon />
+        <LocalPhoneIcon sx={{ px: '2px', color: '#FF4601' }} />
         <Typography variant="h5">+972 595036287</Typography>
 
       </Box>

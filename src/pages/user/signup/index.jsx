@@ -1,7 +1,7 @@
 import { Box } from '@mui/system';
 import { Container } from '@mui/material';
 import SignupComp from '../../../components/signup';
-import { ReactComponent as SignUpImg } from '../../../assets/singupimage.svg';
+import { ReactComponent as SignUpImg } from '../../../assets/signupimage.svg';
 
 const SignupPage = () => (
   <Box
@@ -19,11 +19,13 @@ const SignupPage = () => (
         gap: '100px',
       }}
       >
-        <SignUpImg style={{ width: '40%', height: '100%' }} />
+        <Box width="40%">
+          <SignUpImg width="100%" />
+        </Box>
         <SignupComp />
       </Box>
-
     </Container>
+
   </Box>
 );
 
