@@ -16,7 +16,7 @@ import {
 import Root from './routes/root';
 import ClassLayout from './layout/classLayout';
 import StoreLayout from './layout';
-import { ClassInfoComp } from './components';
+import { ClassInfoComp, HomeClass } from './components';
 
 const App = () => (
   <Provider>
@@ -26,7 +26,7 @@ const App = () => (
           <Route path="/" element={<Root />}>
             <Route index element={<Home />} />
             <Route path="class" element={<ClassLayout />}>
-              <Route index element={<Class />} />
+              <Route index element={<HomeClass />} />
               <Route path=":id" element={<ClassInfoComp />} />
             </Route>
             <Route path="store" element={<StoreLayout />}>
