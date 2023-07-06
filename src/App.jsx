@@ -4,6 +4,7 @@ import Provider from './context/Provider';
 import {
   AnnouncementContainer,
   Class,
+  ClassDashBoard,
   Home,
   ProductDetailsContainer,
   SignIn,
@@ -36,8 +37,11 @@ const App = () => (
             <Route path="signin" element={<SignIn />} />
             <Route path="signup" element={<SignupPage />} />
             <Route path="announcement" element={<AnnouncementContainer />} />
-            <Route path="product/:id" element={<ProductDetailsContainer />} />
-            <Route path="profile" element={<UserProfile />} />
+            <Route path="product" element={<ProductDetailsContainer />} />
+            <Route path="profile" element={<UserProfile />}>
+              <Route index element={<UserProfile />} />
+              <Route path="orders" element={<UserProfile />} />
+            </Route>
             <Route path="setting" element={<UserSetting />} />
           </Route>
           <Route path="*" element={<h1>this page does not exist</h1>} />

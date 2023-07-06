@@ -2,29 +2,27 @@ const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
   {
     field: 'Title',
-    headerName: 'Title',
-    width: 150,
-    editable: true,
+    editTable: false,
   },
   {
     field: 'Image',
-    headerName: 'Image',
-    width: 150,
-    editable: true,
   },
   {
     field: 'Price',
-    headerName: 'Price',
-    type: 'number',
-    width: 110,
-    editable: true,
   },
   {
     field: 'Removing',
-    headerName: 'Removing',
-    type: 'string',
-    width: 160,
   },
+];
+const columns2 = [
+  { field: 'id', headerName: 'ID', width: 90 },
+  {
+    field: 'className',
+  },
+  {
+    field: 'status',
+  },
+
 ];
 
 const rows = [
@@ -57,4 +55,4 @@ const rows = [
   },
 ];
 
-export { rows, columns };
+export { rows, columns, columns2 };
