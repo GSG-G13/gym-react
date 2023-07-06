@@ -6,7 +6,7 @@ import { ReactComponent as Login } from '../../../assets/login.svg';
 const SignIn = () => (
   <Box>
     <Container>
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', height: '100vh' }}>
         <Login style={{ width: '50%' }} />
 
         <SignInComp />

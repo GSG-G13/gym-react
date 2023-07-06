@@ -28,107 +28,109 @@ const NavbarClient = () => {
 
   return (
     <AppBar sx={{
-      width: '100%', backgroundColor: 'colors.primary', color: '#000',
+      width: '100%', backgroundColor: '#3c353533', color: '#000', px: '30px',
     }}
     >
-      <Container>
-        <Toolbar sx={{
-          display: 'flex',
-          alignItems: 'center',
+      <Toolbar sx={{
+        display: 'flex',
+        alignItems: 'center',
+        boxShadow: 'none',
 
-        }}
+      }}
+      >
+        <Link
+          to="/"
+          style={{
+            mr: 2,
+            display: { xs: 'none', md: 'flex' },
+            fontWeight: 700,
+            letterSpacing: '.3rem',
+            color: '#fff',
+            textDecoration: 'none',
+            '&:hover': { color: '#000' },
+            fontSize: '1.75rem',
+          }}
         >
-          <Link
-            to="/"
-            style={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-              '&:hover': { color: '#000' },
-              fontSize: '1.75rem',
-            }}
-          >
-            GYM
-          </Link>
+          G
+          <span style={{ color: '#FF4601' }}>Y</span>
+          M
+        </Link>
 
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'none', md: 'flex' },
-              justifyContent: 'end',
-              gap: '60px',
-            }}
-            mr="60px"
-          >
-            {pages.map((page) => (
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: { xs: 'none', md: 'flex' },
+            justifyContent: 'end',
+            gap: '60px',
+          }}
+          mr="60px"
+        >
+          {pages.map((page) => (
 
-              <NavLink
-                to={page === 'home' ? '/' : page}
-                style={({ isActive }) => ({
-                  backgroundColor: isActive ? '#002B5B' : '',
-                  textDecoration: 'none',
-                  padding: '5px 10px',
-                  color: isActive ? '#fff' : '#002B5B',
-                  borderRadius: '5px',
-                  transition: 'all 0.5s ease',
-                  textTransform: 'capitalize',
-                })}
-                key={page}
-              >
-                {page}
-              </NavLink>
-            ))}
-          </Box>
+            <NavLink
+              to={page === 'home' ? '/' : page}
+              style={({ isActive }) => ({
+                backgroundColor: isActive ? '#FF4601' : '',
+                textDecoration: 'none',
+                padding: '5px 10px',
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton
-                onClick={handleOpenUserMenu}
-                sx={{ p: 0 }}
-              >
-                <PersonIcon />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+                borderRadius: '5px',
+                transition: 'all 0.5s ease',
+                textTransform: 'capitalize',
+                color: 'white',
+              })}
+              key={page}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
-                  {setting.icon}
-                  <Link
-                    to={setting.name}
-                    style={{
-                      textDecoration: 'none',
-                      paddingLeft: '10px',
-                      textTransform: 'capitalize',
-                      color: '#000',
-                    }}
-                  >
-                    {setting.name}
-                  </Link>
+              {page}
+            </NavLink>
+          ))}
+        </Box>
 
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
+        <Box sx={{ flexGrow: 0 }}>
+          <Tooltip title="Open settings">
+            <IconButton
+              onClick={handleOpenUserMenu}
+              sx={{ p: 0, color: '#FF4601' }}
+            >
+              <PersonIcon />
+            </IconButton>
+          </Tooltip>
+          <Menu
+            sx={{ mt: '45px' }}
+            id="menu-appbar"
+            anchorEl={anchorElUser}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+          >
+            {settings.map((setting) => (
+              <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
+                {setting.icon}
+                <Link
+                  to={setting.name}
+                  style={{
+                    textDecoration: 'none',
+                    paddingLeft: '10px',
+                    textTransform: 'capitalize',
+                    color: '#000',
+                  }}
+                >
+                  {setting.name}
+                </Link>
+
+              </MenuItem>
+            ))}
+          </Menu>
+        </Box>
+      </Toolbar>
     </AppBar>
   );
 };
