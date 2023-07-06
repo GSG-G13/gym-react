@@ -8,7 +8,7 @@ const Table = ({ rows, columns }) => (
     <DataGrid
       rows={rows}
       columns={columns}
-      // getRowId={(row) => row._id}
+      getRowId={(row) => row._id}
       initialState={{
         pagination: {
           paginationModel: {

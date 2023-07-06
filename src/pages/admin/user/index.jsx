@@ -33,7 +33,6 @@ const UserList = () => {
     state.goalweight,
   ];
   const [users, setUsers] = useState([]);
-  console.log(users);
 
   const handleChange = (e, filedName) => {
     const { value } = e.target;

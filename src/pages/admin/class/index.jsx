@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import DashBoardLayOut from '../LayOut';
 
-const userInfo = ['classname', 'Description', 'Trainer', 'Price', 'Participant'];
+const classInfo = ['className', 'description', 'price', 'userCount', 'trainerId'];
 const columns = [
   {
     field: 'className',
@@ -24,9 +24,45 @@ const columns = [
 
 ];
 
+const initialState = {
+  className: '',
+  description: '',
+  price: '',
+  userCount: '',
+  trainerId: '',
+};
+
+const reducer = (state, action) => ({
+  ...state,
+  [action.filedName]: action.value,
+});
+
 const ClassDashBoard = () => {
   const [classData, setClassData] = useState([]);
   const [errorMsg, setErrorMsg] = useState('');
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [trainers, setTrainers] = useState([]);
+  console.log(state.trainerId);
+  const values = [
+    state.className,
+    state.description,
+    state.price,
+    state.userCount,
+  ];
+  const handleChange = (e, filedName) => {
+    const { value } = e.target;
+    dispatch({
+      filedName,
+      value,
+    });
+  };
+  const addClass = async () => {
+    try {
+      await axios.post(`/api/classes/${state.trainerId}`, state);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const getClasses = async () => {
     try {
@@ -41,16 +77,35 @@ const ClassDashBoard = () => {
       setErrorMsg('There Is No Classes');
     }
   };
-  console.log(classData);
+
+  const getUsers = async () => {
+    try {
+      const { data: { allUsers } } = await axios.get('/api/users');
+
+      const trainersList = allUsers.filter((user) => user.role === 'trainer');
+      setTrainers(trainersList);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getClasses();
+    getUsers();
   }, []);
+
   return (
     <DashBoardLayOut
-      userInfo={userInfo}
+      buttonName="Add Class"
+      userInfo={classInfo}
       columns={columns}
       rows={classData}
       error={errorMsg}
+      setStates={handleChange}
+      filedName={classInfo}
+      value={values}
+      axiosData={addClass}
+      selectList={trainers}
     />
 
   );

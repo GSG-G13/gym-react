@@ -18,7 +18,7 @@ const style = {
 };
 
 const DashboardNewPopUp = ({
-  children, userInfo, setStates, axiosData, filedName, value,
+  children, userInfo, setStates, axiosData, filedName, value, selectList,
 }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -46,6 +46,7 @@ const DashboardNewPopUp = ({
             axiosData={axiosData}
             filedName={filedName}
             value={value}
+            selectList={selectList}
           />
         </Box>
       </Modal>
