@@ -9,8 +9,7 @@ const Alerts = ({ type, message }) => {
       <Stack sx={{ width: '100%' }} spacing={2}>
         <Alert severity="error" sx={{ fontSize: '15px' }}>
           <AlertTitle sx={{ fontSize: '16px' }}>Error</AlertTitle>
-          {message }
-
+          <strong>{ message}</strong>
         </Alert>
       </Stack>
     );

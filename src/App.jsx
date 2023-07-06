@@ -4,12 +4,12 @@ import Provider from './context/Provider';
 import {
   AnnouncementContainer,
   Class,
+  ClassDashBoard,
   Home,
   ProductDetailsContainer,
   SignIn,
   SignupPage,
   Store,
-  SubscriptionDashboard,
   UserProfile,
   UserSetting,
 } from './pages';
@@ -23,7 +23,7 @@ const App = () => (
     <THEME>
       <BrowserRouter>
         <Routes>
-          <Route path="/subscription" element={<SubscriptionDashboard />} />
+          <Route path="/classes" element={<ClassDashBoard />} />
           <Route path="/" element={<Root />}>
 
             <Route index element={<Home />} />
