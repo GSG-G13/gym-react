@@ -3,8 +3,6 @@ import THEME from './utilize/Theme';
 import Provider from './context/Provider';
 import {
   AnnouncementContainer,
-  Class,
-  ClassDashBoard,
   Home,
   ProductDetailsContainer,
   SignIn,

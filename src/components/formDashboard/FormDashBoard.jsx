@@ -21,7 +21,7 @@ const FormDashBoard = ({
         <InputForm
           key={info}
           setState={setStates}
-          filedName={filedName[index]}
+          filedName={info}
           value={value[index]}
         >
           {' '}
@@ -29,10 +29,14 @@ const FormDashBoard = ({
         </InputForm>
       ))}
 
-      <Select onChange={(e) => setStates(e, filedName[filedName.length - 1])}>
-        <option disabled selected>select tranier</option>
-        {selectList.map((list) => <option value={list._id}>{list.username}</option>)}
-      </Select>
+      {selectList
+        ? (
+          <Select onChange={(e) => setStates(e, filedName[filedName.length - 1])}>
+            <option disabled selected>select tranier</option>
+            {selectList.map((list) => <option value={list._id}>{list.username}</option>)}
+          </Select>
+        )
+        : null}
 
     </Box>
     <GroupButtons onClick={onClick} axiosData={axiosData} />

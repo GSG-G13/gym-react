@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { userInfo } from '../../../dummyData/productData';
 import DashBoardLayOut from '../LayOut';
+import DropDownList from '../../../components/dropDownList';
 
 const columns = [
   {
@@ -21,7 +22,10 @@ const columns = [
     field: 'price',
     headerName: 'Price',
   },
-
+  {
+    width: 100,
+    renderCell: (row) => <DropDownList row={row} url="/api/subscriptions" />,
+  },
 ];
 const SubscriptionDashboard = () => {
   const [subscription, setSubscription] = useState([]);
@@ -33,11 +37,11 @@ const SubscriptionDashboard = () => {
       const allSubscriptionData = [];
 
       subscriptionsData.map((sub) => allSubscriptionData.push({
-        className: sub.classId.className,
-        userName: sub.userId.username,
-        status: sub.status,
+        className: sub.classId?.className,
+        userName: sub.userId?.username,
+        status: sub?.status,
         _id: sub._id,
-        price: `${sub.classId.price}$`,
+        price: `${sub.classId?.price}$`,
       }));
       setSubscription(allSubscriptionData);
     } catch (error) {
@@ -55,6 +59,7 @@ const SubscriptionDashboard = () => {
       columns={columns}
       rows={subscription}
       error={errorMsg}
+      page="subscription"
     />
   );
 };
