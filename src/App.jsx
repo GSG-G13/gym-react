@@ -12,7 +12,6 @@ import {
   Store,
   UserProfile,
   UserSetting,
-  HomeDashboard,
 } from './pages';
 import Root from './routes/root';
 import ClassLayout from './layout/classLayout';
@@ -24,7 +23,6 @@ const App = () => (
     <THEME>
       <BrowserRouter>
         <Routes>
-          <Route path="/home" element={<HomeDashboard />} />
           <Route path="/" element={<Root />}>
             <Route index element={<Home />} />
             <Route path="class" element={<ClassLayout />}>
