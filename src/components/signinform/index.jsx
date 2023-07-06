@@ -50,7 +50,7 @@ const SignInComp = () => {
     e.preventDefault();
     const { data, status } = await axios.post('/api/users/login', state);
     if (status === 200) {
-      localStorage.setItem('userData', JSON.stringify(data.userData));
+      localStorage.setItem('userData', JSON.stringify(data.user));
       return navigate('/');
     }
   };

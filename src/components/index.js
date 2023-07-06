@@ -29,6 +29,7 @@ import CategoriesList from './categoriesList';
 import ClassesList from './classesList';
 import UserSettingData from './userSettingData/UserSettingData';
 import InputComp from './inputfield';
+import HomeClass from './homeClass';
 
 export {
   MenuComp,
@@ -62,5 +63,5 @@ export {
   ClassesList,
   UserSettingData,
   InputComp,
-
+  HomeClass,
 };
