@@ -7,7 +7,12 @@ import {
 } from '../../../components';
 
 const DashBoardLayOut = ({
-  columns, rows, userInfo, setStates, buttonName, error, axiosData, filedName, value,
+  columns, rows, userInfo,
+  setStates,
+  buttonName, error,
+  axiosData,
+  filedName, value,
+  selectList,
 }) => {
   const [showForm, setShowForm] = useState(false);
   return (
@@ -30,6 +35,7 @@ const DashBoardLayOut = ({
                 axiosData={axiosData}
                 filedName={filedName}
                 value={value}
+                selectList={selectList}
               />
               {error
                 ? <Alerts message={error} type="error" />
