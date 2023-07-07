@@ -1,22 +1,51 @@
 import { Box, Typography, Divider } from '@mui/material';
 import React from 'react';
 
-const Message = ({ message }) => (
-  <Box
-    p={2}
-    sx={{
-      alignSelf: message.username === 'john' ? 'end' : 'start', display: 'flex', gap: 2, width: 250,
-    }}
-  >
-    <img width={40} height={40} style={{ borderRadius: '50%', alignSelf: 'end', display: message.username === 'john' ? 'none' : 'block' }} src={message.image} alt="person" />
+const Message = ({ message }) => {
+  console.log(message);
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  console.log(userData);
+  return (
+    <Box
+      p={2}
+      sx={{
+        alignSelf: message.username === userData.username ? 'end' : 'start',
+        display: 'flex',
+        gap: 2,
+        maxWidth: 400,
+      }}
+    >
+      <img width={40} height={40} style={{ borderRadius: '50%', alignSelf: 'end', display: message.image ? 'block' : 'none' }} src={message.image} alt="person" />
 
-    <Box>
-      <Typography variant="h5" textAlign={message.username === 'john' ? 'end' : 'start'}>{message.username === 'john' ? 'you' : 'john'}</Typography>
-      <Divider />
-      <Typography borderRadius={3} p={2} bgcolor="#EEF1F4" my={1} variant="body2">{message.message}</Typography>
-      <Typography variant="h6">{message.time}</Typography>
+      <Box>
+        <Typography
+          variant="h5"
+          textAlign={message.username === userData.username ? 'start' : 'end'}
+        >
+          {message.username === userData.username ? 'you' : message.username}
+
+        </Typography>
+        <Divider />
+        <Typography
+          borderRadius={5}
+          p="10px 20px"
+          bgcolor={message.username === userData.username ? '#EEF1F4' : 'blue'}
+          my={1}
+          variant="body2"
+          color={message.username === userData.username ? 'black' : '#fff'}
+          fontWeight={600}
+        >
+          {message.message}
+
+        </Typography>
+        <Typography variant="h6">
+          {message.time}
+          {' '}
+          13:30
+        </Typography>
+      </Box>
     </Box>
-  </Box>
-);
+  );
+};
 
 export default Message;

@@ -16,6 +16,7 @@ import Root from './routes/root';
 import ClassLayout from './layout/classLayout';
 import StoreLayout from './layout';
 import { ClassInfoComp, HomeClass, ProductDetails } from './components';
+import Chat from './components/chat';
 
 const App = () => (
   <Provider>
@@ -43,6 +44,8 @@ const App = () => (
               <Route path="orders" element={<UserProfile />} />
             </Route>
             <Route path="setting" element={<UserSetting />} />
+            <Route path="chat" element={<Chat />} />
+
           </Route>
           <Route path="*" element={<h1>this page does not exist</h1>} />
         </Routes>
