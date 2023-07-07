@@ -1,7 +1,8 @@
-import { Snackbar } from '@mui/material';
+import { Box, Container, Snackbar } from '@mui/material';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import socket from '../../socket';
+import MessageLists from '../messageLists';
 
 const Chat = () => {
   const [message, setMessage] = useState('');
@@ -86,47 +87,75 @@ const Chat = () => {
   }, []);
 
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         minHeight: '100vh',
         paddingTop: '5rem',
+        my: 2,
       }}
     >
-      <div>
-        {messages.map((item) => (
-          <p
-            // eslint-disable-next-line no-underscore-dangle
-            key={item._id}
-            style={{
-              // eslint-disable-next-line no-underscore-dangle
-              color: item.user === userData._id ? 'red' : 'blue',
-            }}
-          >
-            {item.username}
-            :
-            {item.message}
-          </p>
-        ))}
-      </div>
-      <div>
-        <input
-          value={message}
-          placeholder="Enter message"
-          onChange={(e) => {
-            setMessage(e.target.value);
+      <Container>
+        <Box
+          boxShadow="0px 0px 10px 0px rgba(255,255,255,0.1)"
+          sx={{
+            display: 'flex',
+
           }}
-        />
-        <button type="button" onClick={handleSubmit}>
-          Send
-        </button>
-      </div>
-      <h1>CHAT</h1>
-      <Snackbar
-        open={!!userJoinNotification}
-        autoHideDuration={3000}
-        message={userJoinNotification}
-      />
-    </div>
+        >
+          <Box width="80%" borderRight="1px solid #ccc" p={2}>
+            <MessageLists messages={messages} />
+            <Box sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 1,
+              mt: 5,
+
+            }}
+            >
+              <input
+                style={{
+                  padding: '15px 20px',
+                  border: '1px solid #ccc',
+                  width: '80%',
+                  backgroundColor: 'transparent',
+                  color: '#fff',
+                  fontSize: '16px',
+                }}
+                value={message}
+                placeholder="Enter message"
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                }}
+              />
+              <button
+                style={{
+                  padding: '15px 30px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  backgroundColor: 'rgb(255, 70, 1)',
+                  color: '#fff',
+                  fontWeight: 700,
+                  borderRadius: '20px',
+                }}
+                type="button"
+                onClick={handleSubmit}
+              >
+                Send
+              </button>
+            </Box>
+            <Snackbar
+              open={!!userJoinNotification}
+              autoHideDuration={3000}
+              message={userJoinNotification}
+            />
+          </Box>
+          <Box width="20%" p={2}>
+            user data
+          </Box>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

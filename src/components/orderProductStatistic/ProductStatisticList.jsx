@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import OrderProductStatistic from './OrderProductStatistic';
 
-const products = ['One', 'Two', 'Three', 'One', 'One', 'Two', 'Three', 'One',];
+const products = ['One', 'Two', 'Three', 'One', 'One', 'Two', 'Three', 'One'];
 const ProductStatisticList = () => (
   <Box
     border="1px solid #ccc"
