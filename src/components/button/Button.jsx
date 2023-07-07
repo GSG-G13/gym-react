@@ -8,12 +8,16 @@ const ButtonComponent = ({
   flex,
   onClick,
   secondOnClick,
+  width,
 }) => (
   <StyledButton
     variant={variant}
     flex={flex}
     sx={{
-      backgroundColor: color, fontSize: 12,
+      width: `${width}`,
+      backgroundColor: color,
+      fontSize: 12,
+      '&:hover': { backgroundColor: '#FF4601' },
     }}
     onClick={onClick || secondOnClick}
   >
@@ -22,7 +26,6 @@ const ButtonComponent = ({
 );
 const StyledButton = styled(Button)`
   flex: ${({ flex }) => (flex || '0.2')};
-  max-width: fit-content;
   padding: .7rem 1rem !important;
   font-weight:600 !important;
   font-size:14px !important;

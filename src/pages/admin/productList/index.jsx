@@ -1,21 +1,41 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import axios from 'axios';
 import { columns } from '../../../dummyData/productData';
 import DashBoardLayOut from '../LayOut';
 
+const initialState = {
+  title: '',
+  image: '',
+  rating: '',
+  price: '',
+  description: '',
+};
+
+const reducer = (state, action) => ({
+  ...state,
+  [action.filedName]: action.value,
+});
 const ProductListDashboard = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleChange = (e, filedName) => {
+    const { value } = e.target;
+    dispatch({
+      filedName,
+      value,
+    });
+  };
   const [products, setProducts] = useState([]);
-  const [title, setTitle] = useState('');
-  const [image, setImage] = useState('');
-  const [description, setDescription] = useState('');
-  const [rating, setRating] = useState(0);
-  const [price, setPrice] = useState(0);
-  const states = [title, description, image, rating, price];
+
   const productInfo = ['title', 'image', 'rating', 'price', 'description'];
-  const setStates = [setTitle, setRating, setDescription, setPrice, setImage];
+  const values = [state.title, state.image, state.rating, state.price, state.description];
 
   const addProduct = async () => {
-    await axios.post('/api/products/64896aea9b5231cfd1f0d57a', { states });
+    try {
+      await axios.post('/api/products/648f74c381e43118b327c13a', state);
+    } catch (error) {
+      console.log(error);
+    }
   };
   const getProducts = async () => {
     const response = await axios.get('/api/products');
@@ -32,8 +52,11 @@ const ProductListDashboard = () => {
       columns={columns}
       rows={products}
       buttonName="Add product"
-      setStates={setStates}
+      setStates={handleChange}
       axiosData={addProduct}
+      filedName={productInfo}
+      value={values}
+
     />
   );
 };

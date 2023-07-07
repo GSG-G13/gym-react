@@ -7,14 +7,29 @@ import { useParams } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ButtonComponent from '../button/Button';
+import Alerts from '../alert/Alert';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-
+  const [message, setMessage] = useState('');
+  console.log(message);
+  const [errorMsg, setErrorMsg] = useState('');
+  const amount = 1;
   const getProductDetails = async () => {
     const response = await axios.get(`/api/products/${id}`);
     setProduct(response.data.product);
+  };
+
+  const addOrder = async () => {
+    try {
+      const { data } = await axios.post(`/api/orders/${id}`, { amount });
+
+      setMessage(data.msg);
+    } catch (error) {
+      console.log(error);
+      setErrorMsg('you have been already orderd');
+    }
   };
 
   useEffect(() => {
@@ -45,9 +60,9 @@ const ProductDetails = () => {
             {product.title}
           </Typography>
           {product.description && (
-          <Typography variant="subtitle1" color="text.secondary" py={2} mr={3}>
-            {product.description }
-          </Typography>
+            <Typography variant="subtitle1" color="text.secondary" py={2} mr={3}>
+              {product.description}
+            </Typography>
           )}
           <Box py="20px">
             <Typography variant="h5">
@@ -60,9 +75,11 @@ const ProductDetails = () => {
             <StarBorderIcon sx={{ borderColor: 'colors.darkBlue' }} />
           </Box>
 
-          <ButtonComponent color="colors.darkBlue">Order</ButtonComponent>
+          <ButtonComponent onClick={addOrder} color="colors.darkBlue">{message ? 'Requested' : 'Order'}</ButtonComponent>
         </CardContent>
-
+        {errorMsg
+          ? <Alerts type="error" message={errorMsg} />
+          : null}
       </Box>
     </Card>
   );
