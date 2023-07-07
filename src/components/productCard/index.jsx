@@ -6,10 +6,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => (
-  <Card sx={{ p: '5px', backgroundColor: 'transparent' }}>
+  <Card sx={{ p: '5px', backgroundColor: 'transparent', boxShadow: ' 0px 2px 5px 0px rgba(231,90,37,0.75)' }}>
     <CardMedia
       sx={{ borderRadius: 2 }}
       component="img"
@@ -25,10 +25,10 @@ const ProductCard = ({ product }) => (
       gap: 1,
     }}
     >
-      <Typography variant="h5">
+      <Typography variant="h5" color="white">
         {product.title}
       </Typography>
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="h5" color="white">
         {product.price}
         {' '}
         $
@@ -44,8 +44,8 @@ const ProductCard = ({ product }) => (
         sx={{
           px: 3,
           fontSize: '11px',
-          backgroundColor: '#002B5B',
-          '&:hover': { backgroundColor: '#002B5B' },
+          backgroundColor: '#FF4601',
+          '&:hover': { backgroundColor: '#FF4601' },
         }}
         variant="contained"
       >

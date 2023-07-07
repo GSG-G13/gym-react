@@ -32,41 +32,41 @@ const ClassInfoComp = () => {
     <Box my={15} py={8} sx={{ border: '1px solid #ccc', borderRadius: 5 }}>
       <Container>
         {
-           !classData ? (<Typography>no data</Typography>)
-             : (
-               <Box>
-                 <Typography mb={6} variant="h5" fontSize="23px" textTransform="capitalize">{classData.className}</Typography>
-                 <Box mt={3} sx={{ display: 'flex', alignItems: 'center', gap: 40 }}>
-                   <Box>
-                     <img
-                       src="https://goldsgym.in/uploads/blog/compress-strong-man-training-gym-min.jpg"
-                       alt="trainer"
-                       style={{
-                         width: 150, height: 150, borderRadius: '50%', objectFit: 'cover',
-                       }}
-                     />
-                     <Typography mt="10px" variant="h3">{classData.trainerId?.username}</Typography>
-                   </Box>
+          !classData ? (<Typography>no data</Typography>)
+            : (
+              <Box>
+                <Typography mb={6} variant="h5" fontSize="23px" textTransform="capitalize">{classData.className}</Typography>
+                <Box mt={3} sx={{ display: 'flex', alignItems: 'center', gap: 40 }}>
+                  <Box>
+                    <img
+                      src="https://goldsgym.in/uploads/blog/compress-strong-man-training-gym-min.jpg"
+                      alt="trainer"
+                      style={{
+                        width: 150, height: 150, borderRadius: '50%', objectFit: 'cover',
+                      }}
+                    />
+                    <Typography mt="10px" variant="h3">{classData.trainerId?.username}</Typography>
+                  </Box>
 
-                   <ButtonComponent onClick={addSubscription} color="colors.darkBlue" flex="0.4">
-                     {subscriptionStatus.status === 'pending'
-                       ? 'Pending'
-                       : subscriptionStatus.status === 'approved'
-                         ? 'Approved' : 'Join Class' }
-                   </ButtonComponent>
-                 </Box>
-                 <Box mt={2}>
-                   <Typography pr={3} variant="h6" sx={{ fontSize: '12px', fontWeight: '100', width:'80%' }}>
-                     {classData.description}
+                  <ButtonComponent onClick={addSubscription} color="colors.darkBlue" flex="0.4">
+                    {subscriptionStatus.status === 'pending'
+                      ? 'Pending'
+                      : subscriptionStatus.status === 'approved'
+                        ? 'Approved' : 'Join Class'}
+                  </ButtonComponent>
+                </Box>
+                <Box mt={2}>
+                  <Typography pr={3} variant="h6" sx={{ fontSize: '12px', fontWeight: '100', width: '80%' }}>
+                    {classData.description}
 
-                   </Typography>
+                  </Typography>
 
-                 </Box>
-                 <Box mt={4} sx={{ display: 'flex', justifyContent: 'center' }}>
-                   <ClassTable />
-                 </Box>
-               </Box>
-             )
+                </Box>
+                <Box mt={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+                  <ClassTable />
+                </Box>
+              </Box>
+            )
 
         }
       </Container>

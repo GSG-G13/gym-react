@@ -1,3 +1,5 @@
+import DropDownList from '../components/dropDownList';
+
 const userInfo = ['Title', 'Content', 'Price', 'Review', 'Setting'];
 
 const columns = [
@@ -22,7 +24,12 @@ const columns = [
     field: 'description',
     headerName: 'Description',
   },
-
+  {
+    field: 'delete',
+    headerName: 'Delete',
+    width: 100,
+    renderCell: (row) => <DropDownList row={row} url="/api/products" />,
+  },
 ];
 
 export { userInfo, columns };

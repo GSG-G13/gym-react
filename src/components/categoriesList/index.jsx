@@ -17,10 +17,13 @@ const CategoriesList = ({ setCategory }) => {
 
   return (
     <Box
+      sx={{
+        display: 'flex', flexDirection: 'column', alignItems: 'center',
+      }}
       component="div"
       px={2}
     >
-      <Typography pb={1} align="left" pt="25PX" variant="h3" fontWeight={600}>Categories</Typography>
+      <Typography pb={1} align="left" pt="25PX" variant="h3" color="#FF4601" fontWeight={600}>Categories</Typography>
       <Divider />
 
       <Box sx={{

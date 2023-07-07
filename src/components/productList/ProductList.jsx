@@ -48,7 +48,7 @@ const ProductList = () => {
     >
       <Container>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography align="left" variant="h3" fontWeight={600}>{!category ? 'All product' : category}</Typography>
+          <Typography color="#FF4601 " align="left" variant="h3" fontWeight={600}>{!category ? 'All product' : category}</Typography>
           {category ? (
             <Button onClick={
               () => setFilteredProducts([])

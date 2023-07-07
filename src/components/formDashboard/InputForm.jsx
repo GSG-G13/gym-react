@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { FormControl, Input, InputLabel } from '@mui/material';
 import React from 'react';
 
@@ -6,7 +7,15 @@ const InputForm = ({
 }) => (
   <FormControl fullWidth>
     <InputLabel sx={{ fontSize: '12px' }} htmlFor="my-input">{children}</InputLabel>
-    <Input value={value} onChange={(e) => setState(e, filedName)} id="my-input" aria-describedby="my-helper-text" />
+    <Input
+      type={filedName === 'password'
+        ? 'password' : filedName === 'email'
+          ? 'email' : 'text'}
+      value={value}
+      onChange={(e) => setState(e, filedName)}
+      id="my-input"
+      aria-describedby="my-helper-text"
+    />
   </FormControl>
 );
 

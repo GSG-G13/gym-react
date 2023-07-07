@@ -1,3 +1,5 @@
+import DropDownList from '../components/dropDownList';
+
 const columns = [
   { field: '_id', headerName: 'ID', width: 90 },
   {
@@ -53,6 +55,12 @@ const columns = [
     type: 'number',
     width: 110,
     editable: true,
+  },
+  {
+    field: 'delete',
+    headerName: 'Delete',
+    width: 100,
+    renderCell: (row) => <DropDownList row={row} url="/api/users" />,
   },
 ];
 
