@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useReducer, useState } from 'react';
 import DashBoardLayOut from '../LayOut';
+import DropDownList from '../../../components/dropDownList';
 
 const classInfo = ['className', 'description', 'price', 'userCount', 'trainerId'];
 const columns = [
@@ -20,6 +21,12 @@ const columns = [
   {
     field: 'username',
     headerName: 'userName',
+  },
+  {
+    field: 'delete',
+    headerName: 'Delete',
+    width: 100,
+    renderCell: (row) => <DropDownList row={row} url="/api/classes" />,
   },
 
 ];
@@ -42,7 +49,7 @@ const ClassDashBoard = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const [state, dispatch] = useReducer(reducer, initialState);
   const [trainers, setTrainers] = useState([]);
-  console.log(state.trainerId);
+  console.log(errorMsg);
   const values = [
     state.className,
     state.description,
@@ -70,9 +77,9 @@ const ClassDashBoard = () => {
       const allClassData = [];
       classesData.map((classItem) => allClassData.push({
         ...classItem,
-        username: classItem.trainerId.username,
+        username: classItem.trainerId?.username,
       }));
-      setClassData(allClassData);
+      setClassData(classesData);
     } catch (error) {
       setErrorMsg('There Is No Classes');
     }
