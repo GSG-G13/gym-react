@@ -13,6 +13,7 @@ const DashBoardLayOut = ({
   axiosData,
   filedName, value,
   selectList,
+  page,
 }) => {
   const [showForm, setShowForm] = useState(false);
   return (
@@ -28,15 +29,18 @@ const DashBoardLayOut = ({
                 display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 4, position: 'relative',
               }}
             >
-              <SearchDashboard
-                btnText={buttonName}
-                userInfo={userInfo}
-                setStates={setStates}
-                axiosData={axiosData}
-                filedName={filedName}
-                value={value}
-                selectList={selectList}
-              />
+              {!page ? (
+                <SearchDashboard
+                  btnText={buttonName}
+                  userInfo={userInfo}
+                  setStates={setStates}
+                  axiosData={axiosData}
+                  filedName={filedName}
+                  value={value}
+                  selectList={selectList}
+                />
+              )
+                : null}
               {error
                 ? <Alerts message={error} type="error" />
 

@@ -7,9 +7,10 @@ const StoreLayout = () => {
   const [category, setCategory] = useState('');
   return (
     <Box>
+      <HomeStore />
+
       <Container>
-        <HomeStore />
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
+        <Box sx={{ display: 'flex', gap: '50px' }} mt={10}>
           <CategoriesList setCategory={setCategory} />
           <Outlet context={category} />
         </Box>

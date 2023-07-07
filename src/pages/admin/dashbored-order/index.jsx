@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import DashBoardLayOut from '../LayOut';
+import DropDownList from '../../../components/dropDownList';
 
 const columns = [
 
@@ -31,6 +32,12 @@ const columns = [
     field: 'status',
     headerName: 'Status',
   },
+  {
+    field: 'delete',
+    headerName: 'Delete',
+    width: 100,
+    renderCell: (row) => <DropDownList row={row} url="/api/orders" />,
+  },
 
 ];
 
@@ -43,18 +50,18 @@ const DashOrderPage = () => {
       const { data: { orders } } = await axios.get('/api/orders');
       const orderData = [];
       orders.map((order) => orderData.push({
-        userName: order.userId.username,
-        productName: order.productId.title,
-        image: order.productId.image,
-        status: order.status,
-        amount: order.amount,
-        totalPrice: `${order.totalPrice}$`,
-
-        _id: order._id,
+        userName: order.userId?.username,
+        productName: order.productId?.title,
+        image: order.productId?.image,
+        status: order?.status,
+        amount: order?.amount,
+        totalPrice: `${order?.totalPrice}$`,
+        _id: order?._id,
       }));
 
       setOrdersData(orderData);
     } catch (error) {
+      console.log(error);
       setErrorMsg('There is no orders');
     }
   };
@@ -70,6 +77,7 @@ const DashOrderPage = () => {
       rows={ordersData}
       buttonName="Add product"
       error={errorMsg}
+      page="order"
     />
 
   );

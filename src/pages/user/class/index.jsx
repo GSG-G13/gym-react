@@ -7,7 +7,7 @@ const Class = () => (
   <Provider>
     <Box>
       <Container>
-        <Box my={15} sx={{ display: 'flex', gap: 4 }}>
+        <Box my={15} sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
           <ClassInfoComp />
         </Box>
       </Container>

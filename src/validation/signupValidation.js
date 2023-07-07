@@ -7,7 +7,7 @@ const validationSchema = Yup.object().shape({
   gender: Yup.string().required('Gender is required'),
   height: Yup.number().required('Height is required').positive('Height must be a positive number').typeError('must be a number'),
   weight: Yup.number().required('Weight is required').positive('Weight must be a positive number').typeError('must be a number'),
-  goalWeight: Yup.number().required('Goal weight is required').positive('Goal weight must be a positive number').typeError('must be a number'),
+  goalweight: Yup.number().required('Goal weight is required').positive('Goal weight must be a positive number').typeError('must be a number'),
   password: Yup.string().required('Password is required').min(8, 'Password must be at least 8 characters'),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
