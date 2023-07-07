@@ -27,7 +27,7 @@ const initialState = {
   gender: '',
   height: '',
   weight: '',
-  goalWeight: '',
+  goalweight: '',
   password: '',
   confirmPassword: '',
 };
@@ -141,13 +141,13 @@ const SignupComp = () => {
               error={errors.weight}
             />
             <InputComp
-              name="Goal Weight"
+              name="goalweight"
               icon={weightIcon}
-              value={state.goalWeight}
+              value={state.goalweight}
               onChange={handleChange}
-              filedName="goalWeight"
+              filedName="goalweight"
               type="number"
-              error={errors.goalWeight}
+              error={errors.goalweight}
             />
             <InputComp
               name="Password"
