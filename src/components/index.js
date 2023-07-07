@@ -17,6 +17,7 @@ import SearchDashboard from './searchDashboard/Search';
 import Statistic from './statistic';
 import Announcement from './announcement/Announcement';
 import AnnouncementList from './announcement/AnnouncementList';
+import MessageLists from './messageLists';
 import ClassInfoComp from './classInfo';
 import Table from './table';
 import SliderComp from './slider';
@@ -48,6 +49,7 @@ export {
   SearchDashboard,
   Header,
   TrainerCard,
+  MessageLists,
   Statistic,
   Announcement,
   AnnouncementList,
