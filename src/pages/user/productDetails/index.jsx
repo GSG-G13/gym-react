@@ -1,12 +1,12 @@
 import { Box, Container } from '@mui/material';
 import React from 'react';
-import { ProductDetails } from '../../../components';
+import { Outlet } from 'react-router-dom';
 
 const ProductDetailsContainer = () => (
   <Box>
     <Container>
       <Box mt={18} mb={9}>
-        <ProductDetails />
+        <Outlet />
       </Box>
     </Container>
   </Box>

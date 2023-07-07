@@ -13,7 +13,6 @@ const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [message, setMessage] = useState('');
-  console.log(message);
   const [errorMsg, setErrorMsg] = useState('');
   const amount = 1;
   const getProductDetails = async () => {
