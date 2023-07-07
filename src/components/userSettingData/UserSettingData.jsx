@@ -26,14 +26,14 @@ const UserSettingData = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
   const values = [
-    userSettingData.username,
-    userSettingData.email,
-    userSettingData.password,
-    userSettingData.age,
-    userSettingData.gender,
-    userSettingData.height,
-    userSettingData.weight,
-    userSettingData.goalweight,
+    state.username,
+    state.email,
+    state.password,
+    state.age,
+    state.gender,
+    state.height,
+    state.weight,
+    state.goalweight,
   ];
 
   const handleChange = (e, filedName) => {
