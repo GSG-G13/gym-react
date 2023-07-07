@@ -39,7 +39,7 @@ const UserProfile = () => {
                 setTableName={setTableName}
               />
             </Box>
-            <Box>
+            <Box mb={20}>
 
               {tableName === 'orders' ? <OrderTable ordersData={userOrders[0]} /> : <ClassTable classData={userClasses[0]} />}
 
