@@ -6,43 +6,46 @@ import GroupButtons from './GroupButtons';
 
 const FormDashBoard = ({
   userInfo, text, onClick, setStates, axiosData, filedName, value, selectList,
-}) => (
-  <Box backgroundColor="#fff" border="1px solid #ccc" p={2}>
-    <Typography sx={{ color: '#000', textAlign: 'center' }}>{text}</Typography>
+}) => {
+  console.log(value);
+  return (
+    <Box backgroundColor="#fff" border="1px solid #ccc" p={2}>
+      <Typography sx={{ color: '#000', textAlign: 'center' }}>{text}</Typography>
 
-    <Box
-      p="40px"
-      sx={{
-        display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 2, width: '675px ',
-      }}
-    >
+      <Box
+        p="40px"
+        sx={{
+          display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 2, width: '675px ',
+        }}
+      >
 
-      {userInfo.map((info, index) => (
-        <InputForm
-          key={info}
-          setState={setStates}
-          filedName={info}
-          value={value[index]}
-        >
-          {' '}
-          {info}
-        </InputForm>
-      ))}
+        {userInfo.map((info, index) => (
+          <InputForm
+            key={info}
+            setState={setStates}
+            filedName={info}
+            value={value[index]}
+          >
+            {' '}
+            {info}
+          </InputForm>
+        ))}
 
-      {selectList
-        ? (
-          <Select onChange={(e) => setStates(e, filedName[filedName.length - 1])}>
-            <option disabled selected>select tranier</option>
-            {selectList.map((list) => <option value={list._id}>{list.username}</option>)}
-          </Select>
-        )
-        : null}
+        {selectList
+          ? (
+            <Select onChange={(e) => setStates(e, filedName[filedName.length - 1])}>
+              <option disabled selected>select tranier</option>
+              {selectList.map((list) => <option value={list._id}>{list.username}</option>)}
+            </Select>
+          )
+          : null}
+
+      </Box>
+      <GroupButtons onClick={onClick} axiosData={axiosData} />
 
     </Box>
-    <GroupButtons onClick={onClick} axiosData={axiosData} />
 
-  </Box>
-
-);
+  );
+};
 
 export default FormDashBoard;

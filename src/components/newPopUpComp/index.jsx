@@ -23,7 +23,6 @@ const DashboardNewPopUp = ({
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  console.log(userData, 'test');
   return (
     <div>
       <ButtonComponent

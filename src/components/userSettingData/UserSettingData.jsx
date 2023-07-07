@@ -1,12 +1,56 @@
 import { Box, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
-import GroupButtons from '../formDashboard/GroupButtons';
+import { useReducer } from 'react';
+import axios from 'axios';
 import DashboardNewPopUp from '../newPopUpComp';
 
-const userInfo = ['username', 'email', 'gender', 'weight', 'height', 'age', 'goalweight',
-];
-const UserSettingData = ({ setStates, states }) => {
+const userInfo = ['username', 'email', 'password', 'age', 'gender', 'height', 'weight', 'goalweight'];
+
+const initialState = {
+  username: '',
+  email: '',
+  password: '',
+  age: '',
+  gender: '',
+  height: '',
+  weight: '',
+  goalweight: '',
+};
+
+const reducer = (state, action) => ({
+  ...state,
+  [action.filedName]: action.value,
+});
+const UserSettingData = () => {
   const userSettingData = JSON.parse(localStorage.getItem('userData'));
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const values = [
+    userSettingData.username,
+    userSettingData.email,
+    userSettingData.password,
+    userSettingData.age,
+    userSettingData.gender,
+    userSettingData.height,
+    userSettingData.weight,
+    userSettingData.goalweight,
+  ];
+
+  const handleChange = (e, filedName) => {
+    const { value } = e.target;
+    dispatch({
+      filedName,
+      value,
+    });
+  };
+
+  const updateUser = async () => {
+    try {
+      await axios.put('/api/users/', state);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Box sx={{
       p: '20px',
@@ -109,15 +153,25 @@ const UserSettingData = ({ setStates, states }) => {
 
           </Typography>
         </Box>
-        <DashboardNewPopUp
-          setStates={setStates}
-          userInfo={userInfo}
-          states={states}
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: 2,
+        }}
         >
-          edit
+          <DashboardNewPopUp
+            setStates={handleChange}
+            userInfo={userInfo}
+            value={values}
+            filedName={userInfo}
+            axiosData={updateUser}
 
-        </DashboardNewPopUp>
-        <button>delete</button>
+          >
+            edit
+
+          </DashboardNewPopUp>
+          <button style={{ padding: '0px 10px' }} type="button">delete</button>
+        </Box>
       </Box>
 
     </Box>
