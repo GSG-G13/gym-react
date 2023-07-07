@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { useReducer } from 'react';
 import axios from 'axios';
@@ -170,7 +170,18 @@ const UserSettingData = () => {
             edit
 
           </DashboardNewPopUp>
-          <button style={{ padding: '0px 10px' }} type="button">delete</button>
+          <Button
+            sx={{
+              padding: '0px 20px',
+              backgroundColor: 'red',
+              color: '#fff',
+              fontWeight: 700,
+              borderRadius: 2,
+            }}
+            type="button"
+          >
+            delete
+          </Button>
         </Box>
       </Box>
 
