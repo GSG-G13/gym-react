@@ -17,6 +17,7 @@ import SearchDashboard from './searchDashboard/Search';
 import Statistic from './statistic';
 import Announcement from './announcement/Announcement';
 import AnnouncementList from './announcement/AnnouncementList';
+import MessageLists from './messageLists';
 import ClassInfoComp from './classInfo';
 import Table from './table';
 import SliderComp from './slider';
@@ -29,6 +30,7 @@ import CategoriesList from './categoriesList';
 import ClassesList from './classesList';
 import UserSettingData from './userSettingData/UserSettingData';
 import InputComp from './inputfield';
+import HomeClass from './homeClass';
 
 export {
   MenuComp,
@@ -47,6 +49,7 @@ export {
   SearchDashboard,
   Header,
   TrainerCard,
+  MessageLists,
   Statistic,
   Announcement,
   AnnouncementList,
@@ -62,5 +65,5 @@ export {
   ClassesList,
   UserSettingData,
   InputComp,
-
+  HomeClass,
 };

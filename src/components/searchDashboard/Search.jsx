@@ -8,7 +8,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import DashboardNewPopUp from '../newPopUpComp';
 
 const SearchDashboard = ({
-  btnText, userInfo, states, setStates,
+  btnText, userInfo, setStates, axiosData, filedName, value, selectList,
 }) => (
   <Box width="100%" sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
     <FormControl sx={{ m: 1, height: '52px', flex: 0.8 }} variant="outlined">
@@ -34,7 +34,14 @@ const SearchDashboard = ({
         )}
       />
     </FormControl>
-    <DashboardNewPopUp userInfo={userInfo} states={states} setStates={setStates}>
+    <DashboardNewPopUp
+      userInfo={userInfo}
+      setStates={setStates}
+      axiosData={axiosData}
+      filedName={filedName}
+      value={value}
+      selectList={selectList}
+    >
       {btnText}
     </DashboardNewPopUp>
 

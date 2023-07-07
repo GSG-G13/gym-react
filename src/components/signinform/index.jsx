@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { passwordIcon, userIcon } from '../../utilize/icons';
-// import ButtonComponent from '../button/Button';
 import InputComp from '../inputfield';
 
 const FormWrapper = styled.form`
@@ -21,6 +20,7 @@ const InputContainer = styled.div`
   display: flex;
 flex-direction: column;
 justify-content: center;
+
 
 
 `;
@@ -59,7 +59,7 @@ const SignInComp = () => {
     <Box>
       <FormWrapper onSubmit={(e) => signIn(e)}>
         <InputContainer>
-          <Typography variant="h1" sx={{ marginBottom: '3.125rem', fontWeight: '700' }}>
+          <Typography variant="h1" sx={{ marginBottom: '3.125rem', fontWeight: '600', color: '#FF4601' }}>
             Login
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -68,15 +68,20 @@ const SignInComp = () => {
           </Box>
           <Typography my={2} variant="h5" textAlign="start">
             I do not have an account ?
-            {' '}
-            <Link to="/signup">Sign up</Link>
+
+            <Link to="/signup" style={{ textDecoration: 'none', color: '#FF4601', paddingLeft: '8px' }}> Sign up</Link>
           </Typography>
-          <Typography mb={1} variant="h6" textAlign="start">
+          <Typography mb={3} variant="h6" textAlign="start">
             Forgot password?
 
           </Typography>
 
-          <button type="submit">
+          <button
+            type="submit"
+            style={{
+              backgroundColor: '#FF4601', width: '450px', height: '40px', borderRadius: '5px', color: '#fff',
+            }}
+          >
             Sign in
           </button>
         </InputContainer>

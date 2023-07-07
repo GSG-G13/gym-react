@@ -4,6 +4,7 @@ import Provider from './context/Provider';
 import {
   AnnouncementContainer,
   Class,
+  ClassDashBoard,
   Home,
   ProductDetailsContainer,
   SignIn,
@@ -15,17 +16,18 @@ import {
 import Root from './routes/root';
 import ClassLayout from './layout/classLayout';
 import StoreLayout from './layout';
-import { ClassInfoComp } from './components';
+import { ClassInfoComp, HomeClass, ProductDetails } from './components';
 
 const App = () => (
   <Provider>
     <THEME>
       <BrowserRouter>
         <Routes>
+          <Route path="/classes" element={<ClassDashBoard />} />
           <Route path="/" element={<Root />}>
             <Route index element={<Home />} />
             <Route path="class" element={<ClassLayout />}>
-              <Route index element={<Class />} />
+              <Route index element={<HomeClass />} />
               <Route path=":id" element={<ClassInfoComp />} />
             </Route>
             <Route path="store" element={<StoreLayout />}>
@@ -34,8 +36,13 @@ const App = () => (
             <Route path="signin" element={<SignIn />} />
             <Route path="signup" element={<SignupPage />} />
             <Route path="announcement" element={<AnnouncementContainer />} />
-            <Route path="product" element={<ProductDetailsContainer />} />
-            <Route path="profile" element={<UserProfile />} />
+            <Route path="product" element={<ProductDetailsContainer />}>
+              <Route path=":id" element={<ProductDetails />} />
+            </Route>
+            <Route path="profile" element={<UserProfile />}>
+              <Route index element={<UserProfile />} />
+              <Route path="orders" element={<UserProfile />} />
+            </Route>
             <Route path="setting" element={<UserSetting />} />
           </Route>
           <Route path="*" element={<h1>this page does not exist</h1>} />

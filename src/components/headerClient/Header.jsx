@@ -2,13 +2,19 @@ import React from 'react';
 import { Box, Typography, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ButtonComponent from '../button/Button';
-import { ReactComponent as HeaderPhoto } from '../../assets/personal_trainer.svg';
 
 const Header = () => (
+
   <Box
     height="100vh"
     sx={{
-      display: 'flex', justifyContent: 'center', alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundImage: 'url(\'https://img.freepik.com/free-photo/muscular-sportsman-building-biceps-with-dumbbell_7502-4784.jpg\')',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+
     }}
   >
     <Container>
@@ -16,7 +22,6 @@ const Header = () => (
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
         }}
       >
         <Box
@@ -28,20 +33,15 @@ const Header = () => (
             flexDirection: 'column',
           }}
         >
-          <Typography variant="h1" fontWeight="700" fontSize="50px" width="460px" letterSpacing={2}>
-            <Typography variant="span">Unleash </Typography>
+          <Typography variant="h1" fontWeight="700" fontSize="50px" width="500px" letterSpacing={2}>
+            <Typography variant="span" fontWeight="700" sx={{ color: '#FF4601' }}>Unleash </Typography>
             Your Inner Athlete
           </Typography>
-          <Typography variant="h6" fontWeight={400} align="center" width="460px" my={3}>
-            Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit.
-            Ducimus nulla,
-            facere vel sed nisi
-            expedita est quod doloremque
-            perspiciatis sequi,
-            odit minus inventore pariatur
-            numquam repellat blanditiis commodi eius.
-            Modi.
+          <Typography variant="h5" fontWeight={400} align="center" width="460px" my={3}>
+            Get ready to sweat it out and achieve your fitness goals with
+            our high-energy fitness classes!
+            We provide a fun
+            and motivating environment to help you reach your peak performance.
           </Typography>
           <Box sx={{
             display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px',
@@ -55,9 +55,7 @@ const Header = () => (
             </ButtonComponent>
           </Box>
         </Box>
-        <Box>
-          <HeaderPhoto style={{ width: '550px', height: '420px' }} />
-        </Box>
+        <Box />
       </Box>
     </Container>
   </Box>

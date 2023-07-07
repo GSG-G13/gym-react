@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { Box, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -8,40 +9,54 @@ import ClassTable from '../classTable/ClassTable';
 const ClassInfoComp = () => {
   const { id } = useParams();
   const [classData, setClassData] = useState({});
+  const [subscriptionStatus, setSubscriptionStatus] = useState({});
 
   const getClassById = async () => {
-    const response = await axios.get(`/api/classes/${id}`);
-    setClassData(response.data.classObj);
+    try {
+      const response = await axios.get(`/api/classes/${id}`);
+      setClassData(response.data.classObj);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const addSubscription = async () => {
+    const { data } = await axios.post(`/api/subscriptions/${id}`);
+    setSubscriptionStatus(data.data);
   };
 
   useEffect(() => {
     getClassById();
-  }, [classData]);
+  }, [id]);
 
   return (
-    <Box p={7} sx={{ border: '1px solid #ccc', borderRadius: 5 }}>
+    <Box my={15} py={8} sx={{ border: '1px solid #ccc', borderRadius: 5 }}>
       <Container>
         {
            !classData ? (<Typography>no data</Typography>)
              : (
                <Box>
-                 <Typography mb={10} variant="h1">{classData.className}</Typography>
+                 <Typography mb={6} variant="h5" fontSize="23px" textTransform="capitalize">{classData.className}</Typography>
                  <Box mt={3} sx={{ display: 'flex', alignItems: 'center', gap: 40 }}>
                    <Box>
                      <img
                        src="https://goldsgym.in/uploads/blog/compress-strong-man-training-gym-min.jpg"
                        alt="trainer"
                        style={{
-                         width: 170, height: 170, borderRadius: '50%', objectFit: 'cover',
+                         width: 150, height: 150, borderRadius: '50%', objectFit: 'cover',
                        }}
                      />
-                     <Typography mt="10px" variant="h2">{classData.trainerId?.username}</Typography>
+                     <Typography mt="10px" variant="h3">{classData.trainerId?.username}</Typography>
                    </Box>
 
-                   <ButtonComponent color="colors.darkBlue" flex="1">Join Class</ButtonComponent>
+                   <ButtonComponent onClick={addSubscription} color="colors.darkBlue" flex="0.4">
+                     {subscriptionStatus.status === 'pending'
+                       ? 'Pending'
+                       : subscriptionStatus.status === 'approved'
+                         ? 'Approved' : 'Join Class' }
+                   </ButtonComponent>
                  </Box>
                  <Box mt={2}>
-                   <Typography pr={3} variant="h5" sx={{ fontSize: '16px', fontWeight: '100' }}>
+                   <Typography pr={3} variant="h6" sx={{ fontSize: '12px', fontWeight: '100', width:'80%' }}>
                      {classData.description}
 
                    </Typography>

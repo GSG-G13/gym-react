@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Button } from '@mui/material';
 
-const ProfileNav = () => (
+const profileNav = ['orders', 'classes'];
+const ProfileNav = ({ setTableName, getData }) => (
 
   <Box sx={{
     display: 'flex',
@@ -16,9 +17,16 @@ const ProfileNav = () => (
     mb: '20px',
   }}
   >
+    {profileNav.map((item) => (
+      <Button
+        key={item}
+        onClick={() => setTableName(item) || getData()}
+      >
+        {item}
 
-    <Typography variant="h4" fontWeight="700">Orders</Typography>
-    <Typography variant="h4" fontWeight="700">Classes</Typography>
+      </Button>
+    ))}
+
   </Box>
 
 );

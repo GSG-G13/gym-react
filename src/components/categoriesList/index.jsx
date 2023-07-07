@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Box, Divider, Typography } from '@mui/material';
@@ -16,10 +17,13 @@ const CategoriesList = ({ setCategory }) => {
 
   return (
     <Box
+      sx={{
+        display: 'flex', flexDirection: 'column', alignItems: 'center',
+      }}
       component="div"
       px={2}
     >
-      <Typography pb={1} align="left" pt="25PX" variant="h3" fontWeight={600}>Categories</Typography>
+      <Typography pb={1} align="left" pt="25PX" variant="h3" color="#FF4601" fontWeight={600}>Categories</Typography>
       <Divider />
 
       <Box sx={{
@@ -37,6 +41,7 @@ const CategoriesList = ({ setCategory }) => {
                 transition: 'all 0.5s ease',
                 textTransform: 'capitalize',
               }}
+              key={category._id}
               onClick={() => setCategory(category.categoryName)}
             >
               <CategoryCard category={category} />
