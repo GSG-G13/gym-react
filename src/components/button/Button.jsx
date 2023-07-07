@@ -14,6 +14,7 @@ const ButtonComponent = ({
     variant={variant}
     flex={flex}
     sx={{
+      color: '#fff',
       width: `${width}`,
       backgroundColor: color,
       fontSize: 12,

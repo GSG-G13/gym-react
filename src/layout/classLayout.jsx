@@ -5,7 +5,7 @@ import { ClassesList } from '../components';
 const ClassLayout = () => (
   <Box>
     <Container>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'grid', gridTemplateColumns: '20% 1fr', gap: '50px' }}>
         <ClassesList />
         <Outlet />
       </Box>

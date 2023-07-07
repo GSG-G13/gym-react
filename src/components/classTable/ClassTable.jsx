@@ -15,20 +15,20 @@ const rows = [
 const ClassTable = () => (
 
   <Table sx={{ width: '400px', height: '300px' }} size="small" aria-label="a dense table">
-    <TableHead sx={{ backgroundColor: '#E4DCCF', height: '70px' }}>
+    <TableHead sx={{ backgroundColor: '#FF4601', height: '70px' }}>
       <TableRow>
-        <TableCell>Days</TableCell>
-        <TableCell align="right">Times</TableCell>
+        <TableCell sx={{ color: '#fff' }}>Days</TableCell>
+        <TableCell align="right" sx={{ color: '#fff' }}>Times</TableCell>
       </TableRow>
     </TableHead>
     <TableBody>
       {rows.map((row) => (
         <TableRow>
-          <TableCell component="th" scope="row">
+          <TableCell component="th" scope="row" sx={{ color: '#fff' }}>
             {row.day}
           </TableCell>
 
-          <TableCell align="right">{row.time}</TableCell>
+          <TableCell align="right" sx={{ color: '#fff' }}>{row.time}</TableCell>
 
         </TableRow>
       ))}
