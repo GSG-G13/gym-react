@@ -10,6 +10,7 @@ const DashboardLayout = () => {
   const [subs, setSubs] = useState([]);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [ordersData, setOrdersData] = useState([]);
 
   const trainers = users.filter((user) => user.role === 'trainer');
 
@@ -34,19 +35,25 @@ const DashboardLayout = () => {
     setCategories(data.categories);
   };
 
+  const getOrders = async () => {
+    const { data: { orders } } = await axios.get('/api/orders');
+    setOrdersData(orders);
+  };
+
   useEffect(() => {
     getUsers();
     getClasses();
     getSubs();
     getProducts();
     getCategories();
+    getOrders();
   }, []);
   return (
     <Box>
       <NavBarDashBoard />
       <Box mt={8} minHeight="92vh" sx={{ display: 'flex' }}>
         <SideBar />
-        <Outlet context={[users, classes, subs, products, categories, trainers]} />
+        <Outlet context={[users, classes, subs, products, categories, trainers, ordersData]} />
       </Box>
 
     </Box>
