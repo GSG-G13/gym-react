@@ -9,17 +9,19 @@ const ProfileNav = ({ setTableName, getData }) => (
     alignItems: 'center',
     justifyContent: 'space-between',
     height: '60px',
-    backgroundColor: 'colors.secondary',
+    backgroundColor: 'rgba(0,0,0,0.2)',
     width: '100%',
+    gap: 10,
     borderRadius: '10px',
     px: '20px',
     m: ' 0 auto',
-    mb: '20px',
+    my: '50px',
   }}
   >
     {profileNav.map((item) => (
       <Button
         key={item}
+        sx={{ backgroundColor: item ? '#FF4601' : null, color: '#fff' }}
         onClick={() => setTableName(item) || getData()}
       >
         {item}

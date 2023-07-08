@@ -1,5 +1,6 @@
+/* eslint-disable array-callback-return */
 import * as React from 'react';
-
+import axios from 'axios';
 import PersonIcon from '@mui/icons-material/Person';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -8,15 +9,17 @@ import {
   AppBar,
   Box, Toolbar,
   IconButton,
-  Menu, Container, MenuItem, Tooltip,
+  Menu, MenuItem, Tooltip, Typography,
 } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
 
 const pages = ['home', 'store', 'class', 'chat', 'announcement'];
-const settings = [{ name: 'profile', icon: <AccountCircleIcon /> }, { name: 'setting', icon: <SettingsIcon /> }, { name: 'signin', icon: <LoginIcon /> }];
 
 const NavbarClient = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  const token = document.cookie;
+  const settings = [{ name: 'profile', icon: <AccountCircleIcon /> }, { name: 'setting', icon: <SettingsIcon /> }, { name: token ? 'signout' : 'signin', icon: <LoginIcon /> }];
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -24,6 +27,15 @@ const NavbarClient = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const logoutFun = async () => {
+    try {
+      axios.get('/api/users/signout');
+      localStorage.clear();
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -86,7 +98,10 @@ const NavbarClient = () => {
           ))}
         </Box>
 
-        <Box sx={{ flexGrow: 0 }}>
+        <Box sx={{
+          flexGrow: 0, display: 'flex', gap: 1, alignItems: 'center',
+        }}
+        >
           <Tooltip title="Open settings">
             <IconButton
               onClick={handleOpenUserMenu}
@@ -111,24 +126,38 @@ const NavbarClient = () => {
             open={Boolean(anchorElUser)}
             onClose={handleCloseUserMenu}
           >
-            {settings.map((setting) => (
-              <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
-                {setting.icon}
-                <Link
-                  to={setting.name}
-                  style={{
-                    textDecoration: 'none',
-                    paddingLeft: '10px',
-                    textTransform: 'capitalize',
-                    color: '#000',
-                  }}
-                >
-                  {setting.name}
-                </Link>
+            {settings.map((setting) => {
+              const link = setting.name === 'signout' ? 'signin' : setting.name;
 
-              </MenuItem>
-            ))}
+              return (
+                <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
+                  {setting.icon}
+                  <Link
+                    onClick={setting.name === 'signout' ? logoutFun : null}
+                    to={link}
+                    style={{
+                      textDecoration: 'none',
+                      paddingLeft: '10px',
+                      textTransform: 'capitalize',
+                      color: '#000',
+                    }}
+                  >
+                    {setting.name}
+                  </Link>
+
+                </MenuItem>
+
+              );
+            })}
+
           </Menu>
+          <Typography
+            variant="h4"
+            sx={{ color: '#fff', textTransform: 'capitalize' }}
+          >
+            {token ? userData.username : null}
+
+          </Typography>
         </Box>
       </Toolbar>
     </AppBar>

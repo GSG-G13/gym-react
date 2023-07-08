@@ -5,6 +5,7 @@ import Announcement from './Announcement';
 
 const AnnouncementList = () => {
   const [announcement, setAnnouncement] = useState([]);
+  console.log(announcement);
   const getAnnouncement = async () => {
     const response = await axios.get('/api/announcements');
     setAnnouncement(response.data.announcements);

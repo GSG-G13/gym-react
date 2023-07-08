@@ -9,6 +9,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import { Link } from 'react-router-dom';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -26,14 +27,14 @@ const NavBarDashBoard = () => {
   return (
     <AppBar sx={{ width: '100vw', backgroundColor: '#5A67BA', padding: '0 20px' }}>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Typography
+        <Link
           variant="h3"
           noWrap
           component="a"
-          href="/"
-          sx={{
+          to="/"
+          style={{
             mr: 2,
-            display: { xs: 'none', md: 'flex' },
+            display: 'flex',
             fontFamily: 'monospace',
             fontWeight: 700,
             letterSpacing: '.3rem',
@@ -44,7 +45,7 @@ const NavBarDashBoard = () => {
           <FitnessCenterIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, fontSize: 20 }} />
 
           Gym
-        </Typography>
+        </Link>
 
         <Box sx={{
           flexGrow: 0, display: 'flex', alignItems: 'center', gap: 1,

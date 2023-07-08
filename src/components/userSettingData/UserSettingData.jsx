@@ -1,137 +1,191 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
-import GroupButtons from '../formDashboard/GroupButtons';
+import { useReducer } from 'react';
+import axios from 'axios';
+import DashboardNewPopUp from '../newPopUpComp';
 
-const UserSettingData = () => (
-  <Box sx={{
-    p: '20px',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    width: '700px',
-  }}
-  >
-    <Box>
+const userInfo = ['username', 'email', 'password', 'age', 'gender', 'height', 'weight', 'goalweight'];
 
-      <Typography variant="h1" sx={{ paddingBottom: '20px' }}>user information </Typography>
-      <img
-        src="https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png"
-        width="120px"
-        height="120px"
-        alt="pic-profile"
-      />
-    </Box>
+const initialState = {
+  username: '',
+  email: '',
+  password: '',
+  age: '',
+  gender: '',
+  height: '',
+  weight: '',
+  goalweight: '',
+};
+
+const reducer = (state, action) => ({
+  ...state,
+  [action.filedName]: action.value,
+});
+const UserSettingData = () => {
+  const userSettingData = JSON.parse(localStorage.getItem('userData'));
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const values = [
+    state.username,
+    state.email,
+    state.password,
+    state.age,
+    state.gender,
+    state.height,
+    state.weight,
+    state.goalweight,
+  ];
+
+  const handleChange = (e, filedName) => {
+    const { value } = e.target;
+    dispatch({
+      filedName,
+      value,
+    });
+  };
+
+  const updateUser = async () => {
+    try {
+      await axios.put('/api/users/', state);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return (
     <Box sx={{
-      my: 5, display: 'flex', flexDirection: 'column', gap: 1.5,
+      p: '20px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      width: '700px',
     }}
     >
-      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
+      <Box>
 
-        <Typography variant="h5" color="gray">
-          username:
-
-        </Typography>
-
-        <Typography variant="h5">
-          heleena dar
-
-        </Typography>
+        <Typography variant="h1" sx={{ paddingBottom: '20px' }}>user information </Typography>
+        <img
+          src="https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png"
+          width="120px"
+          height="120px"
+          alt="pic-profile"
+        />
       </Box>
-      <Divider />
-      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
+      <Box sx={{
+        my: 5, display: 'flex', flexDirection: 'column', gap: 1.5,
+      }}
+      >
+        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
 
-        <Typography variant="h5" color="gray">
-          Email:
+          <Typography variant="h5" color="gray">
+            username:
 
-        </Typography>
+          </Typography>
 
-        <Typography variant="h5">
-          hell2020@gmail.com
+          <Typography variant="h5">
+            {userSettingData.username}
 
-        </Typography>
-      </Box>
-      <Divider />
-      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
+          </Typography>
+        </Box>
+        <Divider />
+        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
 
-        <Typography variant="h5" color="gray">
-          age:
+          <Typography variant="h5" color="gray">
+            Email:
 
-        </Typography>
+          </Typography>
 
-        <Typography variant="h5">
-          25
+          <Typography variant="h5">
+            {userSettingData.email}
 
-        </Typography>
-      </Box>
-      <Divider />
-      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
+          </Typography>
+        </Box>
+        <Divider />
+        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
 
-        <Typography variant="h5" color="gray">
-          passsword:
+          <Typography variant="h5" color="gray">
+            age:
 
-        </Typography>
+          </Typography>
 
-        <Typography variant="h5">
-          123456789
+          <Typography variant="h5">
+            {userSettingData.age}
 
-        </Typography>
-      </Box>
-      <Divider />
-      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
+          </Typography>
+        </Box>
 
-        <Typography variant="h5" color="gray">
-          confirm password:
+        <Divider />
 
-        </Typography>
+        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
 
-        <Typography variant="h5">
-          123456789
+          <Typography variant="h5" color="gray">
+            weight:
 
-        </Typography>
-      </Box>
-      <Divider />
-      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
+          </Typography>
 
-        <Typography variant="h5" color="gray">
-          weight:
+          <Typography variant="h5">
+            {userSettingData.weight}
 
-        </Typography>
+          </Typography>
+        </Box>
+        <Divider />
+        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
 
-        <Typography variant="h5">
-          66
+          <Typography variant="h5" color="gray">
+            height:
 
-        </Typography>
-      </Box>
-      <Divider />
-      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
+          </Typography>
 
-        <Typography variant="h5" color="gray">
-          height:
+          <Typography variant="h5">
+            {userSettingData.height}
 
-        </Typography>
+          </Typography>
+        </Box>
+        <Divider />
+        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
 
-        <Typography variant="h5">
-          166
+          <Typography variant="h5" color="gray">
+            goal weight:
 
-        </Typography>
-      </Box>
-      <Divider />
-      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
+          </Typography>
 
-        <Typography variant="h5" color="gray">
-          goal weight:
+          <Typography variant="h5">
+            {userSettingData.goalweight}
 
-        </Typography>
+          </Typography>
+        </Box>
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: 2,
+        }}
+        >
+          <DashboardNewPopUp
+            setStates={handleChange}
+            userInfo={userInfo}
+            value={values}
+            filedName={userInfo}
+            axiosData={updateUser}
 
-        <Typography variant="h5">
-          50
+          >
+            edit
 
-        </Typography>
+          </DashboardNewPopUp>
+          <Button
+            sx={{
+              padding: '0px 20px',
+              backgroundColor: 'red',
+              color: '#fff',
+              fontWeight: 700,
+              borderRadius: 2,
+            }}
+            type="button"
+          >
+            delete
+          </Button>
+        </Box>
       </Box>
 
     </Box>
-    <GroupButtons />
-
-  </Box>
-);
+  );
+};
 export default UserSettingData;
