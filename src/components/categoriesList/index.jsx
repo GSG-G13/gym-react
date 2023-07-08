@@ -18,29 +18,33 @@ const CategoriesList = ({ setCategory }) => {
   return (
     <Box
       sx={{
-        display: 'flex', flexDirection: 'column', alignItems: 'center',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', borderRight: '1px solid rgba(255,255,255,0.2)',borderTop: '1px solid rgba(255,255,255,0.2)',
       }}
       component="div"
       px={2}
     >
-      <Typography pb={1} align="left" pt="25PX" variant="h3" color="#FF4601" fontWeight={600}>Categories</Typography>
+      <Typography pb={1} align="left" pt="25PX" variant="h3" color="#fff" fontWeight={600}>Categories</Typography>
       <Divider />
 
       <Box sx={{
-        display: 'flex', flexDirection: 'row', gap: 5, mt: 2, alignItems: 'center',
+        display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 5, mt: 2, alignItems: 'center',
       }}
       >
         {
           categories[0]?.map((category) => (
             <NavLink
               // eslint-disable-next-line no-underscore-dangle
-              style={{
+              style={() => ({
                 textDecoration: 'none',
                 padding: '5px 10px',
+                border: '1px solid #FF4601',
                 borderRadius: '5px',
                 transition: 'all 0.5s ease',
                 textTransform: 'capitalize',
-              }}
+                color: '#Fff',
+                width: 150,
+              })}
+              to="."
               key={category._id}
               onClick={() => setCategory(category.categoryName)}
             >
