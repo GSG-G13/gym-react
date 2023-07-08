@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable import/no-unresolved */
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 import 'swiper/css';
@@ -23,10 +25,12 @@ const SwiperComp = ({ images }) => (
       onSlideChange={() => console.log('slide change')}
     >
 
-      {images.map((item) => (
-        <SwiperSlide style={{
-          padding: '25px 0px', display: 'flex', flexDirection: 'column', gap: 15,
-        }}
+      {images.map((item, idx) => (
+        <SwiperSlide
+          key={idx}
+          style={{
+            padding: '25px 0px', display: 'flex', flexDirection: 'column', gap: 15,
+          }}
         >
           <img height={350} width="300px" style={{ margin: 'auto', borderRadius: '10px', boxShadow: 'rgba(231, 90, 37, 0.75) -1px 3px 5px 0px' }} src={item} alt={item} />
           <Typography variant="h4" fontWeight={700} textAlign="center">Jane Cooper</Typography>

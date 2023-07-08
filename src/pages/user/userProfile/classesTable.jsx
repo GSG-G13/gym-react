@@ -18,7 +18,7 @@ const ClassTable = ({ classData }) => (
     </TableHead>
     <TableBody>
       {classData?.map((row) => (
-        <TableRow>
+        <TableRow key={row.id}>
           <TableCell sx={{ color: '#fff' }} align="center" scope="row">
             {row.classId.className}
           </TableCell>
