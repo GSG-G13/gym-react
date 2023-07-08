@@ -37,14 +37,14 @@ const ProductDetails = () => {
 
   return (
     <Card sx={{
+      boxShadow: '20px 20px 10px 0px rgba(0,0,0,0.3), 40px 40px 10px 0px rgba(0,0,0,0.3)',
       display: 'flex',
       alignItems: 'center',
       borderRadius: '10px',
-      '&': { boxShadow: 'none' },
-      border: '1px solid #ccc',
       p: '30px',
       margin: 'auto',
-      backgroundColor: 'transparent',
+      backgroundColor: 'rgba(0,0,0,0.1)',
+
     }}
     >
       <CardMedia
@@ -55,16 +55,16 @@ const ProductDetails = () => {
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }} pl="20px">
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography variant="h2" fontWeight={700}>
+          <Typography variant="h2" fontWeight={700} color="colors.secondary">
             {product.title}
           </Typography>
           {product.description && (
-            <Typography variant="subtitle1" color="text.secondary" py={2} mr={3}>
+            <Typography variant="subtitle1" color="colors.secondary" py={2} mr={3}>
               {product.description}
             </Typography>
           )}
           <Box py="20px">
-            <Typography variant="h5">
+            <Typography mb={1} variant="h5" color="colors.secondary">
               Reviews
             </Typography>
             <StarIcon sx={{ color: 'colors.darkBlue' }} />

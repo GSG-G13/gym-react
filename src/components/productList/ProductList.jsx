@@ -10,7 +10,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import ProductCard from '../productCard';
 
 const ProductList = () => {
-  const category = useOutletContext();
+  let category = useOutletContext();
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -48,10 +48,14 @@ const ProductList = () => {
     >
       <Container>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography color="#FF4601 " align="left" variant="h3" fontWeight={600}>{!category ? 'All product' : category}</Typography>
+          <Typography color="#fff " variant="h3" fontWeight={600}>{!category ? 'All product' : category}</Typography>
           {category ? (
             <Button onClick={
-              () => setFilteredProducts([])
+
+              () => {
+                category = '';
+                setFilteredProducts([]);
+              }
             }
             >
               <CancelIcon />
@@ -66,8 +70,8 @@ const ProductList = () => {
           my={5}
           sx={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(5, 200px)',
-            gap: 3,
+            gridTemplateColumns: 'repeat(3, 200px)',
+            gap: 8,
           }}
         >
           {
