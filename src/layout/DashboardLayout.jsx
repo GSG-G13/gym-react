@@ -1,16 +1,56 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import { NavBarDashBoard } from '../components';
+import axios from 'axios';
+import { NavBarDashBoard, SideBar } from '../components';
 
-const DashboardLayout = () => (
-  <Box border="1px solid blue">
-    <NavBarDashBoard />
-    <Box minHeight="92vh" border="1px solid red">
-      <Outlet />
+const DashboardLayout = () => {
+  const [users, setUsers] = useState([]);
+  const [classes, setClasses] = useState([]);
+  const [subs, setSubs] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  const trainers = users.filter((user) => user.role === 'trainer');
+
+  const getUsers = async () => {
+    const { data } = await axios.get('/api/users');
+    setUsers(data.allUsers);
+  };
+  const getClasses = async () => {
+    const { data } = await axios.get('/api/classes');
+    setClasses(data.classesData);
+  };
+  const getSubs = async () => {
+    const { data } = await axios.get('/api/subscriptions');
+    setSubs(data.subscriptionsData);
+  };
+  const getProducts = async () => {
+    const { data } = await axios.get('/api/products');
+    setProducts(data.products);
+  };
+  const getCategories = async () => {
+    const { data } = await axios.get('/api/categories');
+    setCategories(data.categories);
+  };
+
+  useEffect(() => {
+    getUsers();
+    getClasses();
+    getSubs();
+    getProducts();
+    getCategories();
+  }, []);
+  return (
+    <Box>
+      <NavBarDashBoard />
+      <Box mt={8} minHeight="92vh" sx={{ display: 'flex' }}>
+        <SideBar />
+        <Outlet context={[users, classes, subs, products, categories, trainers]} />
+      </Box>
+
     </Box>
-
-  </Box>
-);
+  );
+};
 
 export default DashboardLayout;

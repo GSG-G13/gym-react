@@ -2,13 +2,14 @@ import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import {
   Collapse, Divider, List, ListItem, ListItemText, ListSubheader, Typography,
 } from '@mui/material';
-import * as React from 'react';
+import { useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 const Statistic = () => {
-  const [openUsers, setOpenUsers] = React.useState(true);
-  const [openClasses, setOpenClasses] = React.useState(true);
-  const [openProducts, setOpenProducts] = React.useState(true);
-
+  const [users, classes, subs, products, categories, trainers] = useOutletContext();
+  const [openUsers, setOpenUsers] = useState(true);
+  const [openClasses, setOpenClasses] = useState(true);
+  const [openProducts, setOpenProducts] = useState(true);
   const handleClickUsers = () => {
     setOpenUsers(!openUsers);
   };
@@ -57,7 +58,7 @@ const Statistic = () => {
             />
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>20.324</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>{users.length}</Typography>}
             />
           </ListItem>
           <ListItem>
@@ -67,7 +68,7 @@ const Statistic = () => {
             />
             <ListItemText
               disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>6</Typography>}
+              primary={<Typography variant="h6" fontWeight={500}>{trainers.length}</Typography>}
             />
 
           </ListItem>
@@ -85,36 +86,27 @@ const Statistic = () => {
       </ListItem>
       <Collapse in={openClasses} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem>
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>Yoga</Typography>}
-            />
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>20</Typography>}
-            />
-          </ListItem>
-          <ListItem>
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>Building</Typography>}
-            />
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>30</Typography>}
-            />
-          </ListItem>
-          <ListItem>
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>Fitness</Typography>}
-            />
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>45</Typography>}
-            />
-          </ListItem>
+
+          {classes.map((item) => (
+            <ListItem>
+              <ListItemText
+                disableTypography
+                primary={<Typography variant="h6" fontWeight={500}>{item.className}</Typography>}
+              />
+              <ListItemText
+                disableTypography
+                primary={(
+                  <Typography variant="h6" fontWeight={500}>
+                    {
+                      subs.filter((sub) => sub.classId.className === item.className).length
+
+                    }
+                  </Typography>
+                )}
+              />
+            </ListItem>
+          ))}
+
         </List>
       </Collapse>
 
@@ -129,36 +121,26 @@ const Statistic = () => {
       </ListItem>
       <Collapse in={openProducts} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem>
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>Clothes</Typography>}
-            />
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>60</Typography>}
-            />
-          </ListItem>
-          <ListItem>
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>Equipments</Typography>}
-            />
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>45</Typography>}
-            />
-          </ListItem>
-          <ListItem>
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>Supplies</Typography>}
-            />
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6" fontWeight={500}>130</Typography>}
-            />
-          </ListItem>
+          {categories.map((cata) => (
+            <ListItem>
+              <ListItemText
+                disableTypography
+                primary={<Typography variant="h6" fontWeight={500}>{cata.categoryName}</Typography>}
+              />
+              <ListItemText
+                disableTypography
+                primary={(
+                  <Typography variant="h6" fontWeight={500}>
+                    {
+                      products.filter((prod) => prod.categoryId?.categoryName === cata.categoryName)
+                        .length
+                    }
+                  </Typography>
+                )}
+              />
+            </ListItem>
+          ))}
+
         </List>
       </Collapse>
     </List>

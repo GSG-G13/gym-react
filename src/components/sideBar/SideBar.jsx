@@ -13,6 +13,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import DragHandleIcon from '@mui/icons-material/DragHandle';
+import { NavLink } from 'react-router-dom';
 
 const SideBar = () => (
   <Paper sx={{
@@ -28,7 +29,22 @@ const SideBar = () => (
         <ListItemIcon>
           <HomeIcon />
         </ListItemIcon>
-        <Typography variant="h5" align="left">Home</Typography>
+        <NavLink
+          style={({ isActive }) => ({
+            backgroundColor: isActive ? '#FF4601' : '',
+            textDecoration: 'none',
+            padding: '5px 10px',
+
+            borderRadius: '5px',
+            transition: 'all 0.5s ease',
+            textTransform: 'capitalize',
+            color: isActive ? '#fff' : 'black',
+          })}
+          to="/"
+        >
+          Home
+
+        </NavLink>
 
       </MenuItem>
       <Divider />
@@ -37,7 +53,22 @@ const SideBar = () => (
         <ListItemIcon>
           <PersonIcon />
         </ListItemIcon>
-        <Typography variant="h5" align="left">Users</Typography>
+        <NavLink
+          style={({ isActive }) => ({
+            backgroundColor: isActive ? '#FF4601' : '',
+            textDecoration: 'none',
+            padding: '5px 10px',
+
+            borderRadius: '5px',
+            transition: 'all 0.5s ease',
+            textTransform: 'capitalize',
+            color: isActive ? '#fff' : 'black',
+          })}
+          to="/users"
+        >
+          Users
+
+        </NavLink>
       </MenuItem>
       <Divider />
 
@@ -45,35 +76,109 @@ const SideBar = () => (
         <ListItemIcon>
           <InventoryIcon />
         </ListItemIcon>
-        <Typography variant="h5" align="left">Products</Typography>
+        <NavLink
+          style={({ isActive }) => ({
+            backgroundColor: isActive ? '#FF4601' : '',
+            textDecoration: 'none',
+            padding: '5px 10px',
+
+            borderRadius: '5px',
+            transition: 'all 0.5s ease',
+            textTransform: 'capitalize',
+            color: isActive ? '#fff' : 'black',
+          })}
+          to="/products"
+        >
+          Products
+
+        </NavLink>
       </MenuItem>
       <Divider />
       <MenuItem>
         <ListItemIcon>
           <FitnessCenterIcon />
         </ListItemIcon>
-        <Typography variant="h5" align="left">Classes</Typography>
+        <NavLink
+          style={({ isActive }) => ({
+            backgroundColor: isActive ? '#FF4601' : '',
+            textDecoration: 'none',
+            padding: '5px 10px',
+
+            borderRadius: '5px',
+            transition: 'all 0.5s ease',
+            textTransform: 'capitalize',
+            color: isActive ? '#fff' : 'black',
+          })}
+          to="/classes"
+        >
+          Classes
+
+        </NavLink>
       </MenuItem>
       <Divider />
       <MenuItem>
         <ListItemIcon>
           <ShoppingCartIcon />
         </ListItemIcon>
-        <Typography variant="h5" align="left">Orders</Typography>
+        <NavLink
+          style={({ isActive }) => ({
+            backgroundColor: isActive ? '#FF4601' : '',
+            textDecoration: 'none',
+            padding: '5px 10px',
+
+            borderRadius: '5px',
+            transition: 'all 0.5s ease',
+            textTransform: 'capitalize',
+            color: isActive ? '#fff' : 'black',
+          })}
+          to="/orders"
+        >
+          Orders
+
+        </NavLink>
       </MenuItem>
       <Divider />
       <MenuItem>
         <ListItemIcon>
           <CampaignIcon />
         </ListItemIcon>
-        <Typography variant="h5" align="left">Announcements</Typography>
+        <NavLink
+          style={({ isActive }) => ({
+            backgroundColor: isActive ? '#FF4601' : '',
+            textDecoration: 'none',
+            padding: '5px 10px',
+
+            borderRadius: '5px',
+            transition: 'all 0.5s ease',
+            textTransform: 'capitalize',
+            color: isActive ? '#fff' : 'black',
+          })}
+          to="/announcements"
+        >
+          Announcements
+
+        </NavLink>
       </MenuItem>
       <Divider />
       <MenuItem>
         <ListItemIcon>
           <GroupAddIcon />
         </ListItemIcon>
-        <Typography variant="h5" align="left">Subscriptions</Typography>
+        <NavLink
+          style={({ isActive }) => ({
+            backgroundColor: isActive ? '#FF4601' : '',
+            textDecoration: 'none',
+            padding: '5px 10px',
+            borderRadius: '5px',
+            transition: 'all 0.5s ease',
+            textTransform: 'capitalize',
+            color: isActive ? '#fff' : 'black',
+          })}
+          to="/subscriptions"
+        >
+          Subscriptions
+
+        </NavLink>
       </MenuItem>
     </MenuList>
   </Paper>
