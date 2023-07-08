@@ -1,8 +1,6 @@
 /* eslint-disable array-callback-return */
 import * as React from 'react';
-import Cookies from 'js-cookie';
 import axios from 'axios';
-
 import PersonIcon from '@mui/icons-material/Person';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -11,7 +9,7 @@ import {
   AppBar,
   Box, Toolbar,
   IconButton,
-  Menu, MenuItem, Tooltip,
+  Menu, MenuItem, Tooltip, Typography,
 } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -19,10 +17,9 @@ const pages = ['home', 'store', 'class', 'chat', 'announcement'];
 
 const NavbarClient = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const cookieExist = Cookies.get('token');
-
-  const settings = [{ name: 'profile', icon: <AccountCircleIcon /> }, { name: 'setting', icon: <SettingsIcon /> }, { name: cookieExist ? 'signout' : 'signin', icon: <LoginIcon /> }];
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  const token = document.cookie;
+  const settings = [{ name: 'profile', icon: <AccountCircleIcon /> }, { name: 'setting', icon: <SettingsIcon /> }, { name: token ? 'signout' : 'signin', icon: <LoginIcon /> }];
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -35,6 +32,7 @@ const NavbarClient = () => {
   const logoutFun = async () => {
     try {
       axios.get('/api/users/signout');
+      localStorage.clear();
     } catch (error) {
       console.log(error.message);
     }
@@ -100,7 +98,10 @@ const NavbarClient = () => {
           ))}
         </Box>
 
-        <Box sx={{ flexGrow: 0 }}>
+        <Box sx={{
+          flexGrow: 0, display: 'flex', gap: 1, alignItems: 'center',
+        }}
+        >
           <Tooltip title="Open settings">
             <IconButton
               onClick={handleOpenUserMenu}
@@ -145,9 +146,18 @@ const NavbarClient = () => {
                   </Link>
 
                 </MenuItem>
+
               );
             })}
+
           </Menu>
+          <Typography
+            variant="h4"
+            sx={{ color: '#fff', textTransform: 'capitalize' }}
+          >
+            {token ? userData.username : null}
+
+          </Typography>
         </Box>
       </Toolbar>
     </AppBar>

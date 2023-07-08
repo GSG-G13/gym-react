@@ -9,7 +9,6 @@ const VideoPlayer = () => (
       width="100%"
       height="90vh"
       controls
-      playing
       loop
       muted={false}
     />
