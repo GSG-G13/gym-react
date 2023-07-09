@@ -26,6 +26,7 @@ const Announcement = ({ announce }) => {
   const deleteComment = async (id) => {
     try {
       axios.delete(`/api/comments/${id}`);
+      getComments();
     } catch (error) {
       console.log(error);
     }
