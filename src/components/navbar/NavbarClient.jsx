@@ -155,7 +155,7 @@ const NavbarClient = () => {
             variant="h4"
             sx={{ color: '#fff', textTransform: 'capitalize' }}
           >
-            {token ? userData.username : null}
+            {token ? userData?.username : null}
 
           </Typography>
         </Box>

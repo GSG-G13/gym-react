@@ -212,7 +212,7 @@ const SignupComp = () => {
               fontWeight: 'bold',
             }}
           >
-            Sign In
+            Click here to Srart your Journey
           </Link>
         </div>
 

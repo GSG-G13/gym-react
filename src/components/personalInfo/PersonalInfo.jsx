@@ -29,20 +29,20 @@ const PersonalInfo = ({ userData }) => (
     <Box component="div" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
 
       <Typography variant="h4" sx={{ paddingBottom: '8px' }}>
-        {userData.username}
+        {userData?.username}
         {' '}
       </Typography>
       <Box sx={{ display: 'flex' }}>
         <Typography variant="h5" sx={{ paddingBottom: '8px' }}>
           {' '}
-          {userData.weight}
+          {userData?.weight}
           {' '}
           KG
         </Typography>
       </Box>
       <Box sx={{ display: 'flex' }}>
         <MailIcon sx={{ paddingRight: '6px', fontSize: '20px' }} />
-        <Typography variant="h5" sx={{ paddingBottom: '20px' }}>{userData.email}</Typography>
+        <Typography variant="h5" sx={{ paddingBottom: '20px' }}>{userData?.email}</Typography>
       </Box>
       <ButtonComponent
         variant="contained"
