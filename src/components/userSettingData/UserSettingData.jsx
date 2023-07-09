@@ -54,13 +54,13 @@ const UserSettingData = () => {
 
   const deleteUserInfo = async () => {
     try {
-      await axios.delete('/api/users/user');
+      await axios.delete('/api/users');
       localStorage.clear();
     } catch (error) {
       console.log(error);
     }
   };
-  
+
   return (
     <Box sx={{
       p: '20px',
@@ -92,7 +92,7 @@ const UserSettingData = () => {
           </Typography>
 
           <Typography variant="h5">
-            {userSettingData.username}
+            {userSettingData?.username}
 
           </Typography>
         </Box>
@@ -105,7 +105,7 @@ const UserSettingData = () => {
           </Typography>
 
           <Typography variant="h5">
-            {userSettingData.email}
+            {userSettingData?.email}
 
           </Typography>
         </Box>
@@ -118,7 +118,7 @@ const UserSettingData = () => {
           </Typography>
 
           <Typography variant="h5">
-            {userSettingData.age}
+            {userSettingData?.age}
 
           </Typography>
         </Box>
@@ -133,7 +133,7 @@ const UserSettingData = () => {
           </Typography>
 
           <Typography variant="h5">
-            {userSettingData.weight}
+            {userSettingData?.weight}
 
           </Typography>
         </Box>
@@ -146,7 +146,7 @@ const UserSettingData = () => {
           </Typography>
 
           <Typography variant="h5">
-            {userSettingData.height}
+            {userSettingData?.height}
 
           </Typography>
         </Box>
@@ -159,7 +159,7 @@ const UserSettingData = () => {
           </Typography>
 
           <Typography variant="h5">
-            {userSettingData.goalweight}
+            {userSettingData?.goalweight}
 
           </Typography>
         </Box>
