@@ -1,7 +1,13 @@
 import DropDownList from '../components/dropDownList';
 
-const userInfo = ['Title', 'Content', 'Price', 'Review', 'Setting'];
-
+const userInfo = ['title', 'image', 'rating', 'price', 'description'];
+const initialState = {
+  title: '',
+  image: '',
+  rating: '',
+  price: '',
+  description: '',
+};
 const columns = [
   { field: '_id', headerName: 'id' },
   {
@@ -28,7 +34,7 @@ const columns = [
     field: 'delete',
     headerName: 'Delete',
     width: 100,
-    renderCell: (row) => <DropDownList row={row} url="/api/products" />,
+    renderCell: (row) => <DropDownList userInfo={userInfo} initialState={initialState} row={row} url="/api/products" />,
   },
 ];
 

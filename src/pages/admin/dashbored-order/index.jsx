@@ -4,6 +4,16 @@ import { useEffect, useState } from 'react';
 import DashBoardLayOut from '../LayOut';
 import DropDownList from '../../../components/dropDownList';
 
+const userInfo = ['userName', 'productName', 'image', 'amount', 'totalPrice', 'status'];
+const initialState = {
+  userName: '',
+  productName: '',
+  image: '',
+  amount: '',
+  totalPrice: '',
+  status: '',
+
+};
 const columns = [
 
   {
@@ -36,7 +46,7 @@ const columns = [
     field: 'delete',
     headerName: 'Delete',
     width: 100,
-    renderCell: (row) => <DropDownList row={row} url="/api/orders" />,
+    renderCell: (row) => <DropDownList initialState={initialState} userInfo={userInfo} row={row} url="/api/orders" />,
   },
 
 ];
@@ -53,9 +63,9 @@ const DashOrderPage = () => {
         userName: order.userId?.username,
         productName: order.productId?.title,
         image: order.productId?.image,
-        status: order?.status,
         amount: order?.amount,
         totalPrice: `${order?.totalPrice}$`,
+        status: order?.status,
         _id: order?._id,
       }));
 
@@ -78,6 +88,7 @@ const DashOrderPage = () => {
       buttonName="Add product"
       error={errorMsg}
       page="order"
+
     />
 
   );

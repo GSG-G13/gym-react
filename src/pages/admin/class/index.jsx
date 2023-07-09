@@ -4,6 +4,14 @@ import DashBoardLayOut from '../LayOut';
 import DropDownList from '../../../components/dropDownList';
 
 const classInfo = ['className', 'description', 'price', 'userCount', 'trainerId'];
+
+const initialState = {
+  className: '',
+  description: '',
+  price: '',
+  userCount: '',
+  trainerId: '',
+};
 const columns = [
   {
     field: 'className',
@@ -26,18 +34,10 @@ const columns = [
     field: 'delete',
     headerName: 'Delete',
     width: 100,
-    renderCell: (row) => <DropDownList row={row} url="/api/classes" />,
+    renderCell: (row) => <DropDownList userInfo={classInfo} initialState={initialState} row={row} url="/api/classes" />,
   },
 
 ];
-
-const initialState = {
-  className: '',
-  description: '',
-  price: '',
-  userCount: '',
-  trainerId: '',
-};
 
 const reducer = (state, action) => ({
   ...state,
