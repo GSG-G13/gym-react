@@ -41,7 +41,7 @@ const Announcement = ({ announce }) => (
       {announce.image
       && (
       <Box sx={{ height: '350px' }}>
-        <Image src={announce.image} alt="gym" width="100%" height="100%" />
+        <Image src={announce.image} alt="gym" width="100%" height="100%" objectFit="cover" />
 
       </Box>
       )}
