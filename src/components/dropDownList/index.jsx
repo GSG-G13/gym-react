@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -7,11 +8,26 @@ import axios from 'axios';
 import DeleteButtonCell from '../deleteDataBtn';
 import DashboardNewPopUp from '../newPopUpComp';
 
+const reducer = (state, action) => ({
+  ...state,
+  [action.filedName]: action.value,
+});
 const DropDownList = ({
-  row, url, userInfo, filedName,
+  row, url, userInfo, initialState,
 }) => {
+  const [changeAble, setChangeAble] = React.useState(false);
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+  console.log(state);
+  const handleChange = (e, filedName) => {
+    setChangeAble(true);
+    const { value } = e.target;
+    dispatch({
+      filedName,
+      value,
+    });
+  };
   const updateData = async () => {
-    const res = await axios.put(`${url}/${row.id}`, row);
+    const res = await axios.put(`${url}/${row.id}`, state);
     console.log(res);
   };
   const rowData = Object.values(row.row);
@@ -48,9 +64,11 @@ const DropDownList = ({
         <MenuItem>
           <DashboardNewPopUp
             userInfo={userInfo}
-            filedName={filedName}
-            value={editData}
+            filedName={userInfo}
+            value={changeAble ? state : editData}
             axiosData={updateData}
+            setStates={handleChange}
+
           >
             Edit
           </DashboardNewPopUp>

@@ -1,5 +1,17 @@
 import DropDownList from '../components/dropDownList';
 
+const userInfo = ['username', 'email', 'password', 'age', 'gender', 'height', 'weight', 'goalweight'];
+const initialState = {
+  username: '',
+  email: '',
+  password: '',
+  age: '',
+  gender: '',
+  height: '',
+  weight: '',
+  goalweight: '',
+};
+
 const columns = [
   { field: '_id', headerName: 'ID', width: 90 },
   {
@@ -60,7 +72,7 @@ const columns = [
     field: 'delete',
     headerName: 'Delete',
     width: 100,
-    renderCell: (row) => <DropDownList row={row} url="/api/users" />,
+    renderCell: (row) => <DropDownList initialState={initialState} userInfo={userInfo} row={row} url="/api/users" />,
   },
 ];
 

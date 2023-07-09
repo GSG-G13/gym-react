@@ -1,10 +1,17 @@
 /* eslint-disable no-underscore-dangle */
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { userInfo } from '../../../dummyData/productData';
 import DashBoardLayOut from '../LayOut';
 import DropDownList from '../../../components/dropDownList';
 
+const userInfo = ['userName', 'className', 'status', 'price'];
+const initialState = {
+  userName: '',
+  className: '',
+  status: '',
+  price: '',
+
+};
 const columns = [
   {
     field: 'userName',
@@ -24,7 +31,7 @@ const columns = [
   },
   {
     width: 100,
-    renderCell: (row) => <DropDownList row={row} url="/api/subscriptions" />,
+    renderCell: (row) => <DropDownList userInfo={userInfo} initialState={initialState} row={row} url="/api/subscriptions" />,
   },
 ];
 const SubscriptionDashboard = () => {
@@ -37,10 +44,10 @@ const SubscriptionDashboard = () => {
       const allSubscriptionData = [];
 
       subscriptionsData.map((sub) => allSubscriptionData.push({
-        className: sub.classId?.className,
-        userName: sub.userId?.username,
-        status: sub?.status,
         _id: sub._id,
+        userName: sub.userId?.username,
+        className: sub.classId?.className,
+        status: sub?.status,
         price: `${sub.classId?.price}$`,
       }));
       setSubscription(allSubscriptionData);
