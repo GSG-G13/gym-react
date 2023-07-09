@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { Box, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -5,7 +6,7 @@ import Announcement from './Announcement';
 
 const AnnouncementList = () => {
   const [announcement, setAnnouncement] = useState([]);
-  console.log(announcement);
+
   const getAnnouncement = async () => {
     const response = await axios.get('/api/announcements');
     setAnnouncement(response.data.announcements);
@@ -32,7 +33,12 @@ const AnnouncementList = () => {
         display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 2,
       }}
       >
-        {announcement?.map((announce) => <Announcement announce={announce} />)}
+        {announcement?.map((announce) => (
+          <Announcement
+            announce={announce}
+            key={announce._id}
+          />
+        ))}
       </Box>
     </Box>
   );

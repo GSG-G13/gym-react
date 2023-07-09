@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { Box, Button, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { useReducer } from 'react';
@@ -47,7 +48,7 @@ const UserSettingData = () => {
 
   const updateUser = async () => {
     try {
-      await axios.put('/api/users/', state);
+      await axios.put(`/api/users/${userSettingData._id}`, state);
     } catch (error) {
       console.log(error);
     }

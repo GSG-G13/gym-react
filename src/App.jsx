@@ -10,13 +10,14 @@ import ClassDashBoard from './pages/admin/class';
 import DashOrderPage from './pages/admin/dashbored-order';
 import AnnouncementDashboard from './pages/admin/announcement';
 import SubscriptionDashboard from './pages/admin/subscription';
-import { UserSetting } from './pages';
+import { AnnouncementContainer, UserSetting } from './pages';
 
 const App = () => (
   <Provider>
     <THEME>
       <BrowserRouter>
         <Routes>
+          <Route path="/announcement" element={<AnnouncementContainer />} />
           <Route path="/setting" element={<UserSetting />} />
           <Route path="/signin" element={<SignInComp />} />
           <Route path="/" element={<DashboardLayout />}>
