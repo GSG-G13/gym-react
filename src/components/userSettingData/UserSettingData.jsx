@@ -2,6 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { useReducer } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import DashboardNewPopUp from '../newPopUpComp';
 
 const userInfo = ['username', 'email', 'password', 'age', 'gender', 'height', 'weight', 'goalweight'];
@@ -23,7 +24,7 @@ const reducer = (state, action) => ({
 });
 const UserSettingData = () => {
   const userSettingData = JSON.parse(localStorage.getItem('userData'));
-
+  const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, initialState);
   const values = [
     state.username,
@@ -51,6 +52,17 @@ const UserSettingData = () => {
       console.log(error);
     }
   };
+
+  const deleteUserInfo = async () => {
+    try {
+      await axios.delete('/api/users');
+      localStorage.clear();
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Box sx={{
       p: '20px',
@@ -82,7 +94,7 @@ const UserSettingData = () => {
           </Typography>
 
           <Typography variant="h5">
-            {userSettingData.username}
+            {userSettingData?.username}
 
           </Typography>
         </Box>
@@ -95,7 +107,7 @@ const UserSettingData = () => {
           </Typography>
 
           <Typography variant="h5">
-            {userSettingData.email}
+            {userSettingData?.email}
 
           </Typography>
         </Box>
@@ -108,7 +120,7 @@ const UserSettingData = () => {
           </Typography>
 
           <Typography variant="h5">
-            {userSettingData.age}
+            {userSettingData?.age}
 
           </Typography>
         </Box>
@@ -123,7 +135,7 @@ const UserSettingData = () => {
           </Typography>
 
           <Typography variant="h5">
-            {userSettingData.weight}
+            {userSettingData?.weight}
 
           </Typography>
         </Box>
@@ -136,7 +148,7 @@ const UserSettingData = () => {
           </Typography>
 
           <Typography variant="h5">
-            {userSettingData.height}
+            {userSettingData?.height}
 
           </Typography>
         </Box>
@@ -149,7 +161,7 @@ const UserSettingData = () => {
           </Typography>
 
           <Typography variant="h5">
-            {userSettingData.goalweight}
+            {userSettingData?.goalweight}
 
           </Typography>
         </Box>
@@ -179,6 +191,7 @@ const UserSettingData = () => {
               borderRadius: 2,
             }}
             type="button"
+            onClick={deleteUserInfo}
           >
             delete
           </Button>
