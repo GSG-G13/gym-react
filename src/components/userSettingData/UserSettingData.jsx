@@ -2,6 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { useReducer } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import DashboardNewPopUp from '../newPopUpComp';
 
 const userInfo = ['username', 'email', 'password', 'age', 'gender', 'height', 'weight', 'goalweight'];
@@ -23,7 +24,7 @@ const reducer = (state, action) => ({
 });
 const UserSettingData = () => {
   const userSettingData = JSON.parse(localStorage.getItem('userData'));
-
+  const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, initialState);
   const values = [
     state.username,
@@ -47,6 +48,7 @@ const UserSettingData = () => {
   const updateUser = async () => {
     try {
       await axios.put('/api/users/', state);
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
