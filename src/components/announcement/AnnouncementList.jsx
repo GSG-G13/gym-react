@@ -30,7 +30,7 @@ const AnnouncementList = () => {
       </Box>
 
       <Box sx={{
-        display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 2,
+        display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', mt: 2, gap: 5,
       }}
       >
         {announcement?.map((announce) => (
