@@ -37,10 +37,12 @@ const ProductDetails = () => {
 
   return (
     <Card sx={{
-      boxShadow: '20px 20px 10px 0px rgba(0,0,0,0.3), 40px 40px 10px 0px rgba(0,0,0,0.3)',
+      boxShadow: '-3px 4px 1px -1px #ff4601',
       display: 'flex',
       alignItems: 'center',
       borderRadius: '10px',
+      width: '900px',
+      height: '600px',
       p: '30px',
       margin: 'auto',
       backgroundColor: 'rgba(0,0,0,0.1)',
@@ -49,13 +51,15 @@ const ProductDetails = () => {
     >
       <CardMedia
         component="img"
-        sx={{ width: '330px', height: '350px', borderRadius: '20px' }}
+        sx={{
+          width: '330px', height: '350px', borderRadius: '15px', objectFit: 'cover',
+        }}
         image={product.image}
         alt="Live from space album cover"
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }} pl="20px">
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography variant="h2" fontWeight={700} color="colors.secondary">
+          <Typography variant="h2" fontWeight={600} color="colors.secondary">
             {product.title}
           </Typography>
           {product.description && (
@@ -71,10 +75,10 @@ const ProductDetails = () => {
             <StarIcon sx={{ color: 'colors.darkBlue' }} />
             <StarIcon sx={{ color: 'colors.darkBlue' }} />
             <StarIcon sx={{ color: 'colors.darkBlue' }} />
-            <StarBorderIcon sx={{ borderColor: 'colors.darkBlue' }} />
+            <StarBorderIcon sx={{ borderColor: 'colors.darkBlue', color: '#fff' }} />
           </Box>
 
-          <ButtonComponent onClick={addOrder} color="colors.darkBlue">{message ? 'Requested' : 'Order'}</ButtonComponent>
+          <ButtonComponent width="115px" onClick={addOrder} color="colors.darkBlue">{message ? 'Requested' : 'Order'}</ButtonComponent>
         </CardContent>
         {errorMsg
           ? <Alerts type="error" message={errorMsg} />
