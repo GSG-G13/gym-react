@@ -51,6 +51,16 @@ const UserSettingData = () => {
       console.log(error);
     }
   };
+
+  const deleteUserInfo = async () => {
+    try {
+      await axios.delete('/api/users/user');
+      localStorage.clear();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
   return (
     <Box sx={{
       p: '20px',
@@ -179,6 +189,7 @@ const UserSettingData = () => {
               borderRadius: 2,
             }}
             type="button"
+            onClick={deleteUserInfo}
           >
             delete
           </Button>
