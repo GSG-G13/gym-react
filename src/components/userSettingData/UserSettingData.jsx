@@ -48,7 +48,6 @@ const UserSettingData = () => {
   const updateUser = async () => {
     try {
       await axios.put('/api/users/', state);
-      navigate('/');
     } catch (error) {
       console.log(error);
     }
@@ -58,6 +57,7 @@ const UserSettingData = () => {
     try {
       await axios.delete('/api/users');
       localStorage.clear();
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
