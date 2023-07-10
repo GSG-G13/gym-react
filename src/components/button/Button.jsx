@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const ButtonComponent = ({
   variant,
-  color,
   children,
   flex,
   onClick,
@@ -14,9 +13,11 @@ const ButtonComponent = ({
     variant={variant}
     flex={flex}
     sx={{
+      cursor: 'pointer',
       color: '#fff',
       width: `${width}`,
-      backgroundColor: color,
+      backgroundColor: '#FF4601',
+      borderRadius: '10px',
       fontSize: 12,
       '&:hover': { backgroundColor: '#FF4601' },
     }}

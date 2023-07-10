@@ -140,6 +140,7 @@ const NavbarClient = () => {
                       paddingLeft: '10px',
                       textTransform: 'capitalize',
                       color: '#000',
+
                     }}
                   >
                     {setting.name}

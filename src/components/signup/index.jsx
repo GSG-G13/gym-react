@@ -121,6 +121,7 @@ const SignupComp = () => {
               onChange={handleChange}
               filedName="gender"
               error={errors.gender}
+
             />
             <InputComp
               name="Height"

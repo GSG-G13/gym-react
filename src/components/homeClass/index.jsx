@@ -1,17 +1,19 @@
-import { Box, Typography } from '@mui/material';
-import { ReactComponent as Shopping } from '../../assets/shopping.svg';
+import { Box } from '@mui/material';
 
 const HomeClass = () => (
+  <Box>
 
-  <Box sx={{ display: 'flex', alignItems: 'center', px: '50px' }}>
-    <Box>
-      <Shopping style={{ width: '500px' }} />
-    </Box>
-    <Box sx={{ flex: '1' }}>
-      <Typography variant="h1">Home Class</Typography>
-    </Box>
+    <Box
+      height="100vh"
+      sx={{
+        backgroundImage: 'url(https://cdn.uc.assets.prezly.com/791a039e-5de0-4dbf-99cf-72688250a0ab/20201203_Social_FIT_2617.jpg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        objectFit: 'cover',
+        backgroundPosition: 'center',
+      }}
+    />
   </Box>
-
 );
 
 export default HomeClass;

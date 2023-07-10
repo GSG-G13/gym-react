@@ -185,11 +185,13 @@ const UserSettingData = () => {
           </DashboardNewPopUp>
           <Button
             sx={{
+              cursor: 'pointer',
               padding: '0px 20px',
-              backgroundColor: 'red',
+              backgroundColor: '#FF4601',
               color: '#fff',
               fontWeight: 700,
               borderRadius: 2,
+              '&:hover': { backgroundColor: '#FF4601' },
             }}
             type="button"
             onClick={deleteUserInfo}
