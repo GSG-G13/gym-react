@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 import React, { useReducer } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -36,7 +36,7 @@ const reducer = (state, action) => ({
   [action.filedName]: action.value,
 });
 
-const SignInComp = () => {
+const SignInComp = ({ setShowBox, showBox }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleChange = (e, filedName) => {
@@ -77,7 +77,18 @@ const SignInComp = () => {
             <Link to="/signup" style={{ textDecoration: 'none', color: '#FF4601', paddingLeft: '8px' }}> Sign up</Link>
           </Typography>
           <Typography mb={3} variant="h6" textAlign="start">
-            Forgot password?
+            <Button
+              sx={{
+                width: 'fit=content',
+                textAlign: 'start',
+                color: '#fff',
+                p: 0,
+              }}
+              onClick={() => setShowBox(!showBox)}
+            >
+              Forgot password?
+
+            </Button>
 
           </Typography>
 
