@@ -9,12 +9,14 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavBarDashBoard = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate();
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -22,6 +24,16 @@ const NavBarDashBoard = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const logoutAdmin = async () => {
+    try {
+      await axios.get('/api/users/signout');
+      localStorage.clear();
+      navigate('/signin');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -74,7 +86,7 @@ const NavBarDashBoard = () => {
           >
             {settings.map((setting) => (
               <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">{setting}</Typography>
+                <Typography onClick={setting === 'Logout' ? logoutAdmin : null} textAlign="center">{setting}</Typography>
               </MenuItem>
             ))}
           </Menu>
