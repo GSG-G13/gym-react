@@ -64,7 +64,7 @@ const SideBar = () => (
             textTransform: 'capitalize',
             color: isActive ? '#fff' : 'black',
           })}
-          to="/users"
+          to="users"
         >
           Users
 
@@ -87,7 +87,7 @@ const SideBar = () => (
             textTransform: 'capitalize',
             color: isActive ? '#fff' : 'black',
           })}
-          to="/products"
+          to="products"
         >
           Products
 
@@ -109,7 +109,7 @@ const SideBar = () => (
             textTransform: 'capitalize',
             color: isActive ? '#fff' : 'black',
           })}
-          to="/classes"
+          to="classes"
         >
           Classes
 
@@ -131,7 +131,7 @@ const SideBar = () => (
             textTransform: 'capitalize',
             color: isActive ? '#fff' : 'black',
           })}
-          to="/orders"
+          to="orders"
         >
           Orders
 
@@ -153,7 +153,7 @@ const SideBar = () => (
             textTransform: 'capitalize',
             color: isActive ? '#fff' : 'black',
           })}
-          to="/announcements"
+          to="announcements"
         >
           Announcements
 
@@ -174,7 +174,7 @@ const SideBar = () => (
             textTransform: 'capitalize',
             color: isActive ? '#fff' : 'black',
           })}
-          to="/subscriptions"
+          to="subscriptions"
         >
           Subscriptions
 
