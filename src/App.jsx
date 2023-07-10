@@ -10,7 +10,9 @@ const App = () => {
   const userData = JSON.parse(localStorage.getItem('userData'));
   return (
     <Box sx={{
-      backgroundColor: userData.role === 'admin' ? '#fff' : '#1E1E1E',
+      backgroundColor: userData?.role === 'admin' ? '#fff' : '#1E1E1E',
+      color: userData?.role === 'admin' ? '#000' : '#fff',
+
     }}
     >
       <Provider>

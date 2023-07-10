@@ -26,11 +26,11 @@ const UserProfile = () => {
   };
 
   return (
-    <Box marginBottom="2rem">
-      <Box mt={2}>
+    <Box pt={12} marginBottom="2rem">
+      <Box>
         <Container>
           <Box m="auto" width="70%">
-            <Box marginTop="5rem">
+            <Box>
               <PersonalInfo userData={userData} />
             </Box>
             <Box>

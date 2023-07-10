@@ -7,7 +7,7 @@ import Provider from '../../../context/Provider';
 
 const UserSetting = () => (
   <Provider editBtnText="Edit info" deleteBtnText="Delete Account">
-    <Box my={15} position="relative">
+    <Box pt={12} position="relative">
       <Container sx={{ display: 'flex', justifyContent: 'center' }}>
         <UserSettingData />
 
