@@ -8,7 +8,7 @@ const RequireAuthProvider = ({ children }) => {
     return <div>Loading...</div>;
   }
 
-  if (user.role === 'user') {
+  if (user.role === 'user' || !user.role) {
     return <Navigate to="/" />;
   }
 

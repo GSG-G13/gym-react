@@ -6,22 +6,14 @@ import THEME from './utilize/Theme';
 import Provider from './context/Provider';
 import router from './routes/router';
 
-const App = () => {
-  const userData = JSON.parse(localStorage.getItem('userData'));
-  return (
-    <Box sx={{
-      backgroundColor: userData?.role === 'admin' ? '#fff' : '#1E1E1E',
-      color: userData?.role === 'admin' ? '#000' : '#fff',
+const App = () => (
+  <Box>
+    <Provider>
+      <THEME>
+        <RouterProvider router={router} />
 
-    }}
-    >
-      <Provider>
-        <THEME>
-          <RouterProvider router={router} />
-
-        </THEME>
-      </Provider>
-    </Box>
-  );
-};
+      </THEME>
+    </Provider>
+  </Box>
+);
 export default App;
