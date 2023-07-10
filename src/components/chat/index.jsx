@@ -91,7 +91,6 @@ const Chat = () => {
       sx={{
         minHeight: '100vh',
         paddingTop: '5rem',
-        my: 2,
       }}
     >
       <Container>
@@ -99,7 +98,7 @@ const Chat = () => {
           boxShadow="0px 0px 10px 0px rgba(255,255,255,0.1)"
           sx={{
             display: 'flex',
-
+            mt: 2,
           }}
         >
           <Box width="80%" borderRight="1px solid #ccc" p={2}>

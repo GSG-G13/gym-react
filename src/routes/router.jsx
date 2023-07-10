@@ -36,6 +36,15 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: 'signin',
+        element: <SignIn />,
+
+      },
+      {
+        path: 'signup',
+        element: <SignupPage />,
+      },
+      {
         path: 'class',
         element: <ClassLayout />,
         children: [
@@ -100,16 +109,7 @@ const router = createBrowserRouter([
 
     ],
   },
-  {
-    path: '/signin',
-    element: <SignIn />,
 
-  },
-  {
-    path: '/signup',
-    element: <SignupPage />,
-
-  },
   {
     path: '/dashboard',
     element: <RequireAuthProvider><DashboardLayout /></RequireAuthProvider>,
@@ -117,6 +117,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomeDashboard />,
+      },
+      {
+        path: 'signin',
+        element: <SignIn />,
       },
       {
         path: 'users',

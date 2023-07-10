@@ -17,7 +17,7 @@ const AnnouncementList = () => {
   }, []);
 
   return (
-    <Box my={15}>
+    <Box pt={15} mb={5}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Box sx={{
           borderWidth: '10px 10px',
@@ -26,7 +26,13 @@ const AnnouncementList = () => {
           pl: '50px',
         }}
         />
-        <Typography variant="h2" sx={{ color: '#ff4601', fontWeight: '700', ml: '10px' }}>Announcements</Typography>
+        <Typography
+          variant="h2"
+          sx={{ color: '#ff4601', fontWeight: '700', ml: '10px' }}
+        >
+          Announcements
+
+        </Typography>
       </Box>
 
       <Box sx={{
