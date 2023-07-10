@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import React, { useReducer } from 'react';
 import { Box, Typography } from '@mui/material';
 import styled from 'styled-components';
@@ -51,7 +52,11 @@ const SignInComp = () => {
     const { data, status } = await axios.post('/api/users/login', state);
     if (status === 200) {
       localStorage.setItem('userData', JSON.stringify(data.user));
-      return navigate('/');
+      const userData = JSON.parse(localStorage.getItem('userData'));
+      if (userData.role === 'user') {
+        return navigate('/');
+      }
+      return navigate('/dashboard');
     }
   };
 

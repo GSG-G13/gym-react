@@ -3,6 +3,7 @@ import { Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import axios from 'axios';
 import { NavBarDashBoard, SideBar } from '../components';
+import useAuth from '../hook/useAuth';
 
 const DashboardLayout = () => {
   const [users, setUsers] = useState([]);
@@ -48,8 +49,20 @@ const DashboardLayout = () => {
     getCategories();
     getOrders();
   }, []);
+
+  const { user, isLoading } = useAuth();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <Box>
+    <Box sx={{
+      backgroundColor: user?.role === 'admin' ? '#fff' : '#1E1E1E',
+      color: user?.role === 'admin' ? '#000' : '#fff',
+
+    }}
+    >
       <NavBarDashBoard />
       <Box mt={8} minHeight="92vh" sx={{ display: 'flex' }}>
         <SideBar />
