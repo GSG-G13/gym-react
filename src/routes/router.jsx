@@ -6,111 +6,141 @@ import {
   ProductDetailsContainer,
   SignupPage,
   Store,
-  Class,
   AnnouncementContainer,
   UserProfile,
+  Home,
+  UserSetting,
+  HomeDashboard,
+  UserList,
+  ClassDashBoard,
+  DashOrderPage,
+  SubscriptionDashboard,
 } from '../pages';
 import ClassLayout from '../layout/classLayout';
+import { ClassInfoComp, HomeClass } from '../components';
+import StoreLayout from '../layout/Store';
+import Chat from '../components/chat';
+import ProductListDashboard from '../pages/admin/productList';
+import AnnouncementDashboard from '../pages/admin/announcement';
+import DashboardLayout from '../layout/DashboardLayout';
+import RequireAuthProvider from '../context/navigate';
+import CheckAdminProvider from '../context/admin';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />,
+    element: <CheckAdminProvider><Root /></CheckAdminProvider>,
     children: [
       {
-        path: '/',
-        element: <h1>home page</h1>,
+        index: true,
+        element: <Home />,
       },
       {
-        path: '/dashboard',
-        element: <h1>test</h1>,
-        children: [
-          {
-            path: '/dashboard/home',
-            element: <h1>test</h1>,
-          },
-          {
-            // here, there is still some work but i want to do some basic set up and the rest later
-            path: '/dashboard/users',
-            element: <h1>test</h1>,
-          },
-          {
-            path: '/dashboard/products',
-            element: <h1>test</h1>,
-          },
-          {
-            path: '/dashboard/classes',
-            element: <h1>test</h1>,
-          },
-          {
-            path: '/dashboard/orders',
-            element: <h1>test</h1>,
-          },
-          {
-            path: '/dashboard/announcement',
-            element: <h1>test</h1>,
-          },
-        ],
-      },
-      {
-        path: '/announcements',
-        element: <AnnouncementContainer />,
-      },
-      {
-        path: '/classes',
+        path: 'class',
         element: <ClassLayout />,
         children: [
           {
-            path: '/classes/:class',
-            element: <Class />,
+            index: true,
+            element: <HomeClass />,
+          },
+          {
+            path: ':id',
+            element: <ClassInfoComp />,
           },
         ],
       },
       {
-        path: '/store',
-        element: <Store />,
+        path: 'store',
+        element: <StoreLayout />,
         children: [
           {
-            path: '/store/:product',
-            element: <h1>test</h1>,
+            index: true,
+            element: <Store />,
           },
         ],
       },
       {
-        path: '/product',
+        path: 'announcement',
+        element: <AnnouncementContainer />,
+      },
+      {
+        path: 'product',
         element: <ProductDetailsContainer />,
-      },
-      {
-        path: '/user',
-        element: <h1>test</h1>,
         children: [
           {
-            path: '/user/signup',
-            element: <SignupPage />,
-          },
-          {
-            path: '/user/signin',
-            element: <SignIn />,
-          },
-          {
-            path: '/user/profile',
-            element: <UserProfile />,
-            children: [
-              {
-                path: '/user/profile/classes',
-                element: <h1>test</h1>,
-              },
-              {
-                path: '/user/profile/classes',
-                element: <h1>test</h1>,
-              },
-            ],
-          },
-          {
-            path: '/user/setting',
+            path: ':id',
             element: <h1>test</h1>,
           },
         ],
+      },
+      {
+        path: 'profile',
+        element: <UserProfile />,
+        children: [
+          {
+            index: true,
+            element: <UserProfile />,
+          },
+          {
+            path: 'orders',
+            element: <UserProfile />,
+          },
+        ],
+      },
+      {
+        path: 'setting',
+        element: <UserSetting />,
+
+      },
+      {
+        path: 'chat',
+        element: <Chat />,
+
+      },
+
+    ],
+  },
+  {
+    path: '/signin',
+    element: <SignIn />,
+
+  },
+  {
+    path: '/signup',
+    element: <SignupPage />,
+
+  },
+  {
+    path: '/dashboard',
+    element: <RequireAuthProvider><DashboardLayout /></RequireAuthProvider>,
+    children: [
+      {
+        index: true,
+        element: <HomeDashboard />,
+      },
+      {
+        path: 'users',
+        element: <UserList />,
+      },
+      {
+        path: 'products',
+        element: <ProductListDashboard />,
+      },
+      {
+        path: 'classes',
+        element: <ClassDashBoard />,
+      },
+      {
+        path: 'orders',
+        element: <DashOrderPage />,
+      },
+      {
+        path: 'announcements',
+        element: <AnnouncementDashboard />,
+      },
+      {
+        path: 'subscriptions',
+        element: <SubscriptionDashboard />,
       },
     ],
   },
