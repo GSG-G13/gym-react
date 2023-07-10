@@ -3,6 +3,7 @@ import {
   HomeDashboard,
   SubscriptionDashboard,
   DashOrderPage,
+  ProfileAdmin,
 } from './admin';
 import {
   Store,
@@ -33,4 +34,5 @@ export {
   HomeDashboard,
   SubscriptionDashboard,
   DashOrderPage,
+  ProfileAdmin,
 };

@@ -28,7 +28,7 @@ const NavBarDashBoard = () => {
 
   const logoutAdmin = async () => {
     try {
-      await axios.get('/api/users/signout');
+      await axios.delete('/api/users/signout');
       localStorage.clear();
       navigate('/');
     } catch (error) {
