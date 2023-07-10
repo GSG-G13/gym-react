@@ -30,7 +30,7 @@ const NavBarDashBoard = () => {
     try {
       await axios.get('/api/users/signout');
       localStorage.clear();
-      navigate('/signin');
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
