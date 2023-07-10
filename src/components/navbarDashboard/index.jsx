@@ -10,6 +10,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import { Link, useNavigate } from 'react-router-dom';
+import PersonIcon from '@mui/icons-material/Person';
+import LogoutIcon from '@mui/icons-material/Logout';
 import axios from 'axios';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -28,7 +30,7 @@ const NavBarDashBoard = () => {
 
   const logoutAdmin = async () => {
     try {
-      await axios.get('/api/users/signout');
+      await axios.delete('/api/users/signout');
       localStorage.clear();
       navigate('/');
     } catch (error) {
@@ -84,11 +86,24 @@ const NavBarDashBoard = () => {
             open={Boolean(anchorElUser)}
             onClose={handleCloseUserMenu}
           >
-            {settings.map((setting) => (
-              <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                <Typography onClick={setting === 'Logout' ? logoutAdmin : null} textAlign="center">{setting}</Typography>
-              </MenuItem>
-            ))}
+
+            <MenuItem onClick={handleCloseUserMenu}>
+              <IconButton
+                sx={{ p: 0, color: '#5A67BA' }}
+              >
+                <PersonIcon />
+              </IconButton>
+              <Link to="profile" style={{ textDecoration: 'none', color: '#5A67BA' }}>Profile</Link>
+            </MenuItem>
+            <MenuItem onClick={handleCloseUserMenu}>
+              <IconButton
+                sx={{ p: 0, color: '#5A67BA' }}
+              >
+                <LogoutIcon />
+              </IconButton>
+              <Typography onClick={logoutAdmin} textAlign="center" sx={{ color: '#5A67BA' }}>Logout</Typography>
+            </MenuItem>
+
           </Menu>
           <Typography variant="h6">Admin</Typography>
 
