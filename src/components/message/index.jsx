@@ -1,10 +1,12 @@
 import { Box, Typography, Divider } from '@mui/material';
 import React from 'react';
+import useAuth from '../../hook/useAuth';
 
 const Message = ({ message }) => {
-  console.log(message);
-  const userData = JSON.parse(localStorage.getItem('userData'));
-  console.log(userData);
+  const { user: userData } = useAuth();
+
+  if (!userData) return null;
+
   return (
     <Box
       p={2}
@@ -15,7 +17,17 @@ const Message = ({ message }) => {
         maxWidth: 400,
       }}
     >
-      <img width={40} height={40} style={{ borderRadius: '50%', alignSelf: 'end', display: message.image ? 'block' : 'none' }} src={message.image} alt="person" />
+      <img
+        width={40}
+        height={40}
+        style={{
+          borderRadius: '50%',
+          alignSelf: 'end',
+          display: message.image ? 'block' : 'none',
+        }}
+        src={message.image}
+        alt="person"
+      />
 
       <Box>
         <Typography
@@ -23,7 +35,6 @@ const Message = ({ message }) => {
           textAlign={message.username === userData.username ? 'start' : 'end'}
         >
           {message.username === userData.username ? 'you' : message.username}
-
         </Typography>
         <Divider />
         <Typography
@@ -36,11 +47,9 @@ const Message = ({ message }) => {
           fontWeight={600}
         >
           {message.message}
-
         </Typography>
         <Typography variant="h6">
           {message.time}
-          {' '}
           13:30
         </Typography>
       </Box>

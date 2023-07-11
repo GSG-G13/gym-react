@@ -8,8 +8,11 @@ import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ButtonComponent from '../button/Button';
 import Alerts from '../alert/Alert';
+import useAuth from '../../hook/useAuth';
 
 const ProductDetails = () => {
+  const { user } = useAuth();
+
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [message, setMessage] = useState('');
@@ -77,8 +80,9 @@ const ProductDetails = () => {
             <StarIcon sx={{ color: 'colors.darkBlue' }} />
             <StarBorderIcon sx={{ borderColor: 'colors.darkBlue', color: '#fff' }} />
           </Box>
-
-          <ButtonComponent width="115px" onClick={addOrder} color="colors.darkBlue">{message ? 'Requested' : 'Order'}</ButtonComponent>
+          {user
+            ? <ButtonComponent width="115px" onClick={addOrder} color="colors.darkBlue">{message ? 'Requested' : 'Order'}</ButtonComponent>
+            : <Typography>ي عم روح سجل </Typography>}
         </CardContent>
         {errorMsg
           ? <Alerts type="error" message={errorMsg} />

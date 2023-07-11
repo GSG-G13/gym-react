@@ -6,9 +6,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
 const rows = [
-  { day: 'Saturday', time: 8 - 10 },
-  { day: 'Monday', time: 10 - 12 },
-  { day: 'Wednesday', time: 12 - 2 },
+  { day: 'Saturday', time: '2:30 - 4:30' },
+  { day: 'Monday', time: '9:00 - 11:00' },
+  { day: 'Wednesday', time: '5:30 - 7:30' },
 
 ];
 

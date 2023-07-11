@@ -29,7 +29,7 @@ const ClassInfoComp = () => {
   }, [id]);
 
   return (
-    <Box my={15} py={8} sx={{ border: '1px solid #ccc', borderRadius: 5 }}>
+    <Box my={15} py={8} boxShadow="0px 0px 10px 0px  #ff5700" sx={{ borderRadius: 5 }}>
       <Container>
         {
           !classData ? (<Typography>no data</Typography>)

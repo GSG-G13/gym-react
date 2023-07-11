@@ -8,7 +8,7 @@ const CheckAdminProvider = ({ children }) => {
     return <div>Loading...</div>;
   }
 
-  if (user.role === 'admin') {
+  if (user?.role === 'admin') {
     return <Navigate to="/dashboard" />;
   }
   return children;

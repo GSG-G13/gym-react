@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 const ProductDetailsContainer = () => (
   <Box>
     <Container>
-      <Box mt={18} mb={9} height="75vh" display="flex" alignItems="center" justifyContent="center">
+      <Box pt={15} mb={9} display="flex" alignItems="center" justifyContent="center">
         <Outlet />
       </Box>
     </Container>

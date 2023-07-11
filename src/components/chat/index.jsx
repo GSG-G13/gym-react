@@ -1,6 +1,7 @@
 import { Box, Container, Snackbar } from '@mui/material';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import useAuth from '../../hook/useAuth';
 import socket from '../../socket';
 import MessageLists from '../messageLists';
 
@@ -8,16 +9,11 @@ const Chat = () => {
   const [message, setMessage] = useState('');
 
   const [messages, setMessages] = useState([]);
-
-  const [userData, setUserData] = useState(null);
+  const [users, setUsers] = useState([]);
+  const { user: userData } = useAuth();
+  console.log('🚀 ~ file: index.jsx:12 ~ Chat ~ users:', users);
 
   const [userJoinNotification, setUserJoinNotification] = useState('');
-
-  const getUser = () => {
-    const user = JSON.parse(localStorage.getItem('userData'));
-
-    setUserData(user);
-  };
 
   const [isConnected, setIsConnectsed] = useState(false);
 
@@ -41,17 +37,13 @@ const Chat = () => {
     setMessage('');
   };
 
-  useEffect(() => {
-    if (!userData) {
-      getUser();
-    }
-  }, []);
-
   const onConnect = () => {
     setIsConnectsed(true);
   };
 
   const handleJoin = (data) => {
+    if (!userData) return;
+
     setUserJoinNotification(`${data.payload.username} has joined the chat`);
     setTimeout(() => setUserJoinNotification(''), 3000);
   };
@@ -64,8 +56,10 @@ const Chat = () => {
     const { data } = await axios.get('/api/chat/getChat');
 
     setMessages(Object.values(data.room.messages));
+  };
 
-    console.log(data);
+  const handleUsersList = (data) => {
+    setUsers(Object.values(data.payload));
   };
 
   useEffect(() => {
@@ -80,9 +74,12 @@ const Chat = () => {
     socket.on('connect', onConnect);
     socket.on('user-join', handleJoin);
     socket.on('receive-message', handleMessage);
+    socket.on('users-list', handleUsersList);
 
     return () => {
-      socket.off('disconnect', () => { });
+      socket.on('disconnect', () => {
+        socket.emit('user-disconnect', userData);
+      });
     };
   }, []);
 
@@ -90,7 +87,7 @@ const Chat = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        paddingTop: '5rem',
+        py: '5rem',
       }}
     >
       <Container>
@@ -103,14 +100,14 @@ const Chat = () => {
         >
           <Box width="80%" borderRight="1px solid #ccc" p={2}>
             <MessageLists messages={messages} />
-            <Box sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: 1,
-              mt: 5,
-
-            }}
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: 1,
+                mt: 5,
+              }}
             >
               <input
                 style={{
@@ -143,17 +140,19 @@ const Chat = () => {
                 Send
               </button>
             </Box>
-            <Snackbar
-              open={!!userJoinNotification}
-              autoHideDuration={3000}
-              message={userJoinNotification}
-            />
           </Box>
           <Box width="20%" p={2}>
-            user data
+            {users.map((user) => (
+              <p key={user.username}>{user.username}</p>
+            ))}
           </Box>
         </Box>
       </Container>
+      <Snackbar
+        open={!!userJoinNotification}
+        autoHideDuration={3000}
+        message={userJoinNotification}
+      />
     </Box>
   );
 };

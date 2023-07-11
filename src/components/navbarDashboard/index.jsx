@@ -1,4 +1,3 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,12 +10,15 @@ import MenuItem from '@mui/material/MenuItem';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useState } from 'react';
+import useAuth from '../../hook/useAuth';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavBarDashBoard = () => {
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -29,7 +31,7 @@ const NavBarDashBoard = () => {
   const logoutAdmin = async () => {
     try {
       await axios.get('/api/users/signout');
-      localStorage.clear();
+      logout();
       navigate('/');
     } catch (error) {
       console.log(error);
@@ -37,7 +39,9 @@ const NavBarDashBoard = () => {
   };
 
   return (
-    <AppBar sx={{ width: '100vw', backgroundColor: '#5A67BA', padding: '0 20px' }}>
+    <AppBar
+      sx={{ width: '100vw', backgroundColor: '#5A67BA', padding: '0 20px' }}
+    >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Link
           variant="h3"
@@ -54,14 +58,19 @@ const NavBarDashBoard = () => {
             textDecoration: 'none',
           }}
         >
-          <FitnessCenterIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, fontSize: 20 }} />
-
+          <FitnessCenterIcon
+            sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, fontSize: 20 }}
+          />
           Gym
         </Link>
 
-        <Box sx={{
-          flexGrow: 0, display: 'flex', alignItems: 'center', gap: 1,
-        }}
+        <Box
+          sx={{
+            flexGrow: 0,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 1,
+          }}
         >
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -86,12 +95,16 @@ const NavBarDashBoard = () => {
           >
             {settings.map((setting) => (
               <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                <Typography onClick={setting === 'Logout' ? logoutAdmin : null} textAlign="center">{setting}</Typography>
+                <Typography
+                  onClick={setting === 'Logout' ? logoutAdmin : null}
+                  textAlign="center"
+                >
+                  {setting}
+                </Typography>
               </MenuItem>
             ))}
           </Menu>
           <Typography variant="h6">Admin</Typography>
-
         </Box>
       </Toolbar>
     </AppBar>
