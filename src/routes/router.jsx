@@ -15,6 +15,7 @@ import {
   ClassDashBoard,
   DashOrderPage,
   SubscriptionDashboard,
+  ProfileAdmin,
 } from '../pages';
 import ClassLayout from '../layout/classLayout';
 import { ClassInfoComp, HomeClass, ProductDetails } from '../components';
@@ -146,6 +147,11 @@ const router = createBrowserRouter([
         path: 'subscriptions',
         element: <SubscriptionDashboard />,
       },
+      {
+        path: 'profile',
+        element: <ProfileAdmin />,
+      },
+
     ],
   },
 ]);
