@@ -95,20 +95,18 @@ const NavBarDashBoard = () => {
             open={Boolean(anchorElUser)}
             onClose={handleCloseUserMenu}
           >
-<<<<<<< HEAD
-{
-  settings.map((setting) => (
-    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-      <Typography
-        onClick={setting === 'Logout' ? logoutAdmin : null}
-        textAlign="center"
-      >
-        {setting}
-      </Typography>
-    </MenuItem>
-  ))
-}
-=======
+            {
+              settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography
+                    onClick={setting === 'Logout' ? logoutAdmin : null}
+                    textAlign="center"
+                  >
+                    {setting}
+                  </Typography>
+                </MenuItem>
+              ))
+            }
 
             <MenuItem onClick={handleCloseUserMenu}>
               <IconButton
@@ -127,12 +125,11 @@ const NavBarDashBoard = () => {
               <Typography onClick={logoutAdmin} textAlign="center" sx={{ color: '#5A67BA' }}>Logout</Typography>
             </MenuItem>
 
->>>>>>> d9a8fb285c91a54e183d9bbb4bf73421fd2d1608
-          </Menu >
-  <Typography variant="h6">Admin</Typography>
-        </Box >
-      </Toolbar >
-    </AppBar >
+          </Menu>
+          <Typography variant="h6">Admin</Typography>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 export default NavBarDashBoard;
