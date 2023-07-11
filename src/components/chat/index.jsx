@@ -11,7 +11,6 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
   const { user: userData } = useAuth();
-  console.log('🚀 ~ file: index.jsx:12 ~ Chat ~ users:', users);
 
   const [userJoinNotification, setUserJoinNotification] = useState('');
 
