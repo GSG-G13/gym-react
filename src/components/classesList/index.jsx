@@ -1,7 +1,7 @@
-import { Box, Divider, Typography } from '@mui/material';
+import { Box, Divider } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 // const classes = ['Yoga', 'Building', 'Fitness', 'food'];
 const ClassesList = () => {
@@ -17,18 +17,19 @@ const ClassesList = () => {
   }, []);
 
   return (
-    <Box width="230px" border="1px solid #ccc" mt={15} mb={15} borderRadius={5} py={3} pl={2}>
+    <Box height="76%" width="230px" boxShadow="0px 0px 10px 0px  #ff5700" mt={15} mb={15} borderRadius={5} py={3} pl={2}>
       <NavLink
         to="/class"
         variant="h5"
         style={() => ({
-          backgroundColor: '#000',
+          backgroundColor: 'transparent',
           textDecoration: 'none',
           padding: '5px 10px',
           borderRadius: '5px',
           transition: 'all 0.5s ease',
           textTransform: 'capitalize',
           color: 'white',
+          border: '1px solid #ff5700',
         })}
       >
         Classes

@@ -1,33 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
-import Cookies from 'js-cookie';
-import jwtDecode from 'jwt-decode';
+import useUser from './useUser';
+import useLocalStorage from './useLocalStorage';
 
 const useAuth = () => {
-  const [user, setUser] = useState({
-    id: null,
-    username: null,
-    email: null,
-    role: null,
-  });
-  const [isLoading, setIsLoading] = useState(true);
+  const { user, addUser, removeUser } = useUser();
+  const { getItem } = useLocalStorage();
 
   useEffect(() => {
-    const token = Cookies.get('token');
-    if (token) {
-      const decode = jwtDecode(token);
-      if (decode) {
-        setUser({ ...decode });
-      }
+    const localUserData = getItem('user');
+    if (localUserData) {
+      addUser(JSON.parse(localUserData));
     }
-
-    setIsLoading(false);
   }, []);
 
-  return {
-    user,
-    isLoading,
+  const login = (userData) => {
+    addUser(userData);
   };
+
+  const logout = () => {
+    removeUser();
+  };
+
+  return { user, login, logout };
 };
 
 export default useAuth;

@@ -3,9 +3,12 @@ import { Box, Container } from '@mui/material';
 import { ClassesList } from '../components';
 
 const ClassLayout = () => (
-  <Box>
+  <Box minHeight="100vh">
     <Container>
-      <Box sx={{ display: 'grid', gridTemplateColumns: '20% 1fr', gap: '50px' }}>
+      <Box sx={{
+        display: 'grid', gridTemplateColumns: '20% 1fr', gap: '50px', minHeight: '100px',
+      }}
+      >
         <ClassesList />
         <Outlet />
       </Box>
