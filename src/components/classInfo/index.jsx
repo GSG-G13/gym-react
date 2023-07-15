@@ -3,8 +3,10 @@ import { Box, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import ButtonComponent from '../button/Button';
 import ClassTable from '../classTable/ClassTable';
+import ToastAlert from '../toastAlert/ToastAlert';
 
 const ClassInfoComp = () => {
   const { id } = useParams();
@@ -19,9 +21,19 @@ const ClassInfoComp = () => {
       console.log(error);
     }
   };
+
   const addSubscription = async () => {
-    const { data } = await axios.post(`/api/subscriptions/${id}`);
-    setSubscriptionStatus(data.data);
+    try {
+      const { data } = await axios.post(`/api/subscriptions/${id}`);
+      setSubscriptionStatus(data.data);
+      toast.success('Subscription added successfully!', {
+        theme: 'dark',
+      });
+    } catch (error) {
+      toast.error('Adding subscription!', {
+        theme: 'dark',
+      });
+    }
   };
 
   useEffect(() => {
@@ -31,10 +43,12 @@ const ClassInfoComp = () => {
   return (
     <Box my={15} py={8} sx={{ border: '1px solid #ccc', borderRadius: 5 }}>
       <Container>
+
         {
           !classData ? (<Typography>no data</Typography>)
             : (
               <Box>
+                <ToastAlert />
                 <Typography mb={6} variant="h5" fontSize="23px" textTransform="capitalize">{classData.className}</Typography>
                 <Box mt={3} sx={{ display: 'flex', alignItems: 'center', gap: 40 }}>
                   <Box>

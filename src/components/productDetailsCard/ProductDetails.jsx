@@ -6,14 +6,16 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { toast } from 'react-toastify';
 import ButtonComponent from '../button/Button';
 import Alerts from '../alert/Alert';
+import ToastAlert from '../toastAlert/ToastAlert';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [message, setMessage] = useState('');
-  const [errorMsg, setErrorMsg] = useState('');
+  
   const amount = 1;
   const getProductDetails = async () => {
     const response = await axios.get(`/api/products/${id}`);
@@ -25,9 +27,9 @@ const ProductDetails = () => {
       const { data } = await axios.post(`/api/orders/${id}`, { amount });
 
       setMessage(data.msg);
+      toast.success('added order successfully');
     } catch (error) {
-      console.log(error);
-      setErrorMsg('you have been already orderd');
+      toast.error('you have been already ordered');
     }
   };
 
@@ -80,9 +82,7 @@ const ProductDetails = () => {
 
           <ButtonComponent width="115px" onClick={addOrder} color="colors.darkBlue">{message ? 'Requested' : 'Order'}</ButtonComponent>
         </CardContent>
-        {errorMsg
-          ? <Alerts type="error" message={errorMsg} />
-          : null}
+        <ToastAlert />
       </Box>
     </Card>
   );
