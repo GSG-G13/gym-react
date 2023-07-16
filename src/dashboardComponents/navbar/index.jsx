@@ -10,19 +10,32 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
+import axios from 'axios';
+import useAuth from '../../hook/useAuth';
 
 const settings = ['Profile', 'Logout'];
 
 const NavbarDash = () => {
   const [anchorElUser, setAnchorElUser] = useState(null);
-
+  const navigate = useNavigate();
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+  const { logout } = useAuth();
+  const logOut = async () => {
+    try {
+      await axios.delete('/api/users/signout');
+      logout();
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -78,8 +91,8 @@ const NavbarDash = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  {setting === 'Profile' ? <Link to="profile">{setting}</Link> : <Button onClick={logOut}>logOut</Button>}
 
-                  <Link to="profile">{setting}</Link>
                 </MenuItem>
               ))}
             </Menu>

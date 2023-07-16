@@ -1,11 +1,44 @@
+/* eslint-disable no-underscore-dangle */
 import { Box } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import {
-  AddForm, DashTable, SearchInpDash,
+  DashTable, SearchInpDash,
 } from '../../../dashboardComponents';
 
+const orderInfoTable = ['product', 'image', 'username', 'amount', 'totalPrice', 'status'];
+
 const OrderDash = () => {
-  const [showForm, setShowForm] = useState(false);
+  const [orders, setOrders] = useState([]);
+
+  const getOrders = async () => {
+    const { data } = await axios.get('/api/orders');
+    const arr = [];
+    data.orders.map((order) => arr.push(
+      {
+        _id: order._id,
+        username: order.userId.username,
+        product: order.productId.title,
+        image: order.productId.image,
+        amount: order.amount,
+        totalPrice: order.totalPrice,
+        status: order.status,
+      },
+    ));
+    setOrders(arr);
+  };
+
+  const deleteOrder = async (id) => {
+    try {
+      axios.delete(`/api/orders/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getOrders();
+  }, []);
   return (
     <Box mt={10}>
       <Box
@@ -18,24 +51,13 @@ const OrderDash = () => {
       </Box>
 
       <Box mt={5}>
-        <DashTable />
+        <DashTable
+          array={orders}
+          userInfo={orderInfoTable}
+          deleteFunction={deleteOrder}
+        />
       </Box>
 
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          height: '100%',
-          width: '40%',
-          backgroundColor: '#111010',
-          p: '20px 20px',
-          transform: `translateX(${showForm ? 0 : '100%'})`,
-          transition: '0.5s ease-in-out',
-        }}
-      >
-        <AddForm setShowForm={setShowForm} showForm={showForm} />
-      </Box>
     </Box>
   );
 };
