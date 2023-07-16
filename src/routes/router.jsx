@@ -10,22 +10,20 @@ import {
   UserProfile,
   Home,
   UserSetting,
-  HomeDashboard,
-  UserList,
-  ClassDashBoard,
-  DashOrderPage,
-  SubscriptionDashboard,
-  ProfileAdmin,
+
 } from '../pages';
 import ClassLayout from '../layout/classLayout';
 import { ClassInfoComp, HomeClass, ProductDetails } from '../components';
 import StoreLayout from '../layout/Store';
 import Chat from '../components/chat';
-import ProductListDashboard from '../pages/admin/productList';
-import AnnouncementDashboard from '../pages/admin/announcement';
-import DashboardLayout from '../layout/DashboardLayout';
 import RequireAuthProvider from '../context/navigate';
 import CheckAdminProvider from '../context/admin';
+import DashLayout from '../layout/DashLayout';
+import {
+  AnnouncementDash,
+  ClassDash, HomeDash, OrderDash, ProductDash, SubscriptionDash, UserDash,
+} from '../pages/admins';
+import ProfileDash from '../pages/admins/profile';
 
 const router = createBrowserRouter([
   {
@@ -110,46 +108,46 @@ const router = createBrowserRouter([
 
     ],
   },
+  {
+    path: '/signin',
+    element: <SignIn />,
+  },
 
   {
     path: '/dashboard',
-    element: <RequireAuthProvider><DashboardLayout /></RequireAuthProvider>,
+    element: <RequireAuthProvider><DashLayout /></RequireAuthProvider>,
     children: [
       {
         index: true,
-        element: <HomeDashboard />,
-      },
-      {
-        path: 'signin',
-        element: <SignIn />,
+        element: <HomeDash />,
       },
       {
         path: 'users',
-        element: <UserList />,
+        element: <UserDash />,
       },
       {
         path: 'products',
-        element: <ProductListDashboard />,
+        element: <ProductDash />,
       },
       {
         path: 'classes',
-        element: <ClassDashBoard />,
+        element: <ClassDash />,
       },
       {
         path: 'orders',
-        element: <DashOrderPage />,
+        element: <OrderDash />,
       },
       {
         path: 'announcements',
-        element: <AnnouncementDashboard />,
+        element: <AnnouncementDash />,
       },
       {
         path: 'subscriptions',
-        element: <SubscriptionDashboard />,
+        element: <SubscriptionDash />,
       },
       {
         path: 'profile',
-        element: <ProfileAdmin />,
+        element: <ProfileDash />,
       },
 
     ],

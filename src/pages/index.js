@@ -1,14 +1,6 @@
 import {
-  UserList, ClassDashBoard,
-  HomeDashboard,
-  SubscriptionDashboard,
-  DashOrderPage,
-  ProfileAdmin,
-} from './admin';
-import {
   Store,
   Class,
-  DashBoardLayOut,
   ProductDetailsContainer,
   AnnouncementContainer,
   UserProfile,
@@ -21,9 +13,6 @@ import {
 export {
   Store,
   ProductDetailsContainer,
-  UserList,
-  ClassDashBoard,
-  DashBoardLayOut,
   Class,
   AnnouncementContainer,
   SignIn,
@@ -31,8 +20,4 @@ export {
   SignupPage,
   Home,
   UserSetting,
-  HomeDashboard,
-  SubscriptionDashboard,
-  DashOrderPage,
-  ProfileAdmin,
 };
