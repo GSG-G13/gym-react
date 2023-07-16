@@ -5,8 +5,18 @@ import { useReducer } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import DashboardNewPopUp from '../newPopUpComp';
+import useAuth from '../../hook/useAuth';
 
-const userInfo = ['username', 'email', 'password', 'age', 'gender', 'height', 'weight', 'goalweight'];
+const userInfo = [
+  'username',
+  'email',
+  'password',
+  'age',
+  'gender',
+  'height',
+  'weight',
+  'goalweight',
+];
 
 const initialState = {
   username: '',
@@ -24,7 +34,8 @@ const reducer = (state, action) => ({
   [action.filedName]: action.value,
 });
 const UserSettingData = () => {
-  const userSettingData = JSON.parse(localStorage.getItem('userData'));
+  const { user: userSettingData, logout } = useAuth();
+
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, initialState);
   const values = [
@@ -57,7 +68,7 @@ const UserSettingData = () => {
   const deleteUserInfo = async () => {
     try {
       await axios.delete('/api/users');
-      localStorage.clear();
+      logout();
       navigate('/');
     } catch (error) {
       console.log(error);
@@ -65,17 +76,19 @@ const UserSettingData = () => {
   };
 
   return (
-    <Box sx={{
-      p: '20px',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      width: '700px',
-    }}
+    <Box
+      sx={{
+        p: '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        width: '700px',
+      }}
     >
       <Box>
-
-        <Typography variant="h1" sx={{ paddingBottom: '20px' }}>user information </Typography>
+        <Typography variant="h1" sx={{ paddingBottom: '20px' }}>
+          user information
+        </Typography>
         <img
           src="https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png"
           width="120px"
@@ -83,94 +96,69 @@ const UserSettingData = () => {
           alt="pic-profile"
         />
       </Box>
-      <Box sx={{
-        my: 5, display: 'flex', flexDirection: 'column', gap: 1.5,
-      }}
+      <Box
+        sx={{
+          my: 5,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 1.5,
+        }}
       >
         <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
-
           <Typography variant="h5" color="gray">
             username:
-
           </Typography>
 
-          <Typography variant="h5">
-            {userSettingData?.username}
-
-          </Typography>
+          <Typography variant="h5">{userSettingData?.username}</Typography>
         </Box>
         <Divider />
         <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
-
           <Typography variant="h5" color="gray">
             Email:
-
           </Typography>
 
-          <Typography variant="h5">
-            {userSettingData?.email}
-
-          </Typography>
+          <Typography variant="h5">{userSettingData?.email}</Typography>
         </Box>
         <Divider />
         <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
-
           <Typography variant="h5" color="gray">
             age:
-
           </Typography>
 
-          <Typography variant="h5">
-            {userSettingData?.age}
-
-          </Typography>
+          <Typography variant="h5">{userSettingData?.age}</Typography>
         </Box>
 
         <Divider />
 
         <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
-
           <Typography variant="h5" color="gray">
             weight:
-
           </Typography>
 
-          <Typography variant="h5">
-            {userSettingData?.weight}
-
-          </Typography>
+          <Typography variant="h5">{userSettingData?.weight}</Typography>
         </Box>
         <Divider />
         <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
-
           <Typography variant="h5" color="gray">
             height:
-
           </Typography>
 
-          <Typography variant="h5">
-            {userSettingData?.height}
-
-          </Typography>
+          <Typography variant="h5">{userSettingData?.height}</Typography>
         </Box>
         <Divider />
         <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 3fr' }}>
-
           <Typography variant="h5" color="gray">
             goal weight:
-
           </Typography>
 
-          <Typography variant="h5">
-            {userSettingData?.goalweight}
-
-          </Typography>
+          <Typography variant="h5">{userSettingData?.goalweight}</Typography>
         </Box>
-        <Box sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: 2,
-        }}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: 2,
+          }}
         >
           <DashboardNewPopUp
             setStates={handleChange}
@@ -178,10 +166,8 @@ const UserSettingData = () => {
             value={values}
             filedName={userInfo}
             axiosData={updateUser}
-
           >
             edit
-
           </DashboardNewPopUp>
           <Button
             sx={{
@@ -198,7 +184,6 @@ const UserSettingData = () => {
           </Button>
         </Box>
       </Box>
-
     </Box>
   );
 };

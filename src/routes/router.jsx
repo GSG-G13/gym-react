@@ -18,7 +18,7 @@ import {
   ProfileAdmin,
 } from '../pages';
 import ClassLayout from '../layout/classLayout';
-import { ClassInfoComp, HomeClass } from '../components';
+import { ClassInfoComp, HomeClass, ProductDetails } from '../components';
 import StoreLayout from '../layout/Store';
 import Chat from '../components/chat';
 import ProductListDashboard from '../pages/admin/productList';
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: ':id',
-            element: <h1>test</h1>,
+            element: <ProductDetails />,
           },
         ],
       },

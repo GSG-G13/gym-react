@@ -10,7 +10,8 @@ const VideoPlayer = () => (
       height="90vh"
       controls
       loop
-      muted={false}
+      muted
+      playing
     />
   </Box>
 );

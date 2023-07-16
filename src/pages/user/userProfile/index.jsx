@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Box, Container } from '@mui/material';
 import axios from 'axios';
-import {
-  PersonalInfo, ProfileNav,
-} from '../../../components';
+import { PersonalInfo, ProfileNav } from '../../../components';
 import ClassTable from './classesTable';
 import OrderTable from './ordersTable';
+import useAuth from '../../../hook/useAuth';
 
 const UserProfile = () => {
-  const userData = JSON.parse(localStorage.getItem('userData'));
+  const { user: userData } = useAuth();
+
   const [userClasses, setUserClasses] = useState([]);
   const [userOrders, setUserOrders] = useState([]);
   const [tableName, setTableName] = useState('');
@@ -35,20 +35,22 @@ const UserProfile = () => {
             </Box>
             <Box>
               <ProfileNav
-                getData={tableName === 'orders' ? getUserOrders : getUserClasses}
+                getData={
+                  tableName === 'orders' ? getUserOrders : getUserClasses
+                }
                 setTableName={setTableName}
               />
             </Box>
             <Box mb={20}>
-
-              {tableName === 'orders' ? <OrderTable ordersData={userOrders[0]} /> : <ClassTable classData={userClasses[0]} />}
-
+              {tableName === 'orders' ? (
+                <OrderTable ordersData={userOrders[0]} />
+              ) : (
+                <ClassTable classData={userClasses[0]} />
+              )}
             </Box>
           </Box>
-
         </Container>
       </Box>
-
     </Box>
   );
 };

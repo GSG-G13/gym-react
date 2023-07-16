@@ -8,14 +8,16 @@ import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { toast } from 'react-toastify';
 import ButtonComponent from '../button/Button';
-import Alerts from '../alert/Alert';
 import ToastAlert from '../toastAlert/ToastAlert';
+import useAuth from '../../hook/useAuth';
 
 const ProductDetails = () => {
+  const { user } = useAuth();
+
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [message, setMessage] = useState('');
-  
+
   const amount = 1;
   const getProductDetails = async () => {
     const response = await axios.get(`/api/products/${id}`);
@@ -27,9 +29,13 @@ const ProductDetails = () => {
       const { data } = await axios.post(`/api/orders/${id}`, { amount });
 
       setMessage(data.msg);
-      toast.success('added order successfully');
+      toast.success('Added order successfully', {
+        theme: 'dark',
+      });
     } catch (error) {
-      toast.error('you have been already ordered');
+      toast.error('You have been already ordered', {
+        theme: 'dark',
+      });
     }
   };
 
@@ -79,8 +85,9 @@ const ProductDetails = () => {
             <StarIcon sx={{ color: 'colors.darkBlue' }} />
             <StarBorderIcon sx={{ borderColor: 'colors.darkBlue', color: '#fff' }} />
           </Box>
-
-          <ButtonComponent width="115px" onClick={addOrder} color="colors.darkBlue">{message ? 'Requested' : 'Order'}</ButtonComponent>
+          {user
+            ? <ButtonComponent width="115px" onClick={addOrder} color="colors.darkBlue">{message ? 'Requested' : 'Order'}</ButtonComponent>
+            : <Typography>ي عم روح سجل </Typography>}
         </CardContent>
         <ToastAlert />
       </Box>

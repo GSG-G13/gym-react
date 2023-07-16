@@ -12,7 +12,6 @@ const ClassInfoComp = () => {
   const { id } = useParams();
   const [classData, setClassData] = useState({});
   const [subscriptionStatus, setSubscriptionStatus] = useState({});
-
   const getClassById = async () => {
     try {
       const response = await axios.get(`/api/classes/${id}`);
@@ -41,7 +40,7 @@ const ClassInfoComp = () => {
   }, [id]);
 
   return (
-    <Box my={15} py={8} sx={{ border: '1px solid #ccc', borderRadius: 5 }}>
+    <Box my={15} py={8} boxShadow="0px 0px 10px 0px  #ff5700" sx={{ borderRadius: 5 }}>
       <Container>
 
         {
@@ -63,9 +62,9 @@ const ClassInfoComp = () => {
                   </Box>
 
                   <ButtonComponent onClick={addSubscription} color="colors.darkBlue" flex="0.4">
-                    {subscriptionStatus.status === 'pending'
+                    {subscriptionStatus?.status === 'pending'
                       ? 'Pending'
-                      : subscriptionStatus.status === 'approved'
+                      : subscriptionStatus?.status === 'approved'
                         ? 'Approved' : 'Join Class'}
                   </ButtonComponent>
                 </Box>
