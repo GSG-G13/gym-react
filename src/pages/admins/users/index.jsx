@@ -1,12 +1,14 @@
+/* eslint-disable no-underscore-dangle */
 import { Box } from '@mui/material';
 import React, { useEffect, useReducer, useState } from 'react';
 import axios from 'axios';
 import {
-  AddButton, AddForm, DashTable, SearchInpDash,
+  AddButton, AddForm, DashTable, EditForm, SearchInpDash,
 } from '../../../dashboardComponents';
 
 const userInfo = ['username', 'email', 'password', 'age', 'gender', 'height', 'weight', 'goalweight'];
 const userInfoTable = ['username', 'email', 'age', 'gender', 'height', 'weight', 'goalweight', 'role'];
+const EdituserInfo = ['username', 'email', 'password', 'age', 'gender', 'height', 'weight', 'goalweight', 'role'];
 
 const initialState = {
   username: '',
@@ -17,6 +19,7 @@ const initialState = {
   height: '',
   weight: '',
   goalweight: '',
+  role: '',
 };
 const reducer = (state, action) => ({
   ...state,
@@ -24,7 +27,6 @@ const reducer = (state, action) => ({
 });
 const UserDash = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log('🚀 ~ file: index.jsx:26 ~ UserDash ~ state:', state);
   const values = [
     state.username,
     state.email,
@@ -34,9 +36,12 @@ const UserDash = () => {
     state.height,
     state.weight,
     state.goalweight,
+    state.role,
   ];
   const [showForm, setShowForm] = useState(false);
+  const [showEditForm, setEditShowForm] = useState(false);
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState({});
 
   const handleChange = (e, filedName) => {
     const { value } = e.target;
@@ -64,6 +69,29 @@ const UserDash = () => {
     }
   };
 
+  const deleteUser = async (id) => {
+    try {
+      axios.delete(`/api/users/${id}`);
+      getUsers();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getUserById = async (id) => {
+    const { data } = await axios.get(`/api/users/${id}`);
+    setUser(data.user);
+  };
+
+  const updateUser = async () => {
+    try {
+      axios.put(`/api/users/${user._id}`, state);
+      setEditShowForm(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getUsers();
   }, []);
@@ -80,7 +108,15 @@ const UserDash = () => {
       </Box>
 
       <Box mt={5}>
-        <DashTable array={users} userInfo={userInfoTable} />
+        <DashTable
+          array={users}
+          userInfo={userInfoTable}
+          deleteFunction={deleteUser}
+          updateFunction={updateUser}
+          setEditShowForm={setEditShowForm}
+          showEditForm={showEditForm}
+          getData={getUserById}
+        />
       </Box>
 
       <Box
@@ -104,6 +140,30 @@ const UserDash = () => {
           values={values}
           filedName={userInfo}
           head={userInfo}
+        />
+      </Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          height: '100%',
+          width: '40%',
+          backgroundColor: '#111010',
+          p: '20px 20px',
+          transform: `translateX(${showEditForm ? 0 : '100%'})`,
+          transition: '0.5s ease-in-out',
+        }}
+      >
+        <EditForm
+          setShowForm={setEditShowForm}
+          showForm={showEditForm}
+          axiosData={updateUser}
+          setState={handleChange}
+          values={user}
+          state={values}
+          filedName={userInfo}
+          head={EdituserInfo}
         />
       </Box>
     </Box>

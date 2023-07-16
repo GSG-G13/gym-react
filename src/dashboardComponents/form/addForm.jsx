@@ -18,7 +18,7 @@ const AddForm = ({
     >
       {head.map((inp) => (
         <FormControl key={inp}>
-          <InputLabel sx={{ fontSize: 11, color: '#fff' }} htmlFor="my-input">{inp}</InputLabel>
+          <InputLabel sx={{ fontSize: 11, color: '#fff' }} htmlFor={inp}>{inp}</InputLabel>
           <Input
             type={inp === 'password'
               ? 'password' : inp === 'email'
