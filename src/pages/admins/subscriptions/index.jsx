@@ -1,11 +1,34 @@
 import { Box } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import {
   AddForm, DashTable, SearchInpDash,
 } from '../../../dashboardComponents';
 
+const subscriptionInfoTable = ['className', 'username', 'status'];
+
 const SubscriptionDash = () => {
+  const [subscriptionData, setSubscriptionData] = useState([]);
   const [showForm, setShowForm] = useState(false);
+
+  const getSubscriptions = async () => {
+    try {
+      const { data: { subscriptionsData } } = await axios.get('/api/subscriptions');
+      const subscriptionArray = [];
+      subscriptionsData.map((subscription) => subscriptionArray.push({
+        className: subscription.classId?.className,
+        username: subscription.userId?.username,
+        status: subscription.status,
+      }));
+      setSubscriptionData(subscriptionArray);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getSubscriptions();
+  }, []);
   return (
     <Box mt={10}>
       <Box
@@ -18,7 +41,7 @@ const SubscriptionDash = () => {
       </Box>
 
       <Box mt={5}>
-        <DashTable />
+        <DashTable array={subscriptionData} userInfo={subscriptionInfoTable} />
       </Box>
 
       <Box
