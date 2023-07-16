@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -19,8 +20,19 @@ const SubscriptionDash = () => {
         className: subscription.classId?.className,
         username: subscription.userId?.username,
         status: subscription.status,
+        _id: subscription._id,
       }));
       setSubscriptionData(subscriptionArray);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteSubscription = async (id) => {
+    try {
+      axios.delete(`/api/subscriptions/${id}`);
+      console.log(id);
+      getSubscriptions();
     } catch (error) {
       console.log(error);
     }
@@ -41,7 +53,11 @@ const SubscriptionDash = () => {
       </Box>
 
       <Box mt={5}>
-        <DashTable array={subscriptionData} userInfo={subscriptionInfoTable} />
+        <DashTable
+          array={subscriptionData}
+          userInfo={subscriptionInfoTable}
+          deleteFunction={deleteSubscription}
+        />
       </Box>
 
       <Box

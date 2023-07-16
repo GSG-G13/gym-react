@@ -32,24 +32,28 @@ const AddForm = ({
         </FormControl>
       ))}
 
-      <InputLabel sx={{ fontSize: 14, color: '#fff' }} htmlFor="category-select">
-        Category
-      </InputLabel>
+      {selectData && (
+        <FormControl>
+          <InputLabel sx={{ fontSize: 14, color: '#fff' }} htmlFor="category-select">
+            Category
+          </InputLabel>
 
-      <Select
-        id="category-select"
-        value={selectDataId}
-        onChange={(e) => setSelectDataId(e.target.value)}
-        sx={{
-          fontSize: 12, color: '#fff', border: '1px solid #ccc',
-        }}
-      >
-        {selectData?.map((menuData) => (
-          <MenuItem key={menuData._id} value={menuData._id}>
-            {menuData.categoryName || menuData.username}
-          </MenuItem>
-        ))}
-      </Select>
+          <Select
+            id="category-select"
+            value={selectDataId}
+            onChange={(e) => setSelectDataId(e.target.value)}
+            sx={{
+              fontSize: 12, color: '#fff', border: '1px solid #ccc',
+            }}
+          >
+            {selectData?.map((menuData) => (
+              <MenuItem key={menuData._id} value={menuData._id}>
+                {menuData.categoryName || menuData.username}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      )}
 
     </Box>
 

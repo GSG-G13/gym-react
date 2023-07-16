@@ -72,6 +72,16 @@ const ClassDash = () => {
       console.log(error);
     }
   };
+
+  const deleteClass = async (id) => {
+    try {
+      axios.delete(`/api/classes/${id}`);
+      getClasses();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getTrainers();
     getClasses();
@@ -90,7 +100,11 @@ const ClassDash = () => {
       </Box>
 
       <Box mt={5}>
-        <DashTable array={classes} userInfo={classDataTable} />
+        <DashTable
+          array={classes}
+          userInfo={classDataTable}
+          deleteFunction={deleteClass}
+        />
       </Box>
 
       <Box

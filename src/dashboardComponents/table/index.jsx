@@ -26,7 +26,9 @@ const DashTable = ({
           {userInfo?.map((cell) => <TableCell key={cell} sx={{ color: '#fff', fontSize: 13 }} align="center">{row[cell]}</TableCell>)}
           <TableCell sx={{ color: '#fff' }} align="center">
             <DeleteIcon
-              onClick={() => deleteFunction(row._id)}
+              onClick={() => {
+                console.log(row)
+                deleteFunction(row._id)}}
               sx={{ fontSize: 19, cursor: 'pointer', color: 'red' }}
             />
 

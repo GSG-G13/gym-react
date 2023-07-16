@@ -74,6 +74,15 @@ const ProductDash = () => {
       console.log(error);
     }
   };
+
+  const deleteProduct = async (id) => {
+    try {
+      axios.delete(`/api/products/${id}`);
+      getProducts();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     getCategories();
     getProducts();
@@ -91,7 +100,11 @@ const ProductDash = () => {
       </Box>
 
       <Box mt={5}>
-        <DashTable array={productsData} userInfo={productDataTable} />
+        <DashTable
+          array={productsData}
+          userInfo={productDataTable}
+          deleteFunction={deleteProduct}
+        />
       </Box>
 
       <Box
