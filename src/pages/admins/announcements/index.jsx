@@ -2,9 +2,11 @@
 import { Box } from '@mui/material';
 import React, { useEffect, useReducer, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
   AddButton, AddForm, DashTable, EditForm, SearchInpDash,
 } from '../../../dashboardComponents';
+import ToastAlert from '../../../components/toastAlert/ToastAlert';
 
 const announcementInfo = ['title', 'description', 'image'];
 const announcementInfoTable = ['title', 'image', 'description'];
@@ -59,8 +61,9 @@ const AnnouncementDash = () => {
       await axios.post('/api/announcements', state);
       getAnnouncements();
       setShowForm(false);
+      toast.success('add announcement successfully!', { theme: 'dark' });
     } catch (error) {
-      console.log(error);
+      toast.success('add Failed!', { theme: 'dark' });
     }
   };
 
@@ -68,8 +71,9 @@ const AnnouncementDash = () => {
     try {
       axios.delete(`/api/announcements/${id}`);
       getAnnouncements();
+      toast.success('Delete Successfully!', { theme: 'dark' });
     } catch (error) {
-      console.log(error);
+      toast.error('Delete Failed!', { theme: 'dark' });
     }
   };
 
@@ -78,8 +82,9 @@ const AnnouncementDash = () => {
       await axios.put(`/api/announcements/${announcement._id}`, state);
       getAnnouncements();
       setEditShowForm(false);
+      toast.success('Update Successfully!', { theme: 'dark' });
     } catch (error) {
-      console.log(error);
+      toast.error('Update Failed!', { theme: 'dark' });
     }
   };
 
@@ -88,6 +93,7 @@ const AnnouncementDash = () => {
   }, []);
   return (
     <Box mt={10}>
+      <ToastAlert />
       <Box
         sx={{
           display: 'flex',

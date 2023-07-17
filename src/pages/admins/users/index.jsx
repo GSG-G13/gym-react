@@ -2,9 +2,11 @@
 import { Box } from '@mui/material';
 import React, { useEffect, useReducer, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
   AddButton, AddForm, DashTable, EditForm, SearchInpDash,
 } from '../../../dashboardComponents';
+import ToastAlert from '../../../components/toastAlert/ToastAlert';
 
 const userInfo = ['username', 'email', 'password', 'age', 'gender', 'height', 'weight', 'goalweight'];
 const userInfoTable = ['username', 'email', 'age', 'gender', 'height', 'weight', 'goalweight', 'role'];
@@ -62,10 +64,10 @@ const UserDash = () => {
   const addUser = async () => {
     try {
       await axios.post('/api/users/signup', state);
-
       getUsers();
+      toast.success('Add User Successfully!', { theme: 'dark' });
     } catch (error) {
-      console.log(error);
+      toast.error('Add Failed!', { theme: 'dark' });
     }
   };
 
@@ -73,8 +75,9 @@ const UserDash = () => {
     try {
       axios.delete(`/api/users/${id}`);
       getUsers();
+      toast.success('Delete User Successfully!', { theme: 'dark' });
     } catch (error) {
-      console.log(error);
+      toast.error('Delete Failed!', { theme: 'dark' });
     }
   };
 
@@ -87,8 +90,9 @@ const UserDash = () => {
     try {
       axios.put(`/api/users/${user._id}`, state);
       setEditShowForm(false);
+      toast.success('Update User Successfully!', { theme: 'dark' });
     } catch (error) {
-      console.log(error);
+      toast.error('Update Failed!', { theme: 'dark' });
     }
   };
 
@@ -97,6 +101,7 @@ const UserDash = () => {
   }, []);
   return (
     <Box mt={10}>
+      <ToastAlert />
       <Box
         sx={{
           display: 'flex',
