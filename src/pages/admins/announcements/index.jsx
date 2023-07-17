@@ -6,7 +6,7 @@ import {
   AddButton, AddForm, DashTable, EditForm, SearchInpDash,
 } from '../../../dashboardComponents';
 
-const announcementInfo = ['title', 'image', 'description'];
+const announcementInfo = ['title', 'description', 'image'];
 const announcementInfoTable = ['title', 'image', 'description'];
 
 const initialState = {
@@ -28,8 +28,8 @@ const AnnouncementDash = () => {
 
   const values = [
     state.title,
-    state.image,
     state.description,
+    state.image,
 
   ];
   const handleChange = (e, filedName) => {

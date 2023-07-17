@@ -2,7 +2,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
-const OrderProductStatistic = ({ product, orders }) => (
+const OrderProductStatistic = ({ product, mostOrders }) => (
   <Box sx={{
     display: 'flex',
     alignItems: 'center',
@@ -18,7 +18,7 @@ const OrderProductStatistic = ({ product, orders }) => (
     }}
     >
       <img
-        src=""
+        src={product.image}
         width="30px"
         height="30px"
         alt="pic-order-product"
@@ -30,11 +30,13 @@ const OrderProductStatistic = ({ product, orders }) => (
       />
       <Typography color="#fff" variant="h6" fontWeight="600">
         {' '}
-        product.title
+        {product.title}
       </Typography>
     </Box>
     <Box>
-      <Typography color="#fff" variant="h6">filter</Typography>
+      <Typography color="#fff" variant="h6">
+        {mostOrders.filter((item) => item.product === product.title).length}
+      </Typography>
     </Box>
 
   </Box>
