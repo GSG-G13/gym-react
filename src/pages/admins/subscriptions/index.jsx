@@ -1,13 +1,61 @@
+/* eslint-disable no-underscore-dangle */
 import { Box } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
   AddForm, DashTable, SearchInpDash,
 } from '../../../dashboardComponents';
+import ToastAlert from '../../../components/toastAlert/ToastAlert';
+
+const subscriptionInfoTable = ['className', 'username', 'status'];
 
 const SubscriptionDash = () => {
+  const [subscriptionData, setSubscriptionData] = useState([]);
   const [showForm, setShowForm] = useState(false);
+
+  const getSubscriptions = async () => {
+    try {
+      const { data: { subscriptionsData } } = await axios.get('/api/subscriptions');
+      const subscriptionArray = [];
+      subscriptionsData.map((subscription) => subscriptionArray.push({
+        className: subscription.classId?.className,
+        username: subscription.userId?.username,
+        status: subscription.status,
+        _id: subscription._id,
+      }));
+      setSubscriptionData(subscriptionArray);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteSubscription = async (id) => {
+    try {
+      axios.delete(`/api/subscriptions/${id}`);
+      getSubscriptions();
+      toast.success('Delete Successfully!', { theme: 'dark' });
+    } catch (error) {
+      toast.error('Delete Failed!', { theme: 'dark' });
+    }
+  };
+
+  const updateSubscription = async (id) => {
+    try {
+      await axios.put(`/api/subscriptions/${id}`);
+      getSubscriptions();
+      toast.success('Update Successfully!', { theme: 'dark' });
+    } catch (error) {
+      toast.error('Update Failed!', { theme: 'dark' });
+    }
+  };
+
+  useEffect(() => {
+    getSubscriptions();
+  }, []);
   return (
     <Box mt={10}>
+      <ToastAlert />
       <Box
         sx={{
           display: 'flex',
@@ -18,7 +66,12 @@ const SubscriptionDash = () => {
       </Box>
 
       <Box mt={5}>
-        <DashTable />
+        <DashTable
+          array={subscriptionData}
+          userInfo={subscriptionInfoTable}
+          deleteFunction={deleteSubscription}
+          updateSubscription={updateSubscription}
+        />
       </Box>
 
       <Box
