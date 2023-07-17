@@ -9,7 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
 const DashTable = ({
-  array, userInfo, deleteFunction, setEditShowForm, showEditForm, getData,
+  array, userInfo, deleteFunction, setEditShowForm, showEditForm, getData, updateSubscription,
 }) => (
 
   <Table size="small" aria-label="a dense table">
@@ -26,16 +26,15 @@ const DashTable = ({
           {userInfo?.map((cell) => <TableCell key={cell} sx={{ color: '#fff', fontSize: 13 }} align="center">{row[cell]}</TableCell>)}
           <TableCell sx={{ color: '#fff' }} align="center">
             <DeleteIcon
-              onClick={() => {
-                console.log(row)
-                deleteFunction(row._id)}}
+              onClick={() => deleteFunction(row._id)}
               sx={{ fontSize: 19, cursor: 'pointer', color: 'red' }}
             />
 
           </TableCell>
           <TableCell sx={{ color: '#fff' }} align="center">
             <EditIcon
-              onClick={() => setEditShowForm(!showEditForm) || getData(row._id)}
+              onClick={() => updateSubscription(row._id)
+                || setEditShowForm(!showEditForm) || getData(row._id)}
               sx={{ fontSize: 19, cursor: 'pointer', color: 'blue' }}
             />
 

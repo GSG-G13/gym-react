@@ -9,7 +9,6 @@ const EditForm = ({
   setShowForm, showForm, axiosData, setState, head, values, state,
 }) => {
   const arrValues = Object.values(values).filter((item, index) => index !== 0);
-
   return (
     <Box>
       <Typography color="#fff" textAlign="center">Edit User</Typography>

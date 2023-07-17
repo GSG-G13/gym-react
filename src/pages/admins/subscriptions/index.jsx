@@ -2,9 +2,11 @@
 import { Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
   AddForm, DashTable, SearchInpDash,
 } from '../../../dashboardComponents';
+import ToastAlert from '../../../components/toastAlert/ToastAlert';
 
 const subscriptionInfoTable = ['className', 'username', 'status'];
 
@@ -31,10 +33,20 @@ const SubscriptionDash = () => {
   const deleteSubscription = async (id) => {
     try {
       axios.delete(`/api/subscriptions/${id}`);
-      console.log(id);
       getSubscriptions();
+      toast.success('Delete Successfully!', { theme: 'dark' });
     } catch (error) {
-      console.log(error);
+      toast.error('Delete Failed!', { theme: 'dark' });
+    }
+  };
+
+  const updateSubscription = async (id) => {
+    try {
+      await axios.put(`/api/subscriptions/${id}`);
+      getSubscriptions();
+      toast.success('Update Successfully!', { theme: 'dark' });
+    } catch (error) {
+      toast.error('Update Failed!', { theme: 'dark' });
     }
   };
 
@@ -43,6 +55,7 @@ const SubscriptionDash = () => {
   }, []);
   return (
     <Box mt={10}>
+      <ToastAlert />
       <Box
         sx={{
           display: 'flex',
@@ -57,6 +70,7 @@ const SubscriptionDash = () => {
           array={subscriptionData}
           userInfo={subscriptionInfoTable}
           deleteFunction={deleteSubscription}
+          updateSubscription={updateSubscription}
         />
       </Box>
 

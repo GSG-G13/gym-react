@@ -2,9 +2,11 @@
 import { Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
   DashTable, SearchInpDash,
 } from '../../../dashboardComponents';
+import ToastAlert from '../../../components/toastAlert/ToastAlert';
 
 const orderInfoTable = ['product', 'image', 'username', 'amount', 'totalPrice', 'status'];
 
@@ -31,8 +33,9 @@ const OrderDash = () => {
   const deleteOrder = async (id) => {
     try {
       axios.delete(`/api/orders/${id}`);
+      toast.success('Delete Order successfully!', { theme: 'dark' });
     } catch (error) {
-      console.log(error);
+      toast.error('Delete Failed!', { theme: 'dark' });
     }
   };
 
@@ -41,6 +44,7 @@ const OrderDash = () => {
   }, []);
   return (
     <Box mt={10}>
+      <ToastAlert />
       <Box
         sx={{
           display: 'flex',

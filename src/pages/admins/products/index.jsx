@@ -2,17 +2,21 @@
 import { Box } from '@mui/material';
 import React, { useEffect, useReducer, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
-  AddButton, AddForm, DashTable, SearchInpDash,
+  AddButton, AddForm, DashTable, EditForm, SearchInpDash,
 } from '../../../dashboardComponents';
+import ToastAlert from '../../../components/toastAlert/ToastAlert';
 
 const productInfo = ['title', 'description', 'image', 'price'];
-const productDataTable = ['title', 'description', 'image', 'price', 'category'];
+const productDataTable = ['title', 'image', 'price', 'description', 'category'];
+const EditProductInfo = ['title', 'image', 'price', 'description'];
+
 const initialState = {
   title: '',
-  description: '',
   image: '',
   price: '',
+  description: '',
 };
 
 const reducer = (state, action) => ({
@@ -25,15 +29,16 @@ const ProductDash = () => {
   const [productsData, setProductsData] = useState([]);
   const [categoriesData, setCategoriesData] = useState([]);
   const [categoryId, setCategoryId] = useState('');
+  const [showForm, setShowForm] = useState(false);
+  const [showEditForm, setEditShowForm] = useState(false);
+  const [oneProduct, setOneProduct] = useState({});
 
   const values = [
     state.title,
-    state.description,
     state.image,
     state.price,
+    state.description,
   ];
-
-  const [showForm, setShowForm] = useState(false);
 
   const handleChange = (e, filedName) => {
     const { value } = e.target;
@@ -70,8 +75,9 @@ const ProductDash = () => {
     try {
       await axios.post(`/api/products/${categoryId}`, state);
       getProducts();
+      toast.success('Add Product Successfully!', { theme: 'dark' });
     } catch (error) {
-      console.log(error);
+      toast.error('Really added!!', { theme: 'dark' });
     }
   };
 
@@ -79,16 +85,35 @@ const ProductDash = () => {
     try {
       axios.delete(`/api/products/${id}`);
       getProducts();
+      toast.success('Delete Successfully!', { theme: 'dark' });
     } catch (error) {
-      console.log(error);
+      toast.error('Delete Failed!', { theme: 'dark' });
     }
   };
+
+  const getProductById = async (id) => {
+    const { data: { product } } = await axios.get(`/api/products/${id}`);
+    setOneProduct(product);
+  };
+
+  const updateProduct = async () => {
+    try {
+      axios.put(`/api/products/${oneProduct._id}`, state);
+      setEditShowForm(false);
+      getProducts();
+      toast.success('Update successfully!!', { theme: 'dark' });
+    } catch (error) {
+      toast.error('Update Failed!', { theme: 'dark' });
+    }
+  };
+
   useEffect(() => {
     getCategories();
     getProducts();
   }, []);
   return (
     <Box mt={10}>
+      <ToastAlert />
       <Box
         sx={{
           display: 'flex',
@@ -104,6 +129,10 @@ const ProductDash = () => {
           array={productsData}
           userInfo={productDataTable}
           deleteFunction={deleteProduct}
+          updateFunction={updateProduct}
+          setEditShowForm={setEditShowForm}
+          showEditForm={showEditForm}
+          getData={getProductById}
         />
       </Box>
 
@@ -132,6 +161,30 @@ const ProductDash = () => {
           selectData={categoriesData}
           setSelectDataId={setCategoryId}
           selectDataId={categoryId}
+        />
+      </Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          height: '100%',
+          width: '40%',
+          backgroundColor: '#111010',
+          p: '20px 20px',
+          transform: `translateX(${showEditForm ? 0 : '100%'})`,
+          transition: '0.5s ease-in-out',
+        }}
+      >
+        <EditForm
+          setShowForm={setEditShowForm}
+          showForm={showEditForm}
+          axiosData={updateProduct}
+          setState={handleChange}
+          values={oneProduct}
+          state={values}
+          filedName={productInfo}
+          head={EditProductInfo}
         />
       </Box>
     </Box>
