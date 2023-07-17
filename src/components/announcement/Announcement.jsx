@@ -111,7 +111,7 @@ const Announcement = ({ announce }) => {
 
             }}
             >
-              {commentsData.filter((comments) => (comments.announcementId._id === announce._id))
+              {commentsData?.filter((comments) => (comments?.announcementId?._id === announce?._id))
                 .length}
 
             </Typography>
@@ -131,7 +131,7 @@ const Announcement = ({ announce }) => {
 
           {commentsData && (
             <Box px={10} sx={{ display: showComments ? 'block' : 'none' }}>
-              {commentsData.filter((comments) => (comments.announcementId._id === announce._id))
+              {commentsData?.filter((comments) => (comments?.announcementId?._id === announce?._id))
                 .map((comment) => (
                   <Box
                     display="flex"

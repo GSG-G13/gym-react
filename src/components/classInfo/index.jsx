@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-nested-ternary */
 import { Box, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
@@ -19,13 +20,24 @@ const ClassInfoComp = () => {
       console.log(error);
     }
   };
+
+  const getOneSubscription = async () => {
+    const { data: { userSubscriptionData } } = await axios.get('/api/subscriptions/user');
+    const filterSubscription = userSubscriptionData?.filter(
+      (subscription) => subscription.classId?._id === id,
+    );
+    setSubscriptionStatus(filterSubscription[0]);
+  };
+
   const addSubscription = async () => {
     const { data } = await axios.post(`/api/subscriptions/${id}`);
     setSubscriptionStatus(data.data);
+    getOneSubscription();
   };
 
   useEffect(() => {
     getClassById();
+    getOneSubscription();
   }, [id]);
 
   return (
@@ -49,9 +61,9 @@ const ClassInfoComp = () => {
                   </Box>
 
                   <ButtonComponent onClick={addSubscription} color="colors.darkBlue" flex="0.4">
-                    {subscriptionStatus.status === 'pending'
+                    {subscriptionStatus?.status === 'pending'
                       ? 'Pending'
-                      : subscriptionStatus.status === 'approved'
+                      : subscriptionStatus?.status === 'approved'
                         ? 'Approved' : 'Join Class'}
                   </ButtonComponent>
                 </Box>

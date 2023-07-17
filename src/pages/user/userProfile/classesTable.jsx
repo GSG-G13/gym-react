@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -6,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const ClassTable = ({ classData }) => (
+const ClassTable = ({ classData, deleteClassSubscription }) => (
 
   <Table sx={{ height: '100px' }} size="small" aria-label="a dense table">
     <TableHead sx={{ height: '50px' }}>
@@ -24,7 +25,7 @@ const ClassTable = ({ classData }) => (
           </TableCell>
 
           <TableCell sx={{ color: '#fff' }} align="center">{row.status}</TableCell>
-          <TableCell sx={{ color: '#fff' }} align="center"><DeleteIcon /></TableCell>
+          <TableCell sx={{ color: '#fff' }} align="center"><DeleteIcon onClick={() => deleteClassSubscription(row._id)} /></TableCell>
 
         </TableRow>
       ))}
