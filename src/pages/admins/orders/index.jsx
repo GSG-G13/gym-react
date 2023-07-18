@@ -12,7 +12,6 @@ const orderInfoTable = ['product', 'image', 'username', 'amount', 'totalPrice', 
 
 const OrderDash = () => {
   const [orders, setOrders] = useState([]);
-  console.log('🚀 ~ file: index.jsx:15 ~ OrderDash ~ orders:', orders);
 
   const getOrders = async () => {
     const { data } = await axios.get('/api/orders');
