@@ -32,11 +32,18 @@ const DashTable = ({
 
           </TableCell>
           <TableCell sx={{ color: '#fff' }} align="center">
-            <EditIcon
-              onClick={() => updateSubscription(row._id)
-                || setEditShowForm(!showEditForm) || getData(row._id)}
-              sx={{ fontSize: 19, cursor: 'pointer', color: 'blue' }}
-            />
+            {updateSubscription ? (
+              <EditIcon
+                onClick={() => updateSubscription(row._id)}
+                sx={{ fontSize: 19, cursor: 'pointer', color: 'blue' }}
+              />
+            )
+              : (
+                <EditIcon
+                  onClick={() => setEditShowForm(!showEditForm) || getData(row._id)}
+                  sx={{ fontSize: 19, cursor: 'pointer', color: 'blue' }}
+                />
+              )}
 
           </TableCell>
 

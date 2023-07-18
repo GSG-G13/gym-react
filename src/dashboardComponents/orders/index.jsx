@@ -3,8 +3,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import OrderProductStatistic from './Orders';
 
-const products = [1, 2, 3, 4];
-const OrderStatistics = () => (
+const OrderStatistics = ({ mostOrders, products }) => (
   <Box
     border="1px solid rgba(255,255,255,0.2)"
     p="15px 20px"
@@ -26,6 +25,7 @@ const OrderStatistics = () => (
       {products?.map((product) => (
         <OrderProductStatistic
           product={product}
+          mostOrders={mostOrders}
         />
       ))}
     </Box>

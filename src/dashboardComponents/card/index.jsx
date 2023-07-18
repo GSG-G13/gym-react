@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import {
   Box, Card, CardContent, CardMedia, Typography,
 } from '@mui/material';
@@ -5,7 +6,9 @@ import Group from '../../assets/undraw_group_selfie_re_h8gb.svg';
 import Shop from '../../assets/undraw_shopping_app_flsj (2).svg';
 import Classes from '../../assets/undraw_working_out_re_nhkg.svg';
 
-const CardDash = () => (
+const CardDash = ({
+  users, trainers, categories, products, classes, subs,
+}) => (
   <Box
     mt={2}
     sx={{
@@ -42,7 +45,7 @@ const CardDash = () => (
         }}
         >
           <Typography fontSize={12} color="#fff">client</Typography>
-          <Typography fontSize={12} color="#fff">30000</Typography>
+          <Typography fontSize={12} color="#fff">{users.length}</Typography>
         </Box>
         <Box sx={{
           display: 'flex',
@@ -52,7 +55,7 @@ const CardDash = () => (
         }}
         >
           <Typography fontSize={12} color="#fff">Trainers</Typography>
-          <Typography fontSize={12} color="#fff">6</Typography>
+          <Typography fontSize={12} color="#fff">{trainers.length}</Typography>
         </Box>
       </CardContent>
     </Card>
@@ -85,22 +88,14 @@ const CardDash = () => (
           mt: 2,
         }}
         >
-          <Box>
-            <Typography fontSize={12} color="#fff">clothes</Typography>
-            <Typography fontSize={12} color="#fff">20</Typography>
-          </Box>
-          <Box>
-            <Typography fontSize={12} color="#fff">clothes</Typography>
-            <Typography fontSize={12} color="#fff">20</Typography>
-          </Box>
-          <Box>
-            <Typography fontSize={12} color="#fff">clothes</Typography>
-            <Typography fontSize={12} color="#fff">20</Typography>
-          </Box>
-          <Box>
-            <Typography fontSize={12} color="#fff">clothes</Typography>
-            <Typography fontSize={12} color="#fff">20</Typography>
-          </Box>
+
+          {categories.map((category) => (
+            <Box>
+              <Typography fontSize={12} color="#fff">{category.categoryName}</Typography>
+              <Typography fontSize={12} color="#fff">{products.filter((product) => product.categoryId?._id === category._id).length}</Typography>
+            </Box>
+          ))}
+
         </Box>
       </CardContent>
     </Card>
@@ -132,22 +127,13 @@ const CardDash = () => (
           mt: 2,
         }}
         >
-          <Box>
-            <Typography fontSize={12} color="#fff">yoga</Typography>
-            <Typography fontSize={12} color="#fff">20</Typography>
-          </Box>
-          <Box>
-            <Typography fontSize={12} color="#fff">building</Typography>
-            <Typography fontSize={12} color="#fff">20</Typography>
-          </Box>
-          <Box>
-            <Typography fontSize={12} color="#fff">fitness</Typography>
-            <Typography fontSize={12} color="#fff">20</Typography>
-          </Box>
-          <Box>
-            <Typography fontSize={12} color="#fff">anything</Typography>
-            <Typography fontSize={12} color="#fff">20</Typography>
-          </Box>
+          {classes.map((classItem) => (
+            <Box>
+              <Typography fontSize={12} color="#fff">{classItem.className}</Typography>
+              <Typography fontSize={12} color="#fff">{subs.filter((sub) => sub.classId._id === classItem._id).length}</Typography>
+            </Box>
+          ))}
+
         </Box>
       </CardContent>
     </Card>

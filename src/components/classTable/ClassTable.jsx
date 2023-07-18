@@ -23,7 +23,7 @@ const ClassTable = () => (
     </TableHead>
     <TableBody>
       {rows.map((row) => (
-        <TableRow>
+        <TableRow key={row.day}>
           <TableCell component="th" scope="row" sx={{ color: '#fff' }}>
             {row.day}
           </TableCell>

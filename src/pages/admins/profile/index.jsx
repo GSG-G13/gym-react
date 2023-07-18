@@ -1,36 +1,28 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Box, Input, Button, InputLabel,
 } from '@mui/material';
 import axios from 'axios';
+import useAuth from '../../../hook/useAuth';
 
 const ProfileDash = () => {
-  const adminData = JSON.parse(localStorage.getItem('userData'));
+  const { user } = useAuth();
 
   const [changeable, setChangeAble] = useState(false);
-  const [adminInput, setAdminInput] = useState({});
-
-  const getUser = async () => {
-    const { data: { user } } = await axios.get(`/api/users/${adminData._id}`);
-    setAdminInput({
-      username: user.username,
-      email: user.email,
-      gender: user.gender,
-      weight: user.weight,
-      height: user.height,
-      goalweight: user.goalweight,
-    });
-  };
-
-  useEffect(() => {
-    getUser();
-  }, []);
+  const [adminInput, setAdminInput] = useState({
+    username: user.username,
+    email: user.email,
+    gender: user.gender,
+    weight: user.weight,
+    height: user.height,
+    goalweight: user.goalweight,
+    role: user.role,
+  });
 
   const updateAdminData = async () => {
     try {
-      await axios.put(`/api/users/${adminData._id}`, adminInput);
-      getUser();
+      await axios.put(`/api/users/${user._id}`, adminInput);
     } catch (error) {
       console.log(error);
     }
@@ -75,7 +67,7 @@ const ProfileDash = () => {
             borderBottom: '1px solid #ccc',
           }}
           type="text"
-          value={adminInput.username}
+          value={adminInput.username ? adminInput.username : user.username}
         />
         <InputLabel sx={{ fontSize: '13px', color: '#fff' }}>Email:</InputLabel>
 
@@ -95,7 +87,7 @@ const ProfileDash = () => {
 
           }}
           type="text"
-          value={adminInput.email}
+          value={adminInput.email ? adminInput.email : user.email}
         />
         <InputLabel sx={{ fontSize: '13px', color: '#fff' }}>Gender:</InputLabel>
 
@@ -115,7 +107,7 @@ const ProfileDash = () => {
 
           }}
           type="text"
-          value={adminInput.gender}
+          value={adminInput.gender ? adminInput.gender : user.gender}
         />
         <InputLabel sx={{ fontSize: '13px', color: '#fff' }}>Weight:</InputLabel>
 
@@ -135,7 +127,7 @@ const ProfileDash = () => {
 
           }}
           type="text"
-          value={adminInput.weight}
+          value={adminInput.weight ? adminInput.weight : user.weight}
         />
         <InputLabel sx={{ fontSize: '13px', color: '#fff' }}>Height:</InputLabel>
         <Input
@@ -154,7 +146,7 @@ const ProfileDash = () => {
 
           }}
           type="text"
-          value={adminInput.height}
+          value={adminInput.height ? adminInput.height : user.height}
         />
 
         <InputLabel sx={{ fontSize: '13px', color: '#fff' }}>GoalWeight:</InputLabel>
@@ -174,7 +166,26 @@ const ProfileDash = () => {
 
           }}
           type="text"
-          value={adminInput.goalweight}
+          value={adminInput.goalweight ? adminInput.goalweight : user.goalweight}
+        />
+        <InputLabel sx={{ fontSize: '13px', color: '#fff' }}>role:</InputLabel>
+        <Input
+          readOnly={changeable}
+          onClick={() => setChangeAble(!changeable)}
+          onChange={(e) => setAdminInput({ ...adminInput, role: e.target.value })}
+          sx={{
+            color: '#fff',
+            fontSize: 12,
+            height: '50px',
+            flex: 0.9,
+            p: '5px 10px',
+
+            width: '100%',
+            borderBottom: '1px solid #ccc',
+
+          }}
+          type="text"
+          value={adminInput.role ? adminInput.role : user.role}
         />
       </Box>
       <Button

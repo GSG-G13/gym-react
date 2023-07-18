@@ -7,8 +7,9 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { toast } from 'react-toastify';
 import ButtonComponent from '../button/Button';
-import Alerts from '../alert/Alert';
+import ToastAlert from '../toastAlert/ToastAlert';
 import useAuth from '../../hook/useAuth';
 
 const ProductDetails = () => {
@@ -31,9 +32,15 @@ const ProductDetails = () => {
   const addOrder = async () => {
     try {
       await axios.post(`/api/orders/${id}`, { amount });
+
       getOrders();
+      toast.success('Added order successfully', {
+        theme: 'dark',
+      });
     } catch (error) {
-      console.log(error)
+      toast.error('You have been already ordered', {
+        theme: 'dark',
+      });
     }
   };
 
@@ -88,6 +95,7 @@ const ProductDetails = () => {
             ? <ButtonComponent width="115px" onClick={addOrder} color="colors.darkBlue">{ordersData?.status === 'requested' ? 'Requested' : 'Order'}</ButtonComponent>
             : null}
         </CardContent>
+        <ToastAlert />
       </Box>
     </Card>
   );
