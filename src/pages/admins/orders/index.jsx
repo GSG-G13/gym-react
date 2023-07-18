@@ -19,12 +19,12 @@ const OrderDash = () => {
     data.orders.map((order) => arr.push(
       {
         _id: order._id,
-        username: order.userId.username,
-        product: order.productId.title,
-        image: order.productId.image,
-        amount: order.amount,
-        totalPrice: order.totalPrice,
-        status: order.status,
+        username: order.userId?.username,
+        product: order.productId?.title,
+        image: order.productId?.image,
+        amount: order?.amount,
+        totalPrice: order?.totalPrice,
+        status: order?.status,
       },
     ));
     setOrders(arr);

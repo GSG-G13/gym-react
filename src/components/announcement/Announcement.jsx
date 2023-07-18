@@ -72,19 +72,19 @@ const Announcement = ({ announce }) => {
             }}
             variant="h5"
           >
-            {announce.createdAt.split(':')[0].slice(0, 10).replaceAll('-', '/')}
+            {announce?.createdAt.split(':')[0].slice(0, 10).replaceAll('-', '/')}
           </Typography>
 
         </Box>
         <Divider />
 
         <Box p="10px">
-          <Typography mt={1} fontSize={16} fontWeight={500}>{announce.title}</Typography>
-          <Typography mt={2} fontSize={13} mb={2} color="#fff" maxWidth="650px" width="100%">{announce.description}</Typography>
-          {announce.image
+          <Typography mt={1} fontSize={16} fontWeight={500}>{announce?.title}</Typography>
+          <Typography mt={2} fontSize={13} mb={2} color="#fff" maxWidth="650px" width="100%">{announce?.description}</Typography>
+          {announce?.image
             && (
               <Box sx={{ height: '350px' }}>
-                <Image src={announce.image} alt="gym" width="100%" height="100%" />
+                <Image src={announce?.image} alt="gym" width="100%" height="100%" />
 
               </Box>
             )}
@@ -137,7 +137,7 @@ const Announcement = ({ announce }) => {
                     display="flex"
                     alignItems="center"
                     mt={2}
-                    key={comment._id}
+                    key={comment?._id}
                     sx={{
                       padding: '10px 12px',
                       borderRadius: '6px',
@@ -164,7 +164,7 @@ const Announcement = ({ announce }) => {
                           fontWeight: 'bold',
                         }}
                       >
-                        {comment.userId.username}
+                        {comment?.userId?.username}
 
                       </Typography>
                       <Typography
@@ -175,7 +175,7 @@ const Announcement = ({ announce }) => {
                         }}
                         variant="h4"
                       >
-                        {comment.comment}
+                        {comment?.comment}
 
                       </Typography>
 
@@ -196,11 +196,11 @@ const Announcement = ({ announce }) => {
                         }}
                         variant="h6"
                       >
-                        {comment.createdAt.split(':')[0].slice(0, 10).replaceAll('-', '/')}
+                        {comment?.createdAt.split(':')[0].slice(0, 10).replaceAll('-', '/')}
 
                       </Typography>
 
-                      <DeleteIcon mt={2} sx={{ alignSelf: 'end', fontSize: 18, '&:hover': { color: 'red', cursor: 'pointer' } }} onClick={() => deleteComment(comment._id)} />
+                      <DeleteIcon mt={2} sx={{ alignSelf: 'end', fontSize: 18, '&:hover': { color: 'red', cursor: 'pointer' } }} onClick={() => deleteComment(comment?._id)} />
 
                     </Box>
 
