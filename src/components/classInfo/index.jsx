@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-nested-ternary */
 import { Box, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
@@ -21,6 +22,14 @@ const ClassInfoComp = () => {
     }
   };
 
+  const getOneSubscription = async () => {
+    const { data: { userSubscriptionData } } = await axios.get('/api/subscriptions/user');
+    const filterSubscription = userSubscriptionData?.filter(
+      (subscription) => subscription.classId?._id === id,
+    );
+    setSubscriptionStatus(filterSubscription[0]);
+  };
+
   const addSubscription = async () => {
     try {
       const { data } = await axios.post(`/api/subscriptions/${id}`);
@@ -28,6 +37,7 @@ const ClassInfoComp = () => {
       toast.success('Subscription added successfully!', {
         theme: 'dark',
       });
+      getOneSubscription();
     } catch (error) {
       toast.error('Adding subscription!', {
         theme: 'dark',
@@ -37,6 +47,7 @@ const ClassInfoComp = () => {
 
   useEffect(() => {
     getClassById();
+    getOneSubscription();
   }, [id]);
 
   return (

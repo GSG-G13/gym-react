@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Container } from '@mui/material';
 import axios from 'axios';
-import { PersonalInfo, ProfileNav } from '../../../components';
+import { toast } from 'react-toastify';
+import { PersonalInfo, ProfileNav, ToastAlert } from '../../../components';
 import ClassTable from './classesTable';
 import OrderTable from './ordersTable';
 import useAuth from '../../../hook/useAuth';
@@ -25,8 +26,28 @@ const UserProfile = () => {
     }
   };
 
+  const deleteClassSubscription = async (id) => {
+    try {
+      await axios.delete(`/api/subscriptions/${id}`);
+      getUserClasses();
+      toast.success('Delete Subscription Successfully!');
+    } catch (error) {
+      toast.error('Delete Subscription Failed!');
+    }
+  };
+
+  const deleteOrder = async (id) => {
+    try {
+      await axios.delete(`/api/orders/${id}`);
+      getUserOrders();
+      toast.success('Delete order Successfully!');
+    } catch (error) {
+      toast.error('Delete order Failed!');
+    }
+  };
   return (
     <Box pt={12} marginBottom="2rem">
+      <ToastAlert />
       <Box>
         <Container>
           <Box m="auto" width="70%">
@@ -43,9 +64,15 @@ const UserProfile = () => {
             </Box>
             <Box mb={20}>
               {tableName === 'orders' ? (
-                <OrderTable ordersData={userOrders[0]} />
+                <OrderTable
+                  ordersData={userOrders[0]}
+                  deleteOrder={deleteOrder}
+                />
               ) : (
-                <ClassTable classData={userClasses[0]} />
+                <ClassTable
+                  classData={userClasses[0]}
+                  deleteClassSubscription={deleteClassSubscription}
+                />
               )}
             </Box>
           </Box>

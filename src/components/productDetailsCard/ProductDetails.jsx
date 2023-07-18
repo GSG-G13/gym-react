@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { useState, useEffect } from 'react';
 import {
   Box, Card, CardContent, CardMedia, Typography,
@@ -13,22 +14,26 @@ import useAuth from '../../hook/useAuth';
 
 const ProductDetails = () => {
   const { user } = useAuth();
-
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  const [message, setMessage] = useState('');
-
+  const [ordersData, setOrdersData] = useState({});
   const amount = 1;
   const getProductDetails = async () => {
     const response = await axios.get(`/api/products/${id}`);
     setProduct(response.data.product);
   };
 
+  const getOrders = async () => {
+    const { data: { orders } } = await axios.get('/api/orders/user');
+    const filterOrders = orders?.filter((order) => order.productId._id === id);
+    setOrdersData(filterOrders[0]);
+  };
+
   const addOrder = async () => {
     try {
-      const { data } = await axios.post(`/api/orders/${id}`, { amount });
+      await axios.post(`/api/orders/${id}`, { amount });
 
-      setMessage(data.msg);
+      getOrders();
       toast.success('Added order successfully', {
         theme: 'dark',
       });
@@ -41,6 +46,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     getProductDetails();
+    getOrders();
   }, []);
 
   return (
@@ -86,8 +92,8 @@ const ProductDetails = () => {
             <StarBorderIcon sx={{ borderColor: 'colors.darkBlue', color: '#fff' }} />
           </Box>
           {user
-            ? <ButtonComponent width="115px" onClick={addOrder} color="colors.darkBlue">{message ? 'Requested' : 'Order'}</ButtonComponent>
-            : <Typography>ي عم روح سجل </Typography>}
+            ? <ButtonComponent width="115px" onClick={addOrder} color="colors.darkBlue">{ordersData?.status === 'requested' ? 'Requested' : 'Order'}</ButtonComponent>
+            : null}
         </CardContent>
         <ToastAlert />
       </Box>

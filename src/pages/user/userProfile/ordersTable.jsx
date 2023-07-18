@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -6,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const OrderTable = ({ ordersData }) => (
+const OrderTable = ({ ordersData, deleteOrder }) => (
 
   <Table sx={{ height: '150px' }} size="small" aria-label="a dense table">
     <TableHead sx={{ height: '50px' }}>
@@ -27,7 +28,7 @@ const OrderTable = ({ ordersData }) => (
 
           <TableCell sx={{ color: '#fff' }} align="center">{row.productId.image}</TableCell>
           <TableCell sx={{ color: '#fff' }} align="center">{row.productId.price}</TableCell>
-          <TableCell sx={{ color: '#fff' }} align="center"><DeleteIcon /></TableCell>
+          <TableCell sx={{ color: '#fff' }} align="center"><DeleteIcon onClick={() => deleteOrder(row._id)} /></TableCell>
 
         </TableRow>
       ))}
