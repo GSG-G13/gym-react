@@ -12,6 +12,7 @@ const orderInfoTable = ['product', 'image', 'username', 'amount', 'totalPrice', 
 
 const OrderDash = () => {
   const [orders, setOrders] = useState([]);
+  console.log('🚀 ~ file: index.jsx:15 ~ OrderDash ~ orders:', orders);
 
   const getOrders = async () => {
     const { data } = await axios.get('/api/orders');
@@ -19,12 +20,12 @@ const OrderDash = () => {
     data.orders.map((order) => arr.push(
       {
         _id: order._id,
-        username: order.userId.username,
-        product: order.productId.title,
-        image: order.productId.image,
-        amount: order.amount,
-        totalPrice: order.totalPrice,
-        status: order.status,
+        username: order.userId?.username,
+        product: order.productId?.title,
+        image: order.productId?.image,
+        amount: order?.amount,
+        totalPrice: order?.totalPrice,
+        status: order?.status,
       },
     ));
     setOrders(arr);
