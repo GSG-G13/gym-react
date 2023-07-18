@@ -3,14 +3,15 @@ import { Box, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import ButtonComponent from '../button/Button';
 import ClassTable from '../classTable/ClassTable';
+import ToastAlert from '../toastAlert/ToastAlert';
 
 const ClassInfoComp = () => {
   const { id } = useParams();
   const [classData, setClassData] = useState({});
   const [subscriptionStatus, setSubscriptionStatus] = useState({});
-
   const getClassById = async () => {
     try {
       const response = await axios.get(`/api/classes/${id}`);
@@ -19,9 +20,19 @@ const ClassInfoComp = () => {
       console.log(error);
     }
   };
+
   const addSubscription = async () => {
-    const { data } = await axios.post(`/api/subscriptions/${id}`);
-    setSubscriptionStatus(data.data);
+    try {
+      const { data } = await axios.post(`/api/subscriptions/${id}`);
+      setSubscriptionStatus(data.data);
+      toast.success('Subscription added successfully!', {
+        theme: 'dark',
+      });
+    } catch (error) {
+      toast.error('Adding subscription!', {
+        theme: 'dark',
+      });
+    }
   };
 
   useEffect(() => {
@@ -31,10 +42,12 @@ const ClassInfoComp = () => {
   return (
     <Box my={15} py={8} boxShadow="0px 0px 10px 0px  #ff5700" sx={{ borderRadius: 5 }}>
       <Container>
+
         {
           !classData ? (<Typography>no data</Typography>)
             : (
               <Box>
+                <ToastAlert />
                 <Typography mb={6} variant="h5" fontSize="23px" textTransform="capitalize">{classData.className}</Typography>
                 <Box mt={3} sx={{ display: 'flex', alignItems: 'center', gap: 40 }}>
                   <Box>
@@ -49,9 +62,9 @@ const ClassInfoComp = () => {
                   </Box>
 
                   <ButtonComponent onClick={addSubscription} color="colors.darkBlue" flex="0.4">
-                    {subscriptionStatus.status === 'pending'
+                    {subscriptionStatus?.status === 'pending'
                       ? 'Pending'
-                      : subscriptionStatus.status === 'approved'
+                      : subscriptionStatus?.status === 'approved'
                         ? 'Approved' : 'Join Class'}
                   </ButtonComponent>
                 </Box>
