@@ -7,13 +7,13 @@ import GroupButtons from './GroupButtons';
 const FormDashBoard = ({
   userInfo, text, onClick, setStates, axiosData, filedName, value, selectList,
 }) => (
-  <Box backgroundColor="#fff" border="1px solid #ccc" p={2}>
+  <Box backgroundColor="#3c353533" p={2}>
     <Typography sx={{ color: '#000', textAlign: 'center' }}>{text}</Typography>
 
     <Box
-      p="40px"
+      p="20px"
       sx={{
-        display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 2, width: '675px ',
+        display: 'grid', gridTemplateColumns: 'repeat(1,1fr)', gap: 3, width: '675px ',
       }}
     >
 

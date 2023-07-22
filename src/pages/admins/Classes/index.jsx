@@ -10,7 +10,7 @@ import ToastAlert from '../../../components/toastAlert/ToastAlert';
 
 const classInfo = ['className', 'description', 'price', 'userCount'];
 const classDataTable = ['className', 'description', 'price', 'userCount', 'trainer'];
-const EditClassInfo = ['className', 'description', 'price', 'userCount', 'trainer'];
+const EditClassInfo = ['className', 'description', 'price', 'userCount'];
 
 const initialState = {
   className: '',
@@ -32,6 +32,13 @@ const ClassDash = () => {
   const [trainersData, setTrainersData] = useState([]);
   const [showEditForm, setEditShowForm] = useState(false);
   const [oneClass, setOneClass] = useState({});
+  const [classData, setClassData] = useState({
+    className: oneClass.className,
+    description: oneClass.description,
+    price: oneClass.price,
+    userCount: oneClass.userCount,
+    trainerId,
+  });
 
   const values = [
     state.className,
@@ -100,14 +107,29 @@ const ClassDash = () => {
       userCount: classObj.userCount,
       trainer: classObj.trainerId?.username,
     });
+
+    setClassData({
+      className: classObj.className,
+      description: classObj.description,
+      price: classObj.price,
+      userCount: classObj.userCount,
+      trainerId: classObj.trainerId,
+    });
   };
 
   const updateClass = async () => {
     try {
       // eslint-disable-next-line no-underscore-dangle
-      axios.put(`/api/classes/${oneClass._id}`, state);
+      axios.put(`/api/classes/${oneClass._id}`, classData);
       setEditShowForm(false);
       getClasses();
+      setClassData({
+        className: '',
+        description: '',
+        price: '',
+        userCount: '',
+        trainerId: '',
+      });
       toast.success('Update successfully!!', { theme: 'dark' });
     } catch (error) {
       toast.error('Really Updated!!', { theme: 'dark' });
@@ -187,11 +209,15 @@ const ClassDash = () => {
           setShowForm={setEditShowForm}
           showForm={showEditForm}
           axiosData={updateClass}
-          setState={handleChange}
+          setState={setClassData}
           values={oneClass}
-          state={values}
+          state={classData}
           filedName={classInfo}
           head={EditClassInfo}
+          setSelectDataId={setTrainerId}
+          selectDataId={trainerId}
+          selectData={trainersData}
+
         />
       </Box>
     </Box>

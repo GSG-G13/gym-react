@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Box, Typography } from '@mui/material';
@@ -26,6 +27,7 @@ const OrderStatistics = ({ mostOrders, products }) => (
         <OrderProductStatistic
           product={product}
           mostOrders={mostOrders}
+          key={product._id}
         />
       ))}
     </Box>

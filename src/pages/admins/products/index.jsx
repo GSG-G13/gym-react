@@ -32,7 +32,12 @@ const ProductDash = () => {
   const [showForm, setShowForm] = useState(false);
   const [showEditForm, setEditShowForm] = useState(false);
   const [oneProduct, setOneProduct] = useState({});
-
+  const [updateProductData, setUpdateProductData] = useState({
+    title: oneProduct.title,
+    image: oneProduct.image,
+    price: oneProduct.price,
+    description: oneProduct.description,
+  });
   const values = [
     state.title,
     state.image,
@@ -94,13 +99,25 @@ const ProductDash = () => {
   const getProductById = async (id) => {
     const { data: { product } } = await axios.get(`/api/products/${id}`);
     setOneProduct(product);
+    setUpdateProductData({
+      title: product.title,
+      image: product.image,
+      price: product.price,
+      description: product.description,
+    });
   };
 
   const updateProduct = async () => {
     try {
-      axios.put(`/api/products/${oneProduct._id}`, state);
+      axios.put(`/api/products/${oneProduct._id}`, updateProductData);
       setEditShowForm(false);
       getProducts();
+      setUpdateProductData({
+        title: '',
+        image: '',
+        price: '',
+        description: '',
+      });
       toast.success('Update successfully!!', { theme: 'dark' });
     } catch (error) {
       toast.error('Update Failed!', { theme: 'dark' });
@@ -180,10 +197,10 @@ const ProductDash = () => {
           setShowForm={setEditShowForm}
           showForm={showEditForm}
           axiosData={updateProduct}
-          setState={handleChange}
+          setState={setUpdateProductData}
           values={oneProduct}
-          state={values}
-          filedName={productInfo}
+          state={updateProductData}
+          filedName={EditProductInfo}
           head={EditProductInfo}
         />
       </Box>

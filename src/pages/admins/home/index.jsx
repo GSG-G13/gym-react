@@ -19,13 +19,13 @@ const HomeDash = () => {
     const arr = [];
     data.orders.map((order) => arr.push(
       {
-        _id: order._id,
-        username: order.userId.username,
-        product: order.productId.title,
-        image: order.productId.image,
-        amount: order.amount,
-        totalPrice: order.totalPrice,
-        status: order.status,
+        _id: order?._id,
+        username: order.userId?.username,
+        product: order.productId?.title,
+        image: order.productId?.image,
+        amount: order?.amount,
+        totalPrice: order?.totalPrice,
+        status: order?.status,
       },
     ));
     setMostOrders(arr);

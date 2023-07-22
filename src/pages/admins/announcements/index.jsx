@@ -27,13 +27,12 @@ const AnnouncementDash = () => {
   const [showForm, setShowForm] = useState(false);
   const [announcements, setAnnouncements] = useState([]);
   const [announcement, setAnnouncement] = useState({});
+  const [updateAnnouncementData, setUpdateAnnouncementData] = useState({
+    title: announcement.title,
+    description: announcement.description,
+    image: announcement.image,
+  });
 
-  const values = [
-    state.title,
-    state.description,
-    state.image,
-
-  ];
   const handleChange = (e, filedName) => {
     const { value } = e.target;
     dispatch({
@@ -54,6 +53,11 @@ const AnnouncementDash = () => {
   const getAnnouncementById = (id) => {
     const announce = announcements.filter((item) => item._id === id);
     setAnnouncement(announce[0]);
+    setUpdateAnnouncementData({
+      title: announce[0].title,
+      description: announce[0].description,
+      image: announce[0].image,
+    });
   };
 
   const addAnnouncement = async () => {
@@ -79,9 +83,14 @@ const AnnouncementDash = () => {
 
   const updateAnnouncement = async () => {
     try {
-      await axios.put(`/api/announcements/${announcement._id}`, state);
+      await axios.put(`/api/announcements/${announcement._id}`, updateAnnouncementData);
       getAnnouncements();
       setEditShowForm(false);
+      setUpdateAnnouncementData({
+        title: '',
+        description: '',
+        image: '',
+      });
       toast.success('Update Successfully!', { theme: 'dark' });
     } catch (error) {
       toast.error('Update Failed!', { theme: 'dark' });
@@ -154,9 +163,9 @@ const AnnouncementDash = () => {
         <EditForm
           setShowForm={setEditShowForm}
           showForm={showEditForm}
-          setState={handleChange}
+          setState={setUpdateAnnouncementData}
           values={announcement}
-          state={values}
+          state={updateAnnouncementData}
           filedName={announcementInfo}
           head={announcementInfo}
           axiosData={updateAnnouncement}
