@@ -86,7 +86,7 @@ const UserSettingData = () => {
       }}
     >
       <Box>
-        <Typography variant="h1" sx={{ paddingBottom: '20px' }}>
+        <Typography variant="h1" sx={{ paddingBottom: '20px', textTransform: 'capitalize' }}>
           user information
         </Typography>
         <img

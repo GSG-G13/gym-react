@@ -45,7 +45,7 @@ const CardDash = ({
         }}
         >
           <Typography fontSize={12} color="#fff">client</Typography>
-          <Typography fontSize={12} color="#fff">{users.length}</Typography>
+          <Typography fontSize={12} color="#fff">{users?.length}</Typography>
         </Box>
         <Box sx={{
           display: 'flex',
@@ -55,7 +55,7 @@ const CardDash = ({
         }}
         >
           <Typography fontSize={12} color="#fff">Trainers</Typography>
-          <Typography fontSize={12} color="#fff">{trainers.length}</Typography>
+          <Typography fontSize={12} color="#fff">{trainers?.length}</Typography>
         </Box>
       </CardContent>
     </Card>
@@ -91,8 +91,8 @@ const CardDash = ({
 
           {categories.map((category) => (
             <Box>
-              <Typography fontSize={12} color="#fff">{category.categoryName}</Typography>
-              <Typography fontSize={12} color="#fff">{products.filter((product) => product.categoryId?._id === category._id).length}</Typography>
+              <Typography fontSize={12} color="#fff">{category?.categoryName}</Typography>
+              <Typography fontSize={12} color="#fff">{products.filter((product) => product?.categoryId?._id === category._id).length}</Typography>
             </Box>
           ))}
 
@@ -130,7 +130,7 @@ const CardDash = ({
           {classes.map((classItem) => (
             <Box>
               <Typography fontSize={12} color="#fff">{classItem.className}</Typography>
-              <Typography fontSize={12} color="#fff">{subs.filter((sub) => sub.classId._id === classItem._id).length}</Typography>
+              <Typography fontSize={12} color="#fff">{subs.filter((sub) => sub?.classId?._id === classItem?._id).length}</Typography>
             </Box>
           ))}
 
