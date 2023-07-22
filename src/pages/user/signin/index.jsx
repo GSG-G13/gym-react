@@ -17,16 +17,17 @@ const SignIn = () => {
       </Container>
       <Box
         display={showBox ? 'block' : 'none'}
-        border="1px solid red"
+        border="1px solid #ff4601"
         sx={{
-          width: '60%',
+          width: '62%',
           m: 'auto',
           height: 500,
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%,-50%)',
-          backgroundColor: 'rgba(0,0,0,0.7)',
+          backgroundColor: '#1E1E1E',
+          boxShadow: '0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)',
         }}
       >
         <ForgetPasswordComp setShowBox={setShowBox} showBox={showBox} />

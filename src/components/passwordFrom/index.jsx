@@ -27,7 +27,8 @@ const ForgetPasswordComp = ({ setShowBox, showBox }) => {
       justifyContent: 'center',
       alignItems: 'center',
       gap: 5,
-      p: 10,
+      px: 10,
+      py: 14,
 
     }}
     >
@@ -35,7 +36,7 @@ const ForgetPasswordComp = ({ setShowBox, showBox }) => {
         sx={{
           textTransform: 'capitalize',
         }}
-        variant="h3"
+        variant="h2"
       >
         reset your password
 
@@ -47,7 +48,8 @@ const ForgetPasswordComp = ({ setShowBox, showBox }) => {
         sx={{
           color: '#fff',
           fontSize: 14,
-          width: 300,
+          width: 360,
+          pl: 2,
         }}
       />
 
@@ -57,13 +59,16 @@ const ForgetPasswordComp = ({ setShowBox, showBox }) => {
         sx={{
           color: '#fff',
           fontSize: 14,
-          width: 300,
+          width: 360,
+          pl: 2,
         }}
       />
 
       <Button
         sx={{
           color: '#fff',
+          backgroundColor: 'colors.darkBlue',
+          p: '10px 50px',
         }}
         type="submit"
         onClick={changePassword}
