@@ -190,6 +190,8 @@ const ClassDash = () => {
           selectData={trainersData}
           selectDataId={trainerId}
           setSelectDataId={setTrainerId}
+          title="Add Class"
+          selectLabel="Trainer"
         />
       </Box>
       <Box
@@ -214,6 +216,7 @@ const ClassDash = () => {
           state={classData}
           filedName={classInfo}
           head={EditClassInfo}
+          title="Edit Class"
           setSelectDataId={setTrainerId}
           selectDataId={trainerId}
           selectData={trainersData}

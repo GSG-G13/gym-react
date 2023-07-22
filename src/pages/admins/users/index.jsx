@@ -172,6 +172,7 @@ const UserDash = () => {
           values={values}
           filedName={userInfo}
           head={userInfo}
+          title="Add User"
         />
       </Box>
       <Box
@@ -196,6 +197,7 @@ const UserDash = () => {
           state={userData}
           filedName={EdituserInfo}
           head={EdituserInfo}
+          title="Edit User"
         />
       </Box>
     </Box>

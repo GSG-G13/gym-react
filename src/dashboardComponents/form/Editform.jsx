@@ -7,10 +7,10 @@ import { DeleteButton, EditButton } from '../button';
 
 const EditForm = ({
   setShowForm, showForm, axiosData, setState, head, values, state, selectData,
-  setSelectDataId, selectDataId,
+  setSelectDataId, selectDataId, title,
 }) => (
   <Box>
-    <Typography color="#fff" textAlign="center">Edit User</Typography>
+    <Typography color="#fff" textAlign="center">{title}</Typography>
     <Box sx={{
       display: 'flex',
       flexDirection: 'column',
