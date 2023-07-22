@@ -42,6 +42,7 @@ const HomeClass = () => {
           variant="h1"
           sx={{
             fontWeight: 700,
+            m: 'auto',
             background: 'linear-gradient(to right,#ff5700, #ffe707)',
             width: 'fit-content',
             '-webkit-background-clip': 'text',

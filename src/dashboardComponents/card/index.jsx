@@ -90,9 +90,9 @@ const CardDash = ({
         >
 
           {categories.map((category) => (
-            <Box>
-              <Typography fontSize={12} color="#fff">{category?.categoryName}</Typography>
-              <Typography fontSize={12} color="#fff">{products.filter((product) => product?.categoryId?._id === category._id).length}</Typography>
+            <Box key={category._id}>
+              <Typography fontSize={12} color="#fff">{category.categoryName}</Typography>
+              <Typography fontSize={12} color="#fff">{products.filter((product) => product.categoryId?._id === category._id).length}</Typography>
             </Box>
           ))}
 
@@ -128,7 +128,7 @@ const CardDash = ({
         }}
         >
           {classes.map((classItem) => (
-            <Box>
+            <Box key={classItem._id}>
               <Typography fontSize={12} color="#fff">{classItem.className}</Typography>
               <Typography fontSize={12} color="#fff">{subs.filter((sub) => sub?.classId?._id === classItem?._id).length}</Typography>
             </Box>

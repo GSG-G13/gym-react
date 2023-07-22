@@ -6,7 +6,16 @@ const InputForm = ({
   children, setState, filedName, value,
 }) => (
   <FormControl fullWidth>
-    <InputLabel sx={{ fontSize: '12px' }} htmlFor="my-input">{children}</InputLabel>
+    <InputLabel
+      sx={{
+        fontSize: '12px',
+        color: '#fff',
+      }}
+      htmlFor="my-input"
+    >
+      {children}
+
+    </InputLabel>
     <Input
       type={filedName === 'password'
         ? 'password' : filedName === 'email'
@@ -15,6 +24,11 @@ const InputForm = ({
       onChange={(e) => setState(e, filedName)}
       id="my-input"
       aria-describedby="my-helper-text"
+      sx={{
+        color: '#fff',
+        fontSize: 13,
+
+      }}
     />
   </FormControl>
 );
