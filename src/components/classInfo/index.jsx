@@ -77,10 +77,10 @@ const ClassInfoComp = () => {
 
                   {user ? (
                     <ButtonComponent onClick={addSubscription} color="colors.darkBlue" flex="0.4">
-                      {subscriptionStatus?.status === 'pending'
-                        ? 'Pending'
-                        : subscriptionStatus?.status === 'approved'
-                          ? 'Approved' : 'Join Class'}
+                      {subscriptionStatus?.status === 'joined'
+                        ? 'Joined'
+                        : subscriptionStatus?.status === 'pending'
+                          ? 'Pending' : 'Join Class'}
                     </ButtonComponent>
                   ) : null}
                 </Box>
