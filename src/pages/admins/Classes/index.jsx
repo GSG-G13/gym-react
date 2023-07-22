@@ -220,7 +220,6 @@ const ClassDash = () => {
           setSelectDataId={setTrainerId}
           selectDataId={trainerId}
           selectData={trainersData}
-
         />
       </Box>
     </Box>
