@@ -8,9 +8,12 @@ import { toast } from 'react-toastify';
 import ButtonComponent from '../button/Button';
 import ClassTable from '../classTable/ClassTable';
 import ToastAlert from '../toastAlert/ToastAlert';
+import useAuth from '../../hook/useAuth';
 
 const ClassInfoComp = () => {
   const { id } = useParams();
+  const { user } = useAuth();
+
   const [classData, setClassData] = useState({});
   const [subscriptionStatus, setSubscriptionStatus] = useState({});
   const getClassById = async () => {
@@ -72,12 +75,14 @@ const ClassInfoComp = () => {
                     <Typography mt="10px" variant="h3">{classData.trainerId?.username}</Typography>
                   </Box>
 
-                  <ButtonComponent onClick={addSubscription} color="colors.darkBlue" flex="0.4">
-                    {subscriptionStatus?.status === 'pending'
-                      ? 'Pending'
-                      : subscriptionStatus?.status === 'approved'
-                        ? 'Approved' : 'Join Class'}
-                  </ButtonComponent>
+                  {user ? (
+                    <ButtonComponent onClick={addSubscription} color="colors.darkBlue" flex="0.4">
+                      {subscriptionStatus?.status === 'pending'
+                        ? 'Pending'
+                        : subscriptionStatus?.status === 'approved'
+                          ? 'Approved' : 'Join Class'}
+                    </ButtonComponent>
+                  ) : null}
                 </Box>
                 <Box mt={2}>
                   <Typography pr={3} variant="h6" sx={{ fontSize: '12px', fontWeight: '100', width: '80%' }}>
