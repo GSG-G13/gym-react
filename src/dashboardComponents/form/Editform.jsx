@@ -6,12 +6,12 @@ import React from 'react';
 import { DeleteButton, EditButton } from '../button';
 
 const EditForm = ({
-  setShowForm, showForm, axiosData, setState, head, values, state,
+  setShowForm, showForm, axiosData, setState, head, values, state,title
 }) => {
   const arrValues = Object.values(values).filter((item, index) => index !== 0);
   return (
     <Box>
-      <Typography color="#fff" textAlign="center">Edit User</Typography>
+      <Typography color="#fff" textAlign="center">{title}</Typography>
       <Box sx={{
         display: 'flex',
         flexDirection: 'column',

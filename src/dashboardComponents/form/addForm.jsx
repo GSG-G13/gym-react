@@ -7,10 +7,10 @@ import { AddButton, DeleteButton } from '../button';
 
 const AddForm = ({
   setShowForm, showForm, axiosData, setState, head, selectData,
-  setSelectDataId, selectDataId,
+  setSelectDataId, selectDataId, title, selectLabel,
 }) => (
   <Box mt={5}>
-    <Typography color="#fff" textAlign="center">Add User</Typography>
+    <Typography color="#fff" textAlign="center">{title}</Typography>
     <Box sx={{
       display: 'flex',
       flexDirection: 'column',
@@ -35,7 +35,7 @@ const AddForm = ({
       {selectData && (
         <FormControl>
           <InputLabel sx={{ fontSize: 14, color: '#fff' }} htmlFor="category-select">
-            Category
+            {selectLabel}
           </InputLabel>
 
           <Select

@@ -161,6 +161,8 @@ const ProductDash = () => {
           selectData={categoriesData}
           setSelectDataId={setCategoryId}
           selectDataId={categoryId}
+          title="Add Product"
+          selectLabel="Category"
         />
       </Box>
       <Box
@@ -185,6 +187,7 @@ const ProductDash = () => {
           state={values}
           filedName={productInfo}
           head={EditProductInfo}
+          title="Edit Product"
         />
       </Box>
     </Box>

@@ -134,6 +134,7 @@ const AnnouncementDash = () => {
           head={announcementInfo}
           setState={handleChange}
           axiosData={addAnnouncement}
+          title="Add Announcement"
 
         />
       </Box>
@@ -160,6 +161,7 @@ const AnnouncementDash = () => {
           filedName={announcementInfo}
           head={announcementInfo}
           axiosData={updateAnnouncement}
+          title="Edit Announcement"
 
         />
       </Box>
