@@ -8,8 +8,7 @@ import {
 
 const userInfo = ['username', 'email', 'password', 'age', 'gender', 'height', 'weight', 'goalweight'];
 const userInfoTable = ['username', 'email', 'age', 'gender', 'height', 'weight', 'goalweight', 'role'];
-const EdituserInfo = ['username', 'email', 'password', 'age', 'gender', 'height', 'weight', 'goalweight', 'role'];
-
+const EdituserInfo = ['username', 'email', 'age', 'height', 'weight', 'gender', 'goalweight', 'role'];
 const initialState = {
   username: '',
   email: '',
@@ -19,13 +18,15 @@ const initialState = {
   height: '',
   weight: '',
   goalweight: '',
-  role: '',
 };
+
 const reducer = (state, action) => ({
   ...state,
   [action.filedName]: action.value,
 });
 const UserDash = () => {
+  const [user, setUser] = useState({});
+
   const [state, dispatch] = useReducer(reducer, initialState);
   const values = [
     state.username,
@@ -38,10 +39,20 @@ const UserDash = () => {
     state.goalweight,
     state.role,
   ];
+
+  const [userData, setUserData] = useState({
+    username: user?.username,
+    email: user?.email,
+    age: user?.age,
+    gender: user?.gender,
+    weight: user?.weight,
+    height: user?.height,
+    goalweight: user?.goalweight,
+    role: user?.role,
+  });
   const [showForm, setShowForm] = useState(false);
   const [showEditForm, setEditShowForm] = useState(false);
   const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({});
 
   const handleChange = (e, filedName) => {
     const { value } = e.target;
@@ -81,12 +92,33 @@ const UserDash = () => {
   const getUserById = async (id) => {
     const { data } = await axios.get(`/api/users/${id}`);
     setUser(data.user);
+    setUserData({
+      username: data.user?.username,
+      email: data.user?.email,
+      age: data.user?.age,
+      gender: data.user?.gender,
+      weight: data.user?.weight,
+      height: data.user?.height,
+      goalweight: data.user?.goalweight,
+      role: data.user?.role,
+    });
   };
 
   const updateUser = async () => {
     try {
-      axios.put(`/api/users/${user._id}`, state);
+      axios.put(`/api/users/${user._id}`, userData);
       setEditShowForm(false);
+      getUsers();
+      setUserData({
+        username: '',
+        email: '',
+        age: '',
+        gender: '',
+        weight: '',
+        height: '',
+        goalweight: '',
+        role: '',
+      });
     } catch (error) {
       console.log(error);
     }
@@ -159,10 +191,10 @@ const UserDash = () => {
           setShowForm={setEditShowForm}
           showForm={showEditForm}
           axiosData={updateUser}
-          setState={handleChange}
+          setState={setUserData}
           values={user}
-          state={values}
-          filedName={userInfo}
+          state={userData}
+          filedName={EdituserInfo}
           head={EdituserInfo}
         />
       </Box>

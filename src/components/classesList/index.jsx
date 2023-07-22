@@ -17,7 +17,16 @@ const ClassesList = () => {
   }, []);
 
   return (
-    <Box height="76%" width="230px" boxShadow="0px 0px 10px 0px  #ff5700" mt={15} mb={15} borderRadius={5} py={3} pl={2}>
+    <Box
+      height="76%"
+      width="230px"
+      border="1px solid rgb(255, 70, 1)"
+      mt={15}
+      mb={15}
+      borderRadius={5}
+      py={3}
+      pl={2}
+    >
       <NavLink
         to="/class"
         variant="h5"

@@ -16,6 +16,7 @@ const HomeClass = () => (
         variant="h1"
         sx={{
           fontWeight: 700,
+          m: 'auto',
           background: 'linear-gradient(to right,#ff5700, #ffe707)',
           width: 'fit-content',
           '-webkit-background-clip': 'text',
@@ -45,10 +46,10 @@ const HomeClass = () => (
       >
         <Card sx={{
           backgroundColor: 'transparent',
-          boxShadow: '0px 0px 10px 0px rgb(255, 70, 1)',
           p: 2,
           borderTopRightRadius: 50,
           borderBottomLeftRadius: 50,
+          border: '1px solid rgb(255, 70, 1)',
         }}
         >
 
@@ -83,10 +84,10 @@ const HomeClass = () => (
         </Card>
         <Card sx={{
           backgroundColor: 'transparent',
-          boxShadow: '0px 0px 10px 0px rgb(255, 70, 1)',
           p: 2,
           borderTopRightRadius: 50,
           borderBottomLeftRadius: 50,
+          border: '1px solid rgb(255, 70, 1)',
         }}
         >
 
@@ -121,10 +122,11 @@ const HomeClass = () => (
         </Card>
         <Card sx={{
           backgroundColor: 'transparent',
-          boxShadow: '0px 0px 10px 0px rgb(255, 70, 1)',
           p: 2,
           borderTopRightRadius: 50,
           borderBottomLeftRadius: 50,
+          border: '1px solid rgb(255, 70, 1)',
+
         }}
         >
 
@@ -159,10 +161,11 @@ const HomeClass = () => (
         </Card>
         <Card sx={{
           backgroundColor: 'transparent',
-          boxShadow: '0px 0px 10px 0px rgb(255, 70, 1)',
           p: 2,
           borderTopRightRadius: 50,
           borderBottomLeftRadius: 50,
+          border: '1px solid rgb(255, 70, 1)',
+
         }}
         >
 

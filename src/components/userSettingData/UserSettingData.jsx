@@ -10,7 +10,6 @@ import useAuth from '../../hook/useAuth';
 const userInfo = [
   'username',
   'email',
-  'password',
   'age',
   'gender',
   'height',
@@ -21,7 +20,6 @@ const userInfo = [
 const initialState = {
   username: '',
   email: '',
-  password: '',
   age: '',
   gender: '',
   height: '',
@@ -41,7 +39,6 @@ const UserSettingData = () => {
   const values = [
     state.username,
     state.email,
-    state.password,
     state.age,
     state.gender,
     state.height,
