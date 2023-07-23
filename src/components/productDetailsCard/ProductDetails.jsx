@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-underscore-dangle */
 import { useState, useEffect } from 'react';
 import {
@@ -25,7 +26,7 @@ const ProductDetails = () => {
 
   const getOrders = async () => {
     const { data: { orders } } = await axios.get('/api/orders/user');
-    const filterOrders = orders?.filter((order) => order.productId._id === id);
+    const filterOrders = orders?.filter((order) => order.productId?._id === id);
     setOrdersData(filterOrders[0]);
   };
 
@@ -92,7 +93,14 @@ const ProductDetails = () => {
             <StarBorderIcon sx={{ borderColor: 'colors.darkBlue', color: '#fff' }} />
           </Box>
           {user
-            ? <ButtonComponent width="115px" onClick={addOrder} color="colors.darkBlue">{ordersData?.status === 'requested' ? 'Requested' : 'Order'}</ButtonComponent>
+            ? (
+              <ButtonComponent width="115px" onClick={addOrder} color="colors.darkBlue">
+                {ordersData?.status === 'paid'
+                  ? 'Paid'
+                  : ordersData?.status === 'requested'
+                    ? 'Requested' : 'Order'}
+              </ButtonComponent>
+            )
             : null}
         </CardContent>
         <ToastAlert />

@@ -18,7 +18,7 @@ const OrderDash = () => {
     const arr = [];
     data.orders.map((order) => arr.push(
       {
-        _id: order._id,
+        _id: order?._id,
         username: order.userId?.username,
         product: order.productId?.title,
         image: order.productId?.image,
@@ -33,9 +33,21 @@ const OrderDash = () => {
   const deleteOrder = async (id) => {
     try {
       axios.delete(`/api/orders/${id}`);
+      getOrders();
       toast.success('Delete Order successfully!', { theme: 'dark' });
     } catch (error) {
       toast.error('Delete Failed!', { theme: 'dark' });
+    }
+  };
+
+  const updateOrder = async (id) => {
+    try {
+      await axios.put(`/api/orders/${id}`);
+      getOrders();
+
+      toast.success('updated Order\'s status successfully!', { theme: 'dark' });
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -59,6 +71,7 @@ const OrderDash = () => {
           array={orders}
           userInfo={orderInfoTable}
           deleteFunction={deleteOrder}
+          updateSubscription={updateOrder}
         />
       </Box>
 
