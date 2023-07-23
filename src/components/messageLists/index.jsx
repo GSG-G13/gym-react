@@ -1,21 +1,26 @@
-import React from 'react';
+/* eslint-disable no-underscore-dangle */
 import { Box } from '@mui/material';
+import ScrollableFeed from 'react-scrollable-feed';
 import Message from '../message';
 
 const MessageLists = ({ messages }) => (
   <Box
     sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 2,
+
       maxHeight: '70vh',
       overflowY: 'scroll',
+
     }}
   >
-    {messages.map((message) => (
-      // eslint-disable-next-line no-underscore-dangle
-      <Message key={message._id} message={message} />
-    ))}
+    <ScrollableFeed>
+
+      {messages.map((message) => (
+
+        <Message key={message._id} message={message} />
+
+      ))}
+    </ScrollableFeed>
+
   </Box>
 );
 

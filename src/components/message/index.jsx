@@ -11,10 +11,10 @@ const Message = ({ message }) => {
     <Box
       p={2}
       sx={{
-        alignSelf: message.username === userData.username ? 'end' : 'start',
         display: 'flex',
+        justifyContent: message.username === userData.username ? 'right' : 'eft',
         gap: 2,
-        maxWidth: 400,
+        maxWidth: '100%',
       }}
     >
       <img
@@ -49,8 +49,8 @@ const Message = ({ message }) => {
           {message.message}
         </Typography>
         <Typography variant="h6">
-          {message.time}
-          13:30
+          {message.createdAt.split(':')[0].slice(0, 10).replaceAll('-', '/')}
+
         </Typography>
       </Box>
     </Box>

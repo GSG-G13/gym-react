@@ -28,8 +28,6 @@ const NavbarClient = () => {
 
   const { user: userData, logout } = useAuth();
 
-  console.log('navbar', userData);
-
   const settings = [
     { name: 'profile', icon: <AccountCircleIcon /> },
     { name: 'setting', icon: <SettingsIcon /> },
