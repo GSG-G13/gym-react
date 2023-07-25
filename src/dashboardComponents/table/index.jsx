@@ -23,7 +23,13 @@ const DashTable = ({
     <TableBody>
       {array?.map((row) => (
         <TableRow sx={{ width: '100%' }} key={row._id}>
-          {userInfo?.map((cell) => <TableCell key={cell} sx={{ color: '#fff', fontSize: 13 }} align="center">{row[cell]}</TableCell>)}
+          {userInfo?.map((cell) => (cell !== 'image'
+            ? <TableCell key={cell} sx={{ color: '#fff', fontSize: 13 }} align="center">{row[cell]}</TableCell>
+            : (
+              <TableCell width={300} height={150}>
+                <img style={{ borderRadius: 20 }} width="100%" height="100%" src={row[cell]} alt={cell} />
+              </TableCell>
+            )))}
           <TableCell sx={{ color: '#fff' }} align="center">
             <DeleteIcon
               onClick={() => deleteFunction(row._id)}
