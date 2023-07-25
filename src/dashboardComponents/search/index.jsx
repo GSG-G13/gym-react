@@ -3,8 +3,7 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 
-const SearchInpDash = ({ data, handleClick }) => (
-
+const SearchInpDash = ({ data, handleClick, searchBy }) => (
   <Stack spacing={2} sx={{ width: 800, color: 'white' }}>
     <Autocomplete
       sx={{ backgroundColor: '#231e1e', color: 'white', flex: 0.8 }}
@@ -19,10 +18,10 @@ const SearchInpDash = ({ data, handleClick }) => (
         }
       }}
       disableClearable
-      options={data?.map((option) => option.username) || []}
+      options={data?.map((option) => option[searchBy]) || []}
       renderInput={(params) => (
         <TextField
-            // eslint-disable-next-line react/jsx-props-no-spreading
+          // eslint-disable-next-line react/jsx-props-no-spreading
           {...params}
           label="Search"
           InputProps={{

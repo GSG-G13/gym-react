@@ -27,6 +27,7 @@ const reducer = (state, action) => ({
 const ProductDash = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [productsData, setProductsData] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [categoriesData, setCategoriesData] = useState([]);
   const [categoryId, setCategoryId] = useState('');
   const [showForm, setShowForm] = useState(false);
@@ -124,10 +125,21 @@ const ProductDash = () => {
     }
   };
 
+  const filterFunc = ({ text }) => {
+    if (text) {
+      setFilteredProducts(() => productsData.filter((item) => item.title.includes(text)));
+    } else {
+      setFilteredProducts(productsData);
+    }
+  };
+
   useEffect(() => {
     getCategories();
     getProducts();
   }, []);
+
+  const productsArray = filteredProducts.length > 0 ? filteredProducts : productsData;
+
   return (
     <Box mt={10}>
       <ToastAlert />
@@ -137,13 +149,15 @@ const ProductDash = () => {
           gap: 2,
         }}
       >
-        <SearchInpDash />
-        <AddButton text="Add Products" setShowForm={setShowForm} showForm={showForm} />
+        {productsData && productsData?.length > 0
+          && <SearchInpDash data={productsData} handleClick={filterFunc} searchBy="title" />}
+
+        <AddButton text="Add Product" setShowForm={setShowForm} showForm={showForm} />
       </Box>
 
       <Box mt={5}>
         <DashTable
-          array={productsData}
+          array={productsArray}
           userInfo={productDataTable}
           deleteFunction={deleteProduct}
           updateFunction={updateProduct}

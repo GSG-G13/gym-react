@@ -26,6 +26,7 @@ const AnnouncementDash = () => {
 
   const [showForm, setShowForm] = useState(false);
   const [announcements, setAnnouncements] = useState([]);
+  const [filteredAnnouncements, setFilteredAnnouncements] = useState([]);
   const [announcement, setAnnouncement] = useState({});
   const [updateAnnouncementData, setUpdateAnnouncementData] = useState({
     title: announcement.title,
@@ -97,9 +98,21 @@ const AnnouncementDash = () => {
     }
   };
 
+  const filterFunc = ({ text }) => {
+    if (text) {
+      setFilteredAnnouncements(() => announcements.filter((item) => item.title.includes(text)));
+    } else {
+      setFilteredAnnouncements(announcements);
+    }
+  };
+
   useEffect(() => {
     getAnnouncements();
   }, []);
+
+  const announcementsArray = filteredAnnouncements.length > 0
+    ? filteredAnnouncements : announcements;
+
   return (
     <Box mt={10}>
       <ToastAlert />
@@ -109,13 +122,13 @@ const AnnouncementDash = () => {
           gap: 2,
         }}
       >
-        <SearchInpDash />
+        {announcements && announcements?.length > 0 && <SearchInpDash data={announcements} handleClick={filterFunc} searchBy="title" />}
         <AddButton text="Add Announcement" setShowForm={setShowForm} showForm={showForm} />
       </Box>
 
       <Box mt={5}>
         <DashTable
-          array={announcements}
+          array={announcementsArray}
           userInfo={announcementInfoTable}
           deleteFunction={deleteAnnouncement}
           getData={getAnnouncementById}

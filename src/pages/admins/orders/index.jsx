@@ -12,6 +12,7 @@ const orderInfoTable = ['product', 'image', 'username', 'amount', 'totalPrice', 
 
 const OrderDash = () => {
   const [orders, setOrders] = useState([]);
+  const [filterOrders, setFilterOrders] = useState([]);
 
   const getOrders = async () => {
     const { data } = await axios.get('/api/orders');
@@ -50,10 +51,18 @@ const OrderDash = () => {
       console.log(error);
     }
   };
-
+  const filterFunc = ({ text }) => {
+    if (text) {
+      setFilterOrders(() => orders.filter((item) => item.product.includes(text)));
+    } else {
+      setFilterOrders(orders);
+    }
+  };
   useEffect(() => {
     getOrders();
   }, []);
+  const ordersArray = filterOrders.length > 0 ? filterOrders : orders;
+
   return (
     <Box mt={10}>
       <ToastAlert />
@@ -63,12 +72,12 @@ const OrderDash = () => {
           gap: 2,
         }}
       >
-        <SearchInpDash />
+        {orders && orders?.length > 0 && <SearchInpDash data={orders} handleClick={filterFunc} searchBy="product" />}
       </Box>
 
       <Box mt={5}>
         <DashTable
-          array={orders}
+          array={ordersArray}
           userInfo={orderInfoTable}
           deleteFunction={deleteOrder}
           updateSubscription={updateOrder}

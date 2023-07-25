@@ -147,7 +147,7 @@ const UserDash = () => {
           gap: 2,
         }}
       >
-        {users && users?.length > 0 && <SearchInpDash data={users} handleClick={filterFunc} />}
+        {users && users?.length > 0 && <SearchInpDash data={users} handleClick={filterFunc} searchBy="username" />}
         <AddButton text="Add User" setShowForm={setShowForm} showForm={showForm} />
       </Box>
 
