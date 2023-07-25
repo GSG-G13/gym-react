@@ -53,6 +53,7 @@ const UserDash = () => {
   const [showForm, setShowForm] = useState(false);
   const [showEditForm, setEditShowForm] = useState(false);
   const [users, setUsers] = useState([]);
+  const [filterUsers, setfilterUsers] = useState([]);
 
   const handleChange = (e, filedName) => {
     const { value } = e.target;
@@ -68,6 +69,14 @@ const UserDash = () => {
       setUsers(data.allUsers);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const filterFunc = ({ text }) => {
+    if (text) {
+      setfilterUsers(() => users.filter((item) => item.username.includes(text)));
+    } else {
+      setfilterUsers(users);
     }
   };
   const addUser = async () => {
@@ -127,6 +136,9 @@ const UserDash = () => {
   useEffect(() => {
     getUsers();
   }, []);
+
+  const usersArray = filterUsers.length > 0 ? filterUsers : users;
+
   return (
     <Box mt={10}>
       <Box
@@ -135,13 +147,13 @@ const UserDash = () => {
           gap: 2,
         }}
       >
-        <SearchInpDash />
+        {users && users?.length > 0 && <SearchInpDash data={users} handleClick={filterFunc} searchBy="username" />}
         <AddButton text="Add User" setShowForm={setShowForm} showForm={showForm} />
       </Box>
 
       <Box mt={5}>
         <DashTable
-          array={users}
+          array={usersArray}
           userInfo={userInfoTable}
           deleteFunction={deleteUser}
           updateFunction={updateUser}

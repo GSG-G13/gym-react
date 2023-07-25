@@ -28,6 +28,8 @@ const ClassDash = () => {
   const [showForm, setShowForm] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
   const [classes, setClasses] = useState([]);
+  const [filteredClasses, setFilteredClasses] = useState([]);
+
   const [trainerId, setTrainerId] = useState('');
   const [trainersData, setTrainersData] = useState([]);
   const [showEditForm, setEditShowForm] = useState(false);
@@ -135,10 +137,19 @@ const ClassDash = () => {
       toast.error('Really Updated!!', { theme: 'dark' });
     }
   };
+
+  const filterFunc = ({ text }) => {
+    if (text) {
+      setFilteredClasses(() => classes.filter((item) => item.className.includes(text)));
+    } else {
+      setFilteredClasses(classes);
+    }
+  };
   useEffect(() => {
     getTrainers();
     getClasses();
   }, []);
+  const classesArray = filteredClasses.length > 0 ? filteredClasses : classes;
 
   return (
     <Box mt={10}>
@@ -149,13 +160,13 @@ const ClassDash = () => {
           gap: 2,
         }}
       >
-        <SearchInpDash />
+        {classes && classes?.length > 0 && <SearchInpDash data={classes} handleClick={filterFunc} searchBy="className" />}
         <AddButton text="Add Class" setShowForm={setShowForm} showForm={showForm} />
       </Box>
 
       <Box mt={5}>
         <DashTable
-          array={classes}
+          array={classesArray}
           userInfo={classDataTable}
           deleteFunction={deleteClass}
           updateFunction={updateClass}

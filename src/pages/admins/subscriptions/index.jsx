@@ -12,6 +12,7 @@ const subscriptionInfoTable = ['className', 'username', 'status'];
 
 const SubscriptionDash = () => {
   const [subscriptionData, setSubscriptionData] = useState([]);
+  const [filteredSubscriptionData, setFilteredSubscriptionData] = useState([]);
   const [showForm, setShowForm] = useState(false);
 
   const getSubscriptions = async () => {
@@ -50,9 +51,22 @@ const SubscriptionDash = () => {
     }
   };
 
+  const filterFunc = ({ text }) => {
+    if (text) {
+      setFilteredSubscriptionData(() => subscriptionData.filter((item) => item
+        .className.includes(text)));
+    } else {
+      setFilteredSubscriptionData(subscriptionData);
+    }
+  };
+
   useEffect(() => {
     getSubscriptions();
   }, []);
+
+  const subsArray = filteredSubscriptionData.length > 0
+    ? filteredSubscriptionData : subscriptionData;
+
   return (
     <Box mt={10}>
       <ToastAlert />
@@ -62,12 +76,12 @@ const SubscriptionDash = () => {
           gap: 2,
         }}
       >
-        <SearchInpDash />
+        {subscriptionData && subscriptionData?.length > 0 && <SearchInpDash data={subscriptionData} handleClick={filterFunc} searchBy="className" />}
       </Box>
 
       <Box mt={5}>
         <DashTable
-          array={subscriptionData}
+          array={subsArray}
           userInfo={subscriptionInfoTable}
           deleteFunction={deleteSubscription}
           updateSubscription={updateSubscription}
