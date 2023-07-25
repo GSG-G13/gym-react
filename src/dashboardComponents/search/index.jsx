@@ -5,7 +5,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 const SearchInpDash = ({ data, handleClick }) => (
 
-  <Stack spacing={2} sx={{ width: 800 }}>
+  <Stack spacing={2} sx={{ width: 800, color: 'white' }}>
     <Autocomplete
       sx={{ backgroundColor: '#231e1e', color: 'white', flex: 0.8 }}
       freeSolo
@@ -46,6 +46,7 @@ const SearchInpDash = ({ data, handleClick }) => (
             // eslint-disable-next-line no-dupe-keys
             '& .MuiOutlinedInput-root': {
               '& fieldset': {
+                color: 'white',
                 borderColor: 'white',
               },
               '&:hover fieldset': {
@@ -62,45 +63,3 @@ const SearchInpDash = ({ data, handleClick }) => (
   </Stack>
 );
 export default SearchInpDash;
-
-// <FormControl sx={{ backgroundColor: 'rgba(255,255,255,0.06)', color: '#fff', flex: 0.8 }}>
-//   <InputLabel sx={{ fontSize: 12, color: '#fff' }} htmlFor="my-input">search</InputLabel>
-//   <Input
-//     sx={{
-//       fontSize: 15,
-//       color: '#fff',
-//       px: 2,
-//     }}
-//     id="my-input"
-//     aria-describedby="my-helper-text"
-//   />
-// </FormControl>
-
-// export default function FreeSolo() {
-//   return (
-//     <Stack spacing={2} sx={{ width: 300 }}>
-//       <Autocomplete
-//         id="free-solo-demo"
-//         freeSolo
-//         options={top100Films.map((option) => option.title)}
-//         renderInput={(params) => <TextField {...params} label="freeSolo" />}
-//       />
-//       <Autocomplete
-//         freeSolo
-//         id="free-solo-2-demo"
-//         disableClearable
-//         options={top100Films.map((option) => option.title)}
-//         renderInput={(params) => (
-//           <TextField
-//             {...params}
-//             label="Search input"
-//             InputProps={{
-//               ...params.InputProps,
-//               type: 'search',
-//             }}
-//           />
-//         )}
-//       />
-//     </Stack>
-//   );
-// }
