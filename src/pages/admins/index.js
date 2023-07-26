@@ -5,6 +5,7 @@ import OrderDash from './orders';
 import ProductDash from './products';
 import SubscriptionDash from './subscriptions';
 import UserDash from './users';
+import CalendarDash from './calendar';
 
 export {
   HomeDash,
@@ -14,5 +15,5 @@ export {
   OrderDash,
   AnnouncementDash,
   SubscriptionDash,
-
+  CalendarDash,
 };

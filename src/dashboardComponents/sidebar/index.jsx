@@ -189,6 +189,30 @@ const SideBar = () => (
 
         </NavLink>
       </MenuItem>
+      <Divider />
+      <MenuItem>
+        <ListItemIcon>
+          <ShoppingCartIcon sx={{ color: '#fff' }} />
+        </ListItemIcon>
+        <NavLink
+          style={({ isActive }) => ({
+            backgroundColor: isActive ? '#FF4601' : '',
+            textDecoration: 'none',
+            padding: '5px 10px',
+
+            borderRadius: '5px',
+            transition: 'all 0.5s ease',
+            textTransform: 'capitalize',
+            color: isActive ? '#fff' : '#fff',
+            fontSize: '14px',
+
+          })}
+          to="calendar"
+        >
+          Calendar
+
+        </NavLink>
+      </MenuItem>
     </MenuList>
   </Paper>
 );
