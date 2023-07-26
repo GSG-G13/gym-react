@@ -21,7 +21,7 @@ import CheckAdminProvider from '../context/admin';
 import DashLayout from '../layout/DashLayout';
 import {
   AnnouncementDash,
-  ClassDash, HomeDash, OrderDash, ProductDash, SubscriptionDash, UserDash,
+  ClassDash, HomeDash, OrderDash, ProductDash, SubscriptionDash, UserDash, CalendarDash,
 } from '../pages/admins';
 import ProfileDash from '../pages/admins/profile';
 
@@ -148,6 +148,10 @@ const router = createBrowserRouter([
       {
         path: 'profile',
         element: <ProfileDash />,
+      },
+      {
+        path: 'calendar',
+        element: <CalendarDash />,
       },
 
     ],
