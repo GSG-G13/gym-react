@@ -11,6 +11,8 @@ import {
 } from '@mui/material';
 
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import ToastAlert from '../../../components/toastAlert/ToastAlert';
 
 const localizer = momentLocalizer(moment);
 
@@ -49,8 +51,18 @@ const CalendarDash = () => {
       axios.post(`/api/calendar/${classId}`, newDate);
       setCalendarsData([...calendarsData, newDate]);
       getCalendars();
+      toast.success('add calendar successfully!', { theme: 'dark' });
     } catch (error) {
       console.log(error);
+    }
+  };
+  const deleteCalendar = async (e) => {
+    try {
+      await axios.delete(`/api/calendar/${e._id}`);
+      getCalendars();
+      toast.success('deleted calendar successfully!', { theme: 'dark' });
+    } catch (error) {
+      console.log('🚀 ~ file: index.jsx:61 ~ deleteCalendar ~ error:', error);
     }
   };
   useEffect(() => {
@@ -60,6 +72,8 @@ const CalendarDash = () => {
 
   return (
     <Box>
+      <ToastAlert />
+
       <Box sx={{
         display: 'grid',
         gridTemplateColumns: 'repeat(1,1fr)',
@@ -117,6 +131,8 @@ const CalendarDash = () => {
         </Button>
       </Box>
       <Calendar
+        onDoubleClickEvent={(e) => deleteCalendar(e)}
+        popup
         localizer={localizer}
         events={calendarsData}
         startAccessor="start"
@@ -125,6 +141,7 @@ const CalendarDash = () => {
           height: 500, margin: '50px', color: '#fff', fontSize: 12,
         }}
       />
+
     </Box>
   );
 };
