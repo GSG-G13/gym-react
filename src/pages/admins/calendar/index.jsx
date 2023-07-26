@@ -1,30 +1,18 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
-import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import moment from 'moment';
 
 import {
   Box, Button, FormControl, InputLabel, MenuItem, Select,
 } from '@mui/material';
-import {
-  format, startOfWeek, parse, getDay,
-} from 'date-fns';
-import enUS from 'date-fns/locale/en-US';
+
 import axios from 'axios';
 
-const locales = {
-  'en-US': enUS,
-};
-
-const localizer = dateFnsLocalizer({
-  format,
-  parse,
-  startOfWeek,
-  getDay,
-  locales,
-});
+const localizer = momentLocalizer(moment);
 
 const CalendarDash = () => {
   const [calendarsData, setCalendarsData] = useState([]);
@@ -112,11 +100,13 @@ const CalendarDash = () => {
         }}
         >
           <DatePicker
+            showTimeSelect
             placeholderText="Start Date"
             selected={newDate.start}
             onChange={(start) => setNewDate({ ...newDate, start })}
           />
           <DatePicker
+            showTimeSelect
             placeholderText="End Date"
             selected={newDate.end}
             onChange={(end) => setNewDate({ ...newDate, end })}
