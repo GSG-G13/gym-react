@@ -5,8 +5,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import moment from 'moment';
 import ButtonComponent from '../button/Button';
-import ClassTable from '../classTable/ClassTable';
 import ToastAlert from '../toastAlert/ToastAlert';
 import useAuth from '../../hook/useAuth';
 
@@ -16,6 +17,10 @@ const ClassInfoComp = () => {
 
   const [classData, setClassData] = useState({});
   const [subscriptionStatus, setSubscriptionStatus] = useState({});
+  const [classCalendar, setClassCalendar] = useState([]);
+
+  const localizer = momentLocalizer(moment);
+
   const getClassById = async () => {
     try {
       const response = await axios.get(`/api/classes/${id}`);
@@ -48,9 +53,25 @@ const ClassInfoComp = () => {
     }
   };
 
+  const getCalendar = async () => {
+    try {
+      const { data: { calendarByClassId } } = await axios.get(`/api/calendar/${id}`);
+      const classCalendarData = calendarByClassId.map((calendarClassData) => ({
+        _id: calendarClassData?._id,
+        title: calendarClassData.classId?.className,
+        start: new Date(calendarClassData?.start),
+        end: new Date(calendarClassData?.end),
+      }));
+      setClassCalendar(classCalendarData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getClassById();
     getOneSubscription();
+    getCalendar();
   }, [id]);
 
   return (
@@ -92,7 +113,15 @@ const ClassInfoComp = () => {
 
                 </Box>
                 <Box mt={4} sx={{ display: 'flex', justifyContent: 'center' }}>
-                  <ClassTable />
+                  <Calendar
+                    localizer={localizer}
+                    events={classCalendar}
+                    startAccessor="start"
+                    endAccessor="end"
+                    style={{
+                      height: 500, margin: '50px', color: '#fff', fontSize: 12,
+                    }}
+                  />
                 </Box>
               </Box>
             )
